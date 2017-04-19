@@ -1,0 +1,9 @@
+image source: https://pldh.net/gallery/the493
+created by Teej/TopHat
+
+sources:
+http://poketrainermanro.deviantart.com/gallery/
+http://zkarl.deviantart.com/gallery/
+http://krukmeister.deviantart.com/gallery/38615519/Pokemon
+
+compression: https://pngquant.org/
