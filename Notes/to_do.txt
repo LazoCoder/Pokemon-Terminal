@@ -1,5 +1,6 @@
 to do:
-	- exception handling for numbers too high or low
+	- type one letter in the parameter to see all pokemon that start with that letter
+	- jigglypuff and igglypuff issue (use method to trim name)
 	- complete usage() method
 	- support changing text colour
 	- support changing blender
@@ -10,3 +11,4 @@ to do:
 	- add option for glare?
 	- add Alternative images + playboy pikachu
 	- how to solve the relative paths issue (if others use it they won’t have ../Laki/..)
+	- how to save theme?

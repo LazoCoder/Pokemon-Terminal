@@ -1,5 +1,6 @@
 import os
 from sys import argv
+import time
 
 
 # Determine which region a Pokemon is from.
@@ -132,7 +133,11 @@ def print_sinnoh():
 # The parameter is the Pokemon name or number.
 def change_background(pokemon):
     if str(pokemon).isdigit():
-        create_script(int(pokemon))
+        pokemon = int(pokemon)
+        if pokemon < 1 or pokemon > 493:
+            print("Only pokemon 1 through 493 are supported.")
+            return
+        create_script(pokemon)
     else:
         number = to_number(pokemon)
         if number == -1:
@@ -140,6 +145,13 @@ def change_background(pokemon):
             return
         create_script(number)
     os.system('Scripts/run.sh')
+
+
+# Test each Pokemon in order, one by one.
+def debug():
+    for x in range(1, 494):
+        change_background(x)
+        time.sleep(0.25)
 
 
 # Entrance to the program.
@@ -154,6 +166,8 @@ if __name__ == "__main__":
             print_hoenn()
         elif arg == "sinnoh":
             print_sinnoh()
+        elif arg == "debug":
+            debug()
         else:
             change_background(argv[1])
     else:
