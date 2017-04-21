@@ -12,3 +12,4 @@ to do:
 	- add Alternative images + playboy pikachu
 	- how to solve the relative paths issue (if others use it they won’t have ../Laki/..)
 	- how to save theme?
+	- allow to change wallpaper as well

@@ -58,21 +58,29 @@ def create_script(pokemon_number):
 def load_names():
     names_file = open("Data/pokemon.txt", "r+")
     content = names_file.readlines()
-    # pokemon = content.split('\n')
     return content
 
 
+# Extract the name from a Pokemon extracted from the data file.
+# Example: it will be read in from the data file as "150 Mewtwo\n" but it should just be "Mewtwo".
+def trim_name(pokemon):
+    front_trim = 0
+    for char in pokemon:
+        if not char.isalpha():
+            front_trim += 1
+        else:
+            break
+    return pokemon[front_trim:-1]
+
+
 # Convert a Pokemon name to a number.
-# Example: pikachu returns 25. If the pokemon does not exist, return -1.
+# Example: Pikachu returns 25. If the Pokemon does not exist, return -1.
 def to_number(pokemon_name):
     pokemon_names = load_names()
+    pokemon_name = pokemon_name.lower()
     for pokemon in pokemon_names:
-        # The second part of the if statement is to make sure the name matches as closely as possible.
-        # Otherwise if the user types in "Mew" they will get the Mewtwo background.
-        # This is because "Mewtwo" contains "Mew" and it comes before Mew in the list.
-        # If you count the first 3 numbers, and the space, and the '\n' at the end, that is a total of 5 characters.
-        # Example: pokemon - pokemon_name = "150 Mewtwo\n" - "Mewtwo" = 11 - 6 = 5. This is < 6, therefore valid.
-        if pokemon_name.lower() in pokemon.lower() and len(pokemon) - len(pokemon_name) < 6:
+        trimmed_name = trim_name(pokemon).lower()
+        if pokemon_name == trimmed_name:
             return int(pokemon.split(' ')[0])
     return -1
 
