@@ -42,14 +42,22 @@ def print_columns(items, i, j):
     for index in range(i, j):
         name = items[index][:-1]
 
-        # For formatting.
+        # For formatting: this helps line up columns correctly where a short name would otherwise ruin it.
         if len(name) < 10:
-            name += "     "
+            name += "   "
+
+        # More formatting: this lines up the columns by adding zeros.
+        # Example: "2 Ivysaur" -> "002 Ivysaur"
+        zeroes = ""
+        if int(name.split(' ')[0]) < 10:
+            zeroes = "00"
+        elif int(name.split(' ')[0]) < 100:
+            zeroes = "0"
 
         if len(rows) < items_per_column:
-            rows.append(name)
+            rows.append(zeroes + name)
         else:
-            rows[(index - i) % items_per_column] += "\t\t" + name
+            rows[(index - i) % items_per_column] += "\t\t" + zeroes + name
 
     print_list(rows)
 

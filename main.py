@@ -17,10 +17,10 @@ def debug():
 if __name__ == "__main__":
     if len(argv) == 2:
         arg = argv[1].lower()
-        if arg == "--help" or arg == "help" or arg == "-h":
-            printer.print_usage()
-        elif len(argv) == 1:
+        if len(arg) == 1:
             printer.print_pokemon_starting_with(arg)
+        elif arg == "--help" or arg == "help" or arg == "-h":
+            printer.print_usage()
         elif arg == "kanto":
             printer.print_kanto()
         elif arg == "johto":
@@ -34,6 +34,6 @@ if __name__ == "__main__":
         elif arg == "debug":
             debug()
         else:
-            backchanger.change_background(argv[1])
+            backchanger.change_background(arg)
     else:
         printer.print_usage()
