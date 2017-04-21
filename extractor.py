@@ -1,5 +1,7 @@
 # The logic for loading the Pokemon names and numbers from Data/pokemon.txt.
 
+import printer
+
 
 # Load all the Pokemon and their corresponding numbers into a list.
 def load_names():
@@ -27,5 +29,5 @@ def pokemon_starting_with(word):
     for pokemon in all_pokemon:
         trimmed = trim_name(pokemon).lower()
         if trimmed.startswith(word):
-            result.append(pokemon)
+            result.append(printer.add_zeroes(pokemon))
     return result

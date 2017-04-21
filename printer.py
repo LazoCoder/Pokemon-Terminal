@@ -57,9 +57,9 @@ def print_columns(items, i, j):
             name += "   "
 
         if len(rows) < items_per_column:
-            rows.append(add_zeroes(name))
+            rows.append(name)
         else:
-            rows[(index - i) % items_per_column] += "\t\t" + add_zeroes(name)
+            rows[(index - i) % items_per_column] += "\t\t" + name
 
     print_list(rows)
 
