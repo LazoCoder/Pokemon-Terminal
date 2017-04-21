@@ -35,7 +35,7 @@ def get_filename(pokemon_number):
 
 
 # Create the script that will change the terminal background image.
-def create_script_content(region, filename):
+def create_applescript_content(region, filename):
     content = "tell application \"iTerm\"\n"
     content += "\ttell current session of current window\n"
     content += "\t\tset background image to \"" + os.getcwd() + "/Images/" + region + "/" + filename + "\"\n"
@@ -45,11 +45,21 @@ def create_script_content(region, filename):
 
 
 # Create and save the script for changing the terminal background image.
-def create_script(pokemon_number):
+def create_applescript(pokemon_number):
     region = get_region(pokemon_number)
     filename = get_filename(pokemon_number)
-    content = create_script_content(region, filename)
+    content = create_applescript_content(region, filename)
     file = open("Scripts/background.scpt", "wb")
+    file.write(bytes(content, 'UTF-8'))
+    file.close()
+
+
+# Create and save the run.sh that will execute the AppleScript if the correct run.sh doesn't already exist.
+def create_bash_run():
+    content = "#!/bin/bash\n" + "osascript " + os.getcwd() + "/Scripts/background.scpt"
+    if open("Scripts/run.sh", 'r').read() == content:
+        return
+    file = open("Scripts/run.sh", 'wb')
     file.write(bytes(content, 'UTF-8'))
     file.close()
 
@@ -145,13 +155,14 @@ def change_background(pokemon):
         if pokemon < 1 or pokemon > 493:
             print("Only pokemon 1 through 493 are supported.")
             return
-        create_script(pokemon)
+        create_applescript(pokemon)
     else:
         number = to_number(pokemon)
         if number == -1:
             print("\"" + pokemon + "\" is not a supported Pokemon or Region.")
             return
-        create_script(number)
+        create_applescript(number)
+    create_bash_run()
     os.system('Scripts/run.sh')
 
 
