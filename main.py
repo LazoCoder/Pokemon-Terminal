@@ -4,13 +4,18 @@ from sys import argv
 import time
 import printer
 import backchanger
+import sys
 
 
 # Test each Pokemon in order, one by one.
 def debug():
     for x in range(1, 494):
         backchanger.change_background(x)
-        time.sleep(0.25)
+        try:
+            time.sleep(0.25)
+        except KeyboardInterrupt:
+            print("Program was terminated.")
+            sys.exit()
 
 
 # Entrance to the program.
