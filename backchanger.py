@@ -17,20 +17,43 @@ def to_number(pokemon_name):
     return -1
 
 
+# Find Pokemon who's name starts with a word.
+def guess_by_startswith(user_input):
+    guessed_pokemon = extractor.pokemon_starting_with(user_input)
+    if len(guessed_pokemon) == 0:
+        return False
+    print("Did you mean " + extractor.trim_name(guessed_pokemon[0]) + "?")
+    if len(guessed_pokemon) > 1:
+        print("Other suggestions:")
+        for item in range(1, len(guessed_pokemon)):
+            print(guessed_pokemon[item][:-1])
+    digit_handler(int(guessed_pokemon[0].split(' ')[0]))
+    return True
+
+
+# Find Pokemon who's name contains a word.
+def guess_by_contains(user_input):
+    guessed_pokemon = extractor.pokemon_containing(user_input)
+    if len(guessed_pokemon) == 0:
+        return False
+    print("Did you mean " + extractor.trim_name(guessed_pokemon[0]) + "?")
+    if len(guessed_pokemon) > 1:
+        print("Other suggestions:")
+        for item in range(1, len(guessed_pokemon)):
+            print(guessed_pokemon[item][:-1])
+    digit_handler(int(guessed_pokemon[0].split(' ')[0]))
+    return True
+
+
 # If no Pokemon is found by the user input then try to guess what Pokemon they meant.
 # This method checks to see if the user input is the first part of a Pokemon name.
 # Example: if user input is "pika" then change the background to Pikachu.
-def guess(pokemon):
-    guessed_pokemon = extractor.pokemon_starting_with(pokemon)
-    if len(guessed_pokemon) == 0:
-        print("\"" + pokemon + "\" is not a supported Pokemon or Region.")
+# Return false if it failed to make any guesses.
+def guess(user_input):
+    if len(user_input) < 3:
+        return guess_by_startswith(user_input)
     else:
-        print("Did you mean " + extractor.trim_name(guessed_pokemon[0]) + "?")
-        if len(guessed_pokemon) > 1:
-            print("Other suggestions:")
-            for item in range(1, len(guessed_pokemon)):
-                print(guessed_pokemon[item][:-1])
-        digit_handler(guessed_pokemon[0].split(' ')[0])
+        return guess_by_contains(user_input)
 
 
 # Logic for dealing with user input when a Pokemon index is specified.
@@ -46,9 +69,13 @@ def digit_handler(user_input):
 def other_handler(user_input):
     number = to_number(user_input)
     if number == -1:
-        guess(user_input)
-        return
-    filegen.create_applescript(number)
+        guessed = guess(user_input)
+        if not guessed:
+            print("\"" + user_input + "\" is not a supported Pokemon or Region.")
+        else:
+            return
+    else:
+        filegen.create_applescript(number)
 
 
 # Changes the background image in the terminal.
