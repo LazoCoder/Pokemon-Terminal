@@ -3,6 +3,7 @@
 import extractor
 import filegen
 import os
+import sys
 
 
 # Convert a Pokemon name to a number.
@@ -71,7 +72,9 @@ def other_handler(user_input):
     if number == -1:
         guessed = guess(user_input)
         if not guessed:
-            print("\"" + user_input + "\" is not a supported Pokemon or Region.")
+            print("\"" + user_input, end="")
+            print("\" is not a supported Pokemon or Region and no suggestions are available.")
+            sys.exit()
         else:
             return
     else:
