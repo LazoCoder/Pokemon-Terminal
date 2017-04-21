@@ -1,12 +1,9 @@
 to do:
-	- exception handling for numbers too high or low
-	- complete usage() method
 	- support changing text colour
 	- support changing blender
 	- support changing transparency
 	- find out how to put in $path
 	- find out how to use it as $pokemon instead of $python3.5 Main.py etc…
-	- select a *contrasting* colour in the image for the font or something
-	- add option for glare?
 	- add Alternative images + playboy pikachu
-	- how to solve the relative paths issue (if others use it they won’t have ../Laki/..)
+	- how to save theme?
+	- allow to change wallpaper as well
