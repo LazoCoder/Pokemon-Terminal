@@ -20,12 +20,12 @@ def trim_name(pokemon):
     return pokemon[front_trim:-1]
 
 
-# Find all the Pokemon who's names begin with a particular letter.
-def pokemon_starting_with(char):
+# Find all the Pokemon who's names begin with a set of characters.
+def pokemon_starting_with(word):
     all_pokemon = load_names()
     result = []
     for pokemon in all_pokemon:
         trimmed = trim_name(pokemon).lower()
-        if trimmed.startswith(char):
+        if trimmed.startswith(word):
             result.append(pokemon)
     return result

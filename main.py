@@ -17,8 +17,10 @@ def debug():
 if __name__ == "__main__":
     if len(argv) == 2:
         arg = argv[1].lower()
-        if len(arg) == 1:
+        if len(arg) == 1 and not arg.isdigit():
             printer.print_pokemon_starting_with(arg)
+        elif arg == "regions":
+            printer.print_regions()
         elif arg == "--help" or arg == "help" or arg == "-h":
             printer.print_usage()
         elif arg == "kanto":
@@ -29,7 +31,7 @@ if __name__ == "__main__":
             printer.print_hoenn()
         elif arg == "sinnoh":
             printer.print_sinnoh()
-        elif arg == "all":
+        elif arg == "all" or arg == "pokemon" or arg == "list":
             printer.print_all()
         elif arg == "debug":
             debug()

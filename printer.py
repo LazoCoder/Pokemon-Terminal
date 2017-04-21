@@ -23,7 +23,6 @@ Examples:
     [Pokemon name]  -   python3.5 main.py pikachu
     [Pokemon index] -   python3.5 main.py 25
     [region]        -   python3.5 main.py johto
-                        python3.5 main.py all
     [one letter]    -   python3.5 main.py k
         ''')
 
@@ -32,6 +31,17 @@ Examples:
 def print_list(list_of_items):
     for item in list_of_items:
         print(item)
+
+
+# Add zeros to the front so that it begins 3 digits.
+# Example: "2 Ivysaur" -> "002 Ivysaur"
+def add_zeroes(pokemon):
+    zeroes = ""
+    if int(pokemon.split(' ')[0]) < 10:
+        zeroes = "00"
+    elif int(pokemon.split(' ')[0]) < 100:
+        zeroes = "0"
+    return zeroes + pokemon
 
 
 # Print a list as multiple columns instead of just one.
@@ -46,18 +56,10 @@ def print_columns(items, i, j):
         if len(name) < 10:
             name += "   "
 
-        # More formatting: this lines up the columns by adding zeros.
-        # Example: "2 Ivysaur" -> "002 Ivysaur"
-        zeroes = ""
-        if int(name.split(' ')[0]) < 10:
-            zeroes = "00"
-        elif int(name.split(' ')[0]) < 100:
-            zeroes = "0"
-
         if len(rows) < items_per_column:
-            rows.append(zeroes + name)
+            rows.append(add_zeroes(name))
         else:
-            rows[(index - i) % items_per_column] += "\t\t" + zeroes + name
+            rows[(index - i) % items_per_column] += "\t\t" + add_zeroes(name)
 
     print_list(rows)
 
@@ -96,3 +98,11 @@ def print_all():
 def print_pokemon_starting_with(char):
     pokemon = extractor.pokemon_starting_with(char)
     print_columns(pokemon, 0, len(pokemon))
+
+
+# Print all the supported regions.
+def print_regions():
+    print("Kanto")
+    print("Johto")
+    print("Hoenn")
+    print("Sinnoh")
