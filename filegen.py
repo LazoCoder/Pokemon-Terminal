@@ -1,3 +1,6 @@
+# The logic for creating the necessary AppleScript to change the background.
+# As well as the run.sh to execute the AppleScript.
+
 import os
 
 

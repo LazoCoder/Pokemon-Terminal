@@ -1,3 +1,5 @@
+# The main module that brings everything together.
+
 from sys import argv
 import time
 import printer
@@ -15,7 +17,11 @@ def debug():
 if __name__ == "__main__":
     if len(argv) == 2:
         arg = argv[1].lower()
-        if arg == "kanto":
+        if arg == "--help" or arg == "help" or arg == "-h":
+            printer.print_usage()
+        elif len(argv) == 1:
+            printer.print_pokemon_starting_with(arg)
+        elif arg == "kanto":
             printer.print_kanto()
         elif arg == "johto":
             printer.print_johto()
@@ -23,6 +29,8 @@ if __name__ == "__main__":
             printer.print_hoenn()
         elif arg == "sinnoh":
             printer.print_sinnoh()
+        elif arg == "all":
+            printer.print_all()
         elif arg == "debug":
             debug()
         else:
