@@ -1,3 +1,5 @@
+#!/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5
+
 # The main module that brings everything together.
 
 from sys import argv
@@ -20,7 +22,9 @@ def debug():
 
 # Entrance to the program.
 if __name__ == "__main__":
-    if len(argv) == 2:
+    if len(argv) == 1:
+        print("No command line arguments specified. Try typing in a Pokemon name or number.")
+    elif len(argv) == 2:
         arg = argv[1].lower()
         if len(arg) == 1 and not arg.isdigit():
             printer.print_pokemon_starting_with(arg)
@@ -43,4 +47,4 @@ if __name__ == "__main__":
         else:
             backchanger.change_background(arg)
     else:
-        printer.print_usage()
+        print("Only one command line argument is supported.")

@@ -33,7 +33,7 @@ def print_list(list_of_items):
         print(item)
 
 
-# Add zeros to the front so that it begins 3 digits.
+# Add zeros to the front so that it begins with 3 digits.
 # Example: "2 Ivysaur" -> "002 Ivysaur"
 def add_zeroes(pokemon):
     zeroes = ""

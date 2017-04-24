@@ -39,7 +39,7 @@ def get_filename(pokemon_number):
 def create_applescript_content(region, filename):
     content = "tell application \"iTerm\"\n"
     content += "\ttell current session of current window\n"
-    content += "\t\tset background image to \"" + os.getcwd() + "/Images/" + region + "/" + filename + "\"\n"
+    content += "\t\tset background image to \"" + os.get_exec_path()[0] + "/Images/" + region + "/" + filename + "\"\n"
     content += "\tend tell\n"
     content += "end tell"
     return content
@@ -50,16 +50,16 @@ def create_applescript(pokemon_number):
     region = get_region(pokemon_number)
     filename = get_filename(pokemon_number)
     content = create_applescript_content(region, filename)
-    file = open("Scripts/background.scpt", "wb")
+    file = open(os.get_exec_path()[0] + "/Scripts/background.scpt", "wb")
     file.write(bytes(content, 'UTF-8'))
     file.close()
 
 
 # Create and save the run.sh that will execute the AppleScript if the correct run.sh doesn't already exist.
 def create_bash_run():
-    content = "#!/bin/bash\n" + "osascript " + os.getcwd() + "/Scripts/background.scpt"
-    if open("Scripts/run.sh", 'r').read() == content:
+    content = "#!/bin/bash\n" + "osascript " + os.get_exec_path()[0] + "/Scripts/background.scpt"
+    if open(os.get_exec_path()[0] + "/Scripts/run.sh", 'r').read() == content:
         return
-    file = open("Scripts/run.sh", 'wb')
+    file = open(os.get_exec_path()[0] + "/Scripts/run.sh", 'wb')
     file.write(bytes(content, 'UTF-8'))
     file.close()

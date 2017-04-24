@@ -19,6 +19,7 @@ def to_number(pokemon_name):
 
 
 # Find Pokemon who's name starts with a word.
+# Example: If user_input is "pika", the result will be Pikachu.
 def guess_by_startswith(user_input):
     guessed_pokemon = extractor.pokemon_starting_with(user_input)
     if len(guessed_pokemon) == 0:
@@ -33,6 +34,7 @@ def guess_by_startswith(user_input):
 
 
 # Find Pokemon who's name contains a word.
+# Example: If user input is "chu", the result will be Pikachu, Raichu, Pichu and Smoochum.
 def guess_by_contains(user_input):
     guessed_pokemon = extractor.pokemon_containing(user_input)
     if len(guessed_pokemon) == 0:
@@ -47,8 +49,6 @@ def guess_by_contains(user_input):
 
 
 # If no Pokemon is found by the user input then try to guess what Pokemon they meant.
-# This method checks to see if the user input is the first part of a Pokemon name.
-# Example: if user input is "pika" then change the background to Pikachu.
 # Return false if it failed to make any guesses.
 def guess(user_input):
     if len(user_input) < 3:
@@ -89,4 +89,4 @@ def change_background(user_input):
     else:
         other_handler(user_input)
     filegen.create_bash_run()
-    os.system('Scripts/run.sh')
+    os.system(os.get_exec_path()[0] + "/Scripts/run.sh")

@@ -1,11 +1,12 @@
 # The logic for loading the Pokemon names and numbers from Data/pokemon.txt.
 
 import printer
+import os
 
 
 # Load all the Pokemon and their corresponding numbers into a list.
 def load_names():
-    names_file = open("Data/pokemon.txt", "r+")
+    names_file = open(os.get_exec_path()[0] + "/Data/pokemon.txt", "r+")
     content = names_file.readlines()
     return content
 
