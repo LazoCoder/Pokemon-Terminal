@@ -8,23 +8,21 @@ def print_usage():
     print(
         '''
 Usage:
-    python3.5 main.py [Pokemon name]
-    python3.5 main.py [Pokemon index]
-    python3.5 main.py [region]
-    python3.5 main.py [one letter]
+    pokemon [parameter]
 
-Parameter Explanations:
-    [Pokemon name]  -   Changes the terminal background to the specified Pokemon.
-    [Pokemon index] -   Changes the terminal background to a Pokemon by its index.
-    [region]        -   Print all the Pokemon of the specified region.
-    [one letter]    -   Print all Pokemon who's names begin with a particular letter.
+Parameters:
+    [name]      -   Change the terminal background to the specified Pokemon.
+    [index]     -   Change the terminal background to a Pokemon by its index.
+    [region]    -   List all the Pokemon of the specified region.
+    [letter]    -   List all Pokemon who's names begin with a particular letter.
 
-Examples:
-    [Pokemon name]  -   python3.5 main.py pikachu
-    [Pokemon index] -   python3.5 main.py 25
-    [region]        -   python3.5 main.py johto
-    [one letter]    -   python3.5 main.py k
-        ''')
+Other Parameters:
+    pokemon all         -   List all the Pokemon supported.
+    pokemon random      -   Pick a Pokemon at random.
+    pokemon regions     -   List all the available regions.
+    pokemon slideshow   -   Iterate through each pokemon.
+    pokemon help        -   Display this menu.
+''')
 
 
 # Print all the items in a list. Used for printing each Pokemon from a particular region.

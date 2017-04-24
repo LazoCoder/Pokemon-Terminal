@@ -3,10 +3,11 @@
 # The main module that brings everything together.
 
 from sys import argv
-import time
-import printer
 import backchanger
+import printer
+import random
 import sys
+import time
 
 
 # Test each Pokemon in order, one by one.
@@ -42,8 +43,10 @@ if __name__ == "__main__":
             printer.print_sinnoh()
         elif arg == "all" or arg == "pokemon" or arg == "list":
             printer.print_all()
-        elif arg == "debug":
+        elif arg == "slideshow":
             debug()
+        elif arg == "rand" or arg == "random":
+            backchanger.change_background(random.randint(1, 494))
         else:
             backchanger.change_background(arg)
     else:
