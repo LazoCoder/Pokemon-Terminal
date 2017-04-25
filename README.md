@@ -1,7 +1,6 @@
 # Pokemon-Terminal
 
 Pokemon terminal themes for iTerm2. Supports a total of 493 unique Pokemon.
-
 ![alt-tag](Samples/pikachu.png)
 
 Sample Set #1                    |  Sample Set #2
@@ -19,9 +18,27 @@ Sample Set #1                    |  Sample Set #2
 ![alt-tag](Samples/lugia.png)    |  ![alt-tag](Samples/kyogre.png)
 ![alt-tag](Samples/rayquaza.png) |  ![alt-tag](Samples/deoxys.png)
 
-# Setting Up
+# How to Install
 
-To do.
+1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
+2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html). If you have homebrew you can install iTerm with the following command:
+    ```
+    brew cask install iterm2
+    ```
+3. Download the repository and unzip it.
+4. Locate ~/.bash_profile and add the path to the repository so that it may be accessed from anywhere. Example:
+    ```
+    # Pokemon
+    PATH="/Users/Laki/GitHub/Pokemon-Terminal:${PATH}"
+    ```
+5. Reload ~/.bash_profile so that the above changes are updated:
+    ```
+    $ source ~/.bash_profile
+    ```
+6. Now you can change the terminal background like so:
+    ```
+    $ pokemon pikachu
+    ```
 
 # Usage
 
@@ -39,6 +56,7 @@ Parameters:
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
     pokemon random          -   Pick a Pokemon at random.
+    pokemon ?               -   Identify the current Pokemon.
     pokemon regions         -   List all the available regions.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
@@ -64,5 +82,4 @@ I highly suggest making the font colors black and the terminal window transparen
 # Solutions for Issues
 
 If you experience a line at the top of the terminal after changing the Pokemon, you can remove it by typing in the *clear* command or opening a new terminal.
-
 ![alt-tag](Samples/line.png)
