@@ -11,8 +11,8 @@ import sys
 import time
 
 
-# Test each Pokemon in order, one by one.
 def debug():
+    # Test each Pokemon in order, one by one.
     for x in range(1, 494):
         backchanger.change_background(x)
         try:
@@ -22,8 +22,8 @@ def debug():
             sys.exit()
 
 
-# Entrance to the program.
 if __name__ == "__main__":
+    # Entrance to the program.
     if len(argv) == 1:
         print("No command line arguments specified. Try typing in a Pokemon name or number.")
     elif len(argv) == 2:

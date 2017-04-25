@@ -3,8 +3,8 @@
 import extractor
 
 
-# Print the instructions of usage.
 def print_usage():
+    # Print the instructions of usage.
     print(
         '''
 Usage:
@@ -25,15 +25,15 @@ Other Parameters:
 ''')
 
 
-# Print all the items in a list. Used for printing each Pokemon from a particular region.
 def print_list(list_of_items):
+    # Print all the items in a list. Used for printing each Pokemon from a particular region.
     for item in list_of_items:
         print(item)
 
 
-# Add zeros to the front so that it begins with 3 digits.
-# Example: "2 Ivysaur" -> "002 Ivysaur"
 def add_zeroes(pokemon):
+    # Add zeros to the front so that it begins with 3 digits.
+    # Example: "2 Ivysaur" -> "002 Ivysaur"
     zeroes = ""
     if int(pokemon.split(' ')[0]) < 10:
         zeroes = "00"
@@ -42,8 +42,8 @@ def add_zeroes(pokemon):
     return zeroes + pokemon
 
 
-# Print a list as multiple columns instead of just one.
 def print_columns(items, i, j):
+    # Print a list as multiple columns instead of just one.
     rows = []
     items_per_column = int((j - i) / 3) + 1
 
@@ -62,44 +62,44 @@ def print_columns(items, i, j):
     print_list(rows)
 
 
-# Helper method for printing all the Pokemon in a particular region.
 def print_region(i, j):
+    # Helper method for printing all the Pokemon in a particular region.
     print_columns(extractor.load_names(), i, j)
 
 
-# Print each Kanto region Pokemon and its corresponding number.
 def print_kanto():
+    # Print each Kanto region Pokemon and its corresponding number.
     print_region(0, 151)
 
 
-# Print each Johto region Pokemon and its corresponding number.
 def print_johto():
+    # Print each Johto region Pokemon and its corresponding number.
     print_region(151, 251)
 
 
-# Print each Hoenn region Pokemon and its corresponding number.
 def print_hoenn():
+    # Print each Hoenn region Pokemon and its corresponding number.
     print_region(251, 386)
 
 
-# Print each Sinnoh region Pokemon and its corresponding number.
 def print_sinnoh():
+    # Print each Sinnoh region Pokemon and its corresponding number.
     print_region(386, 493)
 
 
-# Print all the Pokemon for all the regions supported.
 def print_all():
+    # Print all the Pokemon for all the regions supported.
     print_region(0, 493)
 
 
-# Print all the Pokemon who's names begin with a particular letter.
 def print_pokemon_starting_with(char):
+    # Print all the Pokemon who's names begin with a particular letter.
     pokemon = extractor.pokemon_starting_with(char)
     print_columns(pokemon, 0, len(pokemon))
 
 
-# Print all the supported regions.
 def print_regions():
+    # Print all the supported regions.
     print("Kanto")
     print("Johto")
     print("Hoenn")
