@@ -19,6 +19,7 @@ Parameters:
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
     pokemon random          -   Pick a Pokemon at random.
+    pokemon ?               -   Identify the current Pokemon.
     pokemon regions         -   List all the available regions.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
