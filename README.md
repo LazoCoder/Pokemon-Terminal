@@ -1,6 +1,6 @@
 # Pokemon-Terminal
 
-Pokemon terminal themes for iTerm2. Supports a total of 493 unique Pokemon.
+Pokemon terminal themes for iTerm2.
 ![alt-tag](Samples/pikachu.png)
 
 Sample Set #1                    |  Sample Set #2
@@ -17,6 +17,11 @@ Sample Set #1                    |  Sample Set #2
 ![alt-tag](Samples/wobbuffet.png)|  ![alt-tag](Samples/tyranitar.png)
 ![alt-tag](Samples/lugia.png)    |  ![alt-tag](Samples/kyogre.png)
 ![alt-tag](Samples/rayquaza.png) |  ![alt-tag](Samples/deoxys.png)
+
+# Features
+- 493 unique Pokemon
+- Select Pokemon by name or by index number
+- Internal search system for finding Pokemon
 
 # How to Install
 
