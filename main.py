@@ -4,6 +4,7 @@
 
 from sys import argv
 import backchanger
+import extractor
 import printer
 import random
 import sys
@@ -27,7 +28,7 @@ if __name__ == "__main__":
         print("No command line arguments specified. Try typing in a Pokemon name or number.")
     elif len(argv) == 2:
         arg = argv[1].lower()
-        if len(arg) == 1 and not arg.isdigit():
+        if len(arg) == 1 and arg.isalpha():
             printer.print_pokemon_starting_with(arg)
         elif arg == "regions":
             printer.print_regions()
@@ -47,6 +48,8 @@ if __name__ == "__main__":
             debug()
         elif arg == "rand" or arg == "random":
             backchanger.change_background(random.randint(1, 494))
+        elif arg == "?" or arg == "current":
+            extractor.current_pokemon()
         else:
             backchanger.change_background(arg)
     else:

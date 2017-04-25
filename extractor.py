@@ -43,3 +43,14 @@ def pokemon_containing(word):
         if word in trimmed:
             result.append(printer.add_zeroes(pokemon))
     return result
+
+
+# Get the current Pokemon that is in the background.
+def current_pokemon():
+    content = open(os.get_exec_path()[0] + "/Scripts/background.scpt", "r+").readlines()
+    pokemon_id = content[2][len(content[2])-9:-6]
+    all_pokemon = load_names()
+    for pokemon in all_pokemon:
+        if int(pokemon.split(' ')[0]) == int(pokemon_id):
+            print(pokemon[:-1])  # Remove the new line at the end.
+            break
