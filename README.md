@@ -84,6 +84,16 @@ I highly suggest making the font colors black and the terminal window transparen
 If you experience a line at the top of the terminal after changing the Pokemon, you can remove it by typing in the *clear* command or opening a new terminal.
 ![alt-tag](Samples/line.png)
 
+# Saving
+
+I have not yet implemented a way to save the background to a profile. To save a background you will need to setup a startup command in the profile.
+1. Navigate to iTerm2 > Preferences > General
+2. Locate the field where it says *Send text at start* under *Command*.
+3. In that field type "pokemon [pokemon name]". You can see an example in the image down below.
+4. You can leave out "; clear" if you don't care about the line showing up at the top of the terminal.
+
+![alt-tag](Samples/saving.png)
+
 # Notes
 
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
