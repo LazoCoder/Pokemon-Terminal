@@ -103,4 +103,4 @@ I have not yet implemented a way to save the background to a profile. To save a 
 
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
 - Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
-- Since the images are compressed a *few* of them have some mild compression artifacts that are noticeable if the terminal is in full screen.
+- Since the images are compressed, a *few* of them have some mild compression artifacts that are noticeable if the terminal is in full screen.
