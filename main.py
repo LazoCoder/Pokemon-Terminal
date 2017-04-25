@@ -11,15 +11,15 @@ import sys
 import time
 
 
-def debug():
+def debug(start, end):
     # Test each Pokemon in order, one by one.
-    for x in range(1, 494):
-        backchanger.change_background(x)
-        try:
+    try:
+        for x in range(start, end):
+            backchanger.change_background(x)
             time.sleep(0.25)
-        except KeyboardInterrupt:
-            print("Program was terminated.")
-            sys.exit()
+    except KeyboardInterrupt:
+        print("Program was terminated.")
+        sys.exit()
 
 
 if __name__ == "__main__":
@@ -45,7 +45,15 @@ if __name__ == "__main__":
         elif arg == "all" or arg == "pokemon" or arg == "list":
             printer.print_all()
         elif arg == "slideshow":
-            debug()
+            debug(1, 494)
+        elif arg == "slideshow-kanto":
+            debug(1, 152)
+        elif arg == "slideshow-johto":
+            debug(152, 252)
+        elif arg == "slideshow-hoenn":
+            debug(252, 387)
+        elif arg == "slideshow-sinnoh":
+            debug(387, 494)
         elif arg == "rand" or arg == "random":
             backchanger.change_background(random.randint(1, 494))
         elif arg == "?" or arg == "current":

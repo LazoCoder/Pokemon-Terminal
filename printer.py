@@ -17,11 +17,12 @@ Parameters:
     [letter]    -   List all Pokemon who's names begin with a particular letter.
 
 Other Parameters:
-    pokemon all         -   List all the Pokemon supported.
-    pokemon random      -   Pick a Pokemon at random.
-    pokemon regions     -   List all the available regions.
-    pokemon slideshow   -   Iterate through each pokemon.
-    pokemon help        -   Display this menu.
+    pokemon all             -   List all the Pokemon supported.
+    pokemon random          -   Pick a Pokemon at random.
+    pokemon regions         -   List all the available regions.
+    pokemon slideshow       -   Iterate through each Pokemon.
+    pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
+    pokemon help            -   Display this menu.
 ''')
 
 
