@@ -83,3 +83,9 @@ I highly suggest making the font colors black and the terminal window transparen
 
 If you experience a line at the top of the terminal after changing the Pokemon, you can remove it by typing in the *clear* command or opening a new terminal.
 ![alt-tag](Samples/line.png)
+
+# Notes
+
+- Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
+- Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
+- Since the images are compressed a *few* of them have some mild compression artifacts that are noticeable if the terminal is in full screen.
