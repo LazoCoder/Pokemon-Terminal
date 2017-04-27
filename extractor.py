@@ -11,6 +11,14 @@ def load_names():
     return content
 
 
+def load_extra():
+    # Load all the file names of the images in the Extra folder.
+    files = []
+    for file in os.listdir(os.get_exec_path()[0] + "/Images/Extra"):
+        if file.endswith(".png"):
+            files.append(os.path.join("/Images/Extra", file).split('/')[-1][0:-4])
+
+
 def trim_name(pokemon):
     # Extract the name from a Pokemon extracted from the data file.
     # Example: it will be read in from the data file as "150 Mewtwo\n" but it should just be "Mewtwo".
@@ -52,5 +60,5 @@ def current_pokemon():
     all_pokemon = load_names()
     for pokemon in all_pokemon:
         if int(pokemon.split(' ')[0]) == int(pokemon_id):
-            print(pokemon[:-1])  # Remove the new line at the end.
+            print(printer.add_zeroes(pokemon[:-1]))  # Remove the new line at the end.
             break
