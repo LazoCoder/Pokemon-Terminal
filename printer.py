@@ -23,6 +23,7 @@ Other Parameters:
     pokemon regions         -   List all the available regions.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
+    pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon help            -   Display this menu.
 ''')
 
@@ -92,6 +93,27 @@ def print_sinnoh():
 def print_all():
     # Print all the Pokemon for all the regions supported.
     print_region(0, 493)
+
+
+def print_extra():
+    # Print all the custom/extra Pokemon from the 'Extra' folder.
+    extra_pokemon = extractor.load_extra()
+    rows = []
+    items_per_column = int(len(extra_pokemon) / 3 + 1)
+    for index in range(0, len(extra_pokemon)):
+
+        pokemon = extra_pokemon[index]
+
+        # For formatting: this helps line up columns correctly where a short name would otherwise ruin it.
+        if len(pokemon) < 10:
+            pokemon += "   "
+
+        if len(rows) < items_per_column:
+            rows.append(pokemon)
+        else:
+            rows[index % items_per_column] += "\t\t" + pokemon
+
+    print_list(rows)
 
 
 def print_pokemon_starting_with(char):

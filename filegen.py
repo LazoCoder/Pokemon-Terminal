@@ -45,11 +45,14 @@ def create_applescript_content(region, filename):
     return content
 
 
-def create_applescript(pokemon_number):
+def create_applescript(pokemon_number, content=""):
     # Create and save the script for changing the terminal background image.
-    region = get_region(pokemon_number)
-    filename = get_filename(pokemon_number)
-    content = create_applescript_content(region, filename)
+
+    if content == "":
+        filename = get_filename(pokemon_number)
+        region = get_region(pokemon_number)
+        content = create_applescript_content(region, filename)
+
     file = open(os.get_exec_path()[0] + "/Scripts/background.scpt", "wb")
     file.write(bytes(content, 'UTF-8'))
     file.close()

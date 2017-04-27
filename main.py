@@ -30,6 +30,8 @@ if __name__ == "__main__":
         arg = argv[1].lower()
         if len(arg) == 1 and arg.isalpha():
             printer.print_pokemon_starting_with(arg)
+        elif arg == 'extra' or arg == 'custom':
+            printer.print_extra()
         elif arg == "regions":
             printer.print_regions()
         elif arg == "--help" or arg == "help" or arg == "-h":
@@ -58,7 +60,7 @@ if __name__ == "__main__":
             backchanger.change_background(random.randint(1, 494))
         elif arg == "?" or arg == "current":
             extractor.current_pokemon()
-        else:
+        elif not backchanger.change_background_extra(arg):
             backchanger.change_background(arg)
     else:
         print("Only one command line argument is supported.")

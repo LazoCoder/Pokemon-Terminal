@@ -17,6 +17,7 @@ def load_extra():
     for file in os.listdir(os.get_exec_path()[0] + "/Images/Extra"):
         if file.endswith(".png"):
             files.append(os.path.join("/Images/Extra", file).split('/')[-1][0:-4])
+    return files
 
 
 def trim_name(pokemon):

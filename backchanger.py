@@ -90,3 +90,14 @@ def change_background(user_input):
         other_handler(user_input)
     filegen.create_bash_run()
     os.system(os.get_exec_path()[0] + "/Scripts/run.sh")
+
+
+def change_background_extra(user_input):
+    # Changes the background image in the terminal to an image from the 'Extra' folder.
+    if user_input in extractor.load_extra():
+        content = filegen.create_applescript_content("Extra", user_input + ".png")
+        filegen.create_applescript(user_input, content)
+        filegen.create_bash_run()
+        os.system(os.get_exec_path()[0] + "/Scripts/run.sh")
+        return True
+    return False
