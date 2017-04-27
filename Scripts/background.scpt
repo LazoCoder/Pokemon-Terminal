@@ -1,5 +1,5 @@
 tell application "iTerm"
 	tell current session of current window
-		set background image to "/Users/Laki/GitHub/Pokemon-Terminal/Images/Extra/rayquaza-alt.png"
+		set background image to "/Users/Laki/GitHub/Pokemon-Terminal/Images/Extra/giratina-origin.png"
 	end tell
 end tell
