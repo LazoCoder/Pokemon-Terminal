@@ -81,15 +81,6 @@ def other_handler(user_input):
         filegen.create_applescript(number)
 
 
-def valid_pokemon(user_input):
-    if str(user_input).isdigit():
-        number = int(user_input)
-        if number < 1 and number > 493:
-            return False
-        else
-            reu
-
-
 def change_background(user_input):
     # Changes the background image in the terminal.
     # The parameter is the Pokemon name or number.
