@@ -1,6 +1,6 @@
 # The Database object is a container for all the supported Pokemon.
 
-import os
+import os, random
 
 
 class Pokemon:
@@ -65,7 +65,7 @@ class Database:
 
     def get_johto(self):
         # Get all the Pokemon from the Johto region.
-        return self.__get_region("kanto")
+        return self.__get_region("johto")
 
     def get_hoenn(self):
         # Get all the Pokemon from the Hoenn region.
@@ -111,11 +111,17 @@ class Database:
         return name.lower() in self.__pokemon_dictionary
 
     def names_starting_with(self, prefix):
+        # Return Pokemon who's names contain the specified prefix.
         result = []
         for pokemon in self.__pokemon_list:
             if str(pokemon.get_name()).startswith(prefix):
                 result.append(pokemon)
         return result
+
+    def get_random(self):
+        # Select a random Pokemon from the database.
+        random_int = random.randint(1, len(self.__pokemon_list))
+        return self.__pokemon_list[random_int]
 
     def __load_data(self):
         # Load all the Pokemon data. This does not include the 'Extra' Pokemon.

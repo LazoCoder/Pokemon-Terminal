@@ -21,7 +21,7 @@ def print_columns(items):
         pokemon = items[index]
 
         if not pokemon.is_extra():
-            name = pokemon.get_id() + " " + pokemon.get_name()
+            name = pokemon.get_id() + " " + str(pokemon.get_name()).capitalize()
         else:
             name = "--- " + pokemon.get_name()
 
@@ -80,7 +80,6 @@ Other Parameters:
 
 def single_argument_handler(arg):
     # Handle the logic for when there is only one command line parameter inputted.
-    arg = argv[1].lower()
     db = Database()
     if len(arg) < 3 and arg.isalpha():
         prefix_search(db, arg)
@@ -100,14 +99,14 @@ def single_argument_handler(arg):
         print_columns(db.get_sinnoh())
     elif arg == "all" or arg == "pokemon" or arg == "list":
         print_columns(db.get_all())
-
-
+    elif arg == "rand" or arg == "random":
+        print(db.get_random())
 
 if __name__ == "__main__":
     # Entrance to the program.
     if len(argv) == 1:
         print("No command line arguments specified. Try typing in a Pokemon name or number.")
     elif len(argv) == 2:
-        single_argument_handler(argv[1])
+        single_argument_handler(argv[1].lower())
     else:
         print("Only one command line argument is supported.")
