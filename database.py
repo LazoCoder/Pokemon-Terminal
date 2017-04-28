@@ -1,6 +1,7 @@
 # The Database object is a container for all the supported Pokemon.
 
-import os, random
+import os
+import random
 
 
 class Pokemon:
@@ -50,7 +51,7 @@ class Database:
         self.__load_extra()
 
     def __str__(self):
-        string = "POKEMON:\n"
+        string = ""
         for element in self.__pokemon_list:
             string += str(element) + "\n"
         return string[:-1]  # Remove the final new line ("\n").
@@ -61,6 +62,10 @@ class Database:
         for pokemon in self.__pokemon_list:
             result.append(pokemon)
         return result
+
+    def get_regions(self):
+        # Get all the supported regions.
+        return self.__regions
 
     def get_kanto(self):
         # Get all the Pokemon from the Kanto region.
@@ -82,10 +87,6 @@ class Database:
         # Get all the Extra Pokemon images available.
         return self.__get_region(None)
 
-    def get_regions(self):
-        # Get all the supported regions.
-        return self.__regions
-
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.
         result = []
@@ -94,14 +95,19 @@ class Database:
                 result.append(pokemon)
         return result
 
+    def get_random(self):
+        # Select a random Pokemon from the database.
+        random_int = random.randint(0, len(self.__pokemon_list))
+        return self.__pokemon_list[random_int]
+
     def pokemon_exists(self, pokemon):
         # Check for a Pokemon by ID or name.
         if type(pokemon) is int or str(pokemon).isdigit():
-            return self.id_exists(pokemon)
+            return self.pokemon_id_exists(pokemon)
         else:
-            return self.name_exists(pokemon)
+            return self.pokemon_name_exists(pokemon)
 
-    def id_exists(self, identifier):
+    def pokemon_id_exists(self, identifier):
         # Check for Pokemon by ID.
         identifier = int(identifier)
         if identifier < 1 or identifier > self.__MAX_ID:
@@ -109,22 +115,52 @@ class Database:
         else:
             return True
 
-    def name_exists(self, name):
+    def pokemon_name_exists(self, name):
         # Check for Pokemon by Name.
         return name.lower() in self.__pokemon_dictionary
 
-    def names_starting_with(self, prefix):
-        # Return Pokemon who's names contain the specified prefix.
+    def get_pokemon(self, pokemon):
+        # Get a Pokemon by name or ID.
+        if type(pokemon) is not int and type(pokemon) is not str:
+            raise Exception("The parameter Pokemon must be of type integer or string.")
+        if not self.pokemon_exists(pokemon):
+            raise Exception("No such Pokemon in the database.")
+        if type(pokemon) is int or str(pokemon).isdigit():
+            return self.get_pokemon_by_id(pokemon)
+        else:
+            return self.get_pokemon_by_name(pokemon)
+
+    def get_pokemon_by_name(self, name):
+        # Get a Pokemon by its name.
+        if type(name) is not str:
+            raise TypeError("The type of name must be a string.")
+        if not self.pokemon_name_exists(name):
+            raise Exception("No such Pokemon in the database.")
+        return self.__pokemon_dictionary[name]
+
+    def get_pokemon_by_id(self, identifier):
+        # Get a Pokemon by its ID.
+        if type(identifier) is not int and not str(identifier).isdigit():
+            raise TypeError("The Pokemon ID must be a number.")
+        if not self.pokemon_id_exists(identifier):
+            raise Exception("The Pokemon ID must be between 1 and " + str(self.__MAX_ID) + " inclusive.")
+        return self.__pokemon_list[int(identifier) - 1]  # Subtract 1 to convert to 0 base indexing.
+
+    def names_with_prefix(self, prefix):
+        # Return Pokemon who's names begin with the specified prefix.
         result = []
         for pokemon in self.__pokemon_list:
             if str(pokemon.get_name()).startswith(prefix):
                 result.append(pokemon)
         return result
 
-    def get_random(self):
-        # Select a random Pokemon from the database.
-        random_int = random.randint(1, len(self.__pokemon_list))
-        return self.__pokemon_list[random_int]
+    def names_with_infix(self, infix):
+        # Return Pokemon who's names contains the specified infix.
+        result = []
+        for pokemon in self.__pokemon_list:
+            if infix in str(pokemon.get_name()):
+                result.append(pokemon)
+        return result
 
     def __load_data(self):
         # Load all the Pokemon data. This does not include the 'Extra' Pokemon.

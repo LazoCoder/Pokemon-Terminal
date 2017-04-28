@@ -4,6 +4,7 @@
 
 from sys import argv
 from database import Pokemon, Database
+import scripter
 
 
 def print_list(list_of_items):
@@ -37,7 +38,7 @@ def print_columns(items):
 
 def prefix_search(db, arg):
     # Find all Pokemon in database, db, with the prefix, arg.
-    result = db.names_starting_with(arg)
+    result = db.names_with_prefix(arg)
     if len(result) == 0:
         print("No Pokemon found with prefix '" + arg + "'.")
     else:
@@ -102,6 +103,8 @@ def single_argument_handler(arg):
         print_columns(db.get_all())
     elif arg == "rand" or arg == "random":
         print(db.get_random())
+    else:
+        scripter.change_terminal()
 
 if __name__ == "__main__":
     # Entrance to the program.
