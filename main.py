@@ -70,14 +70,34 @@ Parameters:
 
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
-    pokemon random          -   Pick a Pokemon at random.
-    pokemon ?               -   Identify the current Pokemon.
+    pokemon random          -   Change terminal background to a random Pokemon.
+    pokemon .random         -   Change desktop wallpaper to a random Pokemon.
+    pokemon ?               -   Identify the current Pokemon in the terminal.
+    pokemon .?              -   Identify the current Pokemon in the wallpaper.
     pokemon regions         -   List all the available regions.
+    pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
-    pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon help            -   Display this menu.
 ''')
+
+
+def change_terminal_background(db, arg):
+    # Change the terminal background to the specified Pokemon, if it exists.
+    if arg in db:
+        pokemon = db.get_pokemon(arg)
+        scripter.change_terminal(pokemon)
+    else:
+        print("No such Pokemon was found.")
+
+
+def change_wallpaper(db, arg):
+    # Change the wallpaper to the specified Pokemon, if it exists.
+    if arg in db:
+        pokemon = db.get_pokemon(arg)
+        scripter.change_wallpaper(pokemon)
+    else:
+        print("No such Pokemon was found.")
 
 
 def single_argument_handler(arg):
@@ -102,9 +122,15 @@ def single_argument_handler(arg):
     elif arg == "all" or arg == "pokemon" or arg == "list":
         print_columns(db.get_all())
     elif arg == "rand" or arg == "random":
-        print(db.get_random())
+        change_terminal_background(db, db.get_random().get_name())
+    elif arg == ".rand" or arg == ".random":
+        pokemon = db.get_random()
+        change_wallpaper(db, pokemon.get_name())
+    elif str(arg).startswith("."):
+        change_wallpaper(db, arg[1:])
     else:
-        scripter.change_terminal()
+        change_terminal_background(db, arg)
+
 
 if __name__ == "__main__":
     # Entrance to the program.

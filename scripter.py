@@ -1,3 +1,5 @@
+# Used for creating and running applescript and bash scripts.
+
 import os
 
 
@@ -13,7 +15,6 @@ def __terminal_script(pokemon):
 
 def __wallpaper_script(pokemon):
     # Create the content for the script that will change the wallpaper.
-    path = pokemon.get_path() + pokemon.get_id()
     content = "tell application \"System Events\"\n"
     content += "\ttell current desktop\n"
     content += "\t\tset picture to \"" + pokemon.get_path() + "\"\n"

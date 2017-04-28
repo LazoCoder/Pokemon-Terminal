@@ -56,6 +56,16 @@ class Database:
             string += str(element) + "\n"
         return string[:-1]  # Remove the final new line ("\n").
 
+    def __contains__(self, pokemon):
+        # Check for a Pokemon by ID or name.
+        if type(pokemon) is int or str(pokemon).isdigit():
+            return self.pokemon_id_exists(pokemon)
+        else:
+            return self.pokemon_name_exists(pokemon)
+
+    def __len__(self):
+        return len(self.__pokemon_list)
+
     def get_all(self):
         # Get all the Pokemon.
         result = []
@@ -100,13 +110,6 @@ class Database:
         random_int = random.randint(0, len(self.__pokemon_list))
         return self.__pokemon_list[random_int]
 
-    def pokemon_exists(self, pokemon):
-        # Check for a Pokemon by ID or name.
-        if type(pokemon) is int or str(pokemon).isdigit():
-            return self.pokemon_id_exists(pokemon)
-        else:
-            return self.pokemon_name_exists(pokemon)
-
     def pokemon_id_exists(self, identifier):
         # Check for Pokemon by ID.
         identifier = int(identifier)
@@ -123,7 +126,7 @@ class Database:
         # Get a Pokemon by name or ID.
         if type(pokemon) is not int and type(pokemon) is not str:
             raise Exception("The parameter Pokemon must be of type integer or string.")
-        if not self.pokemon_exists(pokemon):
+        if not self.__contains__(pokemon):
             raise Exception("No such Pokemon in the database.")
         if type(pokemon) is int or str(pokemon).isdigit():
             return self.get_pokemon_by_id(pokemon)
@@ -181,7 +184,7 @@ class Database:
         for file in os.listdir(self.directory + "/./Images/Extra"):
             if file.endswith(".png"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
-                path = self.directory + "/./Images/Extra"
+                path = self.directory + "/./Images/Extra/" + name + ".png"
                 pokemon = Pokemon(None, name, None, path)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected. "

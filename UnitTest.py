@@ -17,6 +17,8 @@ def test_database_single_arg(arg):
     db = Database()
     if arg == "__str__":
         print(db)
+    elif arg == "__len__":
+        print(len(db))
     elif arg == "get_all":
         print_items(db.get_all())
     elif arg == "get_regions":
@@ -44,8 +46,8 @@ def test_database_double_arg(arg):
     arg1 = arg[1].lower()
     arg2 = arg[2].lower()
     db = Database()
-    if arg1 == "pokemon_exists":
-        print(db.pokemon_exists(arg2))
+    if arg1 == "__contains__":
+        print(arg2 in db)
     elif arg1 == "pokemon_id_exists":
         print(db.pokemon_id_exists(arg2))
     elif arg1 == "pokemon_name_exists":
@@ -60,6 +62,8 @@ def test_database_double_arg(arg):
         print_items(db.names_with_prefix(arg2))
     elif arg1 == "names_with_infix":
         print_items(db.names_with_infix(arg2))
+    else:
+        print("No such public method '" + arg + "' with two parameters exists in the Database class.")
 
 
 if __name__ == "__main__":
