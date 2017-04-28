@@ -17,7 +17,10 @@ class Pokemon:
         self.__path = path
 
     def get_id(self):
-        return self.__id
+        if self.is_extra():
+            return "---"  # Pokemon from folder 'Extra' have no ID.
+        else:
+            return self.__id
 
     def get_name(self):
         return self.__name

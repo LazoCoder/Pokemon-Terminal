@@ -71,3 +71,34 @@ def change_wallpaper(pokemon):
     __create_wallpaper_script(pokemon)
     __create_wallpaper_bash()
     os.system(os.get_exec_path()[0] + "/./Scripts/run.sh")
+
+
+def determine_terminal_pokemon(db):
+    # Print the current Pokemon that is being used as the terminal background.
+    __determine_pokemon(db, "background.scpt")
+
+
+def determine_wallpaper_pokemon(db):
+    # Print the current Pokemon that is being used the wallpaper.
+    __determine_pokemon(db, "wallpaper.scpt")
+
+
+def __determine_pokemon(db, script_name):
+    # Helper method to get the current Pokemon that is in the specified script.
+    path = os.get_exec_path()[0] + "/Scripts/" + script_name
+    try:
+        content = open(path, "r+").readlines()
+    except FileNotFoundError:
+        print("Missing File: ", path)
+        return
+
+    try:
+        split = content[2].split('/')
+        image_name = split[-1]  # The content after the final slash.
+        image_name = image_name[:-6]  # Remove the .png and quotation at the end.
+    except IndexError:
+        print("Corrupt file:", path)
+        return
+
+    pokemon = db.get_pokemon(image_name)
+    print(pokemon.get_id(), pokemon.get_name().capitalize())

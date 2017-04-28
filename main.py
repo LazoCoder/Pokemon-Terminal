@@ -5,6 +5,8 @@
 from sys import argv
 from database import Pokemon, Database
 import scripter
+import sys
+import time
 
 
 def print_list(list_of_items):
@@ -70,16 +72,29 @@ Parameters:
 
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
-    pokemon random          -   Change terminal background to a random Pokemon.
-    pokemon .random         -   Change desktop wallpaper to a random Pokemon.
-    pokemon ?               -   Identify the current Pokemon in the terminal.
-    pokemon .?              -   Identify the current Pokemon in the wallpaper.
     pokemon regions         -   List all the available regions.
     pokemon extra           -   List all the Pokemon from the 'Extra' folder.
+    pokemon random          -   Change terminal background to a random Pokemon.
+    pokemon ?               -   Identify the current Pokemon in the terminal.
+    pokemon -random         -   Change desktop wallpaper to a random Pokemon.
+    pokemon -?              -   Identify the current Pokemon in the wallpaper.
+    pokemon -pikachu        -   Change the wallpaper to the specified Pokemon.
     pokemon slideshow       -   Iterate through each Pokemon.
-    pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
+    pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
     pokemon help            -   Display this menu.
 ''')
+
+
+def slideshow(db, start, end):
+    # Show each Pokemon in order, one by one.
+    try:
+        for x in range(start, end):
+            pokemon = db.get_pokemon(x)
+            scripter.change_terminal(pokemon)
+            time.sleep(0.25)
+    except KeyboardInterrupt:
+        print("Program was terminated.")
+        sys.exit()
 
 
 def change_terminal_background(db, arg):
@@ -123,10 +138,23 @@ def single_argument_handler(arg):
         print_columns(db.get_all())
     elif arg == "rand" or arg == "random":
         change_terminal_background(db, db.get_random().get_name())
-    elif arg == ".rand" or arg == ".random":
-        pokemon = db.get_random()
-        change_wallpaper(db, pokemon.get_name())
-    elif str(arg).startswith("."):
+    elif arg == "-rand" or arg == "-random":
+        change_wallpaper(db, db.get_random().get_name())
+    elif arg == "slideshow":
+        slideshow(db, 1, 494)
+    elif arg == "slideshow-kanto":
+        slideshow(db, 1, 152)
+    elif arg == "slideshow-johto":
+        slideshow(db, 152, 252)
+    elif arg == "slideshow-hoenn":
+        slideshow(db, 252, 387)
+    elif arg == "slideshow-sinnoh":
+        slideshow(db, 387, 494)
+    elif arg == "?" or arg == "current":
+        scripter.determine_terminal_pokemon(db)
+    elif arg == "-?" or arg == "-current":
+        scripter.determine_wallpaper_pokemon(db)
+    elif str(arg).startswith("-"):
         change_wallpaper(db, arg[1:])
     else:
         change_terminal_background(db, arg)
