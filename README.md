@@ -82,7 +82,7 @@ I highly suggest making the font colors black and the terminal window transparen
 
 # Adding Custom Images
 
-The folder Images/Extra is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. To see a list of all the custom backgrounds type:
+The folder Images/Extra is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only PNG format is supported. To see a list of all the custom backgrounds type:
 ```
 pokemon extra
 ```

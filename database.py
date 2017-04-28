@@ -1,28 +1,19 @@
-# The Database object is a container for all the supported Pokemon. It loads up all the Pokemons'
-# IDs and names from a text file. It also analyzes all the images available in the 'Extra' folder
-# and stores them in a separate data structure. The Pokemon in the text file are already assumed
-# to exist in the other folders, so there is no reason to traverse them.
-#
-# The Pokemon are stored as Pokemon objects in a list. They contain an ID, name, region, and
-# folder location. The 'Extra' Pokemon images are stored as tuples in a separate list. The
-# reason for this is because 'Extra' images don't have IDs. The tuple contains the name of
-# the image and the location of the image.
+# The Database object is a container for all the supported Pokemon.
 
 import os
-from sys import argv
 
 
 class Pokemon:
     __id = ""  # ID is stored as a string because it must maintain "003" format, not "3".
     __name = ""
     __region = ""
-    __folder = ""  # The location of the image.
+    __path = ""  # The location of the image.
 
-    def __init__(self, identifier, name, region, folder):
+    def __init__(self, identifier, name, region, path):
         self.__id = identifier
         self.__name = name
         self.__region = region
-        self.__folder = folder
+        self.__path = path
 
     def get_id(self):
         return self.__id
@@ -33,19 +24,22 @@ class Pokemon:
     def get_region(self):
         return self.__region
 
-    def get_folder(self):
-        return self.__folder
+    def get_path(self):
+        return self.__path
+
+    def is_extra(self):
+        return self.__id is None
 
     def __str__(self):
-        return self.get_id() + " " + self.get_name() + " at " + self.get_folder()
+        return self.get_id() + " " + self.get_name() + " at " + self.get_path()
 
 
 class Database:
     __pokemon_list = []
     __pokemon_dictionary = {}
-    __extra_pokemon = {}  # The Pokemon from the 'Extra' folder.
     __directory = ""  # The global location of the code.
     __MAX_ID = 493  # Highest possible Pokemon ID.
+    __regions = ('kanto', 'johto', 'hoenn', 'sinnoh')
 
     def __init__(self):
         self.directory = os.get_exec_path()[0]
@@ -56,10 +50,46 @@ class Database:
         string = "POKEMON:\n"
         for element in self.__pokemon_list:
             string += str(element) + "\n"
-        string += "EXTRA:\n"
-        for element in self.__extra_pokemon:
-            string += str(element) + " in " + str(self.__extra_pokemon[element] + "\n")
         return string[:-1]  # Remove the final new line ("\n").
+
+    def get_all(self):
+        # Get all the Pokemon.
+        result = []
+        for pokemon in self.__pokemon_list:
+            result.append(pokemon)
+        return result
+
+    def get_kanto(self):
+        # Get all the Pokemon from the Kanto region.
+        return self.__get_region("kanto")
+
+    def get_johto(self):
+        # Get all the Pokemon from the Johto region.
+        return self.__get_region("kanto")
+
+    def get_hoenn(self):
+        # Get all the Pokemon from the Hoenn region.
+        return self.__get_region("hoenn")
+
+    def get_sinnoh(self):
+        # Get all the Pokemon from the Sinnoh region.
+        return self.__get_region("sinnoh")
+
+    def get_extra(self):
+        # Get all the Extra Pokemon images available.
+        return self.__get_region(None)
+
+    def get_regions(self):
+        # Get all the supported regions.
+        return self.__regions
+
+    def __get_region(self, region):
+        # Helper method for getting all the Pokemon of a specified region.
+        result = []
+        for pokemon in self.__pokemon_list:
+            if pokemon.get_region() == region:
+                result.append(pokemon)
+        return result
 
     def pokemon_exists(self, pokemon):
         # Check for a Pokemon by ID or name.
@@ -78,11 +108,14 @@ class Database:
 
     def name_exists(self, name):
         # Check for Pokemon by Name.
-        if name.lower() in self.__pokemon_dictionary:
-            return True
-        if name.lower() in self.__extra_pokemon:
-            return True
-        return False
+        return name.lower() in self.__pokemon_dictionary
+
+    def names_starting_with(self, prefix):
+        result = []
+        for pokemon in self.__pokemon_list:
+            if str(pokemon.get_name()).startswith(prefix):
+                result.append(pokemon)
+        return result
 
     def __load_data(self):
         # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
@@ -93,8 +126,8 @@ class Database:
             name = line[len(identifier)+1:-1].lower()  # The rest is the name (minus the new line at the end).
             identifier = self.__add_zeroes(identifier)  # This statement cannot occur before name has been created.
             region = self.__determine_region(identifier)
-            folder = self.__determine_folder(identifier)
-            pokemon = Pokemon(identifier, name, region, folder)
+            path = self.__determine_folder(identifier) + "/" + identifier + ".png"
+            pokemon = Pokemon(identifier, name, region, path)
             self.__pokemon_list.append(pokemon)
             self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
@@ -103,8 +136,13 @@ class Database:
         for file in os.listdir(self.directory + "/./Images/Extra"):
             if file.endswith(".png"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
-                folder = self.directory + "/./Images/Extra"
-                self.__extra_pokemon[name] = folder
+                path = self.directory + "/./Images/Extra"
+                pokemon = Pokemon(None, name, None, path)
+                if name in self.__pokemon_dictionary:
+                    raise Exception("Duplicate names detected. "
+                                    "The name of the file " + str(name) + ".png in the folder 'Extra' must be changed.")
+                self.__pokemon_list.append(pokemon)
+                self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
     @staticmethod
     def __add_zeroes(number):
@@ -147,11 +185,3 @@ class Database:
             return self.directory + "/./Images/Generation IV - Sinnoh"
         else:
             raise Exception("Pokemon ID cannot be greater than 493.")
-
-# Method for debugging.
-if __name__ == "__main__":
-    database = Database()
-    if len(argv) == 1:
-        print(database)
-    else:
-        print(database.pokemon_exists(argv[1]))
