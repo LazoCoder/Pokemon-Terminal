@@ -57,6 +57,18 @@ def guess(user_input):
         return guess_by_contains(user_input)
 
 
+def valid_pokemon(user_input):
+    # return true if the user input is a valid Pokemon index or name.
+    if str(user_input).isdigit():  # If the input is a Pokemon index.
+        number = int(user_input)
+        if number < 1 or number > 493:
+            return False
+        return True
+    else:  # If the input is a Pokemon name.
+        number = to_number(user_input)
+        return number != -1
+
+
 def digit_handler(user_input):
     # Logic for dealing with user input when a Pokemon index is specified.
     user_input = int(user_input)
@@ -82,7 +94,7 @@ def other_handler(user_input):
 
 
 def change_background(user_input):
-    # Changes the background image in the terminal.
+    # Change the background image in the terminal.
     # The parameter is the Pokemon name or number.
     if str(user_input).isdigit():
         digit_handler(user_input)
@@ -93,7 +105,7 @@ def change_background(user_input):
 
 
 def change_background_extra(user_input):
-    # Changes the background image in the terminal to an image from the 'Extra' folder.
+    # Change the background image in the terminal to an image from the 'Extra' folder.
     if user_input in extractor.load_extra():
         content = filegen.create_applescript_content("Extra", user_input + ".png")
         filegen.create_applescript(user_input, content)
@@ -101,3 +113,8 @@ def change_background_extra(user_input):
         os.system(os.get_exec_path()[0] + "/Scripts/run.sh")
         return True
     return False
+
+
+def change_wallpaper(user_input):
+    # Change the Desktop wallpaper to the specified Pokemon.
+    if valid_pokemon(user_input):
