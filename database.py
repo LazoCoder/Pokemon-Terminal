@@ -31,7 +31,10 @@ class Pokemon:
         return self.__id is None
 
     def __str__(self):
-        return self.get_id() + " " + self.get_name() + " at " + self.get_path()
+        if self.is_extra():
+            return "--- " + self.get_name().capitalize() + " at " + self.get_path()
+        else:
+            return self.get_id() + " " + self.get_name().capitalize() + " at " + self.get_path()
 
 
 class Database:

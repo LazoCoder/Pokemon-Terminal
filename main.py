@@ -15,7 +15,7 @@ def print_list(list_of_items):
 def print_columns(items):
     # Print a list as multiple columns instead of just one.
     rows = []
-    items_per_column = int(len(items) / 5) + 1
+    items_per_column = int(len(items) / 4) + 1
 
     for index in range(0, len(items)):
         pokemon = items[index]
@@ -61,10 +61,11 @@ Usage:
     pokemon [parameter]
 
 Parameters:
-    [name]      -   Change the terminal background to the specified Pokemon.
-    [index]     -   Change the terminal background to a Pokemon by its index.
-    [region]    -   List all the Pokemon of the specified region.
-    [letter]    -   List all Pokemon who's names begin with a particular letter.
+    [name]        -   Change the terminal background to the specified Pokemon.
+    [index]       -   Change the terminal background to a Pokemon by its index.
+    [region]      -   List all the Pokemon of the specified region.
+    [one letter]  -   List all Pokemon who's names begin with a particular letter.
+    [two letters] -   List all Pokemon who's names begin with those two letters.
 
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
