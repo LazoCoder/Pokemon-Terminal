@@ -199,6 +199,5 @@ if __name__ == "__main__":
               "\nOr type \"help\" to see all the commands.")
     elif len(argv) == 2:
         single_argument_handler(argv[1].lower())
-        scripter.clear()
     else:
         print("Only one command line argument is supported.")
