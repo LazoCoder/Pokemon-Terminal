@@ -131,6 +131,7 @@ def change_wallpaper(db, arg):
             print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
             scripter.change_wallpaper(suggestions[0])
         else:
+            print("Result: " + arg)
             print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
             print("Other suggestions:")
             print_columns(suggestions[1:])
@@ -140,6 +141,14 @@ def change_wallpaper(db, arg):
 def single_argument_handler(arg):
     # Handle the logic for when there is only one command line parameter inputted.
     db = Database()
+
+    # If there is an escape code, then change the wallpaper, not the terminal.
+    if str(arg).startswith("_"):
+        escape_code = True
+        arg = arg[1:]
+    else:
+        escape_code = False
+
     if len(arg) < 3 and arg.isalpha():
         prefix_search(db, arg)
     elif arg == "extra":
@@ -158,10 +167,10 @@ def single_argument_handler(arg):
         print_columns(db.get_sinnoh())
     elif arg == "all":
         print_columns(db.get_all())
+    elif arg == "random" and escape_code:
+        change_wallpaper(db, db.get_random().get_name())
     elif arg == "random":
         change_terminal_background(db, db.get_random().get_name())
-    elif arg == "_random":
-        change_wallpaper(db, db.get_random().get_name())
     elif arg == "slideshow":
         slideshow(db, 1, 494)
     elif arg == "slideshow-kanto":
@@ -172,12 +181,12 @@ def single_argument_handler(arg):
         slideshow(db, 252, 387)
     elif arg == "slideshow-sinnoh":
         slideshow(db, 387, 494)
+    elif arg == "?" and escape_code:
+        scripter.determine_wallpaper_pokemon(db)
     elif arg == "?":
         scripter.determine_terminal_pokemon(db)
-    elif arg == "_?":
-        scripter.determine_wallpaper_pokemon(db)
-    elif str(arg).startswith("_"):
-        change_wallpaper(db, arg[1:])
+    elif escape_code:
+        change_wallpaper(db, arg)
     else:
         change_terminal_background(db, arg)
 
