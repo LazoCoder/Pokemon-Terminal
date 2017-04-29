@@ -1,4 +1,4 @@
-# Used for creating and running applescript and bash scripts.
+# Used for creating, running and analyzing applescript and bash scripts.
 
 import os
 
