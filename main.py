@@ -127,7 +127,7 @@ def change_wallpaper(db, arg):
         if len(suggestions) == 0:
             print("No such Pokemon was found and no suggestion are available.")
         elif len(suggestions) == 1:
-            scripter.change_terminal(suggestions[0])
+            scripter.change_wallpaper(suggestions[0])
             print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
             scripter.change_wallpaper(suggestions[0])
         else:
