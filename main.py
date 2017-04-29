@@ -76,8 +76,8 @@ Other Parameters:
     pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon random          -   Change the terminal background to a random Pokemon.
     pokemon ?               -   Identify the current Pokemon in the terminal.
-    pokemon _pikachu        -   Change the desktop wallpaper to the specified Pokemon.
-    pokemon _random         -   Change the desktop wallpaper to a random Pokemon.
+    pokemon _pikachu        -   Change the wallpaper to the specified Pokemon.
+    pokemon _random         -   Change the wallpaper to a random Pokemon.
     pokemon _?              -   Identify the current Pokemon in the wallpaper.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
@@ -199,5 +199,6 @@ if __name__ == "__main__":
               "\nOr type \"help\" to see all the commands.")
     elif len(argv) == 2:
         single_argument_handler(argv[1].lower())
+        scripter.clear()
     else:
         print("Only one command line argument is supported.")
