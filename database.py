@@ -110,7 +110,7 @@ class Database:
 
     def get_random(self):
         # Select a random Pokemon from the database.
-        random_int = random.randint(0, len(self.__pokemon_list))
+        random_int = random.randint(0, len(self.__pokemon_list) - 1)
         return self.__pokemon_list[random_int]
 
     def pokemon_id_exists(self, identifier):
