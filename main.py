@@ -105,7 +105,7 @@ def change_terminal_background(db, arg):
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
-            print("No such Pokemon was found and no suggestion are available.")
+            print("No such Pokemon was found and no suggestions are available.")
         elif len(suggestions) == 1:
             scripter.change_terminal(suggestions[0])
             print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
