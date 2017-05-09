@@ -44,6 +44,14 @@ Sample Set #1                    |  Sample Set #2
     ```
     $ pokemon pikachu
     ```
+    Or you can specify the Pokemon index instead:
+    ```
+    $ pokemon 25
+    ```
+    Or you can change the Deskop Wallpaper by prefixing the Pokemon name or number with an underscore:
+    ```
+    $ pokemon _pikachu
+    ```
 
 # Usage
 
@@ -83,7 +91,7 @@ Example:
 I highly suggest making the font colors black and the terminal window transparent. Some of the images have both light and dark colours and so it can be difficult to see the text sometimes. Transparency resolves this issue. Since *Pokemon Terminal* only changes the background, the transparency must be done manually:
 
 1. Navigate to iTerm2 > Preferences > Profiles > Window
-2. Set the transparency to the center value.
+2. Set the transparency to about half way.
 3. Hit the "blur" checkbox.
 4. Set the blur to maximum.
 
@@ -95,11 +103,11 @@ The result should look like this:
 
 # Adding Custom Images
 
-The folder Images/Extra is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only PNG format is supported. To see a list of all the custom backgrounds type:
+The folder *Images/Extra* is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only PNG format is supported. To see a list of all the custom backgrounds type:
 ```
 $ pokemon extra
 ```
-Alternatively, you can delete images from this folder and it will not break the program.
+Alternatively, you can delete images from this folder and it will not break the program. These are some custom backgrounds:
 
 ![alt-tag](Samples/custom_deoxys.gif)
 
@@ -122,4 +130,4 @@ I have not yet implemented a way to save the background to a profile. To save a 
 
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
 - Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
-- Since the images are compressed, a *few* of them have some mild compression artifacts that are noticeable if the terminal is in full screen.
+- Since the images are compressed, a *few* of them have some mild compression artifacts.
