@@ -1,9 +1,0 @@
-to do:
-	- support changing text colour
-	- support changing blender
-	- support changing transparency
-	- add Alternative images + playboy pikachu
-	- how to save theme?
-	- allow to change wallpaper as well
-	- support deleting regions so it takes up less space
-	- support adding in one's own images

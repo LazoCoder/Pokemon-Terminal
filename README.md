@@ -65,6 +65,7 @@ Other Parameters:
     pokemon regions         -   List all the available regions.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
+    pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon help            -   Display this menu.
     
 ```
@@ -83,6 +84,14 @@ I highly suggest making the font colors black and the terminal window transparen
 4. Set the blur to maximum.
 
 ![alt-tag](Samples/transparency_setting.png)
+
+# Adding Custom Images
+
+The folder Images/Extra is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only PNG format is supported. To see a list of all the custom backgrounds type:
+```
+pokemon extra
+```
+Alternatively, you can delete images from this folder and it will not break the program.
 
 # Solutions for Issues
 
