@@ -1,6 +1,5 @@
 # Pokemon-Terminal
 
-Pokemon terminal themes for iTerm2.
 ![alt-tag](Samples/pikachu.png)
 
 Sample Set #1                    |  Sample Set #2
@@ -21,6 +20,7 @@ Sample Set #1                    |  Sample Set #2
 # Features
 - 493 unique Pokemon
 - Select Pokemon by name or by index number
+- Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
 
 # How to Install
@@ -51,21 +51,25 @@ Sample Set #1                    |  Sample Set #2
 
 Usage:
     pokemon [parameter]
-
+    
 Parameters:
-    [name]      -   Change the terminal background to the specified Pokemon.
-    [index]     -   Change the terminal background to a Pokemon by its index.
-    [region]    -   List all the Pokemon of the specified region.
-    [letter]    -   List all Pokemon who's names begin with a particular letter.
-
+    [name]        -   Change the terminal background to the specified Pokemon.
+    [index]       -   Change the terminal background to a Pokemon by its index.
+    [region]      -   List all the Pokemon of the specified region.
+    [one letter]  -   List all Pokemon who's names begin with a particular letter.
+    [two letters] -   List all Pokemon who's names begin with those two letters.
+    
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
-    pokemon random          -   Pick a Pokemon at random.
-    pokemon ?               -   Identify the current Pokemon.
     pokemon regions         -   List all the available regions.
-    pokemon slideshow       -   Iterate through each Pokemon.
-    pokemon slideshow-kanto -   Iterate through each Pokemon in the specified reigon.
     pokemon extra           -   List all the Pokemon from the 'Extra' folder.
+    pokemon random          -   Change the terminal background to a random Pokemon.
+    pokemon ?               -   Identify the current Pokemon in the terminal.
+    pokemon _pikachu        -   Change the wallpaper to the specified Pokemon.
+    pokemon _random         -   Change the wallpaper to a random Pokemon.
+    pokemon _?              -   Identify the current Pokemon in the wallpaper.
+    pokemon slideshow       -   Iterate through each Pokemon.
+    pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
     pokemon help            -   Display this menu.
     
 ```
@@ -76,7 +80,7 @@ Example:
 
 # Suggestions
 
-I highly suggest making the font colors black and the terminal window transparent. Some of the images have both light and dark colours and so it can be difficult to see the font sometimes. Transparency resolves this issue. Since *Pokemon Terminal* only changes the background, the transparency must be done manually:
+I highly suggest making the font colors black and the terminal window transparent. Some of the images have both light and dark colours and so it can be difficult to see the text sometimes. Transparency resolves this issue. Since *Pokemon Terminal* only changes the background, the transparency must be done manually:
 
 1. Navigate to iTerm2 > Preferences > Profiles > Window
 2. Set the transparency to the center value.
@@ -85,13 +89,19 @@ I highly suggest making the font colors black and the terminal window transparen
 
 ![alt-tag](Samples/transparency_setting.png)
 
+The result should look like this:
+
+![alt-tag](Samples/transparency_tauros.png)
+
 # Adding Custom Images
 
 The folder Images/Extra is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only PNG format is supported. To see a list of all the custom backgrounds type:
 ```
-pokemon extra
+$ pokemon extra
 ```
 Alternatively, you can delete images from this folder and it will not break the program.
+
+![alt-tag](Samples/custom_deoxys.gif)
 
 # Solutions for Issues
 
