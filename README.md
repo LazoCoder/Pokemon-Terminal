@@ -44,14 +44,6 @@ Sample Set #1                    |  Sample Set #2
     ```
     $ pokemon pikachu
     ```
-    Or you can specify the Pokemon index instead:
-    ```
-    $ pokemon 25
-    ```
-    Or you can change the Deskop Wallpaper by prefixing the Pokemon name or number with an underscore:
-    ```
-    $ pokemon _pikachu
-    ```
 
 # Usage
 
