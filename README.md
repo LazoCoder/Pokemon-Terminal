@@ -26,10 +26,7 @@ Sample Set #1                    |  Sample Set #2
 # How to Install
 
 1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
-2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html). If you have homebrew you can install iTerm with the following command:
-    ```
-    brew cask install iterm2
-    ```
+2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html).
 3. Download the repository and unzip it.
 4. Locate ~/.bash_profile and add the path to the repository so that it may be accessed from anywhere. Example:
     ```
