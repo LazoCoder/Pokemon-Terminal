@@ -1,4 +1,4 @@
-#!/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5
+#!/usr/bin/env python3
 
 # The main module that brings everything together.
 
