@@ -170,8 +170,8 @@ class Database:
 
     def __load_data(self):
         # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
-        path = self.directory + "/./Data/pokemon.txt"
-        data_file = open(path, "r+")
+        path = "/./Data/pokemon.txt"
+        data_file = open(os.get_exec_path()[0] + path, 'r')
         for line in data_file:  # Load everything but the Pokemon from the 'Extra' folder.
             identifier = line.split(' ')[0]  # First part of the line is the id.
             name = line[len(identifier)+1:-1].lower()  # The rest is the name (minus the new line at the end).
