@@ -176,4 +176,4 @@ fabric.properties
 
 # Add Scripts/ directory to .gitignore so that changes to an individual's
 # workspace aren't committed to the repository.
-Scripts/*
+Scripts
