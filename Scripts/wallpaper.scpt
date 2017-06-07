@@ -3,4 +3,3 @@ tell application "System Events"
 		set picture to "/Users/Laki/GitHub/Pokemon-Terminal/./Images/Generation I - Kanto/093.png"
 	end tell
 end tell
-bla
