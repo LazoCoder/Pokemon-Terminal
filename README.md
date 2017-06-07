@@ -27,17 +27,14 @@ Sample Set #1                    |  Sample Set #2
 
 1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
 2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html).
-3. Download the repository and unzip it.
-4. Locate ~/.bash_profile and add the path to the repository so that it may be accessed from anywhere. Example:
+3. Copy and paste the following for the installation:
     ```
-    # Pokemon
-    PATH="/Users/Laki/GitHub/Pokemon-Terminal:${PATH}"
+    # Pokemon Installation
+    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+    echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
+    source ~/.bash_profile
     ```
-5. Reload ~/.bash_profile so that the above changes are updated:
-    ```
-    $ source ~/.bash_profile
-    ```
-6. Now you can change the terminal background like so:
+4. Now you can change the terminal background like so:
     ```
     $ pokemon pikachu
     ```
