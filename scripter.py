@@ -1,6 +1,7 @@
 # Used for creating, running and analyzing applescript and bash scripts.
 
 import os
+import sys
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 
@@ -25,7 +26,7 @@ def __wallpaper_script(pokemon):
     return content
 
 
-def __create_terminal_script(pokemon):
+def __iterm2_create_terminal_script(pokemon):
     # Create and save the script for changing the terminal background image.
     content = __terminal_script(pokemon)
     file = open(cwd + "/./Scripts/background.scpt", "wb")
@@ -41,7 +42,7 @@ def __create_wallpaper_script(pokemon):
     file.close()
 
 
-def __create_terminal_bash():
+def __darwin_create_terminal_bash():
     # Create and save the run.sh that will execute the AppleScript if the correct run.sh doesn't already exist.
     content = "#!/bin/bash\n" + "osascript " + cwd + "/./Scripts/background.scpt"
     if open(cwd + "/./Scripts/run.sh", 'r').read() == content:
@@ -63,10 +64,19 @@ def __create_wallpaper_bash():
 
 def change_terminal(pokemon):
     # Create, save and run the bash script to change the terminal background.
-    __create_terminal_script(pokemon)
-    __create_terminal_bash()
-    os.system(cwd + "/./Scripts/run.sh")
+    if sys.platform == "darwin":
+        __iterm2_create_terminal_script(pokemon)
+        __darwin_create_terminal_bash()
+        os.system(cwd + "/./Scripts/run.sh")
+    if sys.platform == "linux":
+        os.system(__linux_create_terminal(pokemon))
 
+def __linux_create_terminal(pokemon):
+    if os.environ.get("TERMINOLOGY") == '1':
+        return "tybg " + pokemon.get_path()
+    else:
+        print ("Terminal emulator not supported")
+        exit(1)
 
 def change_wallpaper(pokemon):
     # Create, save and run the bash script to change the wallpaper.
