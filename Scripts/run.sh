@@ -1,2 +1,2 @@
 #!/bin/bash
-osascript /Users/bmagee/Pokemon-Terminal/./Scripts/wallpaper.scpt
+osascript /Users/bmagee/Pokemon-Terminal/./Scripts/background.scpt
