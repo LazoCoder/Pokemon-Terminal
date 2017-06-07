@@ -173,3 +173,7 @@ fabric.properties
 # *.ipr
 
 # End of https://www.gitignore.io/api/osx,python,pycharm
+
+# Add Scripts/ directory to .gitignore so that changes to an individual's
+# workspace aren't committed to the repository.
+Scripts/
