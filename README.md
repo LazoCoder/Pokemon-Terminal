@@ -118,3 +118,4 @@ I have not yet implemented a way to save the background to a profile. To save a 
 - Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
 - Since the images are compressed, a *few* of them have some mild compression artifacts.
 - Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes
+- Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme
