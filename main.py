@@ -75,9 +75,11 @@ Other Parameters:
     pokemon regions         -   List all the available regions.
     pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon random          -   Change the terminal background to a random Pokemon.
+    pokemon random-kanto    -   Change the terminal background to a random Pokemon from the specified region.
     pokemon ?               -   Identify the current Pokemon in the terminal.
     pokemon _pikachu        -   Change the wallpaper to the specified Pokemon.
     pokemon _random         -   Change the wallpaper to a random Pokemon.
+    pokemon _random-kanto   -   Change the wallpaper to a random Pokemon from the specified region.
     pokemon _?              -   Identify the current Pokemon in the wallpaper.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
