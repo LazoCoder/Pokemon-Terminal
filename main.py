@@ -169,8 +169,24 @@ def single_argument_handler(arg):
         print_columns(db.get_all())
     elif arg == "random" and escape_code:
         change_wallpaper(db, db.get_random().get_name())
+    elif arg == "random-kanto" and escape_code:
+        change_wallpaper(db, db.get_random_from_region("kanto").get_name())
+    elif arg == "random-johto" and escape_code:
+        change_wallpaper(db, db.get_random_from_region("johto").get_name())
+    elif arg == "random-hoenn" and escape_code:
+        change_wallpaper(db, db.get_random_from_region("hoenn").get_name())
+    elif arg == "random-sinnoh" and escape_code:
+        change_wallpaper(db, db.get_random_from_region("sinnoh").get_name())
     elif arg == "random":
         change_terminal_background(db, db.get_random().get_name())
+    elif arg == "random-kanto":
+        change_terminal_background(db, db.get_random_from_region("kanto").get_name())
+    elif arg == "random-johto":
+        change_terminal_background(db, db.get_random_from_region("johto").get_name())
+    elif arg == "random-hoenn":
+        change_terminal_background(db, db.get_random_from_region("hoenn").get_name())
+    elif arg == "random-sinnoh":
+        change_terminal_background(db, db.get_random_from_region("sinnoh").get_name())
     elif arg == "slideshow":
         slideshow(db, 1, 494)
     elif arg == "slideshow-kanto":

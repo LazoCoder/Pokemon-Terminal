@@ -113,6 +113,12 @@ class Database:
         random_int = random.randint(0, len(self.__pokemon_list) - 1)
         return self.__pokemon_list[random_int]
 
+    def get_random_from_region(self, region):
+        # Get a random Pokemon from a specific region.
+        region_pokemon = self.__get_region(region)
+        random_int = random.randint(0, len(region_pokemon) - 1)
+        return region_pokemon[random_int]
+
     def pokemon_id_exists(self, identifier):
         # Check for Pokemon by ID.
         identifier = int(identifier)
