@@ -48,27 +48,29 @@ Sample Set #1                    |  Sample Set #2
 
 Usage:
     pokemon [parameter]
-    
+
 Parameters:
     [name]        -   Change the terminal background to the specified Pokemon.
     [index]       -   Change the terminal background to a Pokemon by its index.
     [region]      -   List all the Pokemon of the specified region.
     [one letter]  -   List all Pokemon who's names begin with a particular letter.
     [two letters] -   List all Pokemon who's names begin with those two letters.
-    
+
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
     pokemon regions         -   List all the available regions.
     pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon random          -   Change the terminal background to a random Pokemon.
+    pokemon random-kanto    -   Change the terminal background to a random Pokemon from the specified region.
     pokemon ?               -   Identify the current Pokemon in the terminal.
     pokemon _pikachu        -   Change the wallpaper to the specified Pokemon.
     pokemon _random         -   Change the wallpaper to a random Pokemon.
+    pokemon _random-kanto   -   Change the wallpaper to a random Pokemon from the specified region.
     pokemon _?              -   Identify the current Pokemon in the wallpaper.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
     pokemon help            -   Display this menu.
-    
+
 ```
 
 Example:
