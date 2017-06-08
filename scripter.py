@@ -34,7 +34,7 @@ def __iterm2_create_terminal_script(pokemon):
     file.close()
 
 
-def __create_wallpaper_script(pokemon):
+def __darwin_create_wallpaper_script(pokemon):
     # Create and save the script for changing the wallpaper.
     content = __wallpaper_script(pokemon)
     file = open(cwd + "/./Scripts/wallpaper.scpt", "wb")
@@ -52,7 +52,7 @@ def __darwin_create_terminal_bash():
     file.close()
 
 
-def __create_wallpaper_bash():
+def __darwin_create_wallpaper_bash():
     # Create and save the run.sh that will execute the AppleScript if the correct run.sh doesn't already exist.
     content = "#!/bin/bash\n" + "osascript " + cwd + "/./Scripts/wallpaper.scpt"
     if open(cwd + "/./Scripts/run.sh", 'r').read() == content:
@@ -79,11 +79,22 @@ def __linux_create_terminal(pokemon):
         exit(1)
 
 def change_wallpaper(pokemon):
-    # Create, save and run the bash script to change the wallpaper.
-    __create_wallpaper_script(pokemon)
-    __create_wallpaper_bash()
-    os.system(cwd + "/./Scripts/run.sh")
+    if sys.platform == "darwin":
+        # Create, save and run the bash script to change the wallpaper.
+        __darwin_create_wallpaper_script(pokemon)
+        __darwin_create_wallpaper_bash()
+        os.system(cwd + "/./Scripts/run.sh")
+    if sys.platform == "linux":
+        os.system(__linux_create_wallpapper_script(pokemon))
 
+def __linux_create_wallpapper_script(pokemon):
+    # If its gnome...
+    if os.environ.get("GDMSESSION") == 'gnome':
+        return "gsettings set org.gnome.desktop.background picture-uri file://" + pokemon.get_path()
+    #elif condition of KDE...
+    else:
+        print ("Window manager not supported ")
+        exit(1)
 
 def determine_terminal_pokemon(db):
     # Print the current Pokemon that is being used as the terminal background.
