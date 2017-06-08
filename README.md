@@ -45,27 +45,29 @@ Sample Set #1                    |  Sample Set #2
 
 Usage:
     pokemon [parameter]
-    
+
 Parameters:
     [name]        -   Change the terminal background to the specified Pokemon.
     [index]       -   Change the terminal background to a Pokemon by its index.
     [region]      -   List all the Pokemon of the specified region.
     [one letter]  -   List all Pokemon who's names begin with a particular letter.
     [two letters] -   List all Pokemon who's names begin with those two letters.
-    
+
 Other Parameters:
     pokemon all             -   List all the Pokemon supported.
     pokemon regions         -   List all the available regions.
     pokemon extra           -   List all the Pokemon from the 'Extra' folder.
     pokemon random          -   Change the terminal background to a random Pokemon.
+    pokemon random-kanto    -   Change the terminal background to a random Pokemon from the specified region.
     pokemon ?               -   Identify the current Pokemon in the terminal.
     pokemon _pikachu        -   Change the wallpaper to the specified Pokemon.
     pokemon _random         -   Change the wallpaper to a random Pokemon.
+    pokemon _random-kanto   -   Change the wallpaper to a random Pokemon from the specified region.
     pokemon _?              -   Identify the current Pokemon in the wallpaper.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
     pokemon help            -   Display this menu.
-    
+
 ```
 
 Example:
@@ -80,6 +82,7 @@ I highly suggest making the font colors black and the terminal window transparen
 2. Set the transparency to about half way.
 3. Hit the "blur" checkbox.
 4. Set the blur to maximum.
+5. Optionally you can set the blending to maximum to adjust the colors to look like the samples provided.
 
 ![alt-tag](Samples/transparency_setting.png)
 
@@ -117,5 +120,6 @@ I have not yet implemented a way to save the background to a profile. To save a 
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
 - Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
 - Since the images are compressed, a *few* of them have some mild compression artifacts.
-- Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes
-- Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme
+- Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
+- Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
+- Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
