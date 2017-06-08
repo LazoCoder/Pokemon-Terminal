@@ -82,6 +82,7 @@ I highly suggest making the font colors black and the terminal window transparen
 2. Set the transparency to about half way.
 3. Hit the "blur" checkbox.
 4. Set the blur to maximum.
+5. Optionally you can set the blending to maximum to adjust the colors to look like the samples provided.
 
 ![alt-tag](Samples/transparency_setting.png)
 
@@ -119,5 +120,6 @@ I have not yet implemented a way to save the background to a profile. To save a 
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
 - Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
 - Since the images are compressed, a *few* of them have some mild compression artifacts.
-- Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes
-- Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme
+- Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
+- Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
+- Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
