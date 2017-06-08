@@ -52,8 +52,9 @@ def __darwin_create_terminal_bash():
     file.close()
 
 
+# Create and save the run.sh that will execute the AppleScript if the correct run.sh
+# doesn't already exist.
 def __darwin_create_wallpaper_bash():
-    # Create and save the run.sh that will execute the AppleScript if the correct run.sh doesn't already exist.
     content = "#!/bin/bash\n" + "osascript " + cwd + "/./Scripts/wallpaper.scpt"
     if open(cwd + "/./Scripts/run.sh", 'r').read() == content:
         return
@@ -63,8 +64,8 @@ def __darwin_create_wallpaper_bash():
 
 
 def change_terminal(pokemon):
-    # Create, save and run the bash script to change the terminal background.
     if sys.platform == "darwin":
+        # Create, save and run the bash script to change the terminal background.
         __iterm2_create_terminal_script(pokemon)
         __darwin_create_terminal_bash()
         os.system(cwd + "/./Scripts/run.sh")
@@ -73,9 +74,9 @@ def change_terminal(pokemon):
 
 def __linux_create_terminal(pokemon):
     if os.environ.get("TERMINOLOGY") == '1':
-        return "tybg " + pokemon.get_path()
+        return "tybg \"" + pokemon.get_path() + "\""
     else:
-        print ("Terminal emulator not supported")
+        print("Terminal emulator not supported")
         exit(1)
 
 def change_wallpaper(pokemon):
@@ -88,26 +89,27 @@ def change_wallpaper(pokemon):
         os.system(__linux_create_wallpapper_script(pokemon))
 
 def __linux_create_wallpapper_script(pokemon):
-    # If its gnome...
-    if os.environ.get("GDMSESSION") == 'gnome':
-        return "gsettings set org.gnome.desktop.background picture-uri file://" + pokemon.get_path()
+    # If its gnome... aka GDMSESSION=gnome-xorg, etc.
+    if os.environ.get("GDMSESSION").find("gnome") >= 0:
+        return "gsettings set org.gnome.desktop.background picture-uri " + \
+            "\"file://"+ pokemon.get_path()+"\""
     #elif condition of KDE...
     else:
-        print ("Window manager not supported ")
+        print("Window manager not supported ")
         exit(1)
 
+# Print the current Pokemon that is being used as the terminal background.
 def determine_terminal_pokemon(db):
-    # Print the current Pokemon that is being used as the terminal background.
     __determine_pokemon(db, "background.scpt")
 
 
+# Print the current Pokemon that is being used the wallpaper.
 def determine_wallpaper_pokemon(db):
-    # Print the current Pokemon that is being used the wallpaper.
     __determine_pokemon(db, "wallpaper.scpt")
 
 
+# Helper method to get the current Pokemon that is in the specified script.
 def __determine_pokemon(db, script_name):
-    # Helper method to get the current Pokemon that is in the specified script.
     path = cwd + "/Scripts/" + script_name
     try:
         content = open(path, "r+").readlines()
