@@ -42,8 +42,8 @@ Sample Set #1                    |  Sample Set #2
 
 ## Linux
 
-1. Make sure you have Python 3.5+ installed, check the instructions of your distribuition.
-2. Make sure you have Terminology, again check the package manager of your distribuition
+1. Make sure you have Python 3.5+ installed, check the instructions of your distribution.
+2. Make sure you have Terminology, again check the package manager of your distribution.
 3. Copy and paste the following for the installation:
 ```bash
 # Pokemon Installation
