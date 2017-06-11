@@ -24,9 +24,10 @@ Sample Set #1                    |  Sample Set #2
 - Internal search system for finding Pokemon
 
 # How to Install
+## Mac OS
 
 1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
-2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html) or [Terminology](https://www.enlightenment.org/about-terminology).
+2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html).
 3. Copy and paste the following for the installation:
     ```
     # Pokemon Installation
@@ -39,8 +40,25 @@ Sample Set #1                    |  Sample Set #2
     $ pokemon pikachu
     ```
 
-# Usage
+## Linux
 
+1. Make sure you have Python 3.5+ installed, check the instructions of your distribuition.
+2. Make sure you have Terminology, again check the package manager of your distribuition
+3. Copy and paste the following for the installation:
+```bash
+# Pokemon Installation
+git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
+source ~/.bash_profile
+```
+4. Now you can change the terminal background like so:
+```
+pokemon pikachu
+```
+
+# Instructions
+## Usage 
+    
 ```
 
 Usage:
@@ -107,13 +125,33 @@ If you experience a line at the top of the terminal after changing the Pokemon, 
 
 # Saving
 
-I have not yet implemented a way to save the background to a profile. To save a background you will need to setup a startup command in the profile.
+## Mac OS
+I have not yet implemented a way to save the terminal background to a profile. To save a background you will need to setup a startup command in the profile.
 1. Navigate to iTerm2 > Preferences > General
 2. Locate the field where it says *Send text at start* under *Command*.
 3. In that field type "pokemon [pokemon name]". You can see an example in the image down below.
 4. You can leave out "; clear" if you don't care about the line showing up at the top of the terminal.
 
 ![alt-tag](Samples/saving.png)
+
+## Linux
+Terminology already saves it automatically, just tick and remove the "temporary" tick in the settings just in case, after setting your desired pokemon (see image below).
+![Terminlogy temporary](http://i.imgur.com/BTqYXKa.png)
+
+However to setup a random pokemon each session do: 
+1. Open `~/.bashrc` in your favorite text editor.
+2. Make sure your `~/.bashrc` file has a guard check for interactive terminals, so you don't try to set the background every possible time bash runs. Place this before any command that may produce any output (again, if you don't have it already, and variable setting, e.g `exports` don't produce output):
+``` bash
+if [[ $- != *i* ]]; then #You might have this already
+    return
+fi
+```
+3. You may also want to check if terminology is actually running before trying to set the background, so that leads us to
+```bash
+if [[ "$TERMINOLOGY" -eq "1" ]]; then
+    pokemon random
+fi
+```
 
 # Notes & Credits
 
@@ -123,4 +161,4 @@ I have not yet implemented a way to save the background to a profile. To save a 
 - Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
-- Thanks to [@samosaara](https://github.com/samosaara) for adding Terminology support.
+- Thanks to [@samosaara](https://github.com/samosaara) for the linux (GNOME and Terminology) port
