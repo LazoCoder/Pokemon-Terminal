@@ -164,4 +164,4 @@ fi
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
 - Thanks to [@samosaara](https://github.com/samosaara) for the Linux (GNOME and Terminology) port.
-- Thanks to [@charlesmilette[(https://github.com/charlesmilette) for maintaining the AUR package.
+- Thanks to [@charlesmilette](https://github.com/charlesmilette) for maintaining the AUR package.
