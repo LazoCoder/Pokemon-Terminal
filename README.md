@@ -45,8 +45,8 @@ Sample Set #1                    |  Sample Set #2
 1. Make sure you have Python 3.5+ installed, check the instructions of your distribution.
 2. Make sure you have Terminology, again check the package manager of your distribution.
 3. 
-- If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
-- If you aren't a Arch Linux user, copy and paste the following into a terminal for the installation:
+	- If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
+	- If you aren't a Arch Linux user, copy and paste the following into a terminal for the installation:
 ```bash
 # Pokemon Installation
 git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
