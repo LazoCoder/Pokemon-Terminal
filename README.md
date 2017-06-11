@@ -26,7 +26,7 @@ Sample Set #1                    |  Sample Set #2
 # How to Install
 
 1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
-2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html).
+2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html) or [Terminology](https://www.enlightenment.org/about-terminology).
 3. Copy and paste the following for the installation:
     ```
     # Pokemon Installation
@@ -123,3 +123,4 @@ I have not yet implemented a way to save the background to a profile. To save a 
 - Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
+- Thanks to [@samosaara](https://github.com/samosaara) for adding Terminology support.
