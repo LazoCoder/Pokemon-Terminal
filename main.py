@@ -83,6 +83,7 @@ Other Parameters:
     pokemon _?              -   Identify the current Pokemon in the wallpaper.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
+    pokemon clear           -   Clear the Pokemon in the terminal.
     pokemon help            -   Display this menu.
 ''')
 
@@ -169,6 +170,8 @@ def single_argument_handler(arg):
         print_columns(db.get_sinnoh())
     elif arg == "all":
         print_columns(db.get_all())
+    elif arg == "clear":
+        scripter.clear_terminal()
     elif arg == "random" and escape_code:
         change_wallpaper(db, db.get_random().get_name())
     elif arg == "random-kanto" and escape_code:

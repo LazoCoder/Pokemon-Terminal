@@ -6,11 +6,11 @@ import sys
 cwd = os.path.dirname(os.path.realpath(__file__))
 
 
-def __terminal_script(pokemon):
+def __terminal_script(path):
     # Create the content for script that will change the terminal background image.
     content = "tell application \"iTerm\"\n"
     content += "\ttell current session of current window\n"
-    content += "\t\tset background image to \"" + pokemon.get_path() + "\"\n"
+    content += "\t\tset background image to \"" + path + "\"\n"
     content += "\tend tell\n"
     content += "end tell"
     return content
@@ -28,7 +28,15 @@ def __wallpaper_script(pokemon):
 
 def __iterm2_create_terminal_script(pokemon):
     # Create and save the script for changing the terminal background image.
-    content = __terminal_script(pokemon)
+    content = __terminal_script(pokemon.get_path())
+    file = open(cwd + "/./Scripts/background.scpt", "wb")
+    file.write(bytes(content, 'UTF-8'))
+    file.close()
+
+
+def __iterm2_clear_script():
+    # Create and save the script for clearing the terminal background image.
+    content = __terminal_script("")
     file = open(cwd + "/./Scripts/background.scpt", "wb")
     file.write(bytes(content, 'UTF-8'))
     file.close()
@@ -72,12 +80,22 @@ def change_terminal(pokemon):
     if sys.platform == "linux":
         os.system(__linux_create_terminal(pokemon))
 
+
 def __linux_create_terminal(pokemon):
     if os.environ.get("TERMINOLOGY") == '1':
         return "tybg \"" + pokemon.get_path() + "\""
     else:
         print("Terminal emulator not supported")
         exit(1)
+
+
+def __linux_clear_terminal():
+    if os.environ.get("TERMINOLOGY") == '1':
+        return "tybg"
+    else:
+        print("Terminal emulator not supported")
+        exit(1)
+
 
 def change_wallpaper(pokemon):
     if sys.platform == "darwin":
@@ -86,9 +104,19 @@ def change_wallpaper(pokemon):
         __darwin_create_wallpaper_bash()
         os.system(cwd + "/./Scripts/run.sh")
     if sys.platform == "linux":
-        os.system(__linux_create_wallpapper_script(pokemon))
+        os.system(__linux_create_wallpaper_script(pokemon))
 
-def __linux_create_wallpapper_script(pokemon):
+
+def clear_terminal():
+    if sys.platform == "darwin":
+        __iterm2_clear_script()
+        __darwin_create_terminal_bash()
+        os.system(cwd + "/./Scripts/run.sh")
+    if sys.platform == "linux":
+        os.system(__linux_clear_terminal())
+
+
+def __linux_create_wallpaper_script(pokemon):
     # If its gnome... aka GDMSESSION=gnome-xorg, etc.
     if os.environ.get("GDMSESSION").find("gnome") >= 0:
         return "gsettings set org.gnome.desktop.background picture-uri " + \
@@ -97,6 +125,7 @@ def __linux_create_wallpapper_script(pokemon):
     else:
         print("Window manager not supported ")
         exit(1)
+
 
 # Print the current Pokemon that is being used as the terminal background.
 def determine_terminal_pokemon(db):

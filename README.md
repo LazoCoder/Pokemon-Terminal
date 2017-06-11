@@ -86,6 +86,7 @@ Other Parameters:
     pokemon _?              -   Identify the current Pokemon in the wallpaper.
     pokemon slideshow       -   Iterate through each Pokemon.
     pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
+    pokemon clear           -   Clear the Pokemon in the terminal.
     pokemon help            -   Display this menu.
 
 ```
