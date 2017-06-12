@@ -24,6 +24,13 @@ Sample Set #1                    |  Sample Set #2
 - Internal search system for finding Pokemon
 
 # How to Install
+
+## npm
+
+You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
+
+> If you do not use npm, or prefer a manual install, continue reading.
+
 ## Mac OS
 
 1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
@@ -44,7 +51,7 @@ Sample Set #1                    |  Sample Set #2
 
 1. Make sure you have Python 3.5+ installed, check the instructions of your distribution.
 2. Make sure you have Terminology, again check the package manager of your distribution.
-3. 
+3.
 	- If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
 	- If you aren't a Arch Linux user, copy and paste the following into a terminal for the installation:
 ```bash
@@ -59,8 +66,8 @@ pokemon pikachu
 ```
 
 # Instructions
-## Usage 
-    
+## Usage
+
 ```
 
 Usage:
@@ -141,7 +148,7 @@ I have not yet implemented a way to save the terminal background to a profile. T
 Terminology already saves it automatically, just tick and remove the "temporary" tick in the settings just in case, after setting your desired pokemon (see image below).
 ![Terminlogy temporary](http://i.imgur.com/BTqYXKa.png)
 
-However to setup a random pokemon each session do: 
+However to setup a random pokemon each session do:
 1. Open `~/.bashrc` in your favorite text editor.
 2. Make sure your `~/.bashrc` file has a guard check for interactive terminals, so you don't try to set the background every possible time bash runs. Place this before any command that may produce any output (again, if you don't have it already, and variable setting, e.g `exports` don't produce output):
 ``` bash
