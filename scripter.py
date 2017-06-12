@@ -84,6 +84,9 @@ def change_terminal(pokemon):
 def __linux_create_terminal(pokemon):
     if os.environ.get("TERMINOLOGY") == '1':
         return "tybg \"" + pokemon.get_path() + "\""
+    elif "TILIX_ID" in os.environ:
+        return "gsettings set com.gexperts.Tilix.Settings background-image " + \
+            "\""+ pokemon.get_path()+"\""
     else:
         print("Terminal emulator not supported")
         exit(1)
