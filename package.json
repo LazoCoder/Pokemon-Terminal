@@ -1,0 +1,25 @@
+{
+  "name": "pokemon-terminal",
+  "version": "1.0.0",
+  "description": "Pokemon terminal themes",
+  "bin": {
+    "pokemon": "pokemon"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LazoCoder/Pokemon-Terminal.git"
+  },
+  "keywords": [
+    "pokemon",
+    "terminal",
+    "theme",
+    "themes"
+  ],
+  "author": "Lazo (https://github.com/LazoCoder)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/LazoCoder/Pokemon-Terminal/issues"
+  },
+  "homepage": "https://github.com/LazoCoder/Pokemon-Terminal#readme"
+}
