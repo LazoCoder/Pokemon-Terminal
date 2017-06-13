@@ -25,12 +25,6 @@ Sample Set #1                    |  Sample Set #2
 
 # How to Install
 
-## npm
-
-You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
-
-> If you do not use npm, or prefer a manual install, continue reading.
-
 ## Mac OS
 
 1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
