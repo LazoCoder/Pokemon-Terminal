@@ -84,8 +84,8 @@ Other Parameters:
     pokemon _random                -   Change the wallpaper to a random Pokemon.
     pokemon _random-kanto          -   Change the wallpaper to a random Pokemon from the specified region.
     pokemon _?                     -   Identify the current Pokemon in the wallpaper.
-    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time between Pokemon.
-    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time between Pokemon.
+    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
+    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
     pokemon slideshow              -   Iterate through each Pokemon.
     pokemon slideshow-kanto        -   Iterate through each Pokemon in the specified region.
     pokemon clear                  -   Clear the Pokemon in the terminal.

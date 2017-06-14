@@ -81,8 +81,8 @@ Other Parameters:
     pokemon _random                -   Change the wallpaper to a random Pokemon.
     pokemon _random-kanto          -   Change the wallpaper to a random Pokemon from the specified region.
     pokemon _?                     -   Identify the current Pokemon in the wallpaper.
-    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time between Pokemon.
-    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time between Pokemon.
+    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
+    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
     pokemon clear                  -   Clear the Pokemon in the terminal.
     pokemon help                   -   Display this menu.
 ''')
@@ -141,18 +141,30 @@ def change_wallpaper(db, arg):
             scripter.change_wallpaper(suggestions[0])
 
 def multiple_argument_handler(arg, time):
-    print("hi me", time)
     db = Database()
-    if arg == "slideshow":
-        slideshow(db, 1, 494, time)
-    elif arg == "slideshow-kanto":
-        slideshow(db, 1, 152, time)
-    elif arg == "slideshow-johto":
-        slideshow(db, 152, 252, time)
-    elif arg == "slideshow-hoenn":
-        slideshow(db, 252, 387, time)
-    elif arg == "slideshow-sinnoh":
-        slideshow(db, 387, 494, time)
+
+    if arg.startswith("slideshow"):
+        try:
+            float(time)
+            if arg == "slideshow":
+                slideshow(db, 1, 494, time)
+            elif arg == "slideshow-kanto":
+                slideshow(db, 1, 152, time)
+            elif arg == "slideshow-johto":
+                slideshow(db, 152, 252, time)
+            elif arg == "slideshow-hoenn":
+                slideshow(db, 252, 387, time)
+            elif arg == "slideshow-sinnoh":
+                slideshow(db, 387, 494, time)
+            else:
+                print("Invalid slideshow command specified."
+                      "\nType \"help\" to see all the commands.")
+        except ValueError:
+            print("The slideshow time needs to be a positive number"
+                  "\nType \"help\" to see all the commands.")
+    else:
+        print("Invalid command specified."
+              "\nType \"help\" to see all the commands.")
 
 def single_argument_handler(arg):
     # Handle the logic for when there is only one command line parameter inputted.
@@ -233,7 +245,8 @@ if __name__ == "__main__":
               "\nOr type \"help\" to see all the commands.")
     elif len(argv) == 2:
         single_argument_handler(argv[1].lower())
-    elif argv[1].lower().startswith("slideshow"):
+    elif len(argv) == 3:
         multiple_argument_handler(argv[1].lower(), argv[2])
     else:
-        print("Only one command line argument is supported.")
+        print("Invalid number of arguments."
+              "\nTry \"help\" to see all the commands.")
