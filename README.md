@@ -25,6 +25,12 @@ Sample Set #1                    |  Sample Set #2
 
 # How to Install
 
+## npm
+
+You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
+
+> If you do not use npm, or prefer a manual install, continue reading.
+
 ## Mac OS
 
 1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
@@ -35,10 +41,6 @@ Sample Set #1                    |  Sample Set #2
     git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
     echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
     source ~/.bash_profile
-    ```
-4. Now you can change the terminal background like so:
-    ```
-    $ pokemon pikachu
     ```
 
 ## Linux
@@ -53,10 +55,6 @@ Sample Set #1                    |  Sample Set #2
 git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
 echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
 source ~/.bash_profile
-```
-4. Now you can change the terminal background like so:
-```
-pokemon pikachu
 ```
 
 # Instructions
