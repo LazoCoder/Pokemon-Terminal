@@ -22,7 +22,7 @@ Sample Set #1                    |  Sample Set #2
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, Terminology & Tilix
+- Supports iTerm2, zsh, Terminology & Tilix
 
 # How to Install
 
@@ -42,6 +42,10 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
     git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
     echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
     source ~/.bash_profile
+    ```
+4. If you are using zsh:
+    ```
+    echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.zshrc
     ```
 
 ## Linux
