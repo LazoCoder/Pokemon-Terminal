@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Pokemon terminal themes",
   "bin": {
-    "pokemon": "pokemon"
+    "pokemon": "main.py"
   },
   "scripts": {},
   "repository": {
