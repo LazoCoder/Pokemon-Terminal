@@ -71,30 +71,30 @@ Parameters:
     [two letters] -   List all Pokemon who's names begin with those two letters.
 
 Other Parameters:
-    pokemon all             -   List all the Pokemon supported.
-    pokemon regions         -   List all the available regions.
-    pokemon extra           -   List all the Pokemon from the 'Extra' folder.
-    pokemon random          -   Change the terminal background to a random Pokemon.
-    pokemon random-kanto    -   Change the terminal background to a random Pokemon from the specified region.
-    pokemon ?               -   Identify the current Pokemon in the terminal.
-    pokemon _pikachu        -   Change the wallpaper to the specified Pokemon.
-    pokemon _random         -   Change the wallpaper to a random Pokemon.
-    pokemon _random-kanto   -   Change the wallpaper to a random Pokemon from the specified region.
-    pokemon _?              -   Identify the current Pokemon in the wallpaper.
-    pokemon slideshow       -   Iterate through each Pokemon.
-    pokemon slideshow-kanto -   Iterate through each Pokemon in the specified region.
-    pokemon clear           -   Clear the Pokemon in the terminal.
-    pokemon help            -   Display this menu.
+    pokemon all                    -   List all the Pokemon supported.
+    pokemon regions                -   List all the available regions.
+    pokemon extra                  -   List all the Pokemon from the 'Extra' folder.
+    pokemon random                 -   Change the terminal background to a random Pokemon.
+    pokemon random-kanto           -   Change the terminal background to a random Pokemon from the specified region.
+    pokemon ?                      -   Identify the current Pokemon in the terminal.
+    pokemon _pikachu               -   Change the wallpaper to the specified Pokemon.
+    pokemon _random                -   Change the wallpaper to a random Pokemon.
+    pokemon _random-kanto          -   Change the wallpaper to a random Pokemon from the specified region.
+    pokemon _?                     -   Identify the current Pokemon in the wallpaper.
+    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
+    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
+    pokemon clear                  -   Clear the Pokemon in the terminal.
+    pokemon help                   -   Display this menu.
 ''')
 
 
-def slideshow(db, start, end):
+def slideshow(db, start, end, seconds="0.25"):
     # Show each Pokemon in order, one by one.
     try:
         for x in range(start, end):
             pokemon = db.get_pokemon(x)
             scripter.change_terminal(pokemon)
-            time.sleep(0.25)
+            time.sleep(float(seconds))
     except KeyboardInterrupt:
         print("Program was terminated.")
         sys.exit()
@@ -140,6 +140,31 @@ def change_wallpaper(db, arg):
             print_columns(suggestions[1:])
             scripter.change_wallpaper(suggestions[0])
 
+def multiple_argument_handler(arg, time):
+    db = Database()
+
+    if arg.startswith("slideshow"):
+        try:
+            float(time)
+            if arg == "slideshow":
+                slideshow(db, 1, 494, time)
+            elif arg == "slideshow-kanto":
+                slideshow(db, 1, 152, time)
+            elif arg == "slideshow-johto":
+                slideshow(db, 152, 252, time)
+            elif arg == "slideshow-hoenn":
+                slideshow(db, 252, 387, time)
+            elif arg == "slideshow-sinnoh":
+                slideshow(db, 387, 494, time)
+            else:
+                print("Invalid slideshow command specified."
+                      "\nType \"help\" to see all the commands.")
+        except ValueError:
+            print("The slideshow time needs to be a positive number"
+                  "\nType \"help\" to see all the commands.")
+    else:
+        print("Invalid command specified."
+              "\nType \"help\" to see all the commands.")
 
 def single_argument_handler(arg):
     # Handle the logic for when there is only one command line parameter inputted.
@@ -220,5 +245,8 @@ if __name__ == "__main__":
               "\nOr type \"help\" to see all the commands.")
     elif len(argv) == 2:
         single_argument_handler(argv[1].lower())
+    elif len(argv) == 3:
+        multiple_argument_handler(argv[1].lower(), argv[2])
     else:
-        print("Only one command line argument is supported.")
+        print("Invalid number of arguments."
+              "\nTry \"help\" to see all the commands.")
