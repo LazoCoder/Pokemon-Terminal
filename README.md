@@ -170,3 +170,4 @@ fi
 - Thanks to [@charlesmilette](https://github.com/charlesmilette) for maintaining the AUR package.
 - Thanks to [@therealklanni](https://github.com/therealklanni) for adding the project to npm.
 - Thanks to [@MattMattV](https://github.com/MattMattV) for adding Tilix support.
+- Thanks to [@connordinho](https://github.com/connordinho) for enhancing the slideshow functionality.
