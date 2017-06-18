@@ -1,6 +1,6 @@
 {
   "name": "pokemon-terminal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pokemon terminal themes",
   "bin": {
     "pokemon": "main.py"
