@@ -138,6 +138,7 @@ I have not yet implemented a way to save the terminal background to a profile. T
 1. Navigate to iTerm2 > Preferences > General
 2. Locate the field where it says *Send text at start* under *Command*.
 3. In that field type "pokemon [pokemon name]". You can see an example in the image down below.
+   - Alternatively you can also type "pokemon random" for a random theme each time you open up a new terminal.
 4. You can leave out "; clear" if you don't care about the line showing up at the top of the terminal.
 
 ![alt-tag](Samples/saving.png)
