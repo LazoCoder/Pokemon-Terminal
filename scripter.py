@@ -130,34 +130,3 @@ def __linux_create_wallpaper_script(pokemon):
     else:
         print("Window manager not supported ")
         exit(1)
-
-
-# Print the current Pokemon that is being used as the terminal background.
-def determine_terminal_pokemon(db):
-    __determine_pokemon(db, "background.scpt")
-
-
-# Print the current Pokemon that is being used the wallpaper.
-def determine_wallpaper_pokemon(db):
-    __determine_pokemon(db, "wallpaper.scpt")
-
-
-# Helper method to get the current Pokemon that is in the specified script.
-def __determine_pokemon(db, script_name):
-    path = cwd + "/Scripts/" + script_name
-    try:
-        content = open(path, "r+").readlines()
-    except FileNotFoundError:
-        print("Missing File: ", path)
-        return
-
-    try:
-        split = content[2].split('/')
-        image_name = split[-1]  # The content after the final slash.
-        image_name = image_name[:-6]  # Remove the .png and quotation at the end.
-    except IndexError:
-        print("Corrupt file:", path)
-        return
-
-    pokemon = db.get_pokemon(image_name)
-    print(pokemon.get_id(), pokemon.get_name().capitalize())

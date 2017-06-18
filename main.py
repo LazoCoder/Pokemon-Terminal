@@ -76,15 +76,15 @@ Other Parameters:
     pokemon extra                  -   List all the Pokemon from the 'Extra' folder.
     pokemon random                 -   Change the terminal background to a random Pokemon.
     pokemon random-kanto           -   Change the terminal background to a random Pokemon from the specified region.
-    pokemon ?                      -   Identify the current Pokemon in the terminal.
-    pokemon _pikachu               -   Change the wallpaper to the specified Pokemon.
-    pokemon _random                -   Change the wallpaper to a random Pokemon.
-    pokemon _random-kanto          -   Change the wallpaper to a random Pokemon from the specified region.
-    pokemon _?                     -   Identify the current Pokemon in the wallpaper.
     pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
     pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
     pokemon clear                  -   Clear the Pokemon in the terminal.
     pokemon help                   -   Display this menu.
+
+Wallpaper Parameters:
+    pokemon _pikachu               -   Change the wallpaper to the specified Pokemon.
+    pokemon _random                -   Change the wallpaper to a random Pokemon.
+    pokemon _random-kanto          -   Change the wallpaper to a random Pokemon from the specified region.
 ''')
 
 
@@ -140,6 +140,7 @@ def change_wallpaper(db, arg):
             print_columns(suggestions[1:])
             scripter.change_wallpaper(suggestions[0])
 
+
 def multiple_argument_handler(arg, time):
     db = Database()
 
@@ -165,6 +166,7 @@ def multiple_argument_handler(arg, time):
     else:
         print("Invalid command specified."
               "\nType \"help\" to see all the commands.")
+
 
 def single_argument_handler(arg):
     # Handle the logic for when there is only one command line parameter inputted.
@@ -227,10 +229,8 @@ def single_argument_handler(arg):
         slideshow(db, 252, 387)
     elif arg == "slideshow-sinnoh":
         slideshow(db, 387, 494)
-    elif arg == "?" and escape_code:
-        scripter.determine_wallpaper_pokemon(db)
     elif arg == "?":
-        scripter.determine_terminal_pokemon(db)
+        print("This function is deprecated.")
     elif escape_code:
         change_wallpaper(db, arg)
     else:
