@@ -81,13 +81,18 @@ Other Parameters:
     pokemon random-kanto           -   Change the terminal background to a random Pokemon from the specified region.
     pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
     pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
-    pokemon clear                  -   Clear the Pokemon in the terminal.
+    pokemon clear | disable | off  -   Clear the Pokemon in the terminal.
     pokemon help                   -   Display this menu.
 
 Wallpaper Parameters:
     pokemon _pikachu               -   Change the wallpaper to the specified Pokemon.
     pokemon _random                -   Change the wallpaper to a random Pokemon.
     pokemon _random-kanto          -   Change the wallpaper to a random Pokemon from the specified region.
+
+Search System Information:
+    Any input containing 3 or more characters triggers the internal search system. Examples:
+    "pokemon pika" changes the terminal background to Pikachu.
+    "pokemon dos"  changes the terminal background to Gyarados.
 
 ```
 
