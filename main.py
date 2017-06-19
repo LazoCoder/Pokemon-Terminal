@@ -62,6 +62,7 @@ def print_usage():
         '''
 Usage:
     pokemon [parameter]
+    ichooseyou [parameter]
 
 Parameters:
     [name]        -   Change the terminal background to the specified Pokemon.

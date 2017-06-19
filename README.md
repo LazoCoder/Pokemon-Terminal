@@ -65,6 +65,7 @@ source ~/.bash_profile
 
 Usage:
     pokemon [parameter]
+    ichooseyou [parameter]
 
 Parameters:
     [name]        -   Change the terminal background to the specified Pokemon.
