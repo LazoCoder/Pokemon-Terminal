@@ -7,6 +7,10 @@ from database import Database
 import scripter
 import sys
 import time
+import storedpokemon
+
+# Our variable to store the current terminal background
+saved = StoredPokemon()
 
 
 def print_list(list_of_items):
@@ -111,6 +115,8 @@ def change_terminal_background(db, arg):
     if arg in db:
         pokemon = db.get_pokemon(arg)
         scripter.change_terminal(pokemon)
+        saved.set_name(arg)
+
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
@@ -124,16 +130,15 @@ def change_terminal_background(db, arg):
             print("Other suggestions:")
             print_columns(suggestions[1:])
             scripter.change_terminal(suggestions[0])
+        saved.set_name(suggestions[0])
 
-
-current_featured_background = "None"
 
 def change_wallpaper(db, arg):
     # Change the wallpaper to the specified Pokemon, if it exists.
     if arg in db:
         pokemon = db.get_pokemon(arg)
         scripter.change_wallpaper(pokemon)
-        current_featured_background = arg
+
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
@@ -241,7 +246,7 @@ def single_argument_handler(arg):
     elif arg == "slideshow-sinnoh":
         slideshow(db, 387, 494)
     elif arg == "?":
-        print("The current Pokemon featured is %s" % current_featured_pokemon)
+        print("The current Pokemon featured is %s" % saved.get_name())
     elif escape_code:
         change_wallpaper(db, arg)
     else:
