@@ -3,17 +3,19 @@
 import os
 import sys
 
+from adapter import identify
+
 cwd = os.path.dirname(os.path.realpath(__file__))
 
 
-def __terminal_script(path):
-    # Create the content for script that will change the terminal background image.
-    content = "tell application \"iTerm\"\n"
-    content += "\ttell current session of current window\n"
-    content += "\t\tset background image to \"" + path + "\"\n"
-    content += "\tend tell\n"
-    content += "end tell"
-    return content
+def clear_terminal():
+    adapter = identify()
+    adapter.clear()
+
+
+def change_terminal(pokemon):
+    adapter = identify()
+    adapter.set_pokemon(pokemon)
 
 
 def __wallpaper_script(pokemon):
@@ -26,36 +28,10 @@ def __wallpaper_script(pokemon):
     return content
 
 
-def __iterm2_create_terminal_script(pokemon):
-    # Create and save the script for changing the terminal background image.
-    content = __terminal_script(pokemon.get_path())
-    file = open(cwd + "/./Scripts/background.scpt", "wb")
-    file.write(bytes(content, 'UTF-8'))
-    file.close()
-
-
-def __iterm2_clear_script():
-    # Create and save the script for clearing the terminal background image.
-    content = __terminal_script("")
-    file = open(cwd + "/./Scripts/background.scpt", "wb")
-    file.write(bytes(content, 'UTF-8'))
-    file.close()
-
-
 def __darwin_create_wallpaper_script(pokemon):
     # Create and save the script for changing the wallpaper.
     content = __wallpaper_script(pokemon)
     file = open(cwd + "/./Scripts/wallpaper.scpt", "wb")
-    file.write(bytes(content, 'UTF-8'))
-    file.close()
-
-
-def __darwin_create_terminal_bash():
-    # Create and save the run.sh that will execute the AppleScript if the correct run.sh doesn't already exist.
-    content = "#!/bin/bash\n" + "osascript " + cwd + "/./Scripts/background.scpt"
-    if open(cwd + "/./Scripts/run.sh", 'r').read() == content:
-        return
-    file = open(cwd + "/./Scripts/run.sh", 'wb')
     file.write(bytes(content, 'UTF-8'))
     file.close()
 
@@ -71,37 +47,6 @@ def __darwin_create_wallpaper_bash():
     file.close()
 
 
-def change_terminal(pokemon):
-    if sys.platform == "darwin":
-        # Create, save and run the bash script to change the terminal background.
-        __iterm2_create_terminal_script(pokemon)
-        __darwin_create_terminal_bash()
-        os.system(cwd + "/./Scripts/run.sh")
-    if sys.platform == "linux":
-        os.system(__linux_create_terminal(pokemon))
-
-
-def __linux_create_terminal(pokemon):
-    if os.environ.get("TERMINOLOGY") == '1':
-        return "tybg \"" + pokemon.get_path() + "\""
-    elif "TILIX_ID" in os.environ:
-        return "gsettings set com.gexperts.Tilix.Settings background-image " + \
-            "\""+ pokemon.get_path()+"\""
-    else:
-        print("Terminal emulator not supported")
-        exit(1)
-
-
-def __linux_clear_terminal():
-    if os.environ.get("TERMINOLOGY") == '1':
-        return "tybg"
-    elif "TILIX_ID" in os.environ:
-        return "gsettings reset com.gexperts.Tilix.Settings background-image"
-    else:
-        print("Terminal emulator not supported")
-        exit(1)
-
-
 def change_wallpaper(pokemon):
     if sys.platform == "darwin":
         # Create, save and run the bash script to change the wallpaper.
@@ -110,15 +55,6 @@ def change_wallpaper(pokemon):
         os.system(cwd + "/./Scripts/run.sh")
     if sys.platform == "linux":
         os.system(__linux_create_wallpaper_script(pokemon))
-
-
-def clear_terminal():
-    if sys.platform == "darwin":
-        __iterm2_clear_script()
-        __darwin_create_terminal_bash()
-        os.system(cwd + "/./Scripts/run.sh")
-    if sys.platform == "linux":
-        os.system(__linux_clear_terminal())
 
 
 def __linux_create_wallpaper_script(pokemon):
