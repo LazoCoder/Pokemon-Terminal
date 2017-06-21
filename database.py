@@ -158,7 +158,7 @@ class Database:
         with open(self.directory + "/./Data/pokemon.txt", 'r') as data_file:
             for line in data_file:  # Load everything but the Pokemon from the 'Extra' folder.
                 identifier, _, name = line.strip().partition(' ')
-                identifier = '{:03}'.format(identifier)
+                identifier = '{:03}'.format(int(identifier))
                 region = self.__determine_region(identifier)
                 path = self.__determine_folder(identifier) + "/" + identifier + ".png"
                 pokemon = Pokemon(identifier, name, region, path)
