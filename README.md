@@ -57,10 +57,15 @@ git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
 echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
 source ~/.bash_profile
 ```
+       - If you are on Ubuntu or its derivatives like Linux Mint,make sure you have "terminology" installed:
+ ```bash
+# terminology Installation
+sudo apt-get terminology
 
-# Instructions
-## Usage
-
+# Pokemon Installation
+git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
+source ~/.bash_profile
 ```
 
 Usage:
