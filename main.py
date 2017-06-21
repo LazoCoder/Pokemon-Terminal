@@ -11,30 +11,23 @@ import time
 
 def print_list(list_of_items):
     # Print all the items in a list. Used for printing each Pokemon from a particular region.
-    for item in list_of_items:
-        print(item)
+    print("\n".join(str(item) for item in list_of_items))
 
 
 def print_columns(items):
     # Print a list as multiple columns instead of just one.
     rows = []
     items_per_column = int(len(items) / 4) + 1
-
-    for index in range(0, len(items)):
-        pokemon = items[index]
-
+    for index, pokemon in enumerate(items):
         if not pokemon.is_extra():
             name = pokemon.get_id() + " " + str(pokemon.get_name()).capitalize()
         else:
             name = "--- " + pokemon.get_name()
-
         name = name.ljust(20)
-
         if len(rows) < items_per_column:
             rows.append(name)
         else:
             rows[index % items_per_column] += name
-
     print_list(rows)
 
 
@@ -164,14 +157,14 @@ def multiple_argument_handler(arg, time):
             elif arg == "slideshow-sinnoh":
                 slideshow(db, 387, 494, time)
             else:
-                print("Invalid slideshow command specified."
-                      "\nType \"help\" to see all the commands.")
+                print('Invalid slideshow command specified.'
+                      '\nType "help" to see all the commands.')
         except ValueError:
-            print("The slideshow time needs to be a positive number"
-                  "\nType \"help\" to see all the commands.")
+            print('The slideshow time needs to be a positive number'
+                  '\nType "help" to see all the commands.')
     else:
-        print("Invalid command specified."
-              "\nType \"help\" to see all the commands.")
+        print('Invalid command specified.'
+              '\nType "help" to see all the commands.')
 
 
 def single_argument_handler(arg):
@@ -246,13 +239,13 @@ def single_argument_handler(arg):
 if __name__ == "__main__":
     # Entrance to the program.
     if len(argv) == 1:
-        print("No command line arguments specified."
-              "\nTry typing in a Pokemon name or number."
-              "\nOr type \"help\" to see all the commands.")
+        print('No command line arguments specified.'
+              '\nTry typing in a Pokemon name or number.'
+              '\nOr type "help" to see all the commands.')
     elif len(argv) == 2:
         single_argument_handler(argv[1].lower())
     elif len(argv) == 3:
         multiple_argument_handler(argv[1].lower(), argv[2])
     else:
-        print("Invalid number of arguments."
-              "\nTry \"help\" to see all the commands.")
+        print('Invalid number of arguments.'
+              '\nTry "help" to see all the commands.')
