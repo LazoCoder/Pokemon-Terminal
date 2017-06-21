@@ -126,7 +126,7 @@ def change_terminal_background(db, arg):
             scripter.change_terminal(suggestions[0])
 
 
-current_featured_background
+current_featured_background = "None"
 
 def change_wallpaper(db, arg):
     # Change the wallpaper to the specified Pokemon, if it exists.
@@ -261,3 +261,8 @@ if __name__ == "__main__":
     else:
         print("Invalid number of arguments."
               "\nTry \"help\" to see all the commands.")
+
+
+git clone https://github.com/kylebegovich/Pokemon-Terminal $HOME/.Pokemon-Terminal
+echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
+source ~/.bash_profile
