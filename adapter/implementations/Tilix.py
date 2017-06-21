@@ -8,12 +8,12 @@ class Tilix(TerminalAdapterInterface):
     setting_field = "background-image"
 
     def set_pokemon(self, pokemon):
-        command = 'gsettings set %s %s "%s"'
+        command = 'gsettings set {} {} "{}"'
         os.system(command.format(self.setting_key,
                                  self.setting_field,
                                  pokemon.get_path()))
 
     def clear(self):
-        command = 'gsettings set %s %s'
+        command = 'gsettings set {} {}'
         os.system(command.format(self.setting_key,
                                  self.setting_field))
