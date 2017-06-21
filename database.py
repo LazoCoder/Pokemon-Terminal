@@ -161,7 +161,7 @@ class Database:
                 identifier = '{:03}'.format(int(identifier))
                 region = self.__determine_region(identifier)
                 path = self.__determine_folder(identifier) + "/" + identifier + ".png"
-                pokemon = Pokemon(identifier, name, region, path)
+                pokemon = Pokemon(identifier, name.lower(), region, path)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 

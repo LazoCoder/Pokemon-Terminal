@@ -248,4 +248,4 @@ if __name__ == "__main__":
         multiple_argument_handler(argv[1].lower(), argv[2])
     else:
         print('Invalid number of arguments.'
-              '\nTry "help" to see all the commands.')
+              '\nType "help" to see all the commands.')
