@@ -176,3 +176,4 @@ fi
 - Thanks to [@therealklanni](https://github.com/therealklanni) for adding the project to npm.
 - Thanks to [@MattMattV](https://github.com/MattMattV) for adding Tilix support.
 - Thanks to [@connordinho](https://github.com/connordinho) for enhancing the slideshow functionality.
+- Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class.
