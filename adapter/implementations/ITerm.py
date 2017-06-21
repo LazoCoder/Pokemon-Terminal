@@ -1,4 +1,3 @@
-import os
 import subprocess
 
 from adapter.base import TerminalAdapterInterface
