@@ -7,6 +7,10 @@ from database import Database
 import scripter
 import sys
 import time
+import storedpokemon
+
+# Our variable to store the current terminal background
+saved = StoredPokemon()
 
 
 def print_list(list_of_items):
@@ -111,6 +115,8 @@ def change_terminal_background(db, arg):
     if arg in db:
         pokemon = db.get_pokemon(arg)
         scripter.change_terminal(pokemon)
+        saved.set_name(arg)
+
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
@@ -124,6 +130,7 @@ def change_terminal_background(db, arg):
             print("Other suggestions:")
             print_columns(suggestions[1:])
             scripter.change_terminal(suggestions[0])
+        saved.set_name(suggestions[0])
 
 
 def change_wallpaper(db, arg):
@@ -131,6 +138,7 @@ def change_wallpaper(db, arg):
     if arg in db:
         pokemon = db.get_pokemon(arg)
         scripter.change_wallpaper(pokemon)
+
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
@@ -216,7 +224,9 @@ def single_argument_handler(arg):
     elif arg == "random-sinnoh" and escape_code:
         change_wallpaper(db, db.get_random_from_region("sinnoh").get_name())
     elif arg == "random":
-        change_terminal_background(db, db.get_random().get_name())
+        name = db.get_random().get_name()
+        print("You got %s!" % name)
+        change_terminal_background(db, name)
     elif arg == "random-kanto":
         change_terminal_background(db, db.get_random_from_region("kanto").get_name())
     elif arg == "random-johto":
@@ -236,7 +246,7 @@ def single_argument_handler(arg):
     elif arg == "slideshow-sinnoh":
         slideshow(db, 387, 494)
     elif arg == "?":
-        print("This function is deprecated.")
+        print("The current Pokemon featured is %s" % saved.get_name())
     elif escape_code:
         change_wallpaper(db, arg)
     else:
