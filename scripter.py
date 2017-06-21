@@ -2,10 +2,9 @@
 
 import os
 import sys
+import subprocess
 
 from adapter import identify
-
-cwd = os.path.dirname(os.path.realpath(__file__))
 
 
 def clear_terminal():
@@ -28,31 +27,17 @@ def __wallpaper_script(pokemon):
     return content
 
 
-def __darwin_create_wallpaper_script(pokemon):
-    # Create and save the script for changing the wallpaper.
-    content = __wallpaper_script(pokemon)
-    file = open(cwd + "/./Scripts/wallpaper.scpt", "wb")
-    file.write(bytes(content, 'UTF-8'))
-    file.close()
-
-
-# Create and save the run.sh that will execute the AppleScript if the correct run.sh
-# doesn't already exist.
-def __darwin_create_wallpaper_bash():
-    content = "#!/bin/bash\n" + "osascript " + cwd + "/./Scripts/wallpaper.scpt"
-    if open(cwd + "/./Scripts/run.sh", 'r').read() == content:
-        return
-    file = open(cwd + "/./Scripts/run.sh", 'wb')
-    file.write(bytes(content, 'UTF-8'))
-    file.close()
+def __run_osascript(stream):
+    p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    p.stdin.write(stream)
+    p.communicate()
+    p.stdin.close()
 
 
 def change_wallpaper(pokemon):
     if sys.platform == "darwin":
-        # Create, save and run the bash script to change the wallpaper.
-        __darwin_create_wallpaper_script(pokemon)
-        __darwin_create_wallpaper_bash()
-        os.system(cwd + "/./Scripts/run.sh")
+        script = __wallpaper_script(pokemon)
+        __run_osascript(str.encode(script))
     if sys.platform == "linux":
         os.system(__linux_create_wallpaper_script(pokemon))
 

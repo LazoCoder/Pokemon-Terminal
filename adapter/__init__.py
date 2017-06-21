@@ -1,7 +1,5 @@
 import os
 
-import sys
-
 from adapter.implementations.ITerm import ITerm
 from adapter.implementations.NullAdapter import NullAdapter
 from adapter.implementations.Terminology import Terminology
