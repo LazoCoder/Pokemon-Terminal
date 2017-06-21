@@ -261,8 +261,3 @@ if __name__ == "__main__":
     else:
         print("Invalid number of arguments."
               "\nTry \"help\" to see all the commands.")
-
-
-git clone https://github.com/kylebegovich/Pokemon-Terminal $HOME/.Pokemon-Terminal
-echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
-source ~/.bash_profile
