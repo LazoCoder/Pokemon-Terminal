@@ -217,7 +217,7 @@ def single_argument_handler(arg):
         change_wallpaper(db, db.get_random_from_region("sinnoh").get_name())
     elif arg == "random":
         name = db.get_random().get_name()
-        print("You got %s!", name)
+        print("You got %s!" % name)
         change_terminal_background(db, name)
     elif arg == "random-kanto":
         change_terminal_background(db, db.get_random_from_region("kanto").get_name())
