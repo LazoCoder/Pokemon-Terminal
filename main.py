@@ -126,11 +126,14 @@ def change_terminal_background(db, arg):
             scripter.change_terminal(suggestions[0])
 
 
+current_featured_background
+
 def change_wallpaper(db, arg):
     # Change the wallpaper to the specified Pokemon, if it exists.
     if arg in db:
         pokemon = db.get_pokemon(arg)
         scripter.change_wallpaper(pokemon)
+        current_featured_background = arg
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
@@ -238,7 +241,7 @@ def single_argument_handler(arg):
     elif arg == "slideshow-sinnoh":
         slideshow(db, 387, 494)
     elif arg == "?":
-        print("This function is deprecated.")
+        print("The current Pokemon featured is %s" % current_featured_pokemon)
     elif escape_code:
         change_wallpaper(db, arg)
     else:
