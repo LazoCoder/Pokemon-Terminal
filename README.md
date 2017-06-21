@@ -168,7 +168,7 @@ fi
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
 - Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
 - Since the images are compressed, a *few* of them have some mild compression artifacts.
-- Special thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
+- Thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
 - Thanks to [@samosaara](https://github.com/samosaara) for the Linux (GNOME and Terminology) port.
@@ -176,4 +176,5 @@ fi
 - Thanks to [@therealklanni](https://github.com/therealklanni) for adding the project to npm.
 - Thanks to [@MattMattV](https://github.com/MattMattV) for adding Tilix support.
 - Thanks to [@connordinho](https://github.com/connordinho) for enhancing the slideshow functionality.
-- Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class.
+- Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class and the main class.
+- Thanks to [@Fiskie](https://github.com/Fiskie) for implementing the adapter design pattern, piping commands and more.
