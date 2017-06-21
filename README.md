@@ -62,14 +62,10 @@ source ~/.bash_profile
 # terminology Installation
 sudo apt-get terminology
 
- 
-
-   
- 
-
-# Instructions
-## Usage
-
+# Pokemon Installation
+git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
+source ~/.bash_profile
 ```
 
 Usage:
