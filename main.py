@@ -216,7 +216,9 @@ def single_argument_handler(arg):
     elif arg == "random-sinnoh" and escape_code:
         change_wallpaper(db, db.get_random_from_region("sinnoh").get_name())
     elif arg == "random":
-        change_terminal_background(db, db.get_random().get_name())
+        name = db.get_random().get_name()
+        print("You got %s!", name)
+        change_terminal_background(db, name)
     elif arg == "random-kanto":
         change_terminal_background(db, db.get_random_from_region("kanto").get_name())
     elif arg == "random-johto":
