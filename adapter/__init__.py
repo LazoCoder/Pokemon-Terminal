@@ -20,9 +20,7 @@ def identify():
     if "TILIX_ID" in os.environ:
         return Tilix()
 
-    if sys.platform == "darwin":
-        # TODO: identify if we are actually using iTerm.
-        # This could be the stock terminal for all we know.
+    if os.environ.get("ITERM_PROFILE"):
         return ITerm()
 
     return NullAdapter()

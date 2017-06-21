@@ -2,7 +2,7 @@ from adapter.base import TerminalAdapterInterface
 
 
 class NullAdapter(TerminalAdapterInterface):
-    err = "Terminal emulator not supported."
+    err = "This terminal emulator is not supported."
 
     def clear(self):
         print(self.err)
