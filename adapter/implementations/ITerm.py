@@ -3,6 +3,12 @@ import subprocess
 
 from adapter.base import TerminalAdapterInterface
 
+osa_script_fmt = """tell application "iTerm"
+\ttell current session of current window
+\t\tset background image to "{}"
+\tend tell
+end tell"""
+
 
 class ITerm(TerminalAdapterInterface):
     @staticmethod
@@ -11,12 +17,7 @@ class ITerm(TerminalAdapterInterface):
 
     def __generate_osascript(self, path):
         # Create the content for script that will change the terminal background image.
-        content = "tell application \"iTerm\"\n"
-        content += "\ttell current session of current window\n"
-        content += "\t\tset background image to \"" + path + "\"\n"
-        content += "\tend tell\n"
-        content += "end tell"
-        return content
+        return osa_script_fmt.format(path)
 
     def __run_osascript(self, stream):
         p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
