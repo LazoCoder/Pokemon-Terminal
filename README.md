@@ -43,6 +43,13 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
     echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
     source ~/.bash_profile
     ```
+4. If you are using zsh, do the following instead:
+    ```
+    # Pokemon Installation
+    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+    echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.zshrc
+    source ~/.zshrc
+    ```
 
 ## Linux
 
@@ -51,12 +58,12 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 3.
 	- If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
 	- If you aren't a Arch Linux user, copy and paste the following into a terminal for the installation:
-```bash
-# Pokemon Installation
-git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
-echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
-source ~/.bash_profile
-```
+    ```bash
+    # Pokemon Installation
+    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+    echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
+    source ~/.bash_profile
+    ```
 
 # Instructions
 ## Usage
