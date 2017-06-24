@@ -6,6 +6,12 @@ import subprocess
 
 from adapter import identify
 
+osa_script_fmt = """tell application "System Events"
+\ttell current desktop
+\t\tset picture to "{}"
+\tend tell
+end tell"""
+
 
 def clear_terminal():
     adapter = identify()
@@ -17,16 +23,6 @@ def change_terminal(pokemon):
     adapter.set_pokemon(pokemon)
 
 
-def __wallpaper_script(pokemon):
-    # Create the content for the script that will change the wallpaper.
-    content = "tell application \"System Events\"\n"
-    content += "\ttell current desktop\n"
-    content += "\t\tset picture to \"" + pokemon.get_path() + "\"\n"
-    content += "\tend tell\n"
-    content += "end tell"
-    return content
-
-
 def __run_osascript(stream):
     p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     p.stdin.write(stream)
@@ -36,17 +32,17 @@ def __run_osascript(stream):
 
 def change_wallpaper(pokemon):
     if sys.platform == "darwin":
-        script = __wallpaper_script(pokemon)
+        script = osa_script_fmt.format(pokemon.get_path())
         __run_osascript(str.encode(script))
-    if sys.platform == "linux":
+    elif sys.platform == "linux":
         os.system(__linux_create_wallpaper_script(pokemon))
 
 
 def __linux_create_wallpaper_script(pokemon):
     # If its gnome... aka GDMSESSION=gnome-xorg, etc.
-    if os.environ.get("GDMSESSION").find("gnome") >= 0:
-        return "gsettings set org.gnome.desktop.background picture-uri " + \
-            "\"file://"+ pokemon.get_path()+"\""
+    if "gnome" in os.environ.get("GDMSESSION"):
+        fmt = 'gsettings set org.gnome.desktop.background picture-uri "file://{}"'
+        return fmt.format(pokemon.get_path())
     #elif condition of KDE...
     else:
         print("Window manager not supported ")
