@@ -75,15 +75,17 @@ Parameters:
     [two letters] -   List all Pokemon who's names begin with those two letters.
 
 Other Parameters:
-    pokemon all                    -   List all the Pokemon supported.
-    pokemon regions                -   List all the available regions.
-    pokemon extra                  -   List all the Pokemon from the 'Extra' folder.
-    pokemon random                 -   Change the terminal background to a random Pokemon.
-    pokemon random-kanto           -   Change the terminal background to a random Pokemon from the specified region.
-    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
-    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
-    pokemon clear | disable | off  -   Clear the Pokemon in the terminal.
-    pokemon help                   -   Display this menu.
+    all                           -   List all the Pokemon supported.
+    regions                       -   List all the available regions.
+    extra                         -   List all the Pokemon from the 'Extra' folder.
+    random                        -   Change the terminal background to a random Pokemon.
+    random-<region>               -   Change the terminal background to a random Pokemon from the specified region.
+    slideshow [time]              -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
+    slideshow-<region> [time]     -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
+    rnd-slideshow [time]          -   Iterate through each Pokemon in a random order. Optional time (in seconds) between Pokemon.
+    rnd-slideshow-<region> [time] -   Iterate through each Pokemon in the specified region in a random order. Optional time (in seconds) between Pokemon.
+    clear | disable | off         -   Clear the Pokemon in the terminal.
+    help                          -   Display this menu.
 
 Wallpaper Parameters:
     pokemon _pikachu               -   Change the wallpaper to the specified Pokemon.
