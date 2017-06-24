@@ -196,7 +196,7 @@ def single_argument_handler(arg):
         print_columns(db.get_sinnoh())
     elif arg == "all":
         print_columns(db.get_all())
-    elif arg == "clear" or arg == "disable" or arg == "off":
+    elif arg in ("clear", "disable", "off"):
         scripter.clear_terminal()
     elif arg == "random" and escape_code:
         change_wallpaper(db, db.get_random().get_name())
