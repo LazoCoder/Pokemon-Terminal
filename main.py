@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # The main module that brings everything together.
-
+import random
 from sys import argv
 from database import Database
 import scripter
@@ -88,9 +88,10 @@ Search System Information:
 
 
 def slideshow(db, start, end, seconds="0.25"):
-    # Show each Pokemon in order, one by one.
+    # Show Pokemon in random order.
     try:
-        for x in range(start, end):
+        while True:
+            x = random.randint(start, end)
             pokemon = db.get_pokemon(x)
             scripter.change_terminal(pokemon)
             time.sleep(float(seconds))
@@ -147,15 +148,15 @@ def multiple_argument_handler(arg, time):
         try:
             float(time)
             if arg == "slideshow":
-                slideshow(db, 1, 494, time)
+                slideshow(db, 1, 493, time)
             elif arg == "slideshow-kanto":
-                slideshow(db, 1, 152, time)
+                slideshow(db, 1, 151, time)
             elif arg == "slideshow-johto":
-                slideshow(db, 152, 252, time)
+                slideshow(db, 152, 251, time)
             elif arg == "slideshow-hoenn":
-                slideshow(db, 252, 387, time)
+                slideshow(db, 252, 386, time)
             elif arg == "slideshow-sinnoh":
-                slideshow(db, 387, 494, time)
+                slideshow(db, 387, 493, time)
             else:
                 print('Invalid slideshow command specified.'
                       '\nType "help" to see all the commands.')
