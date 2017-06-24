@@ -119,7 +119,7 @@ The result should look like this:
 
 # Adding Custom Images
 
-The folder *Images/Extra* is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only PNG format is supported. To see a list of all the custom backgrounds type:
+The folder *Images/Extra* is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only JPG format is supported. To see a list of all the custom backgrounds type:
 ```
 $ pokemon extra
 ```
@@ -166,8 +166,8 @@ fi
 # Notes & Credits
 
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
-- Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
-- Since the images are compressed, a *few* of them have some mild compression artifacts.
+- Originally the images were about 100mb in total but [ImageOptim](https://imageoptim.com/) was used to compress them down to about 17mb.
+- Since the images are compressed, some of them may have some mild (but negligible) compression artifacts.
 - Thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
@@ -178,3 +178,4 @@ fi
 - Thanks to [@connordinho](https://github.com/connordinho) for enhancing the slideshow functionality.
 - Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class and the main class.
 - Thanks to [@Fiskie](https://github.com/Fiskie) for implementing the adapter design pattern, piping commands and more.
+- Thanks to [@marcobiedermann](https://github.com/marcobiedermann) for better image compression.

@@ -27,5 +27,5 @@ class ITerm(TerminalAdapterInterface):
         self.__run_osascript(str.encode(stdin))
 
     def clear(self):
-        stdin = self.__generate_osascript("")
+        stdin = osa_script_fmt.format("")
         self.__run_osascript(str.encode(stdin))
