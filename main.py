@@ -4,6 +4,7 @@
 
 from sys import argv
 from database import Database
+import random
 import scripter
 import sys
 import time
@@ -65,15 +66,17 @@ Parameters:
     [two letters] -   List all Pokemon who's names begin with those two letters.
 
 Other Parameters:
-    pokemon all                    -   List all the Pokemon supported.
-    pokemon regions                -   List all the available regions.
-    pokemon extra                  -   List all the Pokemon from the 'Extra' folder.
-    pokemon random                 -   Change the terminal background to a random Pokemon.
-    pokemon random-kanto           -   Change the terminal background to a random Pokemon from the specified region.
-    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
-    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
-    pokemon clear | disable | off  -   Clear the Pokemon in the terminal.
-    pokemon help                   -   Display this menu.
+    all                           -   List all the Pokemon supported.
+    regions                       -   List all the available regions.
+    extra                         -   List all the Pokemon from the 'Extra' folder.
+    random                        -   Change the terminal background to a random Pokemon.
+    random-<region>               -   Change the terminal background to a random Pokemon from the specified region.
+    slideshow [time]              -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
+    slideshow-<region> [time]     -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
+    rnd-slideshow [time]          -   Iterate through each Pokemon in a random order. Optional time (in seconds) between Pokemon.
+    rnd-slideshow-<region> [time] -   Iterate through each Pokemon in the specified region in a random order. Optional time (in seconds) between Pokemon.
+    clear | disable | off         -   Clear the Pokemon in the terminal.
+    help                          -   Display this menu.
 
 Wallpaper Parameters:
     pokemon _pikachu               -   Change the wallpaper to the specified Pokemon.
@@ -87,13 +90,20 @@ Search System Information:
 ''')
 
 
-def slideshow(db, start, end, seconds="0.25"):
-    # Show each Pokemon in order, one by one.
+def slideshow(db, start, end, seconds="0.25", rand=False):
+    delay = 0.25
+    if seconds is not None:
+        delay = float(seconds)
+
+    # Show each Pokemon, one by one.
+    r = list(range(start, end))
+    if rand:
+        random.shuffle(r)
     try:
-        for x in range(start, end):
+        for x in r:
             pokemon = db.get_pokemon(x)
             scripter.change_terminal(pokemon)
-            time.sleep(float(seconds))
+            time.sleep(delay)
     except KeyboardInterrupt:
         print("Program was terminated.")
         sys.exit()
@@ -140,22 +150,21 @@ def change_wallpaper(db, arg):
             scripter.change_wallpaper(suggestions[0])
 
 
-def multiple_argument_handler(arg, time):
+def multiple_argument_handler(arg, arg2):
     db = Database()
-
-    if arg.startswith("slideshow"):
+    rand = arg.startswith("rnd")
+    if "slideshow" in arg:
         try:
-            float(time)
-            if arg == "slideshow":
-                slideshow(db, 1, 494, time)
-            elif arg == "slideshow-kanto":
-                slideshow(db, 1, 152, time)
-            elif arg == "slideshow-johto":
-                slideshow(db, 152, 252, time)
-            elif arg == "slideshow-hoenn":
-                slideshow(db, 252, 387, time)
-            elif arg == "slideshow-sinnoh":
-                slideshow(db, 387, 494, time)
+            if arg.endswith("slideshow"):
+                slideshow(db, 1, 494, arg2, rand)
+            elif arg.endswith("slideshow-kanto"):
+                slideshow(db, 1, 152, arg2, rand)
+            elif arg.endswith("slideshow-johto"):
+                slideshow(db, 152, 252, arg2, rand)
+            elif arg.endswith("slideshow-hoenn"):
+                slideshow(db, 252, 387, arg2, rand)
+            elif arg.endswith("slideshow-sinnoh"):
+                slideshow(db, 387, 494, arg2, rand)
             else:
                 print('Invalid slideshow command specified.'
                       '\nType "help" to see all the commands.')
@@ -218,16 +227,16 @@ def single_argument_handler(arg):
         change_terminal_background(db, db.get_random_from_region("hoenn").get_name())
     elif arg == "random-sinnoh":
         change_terminal_background(db, db.get_random_from_region("sinnoh").get_name())
-    elif arg == "slideshow":
-        slideshow(db, 1, 494)
-    elif arg == "slideshow-kanto":
-        slideshow(db, 1, 152)
-    elif arg == "slideshow-johto":
-        slideshow(db, 152, 252)
-    elif arg == "slideshow-hoenn":
-        slideshow(db, 252, 387)
-    elif arg == "slideshow-sinnoh":
-        slideshow(db, 387, 494)
+    elif arg.endswith("slideshow"):
+        slideshow(db, 1, 494, rand=arg.startswith("rnd"))
+    elif arg.endswith("slideshow-kanto"):
+        slideshow(db, 1, 152, rand=arg.startswith("rnd"))
+    elif arg.endswith("slideshow-johto"):
+        slideshow(db, 152, 252, rand=arg.startswith("rnd"))
+    elif arg.endswith("slideshow-hoenn"):
+        slideshow(db, 252, 387, rand=arg.startswith("rnd"))
+    elif arg.endswith("slideshow-sinnoh"):
+        slideshow(db, 387, 494, rand=arg.startswith("rnd"))
     elif arg == "?":
         print("This function is deprecated.")
     elif escape_code:
