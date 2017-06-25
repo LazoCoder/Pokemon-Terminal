@@ -93,6 +93,14 @@ class Database:
         # Get all the Extra Pokemon images available.
         return self.__get_region(None)
 
+    def get_light(self):
+        with open(self.directory + "/./Data/light.txt", 'r') as data_file:
+            return int(random.choice([line.strip() for line in data_file.readlines()]))
+
+    def get_dark(self):
+        with open(self.directory + "/./Data/dark.txt", 'r') as data_file:
+            return int(random.choice([line.strip() for line in data_file.readlines()]))
+
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.
         return [pokemon for pokemon in self.__pokemon_list
