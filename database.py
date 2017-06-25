@@ -11,11 +11,12 @@ class Pokemon:
     __path = ""  # The location of the image.
     __dark_threshold = 0.5
 
-    def __init__(self, identifier, name, region, path):
+    def __init__(self, identifier, name, region, path, dark_treshold):
         self.__id = identifier
         self.__name = name
         self.__region = region
         self.__path = path
+        self.__dark_treshold = dark_treshold
 
     def get_id(self):
         # Pokemon from folder 'Extra' have no ID.
@@ -29,6 +30,10 @@ class Pokemon:
 
     def get_path(self):
         return self.__path
+
+    @property
+    def dark_treshold(self):
+        return self.__dark_treshold
 
     def is_extra(self):
         return self.__id is None
@@ -162,7 +167,8 @@ class Database:
                 identifier = '{:03}'.format(int(identifier))
                 region = self.__determine_region(identifier)
                 path = self.__determine_folder(identifier) + "/" + identifier + ".jpg"
-                pokemon = Pokemon(identifier, name.lower(), region, path)
+                dark_treshold = 0.5  # TODO: fix me
+                pokemon = Pokemon(identifier, name.lower(), region, path, dark_treshold)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
@@ -172,7 +178,8 @@ class Database:
             if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
                 path = self.directory + "/./Images/Extra/" + name + ".jpg"
-                pokemon = Pokemon(None, name, None, path)
+                dark_treshold = 0.5  # TODO: fix me
+                pokemon = Pokemon(None, name, None, path, dark_treshold)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected. "
                                     "The name of the file " + str(name) + ".jpg in the folder 'Extra' must be changed.")
