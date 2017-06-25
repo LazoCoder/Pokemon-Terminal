@@ -178,7 +178,7 @@ class Database:
                 identifier, _, name = line.strip().partition(' ')
                 identifier = '{:03}'.format(int(identifier))
                 region = self.__determine_region(identifier)
-                path = self.__determine_folder(identifier) + "/" + identifier + ".png"
+                path = self.__determine_folder(identifier) + "/" + identifier + ".jpg"
                 pokemon = Pokemon(identifier, name.lower(), region, path)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
@@ -186,13 +186,13 @@ class Database:
     def __load_extra(self):
         # Load all the file names of the images in the Extra folder.
         for file in os.listdir(self.directory + "/./Images/Extra"):
-            if file.endswith(".png"):
+            if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
-                path = self.directory + "/./Images/Extra/" + name + ".png"
+                path = self.directory + "/./Images/Extra/" + name + ".jpg"
                 pokemon = Pokemon(None, name, None, path)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected. "
-                                    "The name of the file " + str(name) + ".png in the folder 'Extra' must be changed.")
+                                    "The name of the file " + str(name) + ".jpg in the folder 'Extra' must be changed.")
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 

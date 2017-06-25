@@ -43,6 +43,13 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
     echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
     source ~/.bash_profile
     ```
+4. If you are using zsh, do the following instead:
+    ```
+    # Pokemon Installation
+    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+    echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.zshrc
+    source ~/.zshrc
+    ```
 
 ## Linux
 
@@ -51,12 +58,12 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 3.
 	- If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
 	- If you aren't a Arch Linux user, copy and paste the following into a terminal for the installation:
-```bash
-# Pokemon Installation
-git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
-echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
-source ~/.bash_profile
-```
+    ```bash
+    # Pokemon Installation
+    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
+    echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
+    source ~/.bash_profile
+    ```
 
 # Instructions
 ## Usage
@@ -75,15 +82,17 @@ Parameters:
     [two letters] -   List all Pokemon who's names begin with those two letters.
 
 Other Parameters:
-    pokemon all                    -   List all the Pokemon supported.
-    pokemon regions                -   List all the available regions.
-    pokemon extra                  -   List all the Pokemon from the 'Extra' folder.
-    pokemon random                 -   Change the terminal background to a random Pokemon.
-    pokemon random-kanto           -   Change the terminal background to a random Pokemon from the specified region.
-    pokemon slideshow [time]       -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
-    pokemon slideshow-kanto [time] -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
-    pokemon clear | disable | off  -   Clear the Pokemon in the terminal.
-    pokemon help                   -   Display this menu.
+    all                           -   List all the Pokemon supported.
+    regions                       -   List all the available regions.
+    extra                         -   List all the Pokemon from the 'Extra' folder.
+    random                        -   Change the terminal background to a random Pokemon.
+    random-<region>               -   Change the terminal background to a random Pokemon from the specified region.
+    slideshow [time]              -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
+    slideshow-<region> [time]     -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
+    rnd-slideshow [time]          -   Iterate through each Pokemon in a random order. Optional time (in seconds) between Pokemon.
+    rnd-slideshow-<region> [time] -   Iterate through each Pokemon in the specified region in a random order. Optional time (in seconds) between Pokemon.
+    clear | disable | off         -   Clear the Pokemon in the terminal.
+    help                          -   Display this menu.
 
 Wallpaper Parameters:
     pokemon _pikachu               -   Change the wallpaper to the specified Pokemon.
@@ -119,7 +128,7 @@ The result should look like this:
 
 # Adding Custom Images
 
-The folder *Images/Extra* is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only PNG format is supported. To see a list of all the custom backgrounds type:
+The folder *Images/Extra* is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only JPG format is supported. To see a list of all the custom backgrounds type:
 ```
 $ pokemon extra
 ```
@@ -166,8 +175,8 @@ fi
 # Notes & Credits
 
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
-- Originally the images were about 100mb in total but I used [pngquant](https://pngquant.org/) to compress them down to about 30mb.
-- Since the images are compressed, a *few* of them have some mild compression artifacts.
+- Originally the images were about 100mb in total but [ImageOptim](https://imageoptim.com/) was used to compress them down to about 17mb.
+- Since the images are compressed, some of them may have some mild (but negligible) compression artifacts.
 - Thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
@@ -178,3 +187,5 @@ fi
 - Thanks to [@connordinho](https://github.com/connordinho) for enhancing the slideshow functionality.
 - Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class and the main class.
 - Thanks to [@Fiskie](https://github.com/Fiskie) for implementing the adapter design pattern, piping commands and more.
+- Thanks to [@marcobiedermann](https://github.com/marcobiedermann) for better image compression.
+- Thanks to [@kamil157](https://github.com/kamil157) and [@dosman711](https://github.com/dosman711) for the randomized slideshow function.
