@@ -9,6 +9,7 @@ class Pokemon:
     __name = ""
     __region = ""
     __path = ""  # The location of the image.
+    __dark_threshold = 0.5
 
     def __init__(self, identifier, name, region, path):
         self.__id = identifier
