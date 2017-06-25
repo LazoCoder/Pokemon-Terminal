@@ -75,6 +75,8 @@ Other Parameters:
     slideshow-<region> [time]     -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
     rnd-slideshow [time]          -   Iterate through each Pokemon in a random order. Optional time (in seconds) between Pokemon.
     rnd-slideshow-<region> [time] -   Iterate through each Pokemon in the specified region in a random order. Optional time (in seconds) between Pokemon.
+    light                         -   Change the terminal background to a random light-colored Pokemon.
+    dark                          -   Change the terminal background to a random dark-colored Pokemon.
     clear | disable | off         -   Clear the Pokemon in the terminal.
     help                          -   Display this menu.
 
@@ -227,6 +229,24 @@ def single_argument_handler(arg):
         change_terminal_background(db, db.get_random_from_region("hoenn").get_name())
     elif arg == "random-sinnoh":
         change_terminal_background(db, db.get_random_from_region("sinnoh").get_name())
+    elif arg == "light" and escape_code:
+        change_wallpaper(db, db.get_light().get_name())
+    elif arg == "dark" and escape_code:
+        change_wallpaper(db, db.get_dark().get_name())
+    elif arg == "light":
+        change_terminal_background(db, db.get_light())
+    elif arg == "dark":
+        change_terminal_background(db, db.get_dark())
+    elif arg == "slideshow":
+        slideshow(db, 1, 494)
+    elif arg == "slideshow-kanto":
+        slideshow(db, 1, 152)
+    elif arg == "slideshow-johto":
+        slideshow(db, 152, 252)
+    elif arg == "slideshow-hoenn":
+        slideshow(db, 252, 387)
+    elif arg == "slideshow-sinnoh":
+        slideshow(db, 387, 494)
     elif arg.endswith("slideshow"):
         slideshow(db, 1, 494, rand=arg.startswith("rnd"))
     elif arg.endswith("slideshow-kanto"):
