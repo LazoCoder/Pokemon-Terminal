@@ -188,3 +188,4 @@ fi
 - Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class and the main class.
 - Thanks to [@Fiskie](https://github.com/Fiskie) for implementing the adapter design pattern, piping commands and more.
 - Thanks to [@marcobiedermann](https://github.com/marcobiedermann) for better image compression.
+- Thanks to [@kamil157](https://github.com/kamil157) and [@dosman711](https://github.com/dosman711) for the randomized slideshow function.
