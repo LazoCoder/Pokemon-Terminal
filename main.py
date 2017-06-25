@@ -153,7 +153,7 @@ def change_wallpaper(db, arg):
 def multiple_argument_handler(arg, arg2):
     db = Database()
     rand = arg.startswith("rnd")
-    if arg[4:].startswith("slideshow"):
+    if "slideshow" in arg:
         try:
             if arg.endswith("slideshow"):
                 slideshow(db, 1, 494, arg2, rand)
