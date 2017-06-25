@@ -93,7 +93,7 @@ class Database:
         # Get all the Extra Pokemon images available.
         return self.__get_region(None)
 
-    def get_light(self, threshold=0.6, all=False):
+    def get_light(self, threshold=0.4, all=False):
         with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
             lines = [line.strip() for line in data_file.readlines()]
         values = [float(line.split(' ')[1]) for line in lines]
