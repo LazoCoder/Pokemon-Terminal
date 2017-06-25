@@ -93,13 +93,23 @@ class Database:
         # Get all the Extra Pokemon images available.
         return self.__get_region(None)
 
-    def get_light(self):
-        with open(self.directory + "/./Data/light.txt", 'r') as data_file:
-            return int(random.choice([line.strip() for line in data_file.readlines()]))
+    def get_light(self, threshold=0.6, all=False):
+        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
+            lines = [line.strip() for line in data_file.readlines()]
+        values = [float(line.split(' ')[1]) for line in lines]
+        ids = [int(line.split(' ')[0]) for line in lines]
+        light = [ids[i] for i,v in enumerate(values) if v > threshold]
+        names = [self.__pokemon_list[i-1] for i in light]
+        return names if all else random.choice(names)
 
-    def get_dark(self):
-        with open(self.directory + "/./Data/dark.txt", 'r') as data_file:
-            return int(random.choice([line.strip() for line in data_file.readlines()]))
+    def get_dark(self, threshold=0.6, all=False):
+        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
+            lines = [line.strip() for line in data_file.readlines()]
+        values = [float(line.split(' ')[1]) for line in lines]
+        ids = [int(line.split(' ')[0]) for line in lines]
+        dark = [ids[i] for i,v in enumerate(values) if v < threshold]
+        names = [self.__pokemon_list[i-1] for i in dark]
+        return names if all else random.choice(names)
 
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.

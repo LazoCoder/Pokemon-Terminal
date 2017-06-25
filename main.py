@@ -219,13 +219,13 @@ def single_argument_handler(arg):
     elif arg == "random-sinnoh":
         change_terminal_background(db, db.get_random_from_region("sinnoh").get_name())
     elif arg == "light" and escape_code:
-        change_wallpaper(db, db.get_light())
+        change_wallpaper(db, db.get_light().get_name())
     elif arg == "dark" and escape_code:
-        change_wallpaper(db, db.get_dark())
+        change_wallpaper(db, db.get_dark().get_name())
     elif arg == "light":
-        change_terminal_background(db, db.get_light())
+        change_terminal_background(db, db.get_light().get_name())
     elif arg == "dark":
-        change_terminal_background(db, db.get_dark())
+        change_terminal_background(db, db.get_dark().get_name())
     elif arg == "slideshow":
         slideshow(db, 1, 494)
     elif arg == "slideshow-kanto":
