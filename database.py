@@ -161,13 +161,13 @@ class Database:
 
     def __load_data(self):
         # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
-        with open(self.directory + "/./Data/pokemon.txt", 'r') as data_file:
-            for line in data_file:  # Load everything but the Pokemon from the 'Extra' folder.
-                identifier, _, name = line.strip().partition(' ')
-                identifier = '{:03}'.format(int(identifier))
-                region = self.__determine_region(identifier)
-                path = self.__determine_folder(identifier) + "/" + identifier + ".jpg"
-                dark_treshold = 0.5  # TODO: fix me
+        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
+            for i, line in enumerate(data_file):  # Load everything but the Pokemon from the 'Extra' folder.
+                name, _, dark_treshold = line.strip().partition(' ')
+                id = i + 1  # zero-based indexing --> one-based sequence numbers
+                identifier = '{:03}'.format(id)  # zero padded string
+                region = self.__determine_region(id)
+                path = self.__determine_folder(id) + "/" + identifier + ".jpg"
                 pokemon = Pokemon(identifier, name.lower(), region, path, dark_treshold)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
@@ -178,7 +178,7 @@ class Database:
             if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
                 path = self.directory + "/./Images/Extra/" + name + ".jpg"
-                dark_treshold = 0.5  # TODO: fix me
+                dark_treshold = 0.5  # TODO: what should this be for an extra?
                 pokemon = Pokemon(None, name, None, path, dark_treshold)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected. "
