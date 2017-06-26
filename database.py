@@ -170,9 +170,9 @@ class Database:
                 if infix in str(pokemon.get_name())]
 
     def __load_data(self):
-        # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
+        """Load all the Pokemon data. This does not include the 'Extra' Pokemon."""
         with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
-            for i, line in enumerate(data_file):  # Load everything but the Pokemon from the 'Extra' folder.
+            for i, line in enumerate(data_file):
                 name, _, dark_threshold = line.strip().partition(' ')
                 id = i + 1  # zero-based indexing --> one-based sequence numbers
                 identifier = '{:03}'.format(id)  # zero padded string
@@ -183,7 +183,7 @@ class Database:
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
     def __load_extra(self):
-        # Load all the file names of the images in the Extra folder.
+        """Load all the file names of the images in the Extra folder."""
         for file in os.listdir(self.directory + "/./Images/Extra"):
             if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
@@ -197,7 +197,7 @@ class Database:
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
     def __determine_region(self, identifier):
-        # Determine which region a Pokemon is from.
+        """Determine which region a Pokemon is from."""
         identifier = int(identifier)
         if identifier < 1:
             raise Exception("Pokemon ID cannot be less than 1.")
@@ -213,7 +213,7 @@ class Database:
             raise Exception("Pokemon ID cannot be greater than 493.")
 
     def __determine_folder(self, identifier):
-        # Determine which folder a Pokemon is from.
+        """Determine which folder a Pokemon is from."""
         suffix_dict = {"kanto": "I - Kanto",
                        "johto": "II - Johto",
                        "hoenn": "III - Hoenn",
