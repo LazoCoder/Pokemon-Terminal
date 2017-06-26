@@ -11,12 +11,12 @@ class Pokemon:
     __path = ""  # The location of the image.
     __dark_threshold = 0.5
 
-    def __init__(self, identifier, name, region, path, dark_treshold):
+    def __init__(self, identifier, name, region, path, dark_threshold):
         self.__id = identifier
         self.__name = name
         self.__region = region
         self.__path = path
-        self.__dark_treshold = dark_treshold
+        self.__dark_threshold = dark_threshold
 
     def get_id(self):
         # Pokemon from folder 'Extra' have no ID.
@@ -32,8 +32,8 @@ class Pokemon:
         return self.__path
 
     @property
-    def dark_treshold(self):
-        return self.__dark_treshold
+    def dark_threshold(self):
+        return self.__dark_threshold
 
     def is_extra(self):
         return self.__id is None
@@ -173,12 +173,12 @@ class Database:
         # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
         with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
             for i, line in enumerate(data_file):  # Load everything but the Pokemon from the 'Extra' folder.
-                name, _, dark_treshold = line.strip().partition(' ')
+                name, _, dark_threshold = line.strip().partition(' ')
                 id = i + 1  # zero-based indexing --> one-based sequence numbers
                 identifier = '{:03}'.format(id)  # zero padded string
                 region = self.__determine_region(id)
                 path = self.__determine_folder(id) + "/" + identifier + ".jpg"
-                pokemon = Pokemon(identifier, name.lower(), region, path, dark_treshold)
+                pokemon = Pokemon(identifier, name.lower(), region, path, dark_threshold)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
@@ -188,8 +188,8 @@ class Database:
             if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
                 path = self.directory + "/./Images/Extra/" + name + ".jpg"
-                dark_treshold = 0.5  # TODO: what should this be for an extra?
-                pokemon = Pokemon(None, name, None, path, dark_treshold)
+                dark_threshold = 0.5  # TODO: what should this be for an extra?
+                pokemon = Pokemon(None, name, None, path, dark_threshold)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected. "
                                     "The name of the file " + str(name) + ".jpg in the folder 'Extra' must be changed.")
