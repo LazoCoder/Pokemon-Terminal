@@ -24,7 +24,7 @@ Sample Set #1                    |  Sample Set #2
 - Internal search system for finding Pokemon
 - Supports iTerm2, Terminology, Tilix, Terminator<sup>1</sup> and XFCE4Terminal <sup>2</sup>
 
-<sup>1</sup> Config file must exist. This is done by opening the settings dialog, setting a dummy background image  and closing it.
+<sup>1</sup> Config file must exist. This is done by opening the settings dialog, setting a dummy background image  and closing it.  
 <sup>2</sup> Due to the way terminator read its config file, it is *impossible* to update the background image as soon as the command ends. You must either restart terminator (yaiks) or open the settings dialog and closing (no need to touch anything else).
 
 # How to Install
