@@ -2,11 +2,15 @@ from adapter.implementations.ITerm import ITerm
 from adapter.implementations.NullAdapter import NullAdapter
 from adapter.implementations.Terminology import Terminology
 from adapter.implementations.Tilix import Tilix
+from adapter.implementations.XFCE4Terminal import XFCE4Terminal
+from adapter.implementations.Terminator import Terminator
 
 available_terminals = [
     Terminology,
     Tilix,
-    ITerm
+    Terminator,
+    ITerm,
+    XFCE4Terminal
 ]
 
 
