@@ -99,6 +99,16 @@ class Database:
         # Get all the Extra Pokemon images available.
         return self.__get_region(None)
 
+    def get_light(self, threshold=0.4, all=False):
+        light = [pokemon.__name for pokemon in self.__pokemon_list
+                 if pokemon.dark_threshold > threshold]
+        return light if all else random.choice(light)
+
+    def get_dark(self, threshold=0.6, all=False):
+        dark = [pokemon.__name for pokemon in self.__pokemon_list
+                if pokemon.dark_threshold < threshold]
+        return dark if all else random.choice(dark)
+
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.
         return [pokemon for pokemon in self.__pokemon_list
