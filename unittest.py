@@ -2,6 +2,7 @@
 
 from database import Database
 from sys import argv
+import pytest
 
 
 def print_items(items):
@@ -10,7 +11,7 @@ def print_items(items):
         print(item)
 
 
-def test_database_single_arg(arg):
+def _test_database_single_arg(arg):
     # Test the database where there is a single command line parameter.
     # The parameter is the name of the method to test.
     arg = arg[1].lower()
@@ -39,7 +40,7 @@ def test_database_single_arg(arg):
         print("No such public method '" + arg + "' with zero parameters exists in the Database class.")
 
 
-def test_database_double_arg(arg):
+def _test_database_double_arg(arg):
     # Test the database where there are two command line parameters.
     # The first parameter is the name of the method to test.
     # The second parameter is the input parameter for the method that is being test.
@@ -66,12 +67,27 @@ def test_database_double_arg(arg):
         print("No such public method '" + arg + "' with two parameters exists in the Database class.")
 
 
-if __name__ == "__main__":
-    if len(argv) == 1:
+def test_no_args():
+    assert main() == "No command line parameters provided."
+
+    
+def test_len():
+    assert main('__len__') == db.Database.__MAX_ID
+
+
+def test_three_args():
+    assert main(1, 2, 3) == "This module only accepts one or two command line parameters."
+    
+
+def main(args:
+    if len(args) == 0:
         print("No command line parameters provided.")
+    elif len(argv) == 1:
+        _test_database_single_arg(args)
     elif len(argv) == 2:
-        test_database_single_arg(argv)
-    elif len(argv) == 3:
-        test_database_double_arg(argv)
+        _test_database_double_arg(args)
     else:
-        print("This module only takes one command line parameter.")
+        print("This module only accepts one or two command line parameters.")
+
+if __name__ == "__main__":
+    return main(argv[1:])
