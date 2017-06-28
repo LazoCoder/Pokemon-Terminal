@@ -2,7 +2,6 @@
 
 from database import Database
 from sys import argv
-import pytest
 
 
 def print_items(items):
@@ -11,7 +10,7 @@ def print_items(items):
         print(item)
 
 
-def _test_database_single_arg(arg):
+def test_database_single_arg(arg):
     # Test the database where there is a single command line parameter.
     # The parameter is the name of the method to test.
     arg = arg[1].lower()
@@ -40,7 +39,7 @@ def _test_database_single_arg(arg):
         print("No such public method '" + arg + "' with zero parameters exists in the Database class.")
 
 
-def _test_database_double_arg(arg):
+def test_database_double_arg(arg):
     # Test the database where there are two command line parameters.
     # The first parameter is the name of the method to test.
     # The second parameter is the input parameter for the method that is being test.
@@ -63,31 +62,20 @@ def _test_database_double_arg(arg):
         print_items(db.names_with_prefix(arg2))
     elif arg1 == "names_with_infix":
         print_items(db.names_with_infix(arg2))
+    elif arg1 == "get_light":
+        print_items(db.get_light(threshold=int(arg2)/10, all=True))
+    elif arg1 == "get_dark":
+        print_items(db.get_dark(threshold=int(arg2)/10, all=True))
     else:
         print("No such public method '" + arg + "' with two parameters exists in the Database class.")
 
 
-def test_no_args():
-    assert main() == "No command line parameters provided."
-
-    
-def test_len():
-    assert main('__len__') == db.Database.__MAX_ID
-
-
-def test_three_args():
-    assert main(1, 2, 3) == "This module only accepts one or two command line parameters."
-    
-
-def main(args:
-    if len(args) == 0:
-        print("No command line parameters provided.")
-    elif len(argv) == 1:
-        _test_database_single_arg(args)
-    elif len(argv) == 2:
-        _test_database_double_arg(args)
-    else:
-        print("This module only accepts one or two command line parameters.")
-
 if __name__ == "__main__":
-    return main(argv[1:])
+    if len(argv) == 1:
+        print("No command line parameters provided.")
+    elif len(argv) == 2:
+        test_database_single_arg(argv)
+    elif len(argv) == 3:
+        test_database_double_arg(argv)
+    else:
+        print("This module only takes one command line parameter.")
