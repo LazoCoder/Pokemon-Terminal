@@ -13,7 +13,7 @@ before_script:
     # exit-zero treates all errors as warnings.  The GitHub editor is 127 chars wide
     - flake8 . --count --exit-zero --max-line-length=127 --statistics
 script:
-    pytest
+    pytest --capture=sys
     # python unittest.py
 notifications:
     on_success: change
