@@ -1,13 +1,15 @@
 #!/usr/bin/env python -m pytest --capture=sys
 
+from collections import named_tuple
 from database import Database
 from main import main
 
-region_dict = {"kanto": ("I", 1, 151),
-               "johto": ("II", 152, 251),
-               "hoenn": ("III", 252, 386),
-               "sinnoh": ("IV", 387, 493),
-               "extra": ("", 494, 100000)}
+region_record = named_tuple('region_record', 'roman_number start end')
+region_dict = {"kanto": region_record("I", 1, 151),
+               "johto": region_record("II", 152, 251),
+               "hoenn": region_record("III", 252, 386),
+               "sinnoh": region_record("IV", 387, 493),
+               "extra": region_record("", 494, 100000)}
 
 
 def test_no_args(capsys):
@@ -24,7 +26,6 @@ def test_len():
 
 def _test_region(region_name):
     region_name = (region_name or 'extra').lower()
-    _, start, end = region_dict[region_name]
     db = Database()
     # Database unfortunately makes db.__get_region() private :-(
     func = {"kanto": db.get_kanto,
@@ -33,10 +34,11 @@ def _test_region(region_name):
             "sinnoh": db.get_sinnoh,
             "extra": db.get_extra}[region_name]
     pokemon_list = func()
-    _, start, end = region_dict[region_name]
+    region_record = region_dict[region_name]
+    start = region_record.start
+    end = len(db) if region_name == "extra" else region_record.end
     # make sure there are no missing pokemon
-    if region_name != "extra":
-        assert len(pokemon_list) == end - start + 1
+    assert len(pokemon_list) == end - start + 1
     # make sure that all pokemon.id are in the ID range
     assert all([start < int(p.id) < end for p in __pokemon_list])
 
