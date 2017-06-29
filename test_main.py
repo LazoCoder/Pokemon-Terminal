@@ -1,10 +1,10 @@
 #!/usr/bin/env python -m pytest --capture=sys
 
-from collections import named_tuple
+from collections import namedtuple
 from database import Database
 from main import main
 
-region_record = named_tuple('region_record', 'roman_number start end')
+region_record = namedtuple('region_record', 'roman_number start end')
 region_dict = {"kanto": region_record("I", 1, 151),
                "johto": region_record("II", 152, 251),
                "hoenn": region_record("III", 252, 386),
