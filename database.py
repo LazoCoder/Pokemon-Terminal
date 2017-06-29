@@ -59,12 +59,18 @@ class Database:
     """The Database object is a container for all the supported Pokemon."""
     __pokemon_list = []
     __pokemon_dictionary = {}
+    __pokemon_type_dictionary = {}
+    __POKEMON_TYPES = ('normal', 'fire', 'fighting', 'water', 'flying', 'grass', 'poison',
+                       'electric', 'ground', 'psychic', 'rock', 'ice', 'bug', 'dragon', 'ghost',
+                       'dark', 'steel', 'fairy')
     __directory = ""  # The global location of the code.
     __MAX_ID = 493  # Highest possible Pokemon ID.
     __regions = ('kanto', 'johto', 'hoenn', 'sinnoh')
 
     def __init__(self):
         self.directory = os.path.dirname(os.path.realpath(__file__))
+        for pkmn_t in self.__POKEMON_TYPES:
+            self.__pokemon_type_dictionary[pkmn_t] = []
         self.__load_data()
         self.__load_extra()
 
@@ -80,6 +86,15 @@ class Database:
 
     def __len__(self):
         return len(self.__pokemon_list)
+
+    def get_pokemon_types(self):
+        return [t for t in self.__POKEMON_TYPES]
+
+    def get_pokemon_of_type(self, pkmn_type: str, single: bool = True):
+        pkmns = self.__pokemon_type_dictionary.get(pkmn_type)
+        if pkmns is None:
+            return None
+        return random.choice(pkmns) if single else pkmns
 
     def get_all(self):
         # Get all the Pokemon.
@@ -196,6 +211,9 @@ class Database:
                 path = self.__determine_folder(identifier) +"/"+ identifier + ".jpg"
                 pokemon = Pokemon(identifier, name, region, path, pkmn_type,
                                   pkmn_type_secondary, dark_threshold)
+                self.__pokemon_type_dictionary[pkmn_type].append(pokemon)
+                if pkmn_type_secondary != '':
+                    self.__pokemon_type_dictionary[pkmn_type_secondary].append(pokemon)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
