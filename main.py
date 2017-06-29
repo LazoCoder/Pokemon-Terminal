@@ -158,7 +158,7 @@ def change_wallpaper(db, arg):
             scripter.change_wallpaper(suggestions[0])
 
 
-def multiple_argument_handler(arg, arg2):
+def multiple_argument_handler(arg, arg2, escape_code):
     db = Database()
     rand = arg.startswith("rnd")
     if "slideshow" in arg:
@@ -185,7 +185,7 @@ def multiple_argument_handler(arg, arg2):
             print("Invalid type specified")
         else:
             target = db.get_pokemon_of_type(arg2).get_name()
-            if ESCAPE_CODE:
+            if escape_code:
                 change_wallpaper(db, target)
             else:
                 change_terminal_background(db, target)
@@ -194,7 +194,7 @@ def multiple_argument_handler(arg, arg2):
               '\nType "help" to see all the commands.')
 
 
-def single_argument_handler(arg):
+def single_argument_handler(arg, escape_code):
     # Handle the logic for when there is only one command line parameter inputted.
     db = Database()
 
@@ -218,15 +218,15 @@ def single_argument_handler(arg):
         print_columns(db.get_all())
     elif arg in ("clear", "disable", "off"):
         scripter.clear_terminal()
-    elif arg == "random" and ESCAPE_CODE:
+    elif arg == "random" and escape_code:
         change_wallpaper(db, db.get_random().get_name())
-    elif arg == "random-kanto" and ESCAPE_CODE:
+    elif arg == "random-kanto" and escape_code:
         change_wallpaper(db, db.get_random_from_region("kanto").get_name())
-    elif arg == "random-johto" and ESCAPE_CODE:
+    elif arg == "random-johto" and escape_code:
         change_wallpaper(db, db.get_random_from_region("johto").get_name())
-    elif arg == "random-hoenn" and ESCAPE_CODE:
+    elif arg == "random-hoenn" and escape_code:
         change_wallpaper(db, db.get_random_from_region("hoenn").get_name())
-    elif arg == "random-sinnoh" and ESCAPE_CODE:
+    elif arg == "random-sinnoh" and escape_code:
         change_wallpaper(db, db.get_random_from_region("sinnoh").get_name())
     elif arg == "random":
         change_terminal_background(db, db.get_random().get_name())
@@ -238,9 +238,9 @@ def single_argument_handler(arg):
         change_terminal_background(db, db.get_random_from_region("hoenn").get_name())
     elif arg == "random-sinnoh":
         change_terminal_background(db, db.get_random_from_region("sinnoh").get_name())
-    elif arg == "light" and ESCAPE_CODE:
+    elif arg == "light" and escape_code:
         change_wallpaper(db, db.get_light().get_name())
-    elif arg == "dark" and ESCAPE_CODE:
+    elif arg == "dark" and escape_code:
         change_wallpaper(db, db.get_dark().get_name())
     elif arg == "light":
         change_terminal_background(db, db.get_light())
@@ -270,7 +270,7 @@ def single_argument_handler(arg):
         slideshow(db, 387, 494, rand=arg.startswith("rnd"))
     elif arg == "?":
         print("This function is deprecated.")
-    elif ESCAPE_CODE:
+    elif escape_code:
         change_wallpaper(db, arg)
     else:
         change_terminal_background(db, arg)
@@ -285,13 +285,14 @@ if __name__ == "__main__":
     # If there is an escape code, then change the wallpaper, not the terminal.
     if str(argv[1]).startswith("_"):
         ESCAPE_CODE = True
+        argv[1] = argv[1][1:]
     else:
         ESCAPE_CODE = False
 
     if len(argv) == 2:
-        single_argument_handler(argv[1].lower())
+        single_argument_handler(argv[1].lower(), ESCAPE_CODE)
     elif len(argv) == 3:
-        multiple_argument_handler(argv[1].lower(), argv[2])
+        multiple_argument_handler(argv[1].lower(), argv[2], ESCAPE_CODE)
     else:
         print('Invalid number of arguments.'
               '\nType "help" to see all the commands.')
