@@ -10,6 +10,7 @@ region_dict = {"kanto": region_record("I", 1, 151),
                "hoenn": region_record("III", 252, 386),
                "sinnoh": region_record("IV", 387, 493),
                "extra": region_record("", 494, 100000)}
+db = Database()
 
 
 def test_no_args(capsys):
@@ -19,14 +20,13 @@ def test_no_args(capsys):
 
 
 def test_len():
+    # Database unfortunately makes db.__MAX_ID private :-(
     __MAX_ID = 493
-    db = Database()
     assert len(db) == __MAX_ID + len(db.get_extra())
 
 
 def _test_region(region_name):
     region_name = (region_name or 'extra').lower()
-    db = Database()
     # Database unfortunately makes db.__get_region() private :-(
     func = {"kanto": db.get_kanto,
             "johto": db.get_johto,
@@ -39,8 +39,10 @@ def _test_region(region_name):
     end = len(db) if region_name == "extra" else region_record.end
     # make sure there are no missing pokemon
     assert len(pokemon_list) == end - start + 1
+    if region_name == "extra":
+        return
     # make sure that all pokemon.id are in the ID range
-    assert all([start < int(p.id) < end for p in __pokemon_list])
+    assert all([start <= int(p.get_id()) <= end for p in pokemon_list])
 
 
 def test_regions():
