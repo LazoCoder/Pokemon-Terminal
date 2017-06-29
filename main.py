@@ -2,7 +2,6 @@
 
 # The main module that brings everything together.
 
-from sys import argv
 from database import Database
 import random
 import scripter
@@ -265,7 +264,7 @@ def single_argument_handler(arg):
         change_terminal_background(db, arg)
 
 
-if __name__ == "__main__":
+def main(argv):
     # Entrance to the program.
     if len(argv) == 1:
         print('No command line arguments specified.'
@@ -278,3 +277,8 @@ if __name__ == "__main__":
     else:
         print('Invalid number of arguments.'
               '\nType "help" to see all the commands.')
+
+        
+if __name__ == "__main__":
+    # Entrance to the program.
+    main(sys.argv)
