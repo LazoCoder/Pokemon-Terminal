@@ -188,7 +188,7 @@ class Database:
             if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
                 path = self.directory + "/./Images/Extra/" + name + ".jpg"
-                dark_threshold = 0.5  # TODO: what should this be for an extra?
+                dark_threshold = 0.5  # TODO: extra pokemon to not have a dark_threshold?
                 pokemon = Pokemon(None, name, None, path, dark_threshold)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected. "
