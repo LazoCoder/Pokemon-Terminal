@@ -1,7 +1,7 @@
 # This module is for testing the different components of this project.
 
 from database import Database
-from sys import argv
+import sys
 
 
 def print_items(items):
@@ -71,7 +71,7 @@ def test_database_double_arg(arg):
               " exists in the Database class.")
 
 
-if __name__ == "__main__":
+def main(argv):
     if len(argv) == 1:
         print("No command line parameters provided.")
     elif len(argv) == 2:
@@ -80,3 +80,7 @@ if __name__ == "__main__":
         test_database_double_arg(argv)
     else:
         print("This module only takes one command line parameter.")
+
+        
+if __name__ == "__main__":
+    main(sys.argv)
