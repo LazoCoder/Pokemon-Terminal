@@ -9,12 +9,14 @@ class Pokemon:
     __name = ""
     __region = ""
     __path = ""  # The location of the image.
+    __dark_threshold = 0.5
 
-    def __init__(self, identifier, name, region, path):
+    def __init__(self, identifier, name, region, path, dark_threshold):
         self.__id = identifier
         self.__name = name
         self.__region = region
         self.__path = path
+        self.__dark_threshold = dark_threshold
 
     def get_id(self):
         # Pokemon from folder 'Extra' have no ID.
@@ -28,6 +30,10 @@ class Pokemon:
 
     def get_path(self):
         return self.__path
+
+    @property
+    def dark_threshold(self):
+        return self.__dark_threshold
 
     def is_extra(self):
         return self.__id is None
@@ -94,19 +100,13 @@ class Database:
         return self.__get_region(None)
 
     def get_light(self, threshold=0.4, all=False):
-        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
-            lines = [line.strip() for line in data_file.readlines()]
-        values = [float(line.split(' ')[1]) for line in lines]
-        names = [line.split(' ')[0] for line in lines]
-        light = [names[i] for i,v in enumerate(values) if v > threshold]
+        light = [pokemon.__name for pokemon in self.__pokemon_list
+                 if pokemon.dark_threshold > threshold]
         return light if all else random.choice(light)
 
     def get_dark(self, threshold=0.6, all=False):
-        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
-            lines = [line.strip() for line in data_file.readlines()]
-        values = [float(line.split(' ')[1]) for line in lines]
-        names = [line.split(' ')[0] for line in lines]
-        dark = [names[i] for i,v in enumerate(values) if v < threshold]
+        dark = [pokemon.__name for pokemon in self.__pokemon_list
+                if pokemon.dark_threshold < threshold]
         return dark if all else random.choice(dark)
 
     def __get_region(self, region):
@@ -170,24 +170,26 @@ class Database:
                 if infix in str(pokemon.get_name())]
 
     def __load_data(self):
-        # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
-        with open(self.directory + "/./Data/pokemon.txt", 'r') as data_file:
-            for line in data_file:  # Load everything but the Pokemon from the 'Extra' folder.
-                identifier, _, name = line.strip().partition(' ')
-                identifier = '{:03}'.format(int(identifier))
-                region = self.__determine_region(identifier)
-                path = self.__determine_folder(identifier) + "/" + identifier + ".jpg"
-                pokemon = Pokemon(identifier, name.lower(), region, path)
+        """Load all the Pokemon data. This does not include the 'Extra' Pokemon."""
+        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
+            for i, line in enumerate(data_file):
+                name, _, dark_threshold = line.strip().partition(' ')
+                id = i + 1  # zero-based indexing --> one-based sequence numbers
+                identifier = '{:03}'.format(id)  # zero padded string
+                region = self.__determine_region(id)
+                path = self.__determine_folder(id) + "/" + identifier + ".jpg"
+                pokemon = Pokemon(identifier, name.lower(), region, path, dark_threshold)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
     def __load_extra(self):
-        # Load all the file names of the images in the Extra folder.
+        """Load all the file names of the images in the Extra folder."""
         for file in os.listdir(self.directory + "/./Images/Extra"):
             if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
                 path = self.directory + "/./Images/Extra/" + name + ".jpg"
-                pokemon = Pokemon(None, name, None, path)
+                dark_threshold = 0.5  # TODO: extra pokemon to not have a dark_threshold?
+                pokemon = Pokemon(None, name, None, path, dark_threshold)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected. "
                                     "The name of the file " + str(name) + ".jpg in the folder 'Extra' must be changed.")
@@ -195,7 +197,7 @@ class Database:
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
     def __determine_region(self, identifier):
-        # Determine which region a Pokemon is from.
+        """Determine which region a Pokemon is from."""
         identifier = int(identifier)
         if identifier < 1:
             raise Exception("Pokemon ID cannot be less than 1.")
@@ -211,7 +213,7 @@ class Database:
             raise Exception("Pokemon ID cannot be greater than 493.")
 
     def __determine_folder(self, identifier):
-        # Determine which folder a Pokemon is from.
+        """Determine which folder a Pokemon is from."""
         suffix_dict = {"kanto": "I - Kanto",
                        "johto": "II - Johto",
                        "hoenn": "III - Hoenn",
