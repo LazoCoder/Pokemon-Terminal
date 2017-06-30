@@ -1,0 +1,20 @@
+sudo: false
+dist: trusty
+language: python
+python:
+    - "3.5.0"
+    - "3.6.1"
+    - "nightly"  # currently points to 3.7-dev
+install:
+    - pip install flake8, pytest
+before_script:
+    # stop the build if there are Python syntax errors
+    - flake8 . --count --select=E901,E999 --statistics
+    # exit-zero treates all errors as warnings.  The GitHub editor is 127 chars wide
+    - flake8 . --count --exit-zero --max-line-length=127 --statistics
+script:
+    pytest --capture=sys
+    # python unittest.py
+notifications:
+    on_success: change
+on_failure: always
