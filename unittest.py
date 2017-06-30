@@ -63,11 +63,12 @@ def test_database_double_arg(arg):
     elif arg1 == "names_with_infix":
         print_items(db.names_with_infix(arg2))
     elif arg1 == "get_light":
-        print_items(db.get_light(threshold=int(arg2)/10, all=True))
+        print_items(db.get_light(threshold=int(arg2)/10, all_pkmn=True))
     elif arg1 == "get_dark":
-        print_items(db.get_dark(threshold=int(arg2)/10, all=True))
+        print_items(db.get_dark(threshold=int(arg2)/10, all_pkmn=True))
     else:
-        print("No such public method '" + arg + "' with two parameters exists in the Database class.")
+        print("No such public method '" + arg + "' with two parameters"
+              " exists in the Database class.")
 
 
 def main(argv):

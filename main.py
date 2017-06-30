@@ -30,6 +30,11 @@ def print_columns(items):
             rows[index % items_per_column] += name
     print_list(rows)
 
+def print_types(db):
+    print("All existent pokemon types are: ")
+    for x in db.get_pokemon_types():
+        print(x + " - ", end='')
+    print('\b\b\b   ')
 
 def prefix_search(db, arg):
     # Find all Pokemon in database, db, with the prefix, arg.
@@ -76,6 +81,7 @@ Other Parameters:
     rnd-slideshow-<region> [time] -   Iterate through each Pokemon in the specified region in a random order. Optional time (in seconds) between Pokemon.
     light                         -   Change the terminal background to a random light-colored Pokemon.
     dark                          -   Change the terminal background to a random dark-colored Pokemon.
+    type [type]                   -   Random pokemon of [type] omit the type for a list of types.
     clear | disable | off         -   Clear the Pokemon in the terminal.
     help                          -   Display this menu.
 
@@ -151,7 +157,7 @@ def change_wallpaper(db, arg):
             scripter.change_wallpaper(suggestions[0])
 
 
-def multiple_argument_handler(arg, arg2):
+def multiple_argument_handler(arg, arg2, escape_code):
     db = Database()
     rand = arg.startswith("rnd")
     if "slideshow" in arg:
@@ -172,21 +178,24 @@ def multiple_argument_handler(arg, arg2):
         except ValueError:
             print('The slideshow time needs to be a positive number'
                   '\nType "help" to see all the commands.')
+    elif arg.lower() == 'type':
+        arg2 = arg2.lower()
+        if arg2 not in db.get_pokemon_types():
+            print("Invalid type specified")
+        else:
+            target = db.get_pokemon_of_type(arg2).get_name()
+            if escape_code:
+                change_wallpaper(db, target)
+            else:
+                change_terminal_background(db, target)
     else:
         print('Invalid command specified.'
               '\nType "help" to see all the commands.')
 
 
-def single_argument_handler(arg):
+def single_argument_handler(arg, escape_code):
     # Handle the logic for when there is only one command line parameter inputted.
     db = Database()
-
-    # If there is an escape code, then change the wallpaper, not the terminal.
-    if str(arg).startswith("_"):
-        escape_code = True
-        arg = arg[1:]
-    else:
-        escape_code = False
 
     if len(arg) < 3 and arg.isalpha():
         prefix_search(db, arg)
@@ -236,6 +245,8 @@ def single_argument_handler(arg):
         change_terminal_background(db, db.get_light())
     elif arg == "dark":
         change_terminal_background(db, db.get_dark())
+    elif arg in ("type", "types"):
+        print_types(db)
     elif arg == "slideshow":
         slideshow(db, 1, 494)
     elif arg == "slideshow-kanto":
@@ -270,10 +281,18 @@ def main(argv):
         print('No command line arguments specified.'
               '\nTry typing in a Pokemon name or number.'
               '\nOr type "help" to see all the commands.')
-    elif len(argv) == 2:
-        single_argument_handler(argv[1].lower())
+        sys.exit(1)
+    # If there is an escape code, then change the wallpaper, not the terminal.
+    if str(argv[1]).startswith("_"):
+        ESCAPE_CODE = True
+        argv[1] = argv[1][1:]
+    else:
+        ESCAPE_CODE = False
+
+    if len(argv) == 2:
+        single_argument_handler(argv[1].lower(), ESCAPE_CODE)
     elif len(argv) == 3:
-        multiple_argument_handler(argv[1].lower(), argv[2])
+        multiple_argument_handler(argv[1].lower(), argv[2], ESCAPE_CODE)
     else:
         print('Invalid number of arguments.'
               '\nType "help" to see all the commands.')
