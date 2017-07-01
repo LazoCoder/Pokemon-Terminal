@@ -29,7 +29,7 @@ region_dict = {
     'johto': Region(152, 251, 'Generation II - Johto'),
     'hoenn': Region(252, 386, 'Generation III - Hoenn'),
     'sinnoh': Region(387, 493, 'Generation IV - Sinnoh'),
-    'extra': Region(494, 100000, 'Extra')
+    'extra': Region(0, 0, 'Extra')
 }
 
 
@@ -46,12 +46,14 @@ def region_name_by_id(id):
 def make_a_pokemon(i, line):
     id = i + 1
     line = line.strip().split()
-    name, threshold, main_type = line[:3]
-    types = (main_type, line[3]) if len(line) > 3 else (main_type, )
+    while len(line) < 4:  # add '' as the subtype if it is missing
+        line.append('')
+    name, threshold, main_type, subtype = line
     region = region_name_by_id(id)
+    types = (main_type, subtype)
     dir_name = region_dict[region].dir_name
     path = os.path.join(IMAGES_DIR, dir_name, '{:03}.jpg'.format(id))
-    return Pokemon(id, name.title(), region, types, threshold, path)
+    return Pokemon(id, name.lower(), region, types, float(threshold), path)
 
 
 def load_pokemon(filename='pokemon.txt'):
@@ -64,8 +66,7 @@ def make_an_extra_pokemon(filename, in_ext='.png'):
     root, ext = os.path.splitext(filename)
     if ext.lower() == in_ext:
         path = os.path.join(EXTRA_DIR, filename)
-        pokemon = Pokemon(0, root.title(), None, (), 5, path)
-        return pokemon
+        return Pokemon(0, root.lower(), 'extra', ('', ''), 0.5, path)
     assert False, 'Bad file extention: {} != {}'.format(ext, in_ext)
 
 
