@@ -29,7 +29,7 @@ region_dict = {
     'johto': Region(152, 251, 'Generation II - Johto'),
     'hoenn': Region(252, 386, 'Generation III - Hoenn'),
     'sinnoh': Region(387, 493, 'Generation IV - Sinnoh'),
-    'extra': Region(494, 100000, '')
+    'extra': Region(494, 100000, 'Extra')
 }
 
 
