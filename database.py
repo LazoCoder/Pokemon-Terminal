@@ -1,220 +1,148 @@
+#!/usr/bin/env python3
+
 # The Database object is a container for all the supported Pokemon.
 
-import os
 import random
-
-
-class Pokemon:
-    __id = ""  # ID is stored as a string because it must maintain "003" format, not "3".
-    __name = ""
-    __region = ""
-    __path = ""  # The location of the image.
-
-    def __init__(self, identifier, name, region, path):
-        self.__id = identifier
-        self.__name = name
-        self.__region = region
-        self.__path = path
-
-    def get_id(self):
-        # Pokemon from folder 'Extra' have no ID.
-        return "---" if self.is_extra() else self.__id
-
-    def get_name(self):
-        return self.__name
-
-    def get_region(self):
-        return self.__region
-
-    def get_path(self):
-        return self.__path
-
-    def is_extra(self):
-        return self.__id is None
-
-    def __str__(self):
-        if self.is_extra():
-            return "--- " + self.get_name().capitalize() + " at " + self.get_path()
-        else:
-            return self.get_id() + " " + self.get_name().capitalize() + " at " + self.get_path()
+from load_all_pokemon import as_str, load_all_pokemon, region_dict
 
 
 class Database:
-    __pokemon_list = []
-    __pokemon_dictionary = {}
-    __directory = ""  # The global location of the code.
-    __MAX_ID = 493  # Highest possible Pokemon ID.
-    __regions = ('kanto', 'johto', 'hoenn', 'sinnoh')
+    MAX_ID = 493  # Highest possible Pokemon ID.
 
-    def __init__(self):
-        self.directory = os.path.dirname(os.path.realpath(__file__))
-        self.__load_data()
-        self.__load_extra()
+    def __init__(self, pokemon_list=None):
+        self.pokemon_list = pokemon_list or load_all_pokemon()
+        assert self.pokemon_list, 'Failed to load the Pokemon list!!'
+        self.pokemon_dict = {p.name: p for p in self.pokemon_list}
+        assert len(self.pokemon_list) == len(self.pokemon_dict), 'DuplicateErr'
 
     def __str__(self):
-        return "\n".join(str(element) for element in self.__pokemon_list)
+        return '\n'.join(as_str(p) for p in self.pokemon_list)
 
     def __contains__(self, pokemon):
-        # Check for a Pokemon by ID or name.
-        if isinstance(pokemon, int) or str(pokemon).isdigit():
-            return self.pokemon_id_exists(int(pokemon))
-        else:
-            return self.pokemon_name_exists(pokemon)
+        """Check for the presence of a Pokemon by ID or name."""
+        return self.id_exists(pokemon) or self.name_exists(pokemon)
 
     def __len__(self):
-        return len(self.__pokemon_list)
+        return len(self.pokemon_list)
 
-    def get_all(self):
-        # Get all the Pokemon.
-        return [pokemon for pokemon in self.__pokemon_list]
-        # or... return self.__pokemon_list[:]  # return a copy of self.__pokemon_list
+    @property
+    def all_pokemon(self):
+        """Get all the Pokemon. Caution: returns generator expression"""
+        return (p for p in self.pokemon_list)
 
-    def get_regions(self):
-        # Get all the supported regions.
-        return self.__regions
+    def get_light_pokemon(self, threshold=0.4):
+        return (p for p in self.pokemon_list if p.threshold > threshold)
 
-    def get_kanto(self):
-        # Get all the Pokemon from the Kanto region.
-        return self.__get_region("kanto")
+    def get_dark_pokemon(self, threshold=0.6):
+        return (p for p in self.pokemon_list if p.threshold < threshold)
 
-    def get_johto(self):
-        # Get all the Pokemon from the Johto region.
-        return self.__get_region("johto")
+    def get_region(self, region):
+        """Helper method for getting all the Pokemon of a specified region"""
+        assert region in region_dict, 'Invalid region: ' + region
+        return (p for p in self.pokemon_list if p.region == region)
 
-    def get_hoenn(self):
-        # Get all the Pokemon from the Hoenn region.
-        return self.__get_region("hoenn")
+    @property
+    def random_pokemon(self):
+        """Select a random Pokemon from the database."""
+        return random.choice(self.pokemon_list)
 
-    def get_sinnoh(self):
-        # Get all the Pokemon from the Sinnoh region.
-        return self.__get_region("sinnoh")
+    def id_exists(self, identifier):
+        """Check for Pokemon by ID."""
+        try:
+            return 0 < int(identifier) <= self.MAX_ID
+        except (TypeError, ValueError):
+            return False
 
-    def get_extra(self):
-        # Get all the Extra Pokemon images available.
-        return self.__get_region(None)
-
-    def get_light(self, threshold=0.4, all=False):
-        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
-            lines = [line.strip() for line in data_file.readlines()]
-        values = [float(line.split(' ')[1]) for line in lines]
-        names = [line.split(' ')[0] for line in lines]
-        light = [names[i] for i,v in enumerate(values) if v > threshold]
-        return light if all else random.choice(light)
-
-    def get_dark(self, threshold=0.6, all=False):
-        with open(self.directory + "/./Data/light-dark.txt", 'r') as data_file:
-            lines = [line.strip() for line in data_file.readlines()]
-        values = [float(line.split(' ')[1]) for line in lines]
-        names = [line.split(' ')[0] for line in lines]
-        dark = [names[i] for i,v in enumerate(values) if v < threshold]
-        return dark if all else random.choice(dark)
-
-    def __get_region(self, region):
-        # Helper method for getting all the Pokemon of a specified region.
-        return [pokemon for pokemon in self.__pokemon_list
-                if pokemon.get_region() == region]
-
-    def get_random(self):
-        # Select a random Pokemon from the database.
-        return random.choice(self.__pokemon_list)
-
-    def get_random_from_region(self, region):
-        # Get a random Pokemon from a specific region.
-        return random.choice(self.__get_region(region))
-
-    def pokemon_id_exists(self, identifier):
-        # Check for Pokemon by ID.
-        identifier = int(identifier)
-        return 0 < identifier <= self.__MAX_ID
-
-    def pokemon_name_exists(self, name):
-        # Check for Pokemon by Name.
-        return name.lower() in self.__pokemon_dictionary
+    def name_exists(self, name):
+        """Check for Pokemon by Name."""
+        return str(name).lower() in self.pokemon_dict
 
     def get_pokemon(self, pokemon):
-        # Get a Pokemon by name or ID.
-        if not isinstance(pokemon, (int, str)):
-            raise Exception("The parameter Pokemon must be of type integer or string.")
-        if pokemon not in self:
-            raise Exception("No such Pokemon in the database.")
-        if isinstance(pokemon, int) or str(pokemon).isdigit():
-            return self.get_pokemon_by_id(int(pokemon))
+        """Get a Pokemon by name or ID."""
+        if self.id_exists(pokemon):
+            return self.get_pokemon_by_id(pokemon)
         else:
             return self.get_pokemon_by_name(pokemon)
 
+    def get_pokemon_by_id(self, identifier):
+        """Get a Pokemon by its ID.  Will not work for extras (ID==0)."""
+        try:
+            i = int(identifier) - 1  # Minus 1 to convert to 0 based indexing
+        except (TypeError, ValueError):
+            fmt = "The Pokemon ID ({}) must be a number."
+            raise TypeError(fmt.format(identifier))
+        if 0 < i <= self.MAX_ID:
+            return self.pokemon_list[i]
+        else:
+            fmt = "The Pokemon ID ({}) must be between 1 and {} inclusive."
+            raise Exception(fmt.format(identifier, self.MAX_ID))
+
     def get_pokemon_by_name(self, name):
-        # Get a Pokemon by its name.
+        """Get a Pokemon by its name."""
+        pokemon = self.pokemon_dict.get(str(name).lower())
+        if pokemon:
+            return pokemon
         if not isinstance(name, str):
             raise TypeError("The type of name must be a string.")
-        if not self.pokemon_name_exists(name):
-            raise Exception("No such Pokemon in the database.")
-        return self.__pokemon_dictionary[name]
-
-    def get_pokemon_by_id(self, identifier):
-        # Get a Pokemon by its ID.
-        if not isinstance(identifier, int) and not str(identifier).isdigit():
-            raise TypeError("The Pokemon ID must be a number.")
-        identifier = int(identifier)
-        if not self.pokemon_id_exists(identifier):
-            raise Exception("The Pokemon ID must be between 1 and " + str(self.__MAX_ID) + " inclusive.")
-        return self.__pokemon_list[identifier - 1]  # Subtract 1 to convert to 0 base indexing.
-
-    def names_with_prefix(self, prefix):
-        # Return Pokemon who's names begin with the specified prefix.
-        return [pokemon for pokemon in self.__pokemon_list
-                if str(pokemon.get_name()).startswith(prefix)]
-
-    def names_with_infix(self, infix):
-        # Return Pokemon who's names contains the specified infix.
-        return [pokemon for pokemon in self.__pokemon_list
-                if infix in str(pokemon.get_name())]
-
-    def __load_data(self):
-        # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
-        with open(self.directory + "/./Data/pokemon.txt", 'r') as data_file:
-            for line in data_file:  # Load everything but the Pokemon from the 'Extra' folder.
-                identifier, _, name = line.strip().partition(' ')
-                identifier = '{:03}'.format(int(identifier))
-                region = self.__determine_region(identifier)
-                path = self.__determine_folder(identifier) + "/" + identifier + ".jpg"
-                pokemon = Pokemon(identifier, name.lower(), region, path)
-                self.__pokemon_list.append(pokemon)
-                self.__pokemon_dictionary[pokemon.get_name()] = pokemon
-
-    def __load_extra(self):
-        # Load all the file names of the images in the Extra folder.
-        for file in os.listdir(self.directory + "/./Images/Extra"):
-            if file.endswith(".jpg"):
-                name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
-                path = self.directory + "/./Images/Extra/" + name + ".jpg"
-                pokemon = Pokemon(None, name, None, path)
-                if name in self.__pokemon_dictionary:
-                    raise Exception("Duplicate names detected. "
-                                    "The name of the file " + str(name) + ".jpg in the folder 'Extra' must be changed.")
-                self.__pokemon_list.append(pokemon)
-                self.__pokemon_dictionary[pokemon.get_name()] = pokemon
-
-    def __determine_region(self, identifier):
-        # Determine which region a Pokemon is from.
-        identifier = int(identifier)
-        if identifier < 1:
-            raise Exception("Pokemon ID cannot be less than 1.")
-        if identifier < 152:
-            return "kanto"
-        elif identifier < 252:
-            return "johto"
-        elif identifier < 387:
-            return "hoenn"
-        elif identifier < 494:
-            return "sinnoh"
         else:
-            raise Exception("Pokemon ID cannot be greater than 493.")
+            raise Exception("No such Pokemon in the database.")
 
-    def __determine_folder(self, identifier):
-        # Determine which folder a Pokemon is from.
-        suffix_dict = {"kanto": "I - Kanto",
-                       "johto": "II - Johto",
-                       "hoenn": "III - Hoenn",
-                       "sinnoh": "IV - Sinnoh"}
-        suffix = suffix_dict.get(self.__determine_region(identifier))
-        return "{}/./Images/Generation {}".format(self.directory, suffix)
+    def get_pokemon_by_name_infix(self, infix):
+        """Return Pokemon whose name contains the specified infix."""
+        return (pkmn for pkmn in self.pokemon_list if infix in pkmn.name)
+
+    def get_pokemon_by_name_prefix(self, prefix):
+        """Return Pokemon whose name begin with the specified prefix."""
+        return (p for p in self.pokemon_list if p.name.startswith(prefix))
+
+    def get_pokemon_by_type(self, type_name):
+        return (p for p in self.pokemon_list if type_name in p.types)
+
+    def get_pokemon_by_main_type(self, type_name):
+        return (p for p in self.pokemon_list if type_name == p.types[0])
+
+    def get_pokemon_by_subtype(self, type_name):
+        return (p for p in self.pokemon_list if type_name == p.types[1])
+
+    @property
+    def main_types(self):
+        return tuple(
+            sorted(set(p.types[0] for p in self.pokemon_list if p.types[0])))
+
+    @property
+    def subtypes(self):
+        return tuple(
+            sorted(set(p.types[1] for p in self.pokemon_list if p.types[1])))
+
+
+if __name__ == '__main__':
+    db = Database()
+    print(len(db))
+    assert len(db) == 518
+    assert db.name_exists('chimecho'.upper())
+    assert db.id_exists('358')
+    assert db.id_exists(358.742)
+    print(db.get_pokemon_by_name('chimecho'.upper())._asdict())
+    print(db.get_pokemon_by_id('358'))
+    print(db.get_pokemon_by_id(358.742))
+    print()
+    print(db.get_pokemon('chimecho'.upper()))
+    print(db.get_pokemon('358'))
+    print(db.get_pokemon(358.742))
+    print()
+    for _ in range(5):  # test saveral ramdom pokemon
+        pokemon = db.random_pokemon
+        print(pokemon)
+        assert pokemon.name in db
+        assert pokemon == db.get_pokemon_by_name(pokemon.name)
+        assert pokemon in db.get_pokemon_by_name_prefix(pokemon.name[:-1])
+        assert pokemon in db.get_pokemon_by_name_infix(pokemon.name[1:-1])
+    print()
+    print('main_types:', db.main_types)
+    print('  subtypes:', db.subtypes)
+    print(tuple(set(db.main_types) - set(db.subtypes)))
+    print(tuple(set(db.subtypes) - set(db.main_types)))
+    print(len(list(db.get_pokemon_by_type('dragon'))))
+    print(len(list(db.get_pokemon_by_main_type('dragon'))))
+    print(len(list(db.get_pokemon_by_subtype('dragon'))))
+    # print(db)
