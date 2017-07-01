@@ -56,8 +56,8 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 1. Make sure you have Python 3.5+ installed, check the instructions of your distribution.
 2. Make sure you have Terminology or Tilix, again check the package manager of your distribution.
 3. Install
-	- If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
-	- Otherwise, copy and paste the following bash script into a terminal for the installation:
+    - If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
+    - Otherwise, copy and paste the following bash script into a terminal for the installation:
     ```bash
     # Pokemon Installation
     git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
@@ -93,7 +93,7 @@ Other Parameters:
     rnd-slideshow-<region> [time] -   Iterate through each Pokemon in the specified region in a random order. Optional time (in seconds) between Pokemon.
     light                         -   Change the terminal background to a random light-colored Pokemon.
     dark                          -   Change the terminal background to a random dark-colored Pokemon.
-    type [type]			  -   Change to a random pokemon of said type.
+    type [type]                   -   Change to a random pokemon of said type.
     clear | disable | off         -   Clear the Pokemon in the terminal.
     help                          -   Display this menu.
 
