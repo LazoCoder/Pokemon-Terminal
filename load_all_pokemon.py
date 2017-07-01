@@ -54,9 +54,9 @@ def make_a_pokemon(i, line):
     return Pokemon(id, name.title(), region, types, threshold, path)
 
 
-def load_pokemon(filename='p.txt'):
+def load_pokemon(filename='pokemon.txt'):
     """Load everything but the Pokemon from the 'Extra' folder"""
-    with open(os.path.join(SCRIPT_DIR, filename)) as in_file:
+    with open(os.path.join(DATA_DIR, filename)) as in_file:
         return [make_a_pokemon(i, line) for i, line in enumerate(in_file)]
 
 
