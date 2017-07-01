@@ -2,11 +2,12 @@
 
 import os
 import random
-import sys
+
 
 class Pokemon:
     """Class to represent pokemons"""
-    __id = ""  # ID is stored as a string because it must maintain "003" format, not "3".
+    # ID is stored as a string because it must maintain "003" format, not "3".
+    __id = ""
     __name = ""
     __region = ""
     __path = ""  # The location of the image.
@@ -14,7 +15,8 @@ class Pokemon:
     __pkmn_type_secondary = ""
     __dark_threshold = 0.5
 
-    def __init__(self, identifier, name, region, path, pkmn_type, pkmn_type_secondary, dark_threshold):
+    def __init__(self, identifier, name, region, path, pkmn_type,
+                 pkmn_type_secondary, dark_threshold):
         self.__id = identifier
         self.__name = name
         self.__region = region
@@ -50,9 +52,11 @@ class Pokemon:
 
     def __str__(self):
         if self.is_extra():
-            return "--- " + self.get_name().capitalize() + " at " + self.get_path()
+            return "--- " + self.get_name().capitalize() + " at "\
+                    + self.get_path()
         else:
-            return self.get_id() + " " + self.get_name().capitalize() + " at " + self.get_path()
+            return self.get_id() + " " + self.get_name().capitalize() + " at "\
+                    + self.get_path()
 
 
 class Database:
@@ -60,9 +64,10 @@ class Database:
     __pokemon_list = []
     __pokemon_dictionary = {}
     __pokemon_type_dictionary = {}
-    __POKEMON_TYPES = ('normal', 'fire', 'fighting', 'water', 'flying', 'grass', 'poison',
-                       'electric', 'ground', 'psychic', 'rock', 'ice', 'bug', 'dragon', 'ghost',
-                       'dark', 'steel', 'fairy')
+    __POKEMON_TYPES = ('normal', 'fire', 'fighting', 'water', 'flying',
+                       'grass', 'poison', 'electric', 'ground', 'psychic',
+                       'rock', 'ice', 'bug', 'dragon', 'ghost', 'dark',
+                       'steel', 'fairy')
     __directory = ""  # The global location of the code.
     __MAX_ID = 493  # Highest possible Pokemon ID.
     __regions = ('kanto', 'johto', 'hoenn', 'sinnoh')
@@ -99,7 +104,8 @@ class Database:
     def get_all(self):
         # Get all the Pokemon.
         return [pokemon for pokemon in self.__pokemon_list]
-        # or... return self.__pokemon_list[:]  # return a copy of self.__pokemon_list
+        # or... return self.__pokemon_list[:]
+        # return a copy of self.__pokemon_list
 
     def get_regions(self):
         # Get all the supported regions.
@@ -160,7 +166,8 @@ class Database:
     def get_pokemon(self, pokemon):
         # Get a Pokemon by name or ID.
         if not isinstance(pokemon, (int, str)):
-            raise Exception("The parameter Pokemon must be of type integer or string.")
+            raise Exception("The parameter Pokemon must be of type integer" +
+                            " or string.")
         if pokemon not in self:
             raise Exception("No such Pokemon in the database.")
         if isinstance(pokemon, int) or str(pokemon).isdigit():
@@ -182,8 +189,10 @@ class Database:
             raise TypeError("The Pokemon ID must be a number.")
         identifier = int(identifier)
         if not self.pokemon_id_exists(identifier):
-            raise Exception("The Pokemon ID must be between 1 and " + str(self.__MAX_ID) + " inclusive.")
-        return self.__pokemon_list[identifier - 1]  # Subtract 1 to convert to 0 base indexing.
+            raise Exception("The Pokemon ID must be between 1 and " +
+                            str(self.__MAX_ID) + " inclusive.")
+        # Subtract 1 to convert to 0 base indexing.
+        return self.__pokemon_list[identifier - 1]
 
     def names_with_prefix(self, prefix):
         # Return Pokemon who's names begin with the specified prefix.
@@ -205,15 +214,17 @@ class Database:
                 name = pkmn_data[0]
                 dark_threshold = pkmn_data[1]
                 pkmn_type = pkmn_data[2]
-                pkmn_type_secondary = pkmn_data[3] if len(pkmn_data) >= 4 else ""
+                pkmn_type_snd = pkmn_data[3] if len(pkmn_data) >= 4 else ""
                 identifier = '{:03}'.format(identifier)
                 region = self.__determine_region(identifier)
-                path = self.__determine_folder(identifier) +"/"+ identifier + ".jpg"
+                path = self.__determine_folder(identifier) + "/" + identifier\
+                    + ".jpg"
                 pokemon = Pokemon(identifier, name, region, path, pkmn_type,
-                                  pkmn_type_secondary, dark_threshold)
+                                  pkmn_type_snd, dark_threshold)
                 self.__pokemon_type_dictionary[pkmn_type].append(pokemon)
-                if pkmn_type_secondary != '':
-                    self.__pokemon_type_dictionary[pkmn_type_secondary].append(pokemon)
+                if pkmn_type_snd != '':
+                    self.__pokemon_type_dictionary[pkmn_type_snd]\
+                            .append(pokemon)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
@@ -221,14 +232,21 @@ class Database:
         """Load all the file names of the images in the Extra folder."""
         for file in os.listdir(self.directory + "/./Images/Extra"):
             if file.endswith(".jpg"):
-                name = os.path.join("/Images/Extra", file).split('/')[-1][0:-4].lower()
+                name = os.path.join("/Images/Extra", file)\
+                        .split('/')[-1][0:-4].lower()
                 path = self.directory + "/Images/Extra/" + name + ".jpg"
-                father = self.__pokemon_dictionary[name.split("-")[0]]
-                pokemon = Pokemon(None, name, father.get_region(), path, father.get_pkmn_type(),
-                                  father.get_pkmn_type_secondary(), father.get_dark_threshold())
+                father = self.__pokemon_dictionary.get(name.split("-")[0])
+                if father is not None:
+                    pokemon = Pokemon(None, name, father.get_region(),
+                                      path, father.get_pkmn_type(),
+                                      father.get_pkmn_type_secondary(),
+                                      father.get_dark_threshold())
+                else:
+                    Pokemon(None, name, None, path, None, None, None)
                 if name in self.__pokemon_dictionary:
-                    raise Exception("Duplicate names detected.\nThe name of the file " +
-                                    str(name) + ".jpg in the folder 'Extra' must be changed.")
+                    raise Exception("Duplicate names detected.\nThe name of "
+                                    + "the file " + str(name) + ".jpg in the "
+                                    + "folder 'Extra' must be changed.")
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
