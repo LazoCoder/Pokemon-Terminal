@@ -49,7 +49,7 @@ class Database:
     def id_exists(self, identifier):
         """Check for Pokemon by ID."""
         try:
-            return 0 < int(identifier) <= self.MAX_ID
+            return 0 < int(float(identifier)) <= self.MAX_ID
         except (TypeError, ValueError):
             return False
 
@@ -67,7 +67,8 @@ class Database:
     def get_pokemon_by_id(self, identifier):
         """Get a Pokemon by its ID.  Will not work for extras (ID==0)."""
         try:
-            i = int(identifier) - 1  # Minus 1 to convert to 0 based indexing
+            i = int(float(
+                identifier)) - 1  # Minus 1 to convert to 0 based indexing
         except (TypeError, ValueError):
             fmt = "The Pokemon ID ({}) must be a number."
             raise TypeError(fmt.format(identifier))
@@ -120,14 +121,14 @@ if __name__ == '__main__':
     print(len(db))
     assert len(db) == 518
     assert db.name_exists('chimecho'.upper())
-    assert db.id_exists('358')
+    assert db.id_exists('358.742')
     assert db.id_exists(358.742)
     print(db.get_pokemon_by_name('chimecho'.upper())._asdict())
-    print(db.get_pokemon_by_id('358'))
+    print(db.get_pokemon_by_id('358.742'))
     print(db.get_pokemon_by_id(358.742))
     print()
     print(db.get_pokemon('chimecho'.upper()))
-    print(db.get_pokemon('358'))
+    print(db.get_pokemon('358.742'))
     print(db.get_pokemon(358.742))
     print()
     for _ in range(5):  # test saveral ramdom pokemon
