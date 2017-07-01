@@ -26,10 +26,10 @@ pikachu     0.851867   electric
 raichu      0.751316   electric
 sandshrew   0.77978    ground
 sandslash   0.730616   ground
-nidoran     0.759855   poison
+nidoran-f   0.759855   poison
 nidorina    0.681913   poison
 nidoqueen   0.633158   poison    ground
-nidoran     0.414212   poison
+nidoran-m   0.414212   poison
 nidorino    0.535174   poison
 nidoking    0.487512   poison    ground
 clefairy    0.839059   fairy
