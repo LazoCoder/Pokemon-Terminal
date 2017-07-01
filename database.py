@@ -61,8 +61,6 @@ class Pokemon:
 
 class Database:
     """The Database object is a container for all the supported Pokemon."""
-    __pokemon_list = []
-    __pokemon_dictionary = {}
     __pokemon_type_dictionary = {}
     __POKEMON_TYPES = ('normal', 'fire', 'fighting', 'water', 'flying',
                        'grass', 'poison', 'electric', 'ground', 'psychic',
@@ -73,6 +71,8 @@ class Database:
     __regions = ('kanto', 'johto', 'hoenn', 'sinnoh')
 
     def __init__(self):
+        self.__pokemon_list = []
+        self.__pokemon_dictionary = {}
         self.directory = os.path.dirname(os.path.realpath(__file__))
         for pkmn_t in self.__POKEMON_TYPES:
             self.__pokemon_type_dictionary[pkmn_t] = []
