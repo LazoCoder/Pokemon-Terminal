@@ -281,7 +281,7 @@ def main(argv):
         print('No command line arguments specified.'
               '\nTry typing in a Pokemon name or number.'
               '\nOr type "help" to see all the commands.')
-        sys.exit(1)
+        return
     # If there is an escape code, then change the wallpaper, not the terminal.
     if str(argv[1]).startswith("_"):
         ESCAPE_CODE = True
@@ -297,7 +297,7 @@ def main(argv):
         print('Invalid number of arguments.'
               '\nType "help" to see all the commands.')
 
-        
+
 if __name__ == "__main__":
     # Entrance to the program.
     main(sys.argv)

@@ -129,7 +129,7 @@ class Database:
 
     def get_extra(self):
         # Get all the Extra Pokemon images available.
-        return self.__get_region(None)
+        return [p for p in self.__pokemon_list if p.is_extra()]
 
     def get_light(self, threshold=0.4, all_pkmn=False):
         light = [pokemon.get_name() for pokemon in self.__pokemon_list
@@ -144,7 +144,7 @@ class Database:
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.
         return [pokemon for pokemon in self.__pokemon_list
-                if pokemon.get_region() == region]
+                if pokemon.get_region() == region and not pokemon.is_extra()]
 
     def get_random(self):
         # Select a random Pokemon from the database.
@@ -230,7 +230,7 @@ class Database:
 
     def __load_extra(self):
         """Load all the file names of the images in the Extra folder."""
-        for file in os.listdir(self.directory + "/./Images/Extra"):
+        for file in os.listdir(self.directory + "/Images/Extra"):
             if file.endswith(".jpg"):
                 name = os.path.join("/Images/Extra", file)\
                         .split('/')[-1][0:-4].lower()
@@ -242,7 +242,7 @@ class Database:
                                       father.get_pkmn_type_secondary(),
                                       father.get_dark_threshold())
                 else:
-                    Pokemon(None, name, None, path, None, None, None)
+                    pokemon = Pokemon(None, name, None, path, None, None, None)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected.\nThe name of "
                                     + "the file " + str(name) + ".jpg in the "
