@@ -234,8 +234,7 @@ class Database:
         for file in os.listdir(extra_dir):
             name, ext = os.path.splitext(file.lower())
             if ext == '.jpg':
-                path = os.path.join(self.directory, 'Images', 'Extra',
-                                    name + ext)
+                path = os.path.join(extra_dir, file)
                 father = self.__pokemon_dictionary.get(name.split("-")[0])
                 if father is not None:
                     pokemon = Pokemon(None, name, father.get_region(),
