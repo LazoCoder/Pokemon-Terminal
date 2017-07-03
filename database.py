@@ -27,7 +27,7 @@ class Pokemon:
 
     def get_id(self):
         # Pokemon from folder 'Extra' have no ID.
-        return "---" if self.is_extra() else self.__id
+        return self.__id or "---"
 
     def get_name(self):
         return self.__name
@@ -51,12 +51,8 @@ class Pokemon:
         return self.__id is None
 
     def __str__(self):
-        if self.is_extra():
-            return "--- " + self.get_name().capitalize() + " at "\
-                    + self.get_path()
-        else:
-            return self.get_id() + " " + self.get_name().capitalize() + " at "\
-                    + self.get_path()
+        name = self.get_name().title()
+        return self.get_id() + " " + name + " at " + self.get_path()
 
 
 class Database:
@@ -168,6 +164,8 @@ class Database:
         if not isinstance(pokemon, (int, str)):
             raise Exception("The parameter Pokemon must be of type integer" +
                             " or string.")
+        if isinstance(pokemon, str):
+            pokemon = pokemon.lower()
         if pokemon not in self:
             raise Exception("No such Pokemon in the database.")
         if isinstance(pokemon, int) or str(pokemon).isdigit():
