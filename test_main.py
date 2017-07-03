@@ -22,6 +22,7 @@ def test_no_args(capsys):
 def test_len():
     # Database unfortunately makes db.__MAX_ID private :-(
     __MAX_ID = 493
+    assert len(db) == __MAX_ID + len(db.get_extra())
     assert len(db.get_all()) == __MAX_ID + len(db.get_extra())
 
 

@@ -230,11 +230,12 @@ class Database:
 
     def __load_extra(self):
         """Load all the file names of the images in the Extra folder."""
-        for file in os.listdir(self.directory + "/Images/Extra"):
-            if file.endswith(".jpg"):
-                name = os.path.join("/Images/Extra", file)\
-                        .split('/')[-1][0:-4].lower()
-                path = self.directory + "/Images/Extra/" + name + ".jpg"
+        extra_dir = os.path.join(self.directory, "Images", "Extra")
+        for file in os.listdir(extra_dir):
+            name, ext = os.path.splitext(file.lower())
+            if ext == '.jpg':
+                path = os.path.join(self.directory, 'Images', 'Extra',
+                                    name + ext)
                 father = self.__pokemon_dictionary.get(name.split("-")[0])
                 if father is not None:
                     pokemon = Pokemon(None, name, father.get_region(),
