@@ -108,8 +108,8 @@ def slideshow(db, start, end, seconds="0.25", rand=False):
         random.shuffle(r)
     try:
         for x in r:
-            pokemon = db.get_pokemon(x)
-            scripter.change_terminal(pokemon)
+            image_file_path = db.get_pokemon(x).get_path()
+            scripter.change_terminal(image_file_path)
             time.sleep(delay)
     except KeyboardInterrupt:
         print("Program was terminated.")
@@ -120,41 +120,36 @@ def change_terminal_background(db, arg):
     # Change the terminal background to the specified Pokemon, if it exists.
     if arg in db:
         pokemon = db.get_pokemon(arg)
-        scripter.change_terminal(pokemon)
+        scripter.change_terminal(pokemon.get_path())
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
-        if len(suggestions) == 0:
+        try:
+            pokemon = suggestions[0]
+            scripter.change_terminal(pokemon.get_path())
+            print("Did you mean {}?".format(pokemon.get_name().title()))
+            if suggestions[1:]:
+                print("Other suggestions:")
+                print_columns(suggestions[1:])
+        except IndexError:
             print("No such Pokemon was found and no suggestions are available.")
-        elif len(suggestions) == 1:
-            scripter.change_terminal(suggestions[0])
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            scripter.change_terminal(suggestions[0])
-        else:
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            print("Other suggestions:")
-            print_columns(suggestions[1:])
-            scripter.change_terminal(suggestions[0])
 
 
 def change_wallpaper(db, arg):
     # Change the wallpaper to the specified Pokemon, if it exists.
     if arg in db:
         pokemon = db.get_pokemon(arg)
-        scripter.change_wallpaper(pokemon)
+        scripter.change_wallpaper(pokemon.get_path())
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
-        if len(suggestions) == 0:
+        try:
+            pokemon = suggestions[0]
+            scripter.change_wallpaper(pokemon.get_path())
+            print("Did you mean {}?".format(pokemon.get_name().title()))
+            if suggestions[1:]:  # if there are other suggestions
+                print("Other suggestions:")
+                print_columns(suggestions[1:])
+        except IndexError:
             print("No such Pokemon was found and no suggestions are available.")
-        elif len(suggestions) == 1:
-            scripter.change_wallpaper(suggestions[0])
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            scripter.change_wallpaper(suggestions[0])
-        else:
-            print("Result: " + arg)
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            print("Other suggestions:")
-            print_columns(suggestions[1:])
-            scripter.change_wallpaper(suggestions[0])
 
 
 def multiple_argument_handler(arg, arg2, escape_code):
