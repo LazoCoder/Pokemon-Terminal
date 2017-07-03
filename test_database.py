@@ -7,12 +7,7 @@ from database import Database
 import os
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
-tuple_store = False
-try:
-    MAX_ID = Database.MAX_ID
-    tuple_store = True
-except AttributeError:
-    MAX_ID = 493  # Old Database makes db.__MAX_ID private :-(
+MAX_ID = 493
 
 region_info = namedtuple('region_info', 'start end')
 region_dict = {
@@ -68,10 +63,6 @@ def test_extra_counts():
 
 def test_get_extras():
     db = Database()
-    # if tuple_store:
-    #    assert db.get_region(
-    #        'extra'), "db.get_region('extra') returns no pokemon"
-    # else:
     assert db.get_extra(), 'db.get_extra() returns no pokemon'
     assert db.get_extra() == sum(extra_counts.values())
 
