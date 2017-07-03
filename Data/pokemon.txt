@@ -1,493 +1,493 @@
-1 Bulbasaur
-2 Ivysaur
-3 Venusaur
-4 Charmander
-5 Charmeleon
-6 Charizard
-7 Squirtle
-8 Wartortle
-9 Blastoise
-10 Caterpie
-11 Metapod
-12 Butterfree
-13 Weedle
-14 Kakuna
-15 Beedrill
-16 Pidgey
-17 Pidgeotto
-18 Pidgeot
-19 Rattata
-20 Raticate
-21 Spearow
-22 Fearow
-23 Ekans
-24 Arbok
-25 Pikachu
-26 Raichu
-27 Sandshrew
-28 Sandslash
-29 Nidoran
-30 Nidorina
-31 Nidoqueen
-32 Nidoran
-33 Nidorino
-34 Nidoking
-35 Clefairy
-36 Clefable
-37 Vulpix
-38 Ninetales
-39 Jigglypuff
-40 Wigglytuff
-41 Zubat
-42 Golbat
-43 Oddish
-44 Gloom
-45 Vileplume
-46 Paras
-47 Parasect
-48 Venonat
-49 Venomoth
-50 Diglett
-51 Dugtrio
-52 Meowth
-53 Persian
-54 Psyduck
-55 Golduck
-56 Mankey
-57 Primeape
-58 Growlithe
-59 Arcanine
-60 Poliwag
-61 Poliwhirl
-62 Poliwrath
-63 Abra
-64 Kadabra
-65 Alakazam
-66 Machop
-67 Machoke
-68 Machamp
-69 Bellsprout
-70 Weepinbell
-71 Victreebel
-72 Tentacool
-73 Tentacruel
-74 Geodude
-75 Graveler
-76 Golem
-77 Ponyta
-78 Rapidash
-79 Slowpoke
-80 Slowbro
-81 Magnemite
-82 Magneton
-83 Farfetch'd
-84 Doduo
-85 Dodrio
-86 Seel
-87 Dewgong
-88 Grimer
-89 Muk
-90 Shellder
-91 Cloyster
-92 Gastly
-93 Haunter
-94 Gengar
-95 Onix
-96 Drowzee
-97 Hypno
-98 Krabby
-99 Kingler
-100 Voltorb
-101 Electrode
-102 Exeggcute
-103 Exeggutor
-104 Cubone
-105 Marowak
-106 Hitmonlee
-107 Hitmonchan
-108 Lickitung
-109 Koffing
-110 Weezing
-111 Rhyhorn
-112 Rhydon
-113 Chansey
-114 Tangela
-115 Kangaskhan
-116 Horsea
-117 Seadra
-118 Goldeen
-119 Seaking
-120 Staryu
-121 Starmie
-122 Mr. Mime
-123 Scyther
-124 Jynx
-125 Electabuzz
-126 Magmar
-127 Pinsir
-128 Tauros
-129 Magikarp
-130 Gyarados
-131 Lapras
-132 Ditto
-133 Eevee
-134 Vaporeon
-135 Jolteon
-136 Flareon
-137 Porygon
-138 Omanyte
-139 Omastar
-140 Kabuto
-141 Kabutops
-142 Aerodactyl
-143 Snorlax
-144 Articuno
-145 Zapdos
-146 Moltres
-147 Dratini
-148 Dragonair
-149 Dragonite
-150 Mewtwo
-151 Mew
-152 Chikorita
-153 Bayleef
-154 Meganium
-155 Cyndaquil
-156 Quilava
-157 Typhlosion
-158 Totodile
-159 Croconaw
-160 Feraligatr
-161 Sentret
-162 Furret
-163 Hoothoot
-164 Noctowl
-165 Ledyba
-166 Ledian
-167 Spinarak
-168 Ariados
-169 Crobat
-170 Chinchou
-171 Lanturn
-172 Pichu
-173 Cleffa
-174 Igglybuff
-175 Togepi
-176 Togetic
-177 Natu
-178 Xatu
-179 Mareep
-180 Flaaffy
-181 Ampharos
-182 Bellossom
-183 Marill
-184 Azumarill
-185 Sudowoodo
-186 Politoed
-187 Hoppip
-188 Skiploom
-189 Jumpluff
-190 Aipom
-191 Sunkern
-192 Sunflora
-193 Yanma
-194 Wooper
-195 Quagsire
-196 Espeon
-197 Umbreon
-198 Murkrow
-199 Slowking
-200 Misdreavus
-201 Unown
-202 Wobbuffet
-203 Girafarig
-204 Pineco
-205 Forretress
-206 Dunsparce
-207 Gligar
-208 Steelix
-209 Snubbull
-210 Granbull
-211 Qwilfish
-212 Scizor
-213 Shuckle
-214 Heracross
-215 Sneasel
-216 Teddiursa
-217 Ursaring
-218 Slugma
-219 Magcargo
-220 Swinub
-221 Piloswine
-222 Corsola
-223 Remoraid
-224 Octillery
-225 Delibird
-226 Mantine
-227 Skarmory
-228 Houndour
-229 Houndoom
-230 Kingdra
-231 Phanpy
-232 Donphan
-233 Porygon2
-234 Stantler
-235 Smeargle
-236 Tyrogue
-237 Hitmontop
-238 Smoochum
-239 Elekid
-240 Magby
-241 Miltank
-242 Blissey
-243 Raikou
-244 Entei
-245 Suicune
-246 Larvitar
-247 Pupitar
-248 Tyranitar
-249 Lugia
-250 Ho-Oh
-251 Celebi
-252 Treecko
-253 Grovyle
-254 Sceptile
-255 Torchic
-256 Combusken
-257 Blaziken
-258 Mudkip
-259 Marshtomp
-260 Swampert
-261 Poochyena
-262 Mightyena
-263 Zigzagoon
-264 Linoone
-265 Wurmple
-266 Silcoon
-267 Beautifly
-268 Cascoon
-269 Dustox
-270 Lotad
-271 Lombre
-272 Ludicolo
-273 Seedot
-274 Nuzleaf
-275 Shiftry
-276 Taillow
-277 Swellow
-278 Wingull
-279 Pelipper
-280 Ralts
-281 Kirlia
-282 Gardevoir
-283 Surskit
-284 Masquerain
-285 Shroomish
-286 Breloom
-287 Slakoth
-288 Vigoroth
-289 Slaking
-290 Nincada
-291 Ninjask
-292 Shedinja
-293 Whismur
-294 Loudred
-295 Exploud
-296 Makuhita
-297 Hariyama
-298 Azurill
-299 Nosepass
-300 Skitty
-301 Delcatty
-302 Sableye
-303 Mawile
-304 Aron
-305 Lairon
-306 Aggron
-307 Meditite
-308 Medicham
-309 Electrike
-310 Manectric
-311 Plusle
-312 Minun
-313 Volbeat
-314 Illumise
-315 Roselia
-316 Gulpin
-317 Swalot
-318 Carvanha
-319 Sharpedo
-320 Wailmer
-321 Wailord
-322 Numel
-323 Camerupt
-324 Torkoal
-325 Spoink
-326 Grumpig
-327 Spinda
-328 Trapinch
-329 Vibrava
-330 Flygon
-331 Cacnea
-332 Cacturne
-333 Swablu
-334 Altaria
-335 Zangoose
-336 Seviper
-337 Lunatone
-338 Solrock
-339 Barboach
-340 Whiscash
-341 Corphish
-342 Crawdaunt
-343 Baltoy
-344 Claydol
-345 Lileep
-346 Cradily
-347 Anorith
-348 Armaldo
-349 Feebas
-350 Milotic
-351 Castform
-352 Kecleon
-353 Shuppet
-354 Banette
-355 Duskull
-356 Dusclops
-357 Tropius
-358 Chimecho
-359 Absol
-360 Wynaut
-361 Snorunt
-362 Glalie
-363 Spheal
-364 Sealeo
-365 Walrein
-366 Clamperl
-367 Huntail
-368 Gorebyss
-369 Relicanth
-370 Luvdisc
-371 Bagon
-372 Shelgon
-373 Salamence
-374 Beldum
-375 Metang
-376 Metagross
-377 Regirock
-378 Regice
-379 Registeel
-380 Latias
-381 Latios
-382 Kyogre
-383 Groudon
-384 Rayquaza
-385 Jirachi
-386 Deoxys
-387 Turtwig
-388 Grotle
-389 Torterra
-390 Chimchar
-391 Monferno
-392 Infernape
-393 Piplup
-394 Prinplup
-395 Empoleon
-396 Starly
-397 Staravia
-398 Staraptor
-399 Bidoof
-400 Bibarel
-401 Kricketot
-402 Kricketune
-403 Shinx
-404 Luxio
-405 Luxray
-406 Budew
-407 Roserade
-408 Cranidos
-409 Rampardos
-410 Shieldon
-411 Bastiodon
-412 Burmy
-413 Wormadam
-414 Mothim
-415 Combee
-416 Vespiquen
-417 Pachirisu
-418 Buizel
-419 Floatzel
-420 Cherubi
-421 Cherrim
-422 Shellos
-423 Gastrodon
-424 Ambipom
-425 Drifloon
-426 Drifblim
-427 Buneary
-428 Lopunny
-429 Mismagius
-430 Honchkrow
-431 Glameow
-432 Purugly
-433 Chingling
-434 Stunky
-435 Skuntank
-436 Bronzor
-437 Bronzong
-438 Bonsly
-439 Mime Jr.
-440 Happiny
-441 Chatot
-442 Spiritomb
-443 Gible
-444 Gabite
-445 Garchomp
-446 Munchlax
-447 Riolu
-448 Lucario
-449 Hippopotas
-450 Hippowdon
-451 Skorupi
-452 Drapion
-453 Croagunk
-454 Toxicroak
-455 Carnivine
-456 Finneon
-457 Lumineon
-458 Mantyke
-459 Snover
-460 Abomasnow
-461 Weavile
-462 Magnezone
-463 Lickilicky
-464 Rhyperior
-465 Tangrowth
-466 Electivire
-467 Magmortar
-468 Togekiss
-469 Yanmega
-470 Leafeon
-471 Glaceon
-472 Gliscor
-473 Mamoswine
-474 Porygon-Z
-475 Gallade
-476 Probopass
-477 Dusknoir
-478 Froslass
-479 Rotom
-480 Uxie
-481 Mesprit
-482 Azelf
-483 Dialga
-484 Palkia
-485 Heatran
-486 Regigigas
-487 Giratina
-488 Cresselia
-489 Phione
-490 Manaphy
-491 Darkrai
-492 Shaymin
-493 Arceus
+bulbasaur   0.61604    grass     poison
+ivysaur     0.462721   grass     poison
+venusaur    0.5451     grass     poison
+charmander  0.724984   fire
+charmeleon  0.491232   fire
+charizard   0.601881   fire      flying
+squirtle    0.708672   water
+wartortle   0.748101   water
+blastoise   0.64938    water
+caterpie    0.718227   bug
+metapod     0.621901   bug
+butterfree  0.630765   bug       flying
+weedle      0.638418   bug       poison
+kakuna      0.773358   bug       poison
+beedrill    0.802686   bug       poison
+pidgey      0.460133   normal    flying
+pidgeotto   0.906494   normal    flying
+pidgeot     0.887968   normal    flying
+rattata     0.478938   normal
+raticate    0.640308   normal
+spearow     0.459023   normal    flying
+fearow      0.488446   normal    flying
+ekans       0.463613   poison
+arbok       0.589331   poison
+pikachu     0.851867   electric
+raichu      0.751316   electric
+sandshrew   0.77978    ground
+sandslash   0.730616   ground
+nidoran-f   0.759855   poison
+nidorina    0.681913   poison
+nidoqueen   0.633158   poison    ground
+nidoran-m   0.414212   poison
+nidorino    0.535174   poison
+nidoking    0.487512   poison    ground
+clefairy    0.839059   fairy
+clefable    0.863238   fairy
+vulpix      0.555764   fire
+ninetales   0.92374    fire
+jigglypuff  0.800818   normal    fairy
+wigglytuff  0.777334   normal    fairy
+zubat       0.463772   poison    flying
+golbat      0.376687   poison    flying
+oddish      0.477076   grass     poison
+gloom       0.558871   grass     poison
+vileplume   0.386918   grass     poison
+paras       0.602374   bug       grass
+parasect    0.571063   bug       grass
+venonat     0.38278    bug       poison
+venomoth    0.642519   bug       poison
+diglett     0.561415   ground
+dugtrio     0.476553   ground
+meowth      0.91165    normal
+persian     0.861286   normal
+psyduck     0.798752   water
+golduck     0.674705   water
+mankey      0.902441   fighting
+primeape    0.89772    fighting
+growlithe   0.65431    fire
+arcanine    0.864944   fire
+poliwag     0.535375   water
+poliwhirl   0.550271   water
+poliwrath   0.577639   water     fighting
+abra        0.82454    psychic
+kadabra     0.852543   psychic
+alakazam    0.797661   psychic
+machop      0.755805   fighting
+machoke     0.623455   fighting
+machamp     0.670823   fighting
+bellsprout  0.817864   grass     poison
+weepinbell  0.864195   grass     poison
+victreebel  0.84222    grass     poison
+tentacool   0.649035   water     poison
+tentacruel  0.0574754  water     poison
+geodude     0.645383   rock      ground
+graveler    0.697487   rock      ground
+golem       0.558651   rock      ground
+ponyta      0.827553   fire
+rapidash    0.8708     fire
+slowpoke    0.72033    water     psychic
+slowbro     0.683053   water     psychic
+magnemite   0.705858   electric  steel
+magneton    0.708434   electric  steel
+farfetch'd  0.595665   normal    flying
+doduo       0.619222   normal    flying
+dodrio      0.62457    normal    flying
+seel        0.931629   water
+dewgong     0.858439   water     ice
+grimer      0.500468   poison
+muk         0.467463   poison
+shellder    0.501135   water
+cloyster    0.483847   water     ice
+gastly      0.43826    ghost     poison
+haunter     0.485071   ghost     poison
+gengar      0.274986   ghost     poison
+onix        0.564071   rock      ground
+drowzee     0.728724   psychic
+hypno       0.839396   psychic
+krabby      0.852155   water
+kingler     0.795094   water
+voltorb     0.322391   electric
+electrode   0.98033    electric
+exeggcute   0.863465   grass     psychic
+exeggutor   0.588666   grass     psychic
+cubone      0.724451   ground
+marowak     0.706728   ground
+hitmonlee   0.562188   fighting
+hitmonchan  0.701743   fighting
+lickitung   0.723693   normal
+koffing     0.63856    poison
+weezing     0.658479   poison
+rhyhorn     0.687025   ground    rock
+rhydon      0.628743   ground    rock
+chansey     0.858906   normal
+tangela     0.528551   grass
+kangaskhan  0.51619    normal
+horsea      0.775569   water
+seadra      0.741227   water
+goldeen     0.944483   water
+seaking     0.516814   water
+staryu      0.547556   water
+starmie     0.608698   water     psychic
+mr.mime     0.852766   psychic   fairy
+scyther     0.685216   bug       flying
+jynx        0.304172   ice       psychic
+electabuzz  0.8172     electric
+magmar      0.424369   fire
+pinsir      0.676132   bug
+tauros      0.663027   normal
+magikarp    0.590442   water
+gyarados    0.454836   water     flying
+lapras      0.486099   water     ice
+ditto       0.622399   normal
+eevee       0.59138    normal
+vaporeon    0.716208   water
+jolteon     0.801198   electric
+flareon     0.561471   fire
+porygon     0.40719    normal
+omanyte     0.706038   rock      water
+omastar     0.771284   rock      water
+kabuto      0.0760635  rock      water
+kabutops    0.602599   rock      water
+aerodactyl  0.675558   rock      flying
+snorlax     0.50947    normal
+articuno    0.615042   ice       flying
+zapdos      0.813707   electric  flying
+moltres     0.74996    fire      flying
+dratini     0.73172    dragon
+dragonair   0.629152   dragon
+dragonite   0.744656   dragon    flying
+mewtwo      0.846847   psychic
+mew         0.815818   psychic
+chikorita   0.861505   grass
+bayleef     0.901646   grass
+meganium    0.702821   grass
+cyndaquil   0.853288   fire
+quilava     0.850405   fire
+typhlosion  0.796257   fire
+totodile    0.610843   water
+croconaw    0.678851   water
+feraligatr  0.663142   water
+sentret     0.504492   normal
+furret      0.763536   normal
+hoothoot    0.532158   normal    flying
+noctowl     0.46978    normal    flying
+ledyba      0.487187   bug       flying
+ledian      0.418694   bug       flying
+spinarak    0.702303   bug       poison
+ariados     0.474765   bug       poison
+crobat      0.485866   poison    flying
+chinchou    0.602483   water     electric
+lanturn     0.632621   water     electric
+pichu       0.886557   electric
+cleffa      0.854177   fairy
+igglybuff   0.890948   normal    fairy
+togepi      0.974374   fairy
+togetic     0.919818   fairy     flying
+natu        0.673518   psychic   flying
+xatu        0.693199   psychic   flying
+mareep      0.894504   electric
+flaaffy     0.790988   electric
+ampharos    0.757293   electric
+bellossom   0.777804   grass
+marill      0.637      water     fairy
+azumarill   0.541738   water     fairy
+sudowoodo   0.524254   rock
+politoed    0.69556    water
+hoppip      0.6714     grass     flying
+skiploom    0.678718   grass     flying
+jumpluff    0.576306   grass     flying
+aipom       0.550648   normal
+sunkern     0.814766   grass
+sunflora    0.881064   grass
+yanma       0.452699   bug       flying
+wooper      0.833696   water     ground
+quagsire    0.730816   water     ground
+espeon      0.732087   psychic
+umbreon     0.144064   dark
+murkrow     0.201785   dark      flying
+slowking    0.650835   water     psychic
+misdreavus  0.374371   ghost
+unown       0.324886   psychic
+wobbuffet   0.618024   psychic
+girafarig   0.692634   normal    psychic
+pineco      0.479762   bug
+forretress  0.670095   bug       steel
+dunsparce   0.879011   normal
+gligar      0.624398   ground    flying
+steelix     0.53062    steel     ground
+snubbull    0.633274   fairy
+granbull    0.573458   fairy
+qwilfish    0.870388   water     poison
+scizor      0.286946   bug       steel
+shuckle     0.383      bug       rock
+heracross   0.312401   bug       fighting
+sneasel     0.233976   dark      ice
+teddiursa   0.664395   normal
+ursaring    0.509506   normal
+slugma      0.501634   fire
+magcargo    0.566186   fire      rock
+swinub      0.590632   ice       ground
+piloswine   0.535605   ice       ground
+corsola     0.673841   water     rock
+remoraid    0.807987   water
+octillery   0.377279   water
+delibird    0.417711   ice       flying
+mantine     0.697284   water     flying
+skarmory    0.80817    steel     flying
+houndour    0.321382   dark      fire
+houndoom    0.375787   dark      fire
+kingdra     0.643796   water     dragon
+phanpy      0.719229   ground
+donphan     0.755039   ground
+porygon2    0.471431   normal
+stantler    0.645821   normal
+smeargle    0.895412   normal
+tyrogue     0.732042   fighting
+hitmontop   0.657826   fighting
+smoochum    0.613722   ice       psychic
+elekid      0.713664   electric
+magby       0.56141    fire
+miltank     0.676376   normal
+blissey     0.716088   normal
+raikou      0.792091   electric
+entei       0.164723   fire
+suicune     0.718651   water
+larvitar    0.655129   rock      ground
+pupitar     0.683949   rock      ground
+tyranitar   0.740855   rock      dark
+lugia       0.854093   psychic   flying
+ho-oh       0.456829   fire      flying
+celebi      0.914585   psychic   grass
+treecko     0.789267   grass
+grovyle     0.710269   grass
+sceptile    0.7234     grass
+torchic     0.611063   fire
+combusken   0.566604   fire      fighting
+blaziken    0.823418   fire      fighting
+mudkip      0.601698   water
+marshtomp   0.60155    water     ground
+swampert    0.582725   water     ground
+poochyena   0.659817   dark
+mightyena   0.729255   dark
+zigzagoon   0.826714   normal
+linoone     0.763825   normal
+wurmple     0.888278   bug
+silcoon     0.86649    bug
+beautifly   0.411765   bug       flying
+cascoon     0.825882   bug
+dustox      0.590593   bug       poison
+lotad       0.496519   water     grass
+lombre      0.702942   water     grass
+ludicolo    0.662457   water     grass
+seedot      0.527105   grass
+nuzleaf     0.620504   grass     dark
+shiftry     0.59948    grass     dark
+taillow     0.37519    normal    flying
+swellow     0.287707   normal    flying
+wingull     0.789535   water     flying
+pelipper    0.902759   water     flying
+ralts       0.939809   psychic   fairy
+kirlia      0.959133   psychic   fairy
+gardevoir   0.649517   psychic   fairy
+surskit     0.767106   bug       water
+masquerain  0.801517   bug       flying
+shroomish   0.597057   grass
+breloom     0.85317    grass     fighting
+slakoth     0.82493    normal
+vigoroth    0.898085   normal
+slaking     0.525411   normal
+nincada     0.960731   bug       ground
+ninjask     0.208803   bug       flying
+shedinja    0.715377   bug       ghost
+whismur     0.786548   normal
+loudred     0.522184   normal
+exploud     0.620426   normal
+makuhita    0.859654   fighting
+hariyama    0.847462   fighting
+azurill     0.490813   normal    fairy
+nosepass    0.288598   rock
+skitty      0.705455   normal
+delcatty    0.867468   normal
+sableye     0.449862   dark      ghost
+mawile      0.780275   steel     fairy
+aron        0.760185   steel     rock
+lairon      0.426203   steel     rock
+aggron      0.526279   steel     rock
+meditite    0.73075    fighting  psychic
+medicham    0.825481   fighting  psychic
+electrike   0.703969   electric
+manectric   0.660832   electric
+plusle      0.90071    electric
+minun       0.911575   electric
+volbeat     0.619725   bug
+illumise    0.70883    bug
+roselia     0.74602    grass     poison
+gulpin      0.721942   poison
+swalot      0.579722   poison
+carvanha    0.32407    water     dark
+sharpedo    0.807318   water     dark
+wailmer     0.378056   water
+wailord     0.48029    water
+numel       0.838816   fire      ground
+camerupt    0.581801   fire      ground
+torkoal     0.682765   fire
+spoink      0.645841   psychic
+grumpig     0.6022     psychic
+spinda      0.810219   normal
+trapinch    0.602283   ground
+vibrava     0.827242   ground    dragon
+flygon      0.760615   ground    dragon
+cacnea      0.643642   grass
+cacturne    0.673486   grass     dark
+swablu      0.692523   normal    flying
+altaria     0.914359   dragon    flying
+zangoose    0.955059   normal
+seviper     0.415772   poison
+lunatone    0.843258   rock      psychic
+solrock     0.503932   rock      psychic
+barboach    0.791458   water     ground
+whiscash    0.285956   water     ground
+corphish    0.818555   water
+crawdaunt   0.443998   water     dark
+baltoy      0.758668   ground    psychic
+claydol     0.358909   ground    psychic
+lileep      0.480308   rock      grass
+cradily     0.675871   rock      grass
+anorith     0.55059    rock      bug
+armaldo     0.510346   rock      bug
+feebas      0.753104   water
+milotic     0.869479   water
+castform    0.824363   normal
+kecleon     0.712634   normal
+shuppet     0.523015   ghost
+banette     0.592839   ghost
+duskull     0.407622   ghost
+dusclops    0.73202    ghost
+tropius     0.572509   grass     flying
+chimecho    0.833826   psychic
+absol       0.803023   dark
+wynaut      0.707459   psychic
+snorunt     0.27341    ice
+glalie      0.355935   ice
+spheal      0.657501   ice       water
+sealeo      0.686642   ice       water
+walrein     0.60321    ice       water
+clamperl    0.633663   water
+huntail     0.593536   water
+gorebyss    0.746509   water
+relicanth   0.348452   water     rock
+luvdisc     0.682499   water
+bagon       0.677044   dragon
+shelgon     0.83147    dragon
+salamence   0.653867   dragon    flying
+beldum      0.563534   steel     psychic
+metang      0.533696   steel     psychic
+metagross   0.53279    steel     psychic
+regirock    0.741491   rock
+regice      0.683548   ice
+registeel   0.623046   steel
+latias      0.982893   dragon    psychic
+latios      0.876962   dragon    psychic
+kyogre      0.384149   water
+groudon     0.0902245  ground
+rayquaza    0.468595   dragon    flying
+jirachi     0.978042   steel     psychic
+deoxys      0.618088   psychic
+turtwig     0.773515   grass
+grotle      0.604132   grass
+torterra    0.457409   grass     ground
+chimchar    0.663174   fire
+monferno    0.631232   fire      fighting
+infernape   0.945496   fire      fighting
+piplup      0.745585   water
+prinplup    0.405031   water
+empoleon    0.262553   water     steel
+starly      0.26931    normal    flying
+staravia    0.282412   normal    flying
+staraptor   0.481331   normal    flying
+bidoof      0.467715   normal
+bibarel     0.588023   normal    water
+kricketot   0.430597   bug
+kricketune  0.405649   bug
+shinx       0.631029   electric
+luxio       0.612493   electric
+luxray      0.235459   electric
+budew       0.703137   grass     poison
+roserade    0.813278   grass     poison
+cranidos    0.47046    rock
+rampardos   0.310159   rock
+shieldon    0.731566   rock      steel
+bastiodon   0.774646   rock      steel
+burmy       0.547375   bug
+wormadam    0.501587   bug       grass
+mothim      0.332024   bug       flying
+combee      0.766668   bug       flying
+vespiquen   0.71957    bug       flying
+pachirisu   0.892119   electric
+buizel      0.603754   water
+floatzel    0.545801   water
+cherubi     0.529458   grass
+cherrim     0.763485   grass
+shellos     0.60342    water
+gastrodon   0.438932   water     ground
+ambipom     0.540427   normal
+drifloon    0.571655   ghost     flying
+drifblim    0.524227   ghost     flying
+buneary     0.538228   normal
+lopunny     0.53163    normal
+mismagius   0.332848   ghost
+honchkrow   0.319731   dark      flying
+glameow     0.605219   normal
+purugly     0.430523   normal
+chingling   0.791304   psychic
+stunky      0.255749   poison    dark
+skuntank    0.26677    poison    dark
+bronzor     0.55897    steel     psychic
+bronzong    0.636318   steel     psychic
+bonsly      0.512233   rock
+mimejr      0.847604   psychic   fairy
+happiny     0.839292   normal
+chatot      0.49433    normal    flying
+spiritomb   0.70014    ghost     dark
+gible       0.476057   dragon    ground
+gabite      0.399648   dragon    ground
+garchomp    0.333349   dragon    ground
+munchlax    0.422614   normal
+riolu       0.624587   fighting
+lucario     0.535689   fighting  steel
+hippopotas  0.740069   ground
+hippowdon   0.608923   ground
+skorupi     0.248446   poison    bug
+drapion     0.517049   poison    dark
+croagunk    0.566172   poison    fighting
+toxicroak   0.53118    poison    fighting
+carnivine   0.734641   grass
+finneon     0.291408   water
+lumineon    0.303825   water
+mantyke     0.763958   water     flying
+snover      0.96865    grass     ice
+abomasnow   0.990744   grass     ice
+weavile     0.286989   dark      ice
+magnezone   0.75966    electric  steel
+lickilicky  0.614629   normal
+rhyperior   0.416519   ground    rock
+tangrowth   0.470169   grass
+electivire  0.794939   electric
+magmortar   0.372137   fire
+togekiss    0.898987   fairy     flying
+yanmega     0.32405    bug       flying
+leafeon     0.901089   grass
+glaceon     0.810771   ice
+gliscor     0.649418   ground    flying
+mamoswine   0.548716   ice       ground
+porygon-z   0.367984   normal
+gallade     0.382547   psychic   fighting
+probopass   0.488307   rock      steel
+dusknoir    0.679651   ghost
+froslass    0.936162   ice       ghost
+rotom       0.543941   electric  ghost
+uxie        0.81938    psychic
+mesprit     0.772561   psychic
+azelf       0.780311   psychic
+dialga      0.272122   steel     dragon
+palkia      0.588943   water     dragon
+heatran     0.291081   fire      steel
+regigigas   0.927366   normal
+giratina    0.263429   ghost     dragon
+cresselia   0.677861   psychic
+phione      0.661622   water
+manaphy     0.709464   water
+darkrai     0.364973   dark
+shaymin     0.918656   grass
+arceus      0.899249   normal

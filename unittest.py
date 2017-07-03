@@ -1,7 +1,7 @@
 # This module is for testing the different components of this project.
 
 from database import Database
-from sys import argv
+import sys
 
 
 def print_items(items):
@@ -63,14 +63,15 @@ def test_database_double_arg(arg):
     elif arg1 == "names_with_infix":
         print_items(db.names_with_infix(arg2))
     elif arg1 == "get_light":
-        print_items(db.get_light(threshold=int(arg2)/10, all=True))
+        print_items(db.get_light(threshold=int(arg2)/10, all_pkmn=True))
     elif arg1 == "get_dark":
-        print_items(db.get_dark(threshold=int(arg2)/10, all=True))
+        print_items(db.get_dark(threshold=int(arg2)/10, all_pkmn=True))
     else:
-        print("No such public method '" + arg + "' with two parameters exists in the Database class.")
+        print("No such public method '" + arg + "' with two parameters"
+              " exists in the Database class.")
 
 
-if __name__ == "__main__":
+def main(argv):
     if len(argv) == 1:
         print("No command line parameters provided.")
     elif len(argv) == 2:
@@ -79,3 +80,7 @@ if __name__ == "__main__":
         test_database_double_arg(argv)
     else:
         print("This module only takes one command line parameter.")
+
+        
+if __name__ == "__main__":
+    main(sys.argv)
