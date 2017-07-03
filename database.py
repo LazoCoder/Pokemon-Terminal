@@ -27,7 +27,7 @@ class Pokemon:
 
     def get_id(self):
         # Pokemon from folder 'Extra' have no ID.
-        return "---" if self.is_extra() else self.__id
+        return self.__id or "---"
 
     def get_name(self):
         return self.__name
@@ -51,12 +51,8 @@ class Pokemon:
         return self.__id is None
 
     def __str__(self):
-        if self.is_extra():
-            return "--- " + self.get_name().capitalize() + " at "\
-                    + self.get_path()
-        else:
-            return self.get_id() + " " + self.get_name().capitalize() + " at "\
-                    + self.get_path()
+        name = self.get_name().title()
+        return self.get_id() + " " + name + " at " + self.get_path()
 
 
 class Database:
@@ -242,7 +238,7 @@ class Database:
                                       father.get_pkmn_type_secondary(),
                                       father.get_dark_threshold())
                 else:
-                    Pokemon(None, name, None, path, None, None, None)
+                    pokemon = Pokemon(None, name, None, path, None, None, None)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected.\nThe name of "
                                     + "the file " + str(name) + ".jpg in the "
