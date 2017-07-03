@@ -22,10 +22,10 @@ Sample Set #1                    |  Sample Set #2
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, Terminology, Tilix, Terminator<sup>1</sup> and XFCE4Terminal <sup>2</sup>
+- Supports iTerm2, Terminology, Tilix, Terminator and XFCE4Terminal (see notes below)
 
-<sup>1</sup> Config file must exist. This is done by opening the settings dialog, setting a dummy background image  and closing it.  
-<sup>2</sup> Due to the way terminator read its config file, it is *impossible* to update the background image as soon as the command ends. You must either restart terminator (yaiks) or open the settings dialog and closing (no need to touch anything else).
+> Terminator: Config file must exist. This is done by opening the settings dialog, setting a dummy background image  and closing it.  
+> XFCE4Terminal: Due to the way terminator read its config file, it is *impossible* to update the background image as soon as the command ends. You must either restart terminator (yaiks) or open the settings dialog and closing (no need to touch anything else).
 
 # How to Install
 
@@ -57,7 +57,7 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 ## Linux
 
 1. Make sure you have Python 3.5+ installed, check the instructions of your distribution.
-2. Make sure you have Terminology, Tilix, Terminator<sup>1</sup> or XFCE4Terminal <sup>2</sup> again check the package manager of your distribution.
+2. Make sure you have Terminology, Tilix, Terminator or XFCE4Terminal again check the package manager of your distribution.
 3.
 	- If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
 	- If you aren't a Arch Linux user, copy and paste the following into a terminal for the installation:
