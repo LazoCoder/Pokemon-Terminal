@@ -164,6 +164,8 @@ class Database:
         if not isinstance(pokemon, (int, str)):
             raise Exception("The parameter Pokemon must be of type integer" +
                             " or string.")
+        if isinstance(pokemon, str):
+            pokemon = pokemon.lower()
         if pokemon not in self:
             raise Exception("No such Pokemon in the database.")
         if isinstance(pokemon, int) or str(pokemon).isdigit():
