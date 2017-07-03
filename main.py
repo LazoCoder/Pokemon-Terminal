@@ -123,16 +123,16 @@ def change_terminal_background(db, arg):  # arg is a pokemon_name
         scripter.change_terminal(pokemon.get_path())
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
-        try:
+        if len(suggestions) == 0:
+            print("No such Pokemon was found and no suggestions are available.")
+        else:
             pokemon = suggestions[0]
             scripter.change_terminal(pokemon.get_path())
             print("Did you mean {}?".format(pokemon.get_name().title()))
             if suggestions[1:]:
                 print("Other suggestions:")
                 print_columns(suggestions[1:])
-        except IndexError:
-            print("No such Pokemon was found and no suggestions are available.")
-
+            
 
 def change_wallpaper(db, arg):  # arg is a pokemon_name
     """Change the wallpaper to the specified Pokemon, if it exists."""
@@ -141,15 +141,15 @@ def change_wallpaper(db, arg):  # arg is a pokemon_name
         scripter.change_wallpaper(pokemon.get_path())
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
-        try:
+        if len(suggestions) == 0:
+            print("No such Pokemon was found and no suggestions are available.")
+        else:
             pokemon = suggestions[0]
             scripter.change_wallpaper(pokemon.get_path())
             print("Did you mean {}?".format(pokemon.get_name().title()))
             if suggestions[1:]:  # if there are other suggestions
                 print("Other suggestions:")
                 print_columns(suggestions[1:])
-        except IndexError:
-            print("No such Pokemon was found and no suggestions are available.")
 
 
 def multiple_argument_handler(arg, arg2, escape_code):
