@@ -131,7 +131,7 @@ def test_ids():
     numbered_ids = [p.get_id() for p in db.get_all() if p.get_id() != '---']
     # test that all that are not --- are unique (no duplicate ids)
     assert len(set(numbered_ids)) == len(numbered_ids) == MAX_ID
-    for pokemon in Database().get_all():
+    for pokemon in numbered_ids:
         id = pokemon.get_id()
         assert len(id) == 3
         assert isinstance(id, str)
