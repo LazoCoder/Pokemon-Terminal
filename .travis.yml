@@ -17,4 +17,4 @@ script:
     # python unittest.py
 notifications:
     on_success: change
-    # on_failure: always
+    on_failure: never  # always will be the setting once code changes slow down
