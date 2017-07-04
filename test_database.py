@@ -128,9 +128,16 @@ def test_regions_two():
 
 def test_ids():
     db = Database()
-    assert all(1 <= int(pokemon.get_id()) <= MAX_ID for pokemon in db.get_all())
+    numbered_ids = [p.get_id() for p in db.get_all() if p.get_id() != '---']
+    # test that all that are not --- are unique (no duplicate ids)
+    assert len(set(numbered_ids)) == len(numbered_ids) == MAX_ID
+    for pokemon in Database().get_all():
+        id = pokemon.get_id()
+        assert len(id) == 3
+        assert isinstance(id, str)
+        assert 1 <= int(int) <= MAX_ID    
 
 
 def test_thresholds():
     db = Database()
-    assert all(isinstance(p.get_threashold(), float) for p in db.get_all())
+    assert all(isinstance(p.get_dark_threshold(), float) for p in db.get_all())
