@@ -130,12 +130,12 @@ class Database:
     def get_light(self, threshold=0.4, all_pkmn=False):
         light = [pokemon.get_name() for pokemon in self.__pokemon_list
                  if pokemon.get_dark_threshold() > threshold]
-        return light if all_pkmn else random.choice(light)
+        return light if all_pkmn else self.get_pokemon(random.choice(light))
 
     def get_dark(self, threshold=0.6, all_pkmn=False):
         dark = [pokemon.get_name() for pokemon in self.__pokemon_list
                 if pokemon.get_dark_threshold() < threshold]
-        return dark if all_pkmn else random.choice(dark)
+        return dark if all_pkmn else self.get_pokemon(random.choice(dark))
 
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.
