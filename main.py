@@ -79,7 +79,7 @@ def main(argv):
     )
     filtersGroup.add_argument(
         '-d', '--dark', help='Filter out the pokemons lighter then 0.xx',
-        default=0.37, const=0.37, metavar='0.xx', nargs='?', type=float,
+        default=0.42, const=0.42, metavar='0.xx', nargs='?', type=float,
         action=filters.DarkFilter
     )
     filtersGroup.add_argument(
@@ -102,15 +102,35 @@ def main(argv):
         '-v', '--verbose', help='Enables verbose output',
         action='store_true'
     )
-    options = parser.parse_args()
-    size = len(Filter.POKEMON_LIST)
+    miscGroup.add_argument(
+        '--dry-run',
+        help='Implies -v and doesn\'t actually changes the wallpapper '
+             'after the pokemon has been chosen',
+        action='store_true'
+    )
+    either = parser.add_mutually_exclusive_group()
+    either.add_argument_group(filtersGroup)
+    either.add_argument(
+        '-c', '--clear', help='Clears the current pokemon from terminal '
+                              'background and quits.',
+        action='store_true'
+    )
 
+    options = parser.parse_args()
+
+    if options.clear:
+        scripter.clear_terminal()
+        return
+
+    size = len(Filter.POKEMON_LIST)
     if size == 0:
         print("No pokemon matches the specified filters")
         return
 
     target = random.choice(Filter.POKEMON_LIST)
 
+    if options.dry_run:
+        options.verbose = True
     if options.verbose:
         if size == 1:
             print('The only one mathing these filters is: ')
@@ -122,6 +142,9 @@ def main(argv):
                 for pkmn in Filter.POKEMON_LIST]
         print("Total of %d pokemon matched the filters. Chose %s" %
               (size, target.get_name().title()))
+
+    if options.dry_run:
+        return
 
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())
