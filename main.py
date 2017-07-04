@@ -29,7 +29,7 @@ def print_columns(items):
 
 
 def print_types(items):
-    print("All existent pokemon types are: " + ", ".join(items))
+    print("All existent pokemon types are:\n" + ", ".join(items))
 
 
 def prefix_search(db, arg):
