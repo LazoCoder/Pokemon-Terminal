@@ -1,0 +1,4932 @@
+[
+  {
+    "id_num": "001",
+    "name": "bulbasaur",
+    "region": "kanto",
+    "dark_threshold": 0.61604,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "002",
+    "name": "ivysaur",
+    "region": "kanto",
+    "dark_threshold": 0.462721,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "003",
+    "name": "venusaur",
+    "region": "kanto",
+    "dark_threshold": 0.5451,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "004",
+    "name": "charmander",
+    "region": "kanto",
+    "dark_threshold": 0.724984,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "005",
+    "name": "charmeleon",
+    "region": "kanto",
+    "dark_threshold": 0.491232,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "006",
+    "name": "charizard",
+    "region": "kanto",
+    "dark_threshold": 0.601881,
+    "type": {
+      "primary": "fire",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "007",
+    "name": "squirtle",
+    "region": "kanto",
+    "dark_threshold": 0.708672,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "008",
+    "name": "wartortle",
+    "region": "kanto",
+    "dark_threshold": 0.748101,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "009",
+    "name": "blastoise",
+    "region": "kanto",
+    "dark_threshold": 0.64938,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "010",
+    "name": "caterpie",
+    "region": "kanto",
+    "dark_threshold": 0.718227,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "011",
+    "name": "metapod",
+    "region": "kanto",
+    "dark_threshold": 0.621901,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "012",
+    "name": "butterfree",
+    "region": "kanto",
+    "dark_threshold": 0.630765,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "013",
+    "name": "weedle",
+    "region": "kanto",
+    "dark_threshold": 0.638418,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "014",
+    "name": "kakuna",
+    "region": "kanto",
+    "dark_threshold": 0.773358,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "015",
+    "name": "beedrill",
+    "region": "kanto",
+    "dark_threshold": 0.802686,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "016",
+    "name": "pidgey",
+    "region": "kanto",
+    "dark_threshold": 0.460133,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "017",
+    "name": "pidgeotto",
+    "region": "kanto",
+    "dark_threshold": 0.906494,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "018",
+    "name": "pidgeot",
+    "region": "kanto",
+    "dark_threshold": 0.887968,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "019",
+    "name": "rattata",
+    "region": "kanto",
+    "dark_threshold": 0.478938,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "020",
+    "name": "raticate",
+    "region": "kanto",
+    "dark_threshold": 0.640308,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "021",
+    "name": "spearow",
+    "region": "kanto",
+    "dark_threshold": 0.459023,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "022",
+    "name": "fearow",
+    "region": "kanto",
+    "dark_threshold": 0.488446,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "023",
+    "name": "ekans",
+    "region": "kanto",
+    "dark_threshold": 0.463613,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "024",
+    "name": "arbok",
+    "region": "kanto",
+    "dark_threshold": 0.589331,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "025",
+    "name": "pikachu",
+    "region": "kanto",
+    "dark_threshold": 0.851867,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "026",
+    "name": "raichu",
+    "region": "kanto",
+    "dark_threshold": 0.751316,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "027",
+    "name": "sandshrew",
+    "region": "kanto",
+    "dark_threshold": 0.77978,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "028",
+    "name": "sandslash",
+    "region": "kanto",
+    "dark_threshold": 0.730616,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "029",
+    "name": "nidoran-f",
+    "region": "kanto",
+    "dark_threshold": 0.759855,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "030",
+    "name": "nidorina",
+    "region": "kanto",
+    "dark_threshold": 0.681913,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "031",
+    "name": "nidoqueen",
+    "region": "kanto",
+    "dark_threshold": 0.633158,
+    "type": {
+      "primary": "poison",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "032",
+    "name": "nidoran-m",
+    "region": "kanto",
+    "dark_threshold": 0.414212,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "033",
+    "name": "nidorino",
+    "region": "kanto",
+    "dark_threshold": 0.535174,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "034",
+    "name": "nidoking",
+    "region": "kanto",
+    "dark_threshold": 0.487512,
+    "type": {
+      "primary": "poison",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "035",
+    "name": "clefairy",
+    "region": "kanto",
+    "dark_threshold": 0.839059,
+    "type": {
+      "primary": "fairy",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "036",
+    "name": "clefable",
+    "region": "kanto",
+    "dark_threshold": 0.863238,
+    "type": {
+      "primary": "fairy",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "037",
+    "name": "vulpix",
+    "region": "kanto",
+    "dark_threshold": 0.555764,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "038",
+    "name": "ninetales",
+    "region": "kanto",
+    "dark_threshold": 0.92374,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "039",
+    "name": "jigglypuff",
+    "region": "kanto",
+    "dark_threshold": 0.800818,
+    "type": {
+      "primary": "normal",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "040",
+    "name": "wigglytuff",
+    "region": "kanto",
+    "dark_threshold": 0.777334,
+    "type": {
+      "primary": "normal",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "041",
+    "name": "zubat",
+    "region": "kanto",
+    "dark_threshold": 0.463772,
+    "type": {
+      "primary": "poison",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "042",
+    "name": "golbat",
+    "region": "kanto",
+    "dark_threshold": 0.376687,
+    "type": {
+      "primary": "poison",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "043",
+    "name": "oddish",
+    "region": "kanto",
+    "dark_threshold": 0.477076,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "044",
+    "name": "gloom",
+    "region": "kanto",
+    "dark_threshold": 0.558871,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "045",
+    "name": "vileplume",
+    "region": "kanto",
+    "dark_threshold": 0.386918,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "046",
+    "name": "paras",
+    "region": "kanto",
+    "dark_threshold": 0.602374,
+    "type": {
+      "primary": "bug",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "047",
+    "name": "parasect",
+    "region": "kanto",
+    "dark_threshold": 0.571063,
+    "type": {
+      "primary": "bug",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "048",
+    "name": "venonat",
+    "region": "kanto",
+    "dark_threshold": 0.38278,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "049",
+    "name": "venomoth",
+    "region": "kanto",
+    "dark_threshold": 0.642519,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "050",
+    "name": "diglett",
+    "region": "kanto",
+    "dark_threshold": 0.561415,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "051",
+    "name": "dugtrio",
+    "region": "kanto",
+    "dark_threshold": 0.476553,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "052",
+    "name": "meowth",
+    "region": "kanto",
+    "dark_threshold": 0.91165,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "053",
+    "name": "persian",
+    "region": "kanto",
+    "dark_threshold": 0.861286,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "054",
+    "name": "psyduck",
+    "region": "kanto",
+    "dark_threshold": 0.798752,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "055",
+    "name": "golduck",
+    "region": "kanto",
+    "dark_threshold": 0.674705,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "056",
+    "name": "mankey",
+    "region": "kanto",
+    "dark_threshold": 0.902441,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "057",
+    "name": "primeape",
+    "region": "kanto",
+    "dark_threshold": 0.89772,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "058",
+    "name": "growlithe",
+    "region": "kanto",
+    "dark_threshold": 0.65431,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "059",
+    "name": "arcanine",
+    "region": "kanto",
+    "dark_threshold": 0.864944,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "060",
+    "name": "poliwag",
+    "region": "kanto",
+    "dark_threshold": 0.535375,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "061",
+    "name": "poliwhirl",
+    "region": "kanto",
+    "dark_threshold": 0.550271,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "062",
+    "name": "poliwrath",
+    "region": "kanto",
+    "dark_threshold": 0.577639,
+    "type": {
+      "primary": "water",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "063",
+    "name": "abra",
+    "region": "kanto",
+    "dark_threshold": 0.82454,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "064",
+    "name": "kadabra",
+    "region": "kanto",
+    "dark_threshold": 0.852543,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "065",
+    "name": "alakazam",
+    "region": "kanto",
+    "dark_threshold": 0.797661,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "066",
+    "name": "machop",
+    "region": "kanto",
+    "dark_threshold": 0.755805,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "067",
+    "name": "machoke",
+    "region": "kanto",
+    "dark_threshold": 0.623455,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "068",
+    "name": "machamp",
+    "region": "kanto",
+    "dark_threshold": 0.670823,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "069",
+    "name": "bellsprout",
+    "region": "kanto",
+    "dark_threshold": 0.817864,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "070",
+    "name": "weepinbell",
+    "region": "kanto",
+    "dark_threshold": 0.864195,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "071",
+    "name": "victreebel",
+    "region": "kanto",
+    "dark_threshold": 0.84222,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "072",
+    "name": "tentacool",
+    "region": "kanto",
+    "dark_threshold": 0.649035,
+    "type": {
+      "primary": "water",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "073",
+    "name": "tentacruel",
+    "region": "kanto",
+    "dark_threshold": 0.0574754,
+    "type": {
+      "primary": "water",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "074",
+    "name": "geodude",
+    "region": "kanto",
+    "dark_threshold": 0.645383,
+    "type": {
+      "primary": "rock",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "075",
+    "name": "graveler",
+    "region": "kanto",
+    "dark_threshold": 0.697487,
+    "type": {
+      "primary": "rock",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "076",
+    "name": "golem",
+    "region": "kanto",
+    "dark_threshold": 0.558651,
+    "type": {
+      "primary": "rock",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "077",
+    "name": "ponyta",
+    "region": "kanto",
+    "dark_threshold": 0.827553,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "078",
+    "name": "rapidash",
+    "region": "kanto",
+    "dark_threshold": 0.8708,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "079",
+    "name": "slowpoke",
+    "region": "kanto",
+    "dark_threshold": 0.72033,
+    "type": {
+      "primary": "water",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "080",
+    "name": "slowbro",
+    "region": "kanto",
+    "dark_threshold": 0.683053,
+    "type": {
+      "primary": "water",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "081",
+    "name": "magnemite",
+    "region": "kanto",
+    "dark_threshold": 0.705858,
+    "type": {
+      "primary": "electric",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "082",
+    "name": "magneton",
+    "region": "kanto",
+    "dark_threshold": 0.708434,
+    "type": {
+      "primary": "electric",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "083",
+    "name": "farfetch'd",
+    "region": "kanto",
+    "dark_threshold": 0.595665,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "084",
+    "name": "doduo",
+    "region": "kanto",
+    "dark_threshold": 0.619222,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "085",
+    "name": "dodrio",
+    "region": "kanto",
+    "dark_threshold": 0.62457,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "086",
+    "name": "seel",
+    "region": "kanto",
+    "dark_threshold": 0.931629,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "087",
+    "name": "dewgong",
+    "region": "kanto",
+    "dark_threshold": 0.858439,
+    "type": {
+      "primary": "water",
+      "secondary": "ice"
+    }
+  },
+  {
+    "id_num": "088",
+    "name": "grimer",
+    "region": "kanto",
+    "dark_threshold": 0.500468,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "089",
+    "name": "muk",
+    "region": "kanto",
+    "dark_threshold": 0.467463,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "090",
+    "name": "shellder",
+    "region": "kanto",
+    "dark_threshold": 0.501135,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "091",
+    "name": "cloyster",
+    "region": "kanto",
+    "dark_threshold": 0.483847,
+    "type": {
+      "primary": "water",
+      "secondary": "ice"
+    }
+  },
+  {
+    "id_num": "092",
+    "name": "gastly",
+    "region": "kanto",
+    "dark_threshold": 0.43826,
+    "type": {
+      "primary": "ghost",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "093",
+    "name": "haunter",
+    "region": "kanto",
+    "dark_threshold": 0.485071,
+    "type": {
+      "primary": "ghost",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "094",
+    "name": "gengar",
+    "region": "kanto",
+    "dark_threshold": 0.274986,
+    "type": {
+      "primary": "ghost",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "095",
+    "name": "onix",
+    "region": "kanto",
+    "dark_threshold": 0.564071,
+    "type": {
+      "primary": "rock",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "096",
+    "name": "drowzee",
+    "region": "kanto",
+    "dark_threshold": 0.728724,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "097",
+    "name": "hypno",
+    "region": "kanto",
+    "dark_threshold": 0.839396,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "098",
+    "name": "krabby",
+    "region": "kanto",
+    "dark_threshold": 0.852155,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "099",
+    "name": "kingler",
+    "region": "kanto",
+    "dark_threshold": 0.795094,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "100",
+    "name": "voltorb",
+    "region": "kanto",
+    "dark_threshold": 0.322391,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "101",
+    "name": "electrode",
+    "region": "kanto",
+    "dark_threshold": 0.98033,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "102",
+    "name": "exeggcute",
+    "region": "kanto",
+    "dark_threshold": 0.863465,
+    "type": {
+      "primary": "grass",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "103",
+    "name": "exeggutor",
+    "region": "kanto",
+    "dark_threshold": 0.588666,
+    "type": {
+      "primary": "grass",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "104",
+    "name": "cubone",
+    "region": "kanto",
+    "dark_threshold": 0.724451,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "105",
+    "name": "marowak",
+    "region": "kanto",
+    "dark_threshold": 0.706728,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "106",
+    "name": "hitmonlee",
+    "region": "kanto",
+    "dark_threshold": 0.562188,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "107",
+    "name": "hitmonchan",
+    "region": "kanto",
+    "dark_threshold": 0.701743,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "108",
+    "name": "lickitung",
+    "region": "kanto",
+    "dark_threshold": 0.723693,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "109",
+    "name": "koffing",
+    "region": "kanto",
+    "dark_threshold": 0.63856,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "110",
+    "name": "weezing",
+    "region": "kanto",
+    "dark_threshold": 0.658479,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "111",
+    "name": "rhyhorn",
+    "region": "kanto",
+    "dark_threshold": 0.687025,
+    "type": {
+      "primary": "ground",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "112",
+    "name": "rhydon",
+    "region": "kanto",
+    "dark_threshold": 0.628743,
+    "type": {
+      "primary": "ground",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "113",
+    "name": "chansey",
+    "region": "kanto",
+    "dark_threshold": 0.858906,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "114",
+    "name": "tangela",
+    "region": "kanto",
+    "dark_threshold": 0.528551,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "115",
+    "name": "kangaskhan",
+    "region": "kanto",
+    "dark_threshold": 0.51619,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "116",
+    "name": "horsea",
+    "region": "kanto",
+    "dark_threshold": 0.775569,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "117",
+    "name": "seadra",
+    "region": "kanto",
+    "dark_threshold": 0.741227,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "118",
+    "name": "goldeen",
+    "region": "kanto",
+    "dark_threshold": 0.944483,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "119",
+    "name": "seaking",
+    "region": "kanto",
+    "dark_threshold": 0.516814,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "120",
+    "name": "staryu",
+    "region": "kanto",
+    "dark_threshold": 0.547556,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "121",
+    "name": "starmie",
+    "region": "kanto",
+    "dark_threshold": 0.608698,
+    "type": {
+      "primary": "water",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "122",
+    "name": "mr.mime",
+    "region": "kanto",
+    "dark_threshold": 0.852766,
+    "type": {
+      "primary": "psychic",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "123",
+    "name": "scyther",
+    "region": "kanto",
+    "dark_threshold": 0.685216,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "124",
+    "name": "jynx",
+    "region": "kanto",
+    "dark_threshold": 0.304172,
+    "type": {
+      "primary": "ice",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "125",
+    "name": "electabuzz",
+    "region": "kanto",
+    "dark_threshold": 0.8172,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "126",
+    "name": "magmar",
+    "region": "kanto",
+    "dark_threshold": 0.424369,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "127",
+    "name": "pinsir",
+    "region": "kanto",
+    "dark_threshold": 0.676132,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "128",
+    "name": "tauros",
+    "region": "kanto",
+    "dark_threshold": 0.663027,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "129",
+    "name": "magikarp",
+    "region": "kanto",
+    "dark_threshold": 0.590442,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "130",
+    "name": "gyarados",
+    "region": "kanto",
+    "dark_threshold": 0.454836,
+    "type": {
+      "primary": "water",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "131",
+    "name": "lapras",
+    "region": "kanto",
+    "dark_threshold": 0.486099,
+    "type": {
+      "primary": "water",
+      "secondary": "ice"
+    }
+  },
+  {
+    "id_num": "132",
+    "name": "ditto",
+    "region": "kanto",
+    "dark_threshold": 0.622399,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "133",
+    "name": "eevee",
+    "region": "kanto",
+    "dark_threshold": 0.59138,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "134",
+    "name": "vaporeon",
+    "region": "kanto",
+    "dark_threshold": 0.716208,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "135",
+    "name": "jolteon",
+    "region": "kanto",
+    "dark_threshold": 0.801198,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "136",
+    "name": "flareon",
+    "region": "kanto",
+    "dark_threshold": 0.561471,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "137",
+    "name": "porygon",
+    "region": "kanto",
+    "dark_threshold": 0.40719,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "138",
+    "name": "omanyte",
+    "region": "kanto",
+    "dark_threshold": 0.706038,
+    "type": {
+      "primary": "rock",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "139",
+    "name": "omastar",
+    "region": "kanto",
+    "dark_threshold": 0.771284,
+    "type": {
+      "primary": "rock",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "140",
+    "name": "kabuto",
+    "region": "kanto",
+    "dark_threshold": 0.0760635,
+    "type": {
+      "primary": "rock",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "141",
+    "name": "kabutops",
+    "region": "kanto",
+    "dark_threshold": 0.602599,
+    "type": {
+      "primary": "rock",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "142",
+    "name": "aerodactyl",
+    "region": "kanto",
+    "dark_threshold": 0.675558,
+    "type": {
+      "primary": "rock",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "143",
+    "name": "snorlax",
+    "region": "kanto",
+    "dark_threshold": 0.50947,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "144",
+    "name": "articuno",
+    "region": "kanto",
+    "dark_threshold": 0.615042,
+    "type": {
+      "primary": "ice",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "145",
+    "name": "zapdos",
+    "region": "kanto",
+    "dark_threshold": 0.813707,
+    "type": {
+      "primary": "electric",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "146",
+    "name": "moltres",
+    "region": "kanto",
+    "dark_threshold": 0.74996,
+    "type": {
+      "primary": "fire",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "147",
+    "name": "dratini",
+    "region": "kanto",
+    "dark_threshold": 0.73172,
+    "type": {
+      "primary": "dragon",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "148",
+    "name": "dragonair",
+    "region": "kanto",
+    "dark_threshold": 0.629152,
+    "type": {
+      "primary": "dragon",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "149",
+    "name": "dragonite",
+    "region": "kanto",
+    "dark_threshold": 0.744656,
+    "type": {
+      "primary": "dragon",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "150",
+    "name": "mewtwo",
+    "region": "kanto",
+    "dark_threshold": 0.846847,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "151",
+    "name": "mew",
+    "region": "kanto",
+    "dark_threshold": 0.815818,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "152",
+    "name": "chikorita",
+    "region": "johto",
+    "dark_threshold": 0.861505,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "153",
+    "name": "bayleef",
+    "region": "johto",
+    "dark_threshold": 0.901646,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "154",
+    "name": "meganium",
+    "region": "johto",
+    "dark_threshold": 0.702821,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "155",
+    "name": "cyndaquil",
+    "region": "johto",
+    "dark_threshold": 0.853288,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "156",
+    "name": "quilava",
+    "region": "johto",
+    "dark_threshold": 0.850405,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "157",
+    "name": "typhlosion",
+    "region": "johto",
+    "dark_threshold": 0.796257,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "158",
+    "name": "totodile",
+    "region": "johto",
+    "dark_threshold": 0.610843,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "159",
+    "name": "croconaw",
+    "region": "johto",
+    "dark_threshold": 0.678851,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "160",
+    "name": "feraligatr",
+    "region": "johto",
+    "dark_threshold": 0.663142,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "161",
+    "name": "sentret",
+    "region": "johto",
+    "dark_threshold": 0.504492,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "162",
+    "name": "furret",
+    "region": "johto",
+    "dark_threshold": 0.763536,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "163",
+    "name": "hoothoot",
+    "region": "johto",
+    "dark_threshold": 0.532158,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "164",
+    "name": "noctowl",
+    "region": "johto",
+    "dark_threshold": 0.46978,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "165",
+    "name": "ledyba",
+    "region": "johto",
+    "dark_threshold": 0.487187,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "166",
+    "name": "ledian",
+    "region": "johto",
+    "dark_threshold": 0.418694,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "167",
+    "name": "spinarak",
+    "region": "johto",
+    "dark_threshold": 0.702303,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "168",
+    "name": "ariados",
+    "region": "johto",
+    "dark_threshold": 0.474765,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "169",
+    "name": "crobat",
+    "region": "johto",
+    "dark_threshold": 0.485866,
+    "type": {
+      "primary": "poison",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "170",
+    "name": "chinchou",
+    "region": "johto",
+    "dark_threshold": 0.602483,
+    "type": {
+      "primary": "water",
+      "secondary": "electric"
+    }
+  },
+  {
+    "id_num": "171",
+    "name": "lanturn",
+    "region": "johto",
+    "dark_threshold": 0.632621,
+    "type": {
+      "primary": "water",
+      "secondary": "electric"
+    }
+  },
+  {
+    "id_num": "172",
+    "name": "pichu",
+    "region": "johto",
+    "dark_threshold": 0.886557,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "173",
+    "name": "cleffa",
+    "region": "johto",
+    "dark_threshold": 0.854177,
+    "type": {
+      "primary": "fairy",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "174",
+    "name": "igglybuff",
+    "region": "johto",
+    "dark_threshold": 0.890948,
+    "type": {
+      "primary": "normal",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "175",
+    "name": "togepi",
+    "region": "johto",
+    "dark_threshold": 0.974374,
+    "type": {
+      "primary": "fairy",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "176",
+    "name": "togetic",
+    "region": "johto",
+    "dark_threshold": 0.919818,
+    "type": {
+      "primary": "fairy",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "177",
+    "name": "natu",
+    "region": "johto",
+    "dark_threshold": 0.673518,
+    "type": {
+      "primary": "psychic",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "178",
+    "name": "xatu",
+    "region": "johto",
+    "dark_threshold": 0.693199,
+    "type": {
+      "primary": "psychic",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "179",
+    "name": "mareep",
+    "region": "johto",
+    "dark_threshold": 0.894504,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "180",
+    "name": "flaaffy",
+    "region": "johto",
+    "dark_threshold": 0.790988,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "181",
+    "name": "ampharos",
+    "region": "johto",
+    "dark_threshold": 0.757293,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "182",
+    "name": "bellossom",
+    "region": "johto",
+    "dark_threshold": 0.777804,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "183",
+    "name": "marill",
+    "region": "johto",
+    "dark_threshold": 0.637,
+    "type": {
+      "primary": "water",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "184",
+    "name": "azumarill",
+    "region": "johto",
+    "dark_threshold": 0.541738,
+    "type": {
+      "primary": "water",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "185",
+    "name": "sudowoodo",
+    "region": "johto",
+    "dark_threshold": 0.524254,
+    "type": {
+      "primary": "rock",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "186",
+    "name": "politoed",
+    "region": "johto",
+    "dark_threshold": 0.69556,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "187",
+    "name": "hoppip",
+    "region": "johto",
+    "dark_threshold": 0.6714,
+    "type": {
+      "primary": "grass",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "188",
+    "name": "skiploom",
+    "region": "johto",
+    "dark_threshold": 0.678718,
+    "type": {
+      "primary": "grass",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "189",
+    "name": "jumpluff",
+    "region": "johto",
+    "dark_threshold": 0.576306,
+    "type": {
+      "primary": "grass",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "190",
+    "name": "aipom",
+    "region": "johto",
+    "dark_threshold": 0.550648,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "191",
+    "name": "sunkern",
+    "region": "johto",
+    "dark_threshold": 0.814766,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "192",
+    "name": "sunflora",
+    "region": "johto",
+    "dark_threshold": 0.881064,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "193",
+    "name": "yanma",
+    "region": "johto",
+    "dark_threshold": 0.452699,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "194",
+    "name": "wooper",
+    "region": "johto",
+    "dark_threshold": 0.833696,
+    "type": {
+      "primary": "water",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "195",
+    "name": "quagsire",
+    "region": "johto",
+    "dark_threshold": 0.730816,
+    "type": {
+      "primary": "water",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "196",
+    "name": "espeon",
+    "region": "johto",
+    "dark_threshold": 0.732087,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "197",
+    "name": "umbreon",
+    "region": "johto",
+    "dark_threshold": 0.144064,
+    "type": {
+      "primary": "dark",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "198",
+    "name": "murkrow",
+    "region": "johto",
+    "dark_threshold": 0.201785,
+    "type": {
+      "primary": "dark",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "199",
+    "name": "slowking",
+    "region": "johto",
+    "dark_threshold": 0.650835,
+    "type": {
+      "primary": "water",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "200",
+    "name": "misdreavus",
+    "region": "johto",
+    "dark_threshold": 0.374371,
+    "type": {
+      "primary": "ghost",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "201",
+    "name": "unown",
+    "region": "johto",
+    "dark_threshold": 0.324886,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "202",
+    "name": "wobbuffet",
+    "region": "johto",
+    "dark_threshold": 0.618024,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "203",
+    "name": "girafarig",
+    "region": "johto",
+    "dark_threshold": 0.692634,
+    "type": {
+      "primary": "normal",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "204",
+    "name": "pineco",
+    "region": "johto",
+    "dark_threshold": 0.479762,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "205",
+    "name": "forretress",
+    "region": "johto",
+    "dark_threshold": 0.670095,
+    "type": {
+      "primary": "bug",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "206",
+    "name": "dunsparce",
+    "region": "johto",
+    "dark_threshold": 0.879011,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "207",
+    "name": "gligar",
+    "region": "johto",
+    "dark_threshold": 0.624398,
+    "type": {
+      "primary": "ground",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "208",
+    "name": "steelix",
+    "region": "johto",
+    "dark_threshold": 0.53062,
+    "type": {
+      "primary": "steel",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "209",
+    "name": "snubbull",
+    "region": "johto",
+    "dark_threshold": 0.633274,
+    "type": {
+      "primary": "fairy",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "210",
+    "name": "granbull",
+    "region": "johto",
+    "dark_threshold": 0.573458,
+    "type": {
+      "primary": "fairy",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "211",
+    "name": "qwilfish",
+    "region": "johto",
+    "dark_threshold": 0.870388,
+    "type": {
+      "primary": "water",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "212",
+    "name": "scizor",
+    "region": "johto",
+    "dark_threshold": 0.286946,
+    "type": {
+      "primary": "bug",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "213",
+    "name": "shuckle",
+    "region": "johto",
+    "dark_threshold": 0.383,
+    "type": {
+      "primary": "bug",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "214",
+    "name": "heracross",
+    "region": "johto",
+    "dark_threshold": 0.312401,
+    "type": {
+      "primary": "bug",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "215",
+    "name": "sneasel",
+    "region": "johto",
+    "dark_threshold": 0.233976,
+    "type": {
+      "primary": "dark",
+      "secondary": "ice"
+    }
+  },
+  {
+    "id_num": "216",
+    "name": "teddiursa",
+    "region": "johto",
+    "dark_threshold": 0.664395,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "217",
+    "name": "ursaring",
+    "region": "johto",
+    "dark_threshold": 0.509506,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "218",
+    "name": "slugma",
+    "region": "johto",
+    "dark_threshold": 0.501634,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "219",
+    "name": "magcargo",
+    "region": "johto",
+    "dark_threshold": 0.566186,
+    "type": {
+      "primary": "fire",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "220",
+    "name": "swinub",
+    "region": "johto",
+    "dark_threshold": 0.590632,
+    "type": {
+      "primary": "ice",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "221",
+    "name": "piloswine",
+    "region": "johto",
+    "dark_threshold": 0.535605,
+    "type": {
+      "primary": "ice",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "222",
+    "name": "corsola",
+    "region": "johto",
+    "dark_threshold": 0.673841,
+    "type": {
+      "primary": "water",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "223",
+    "name": "remoraid",
+    "region": "johto",
+    "dark_threshold": 0.807987,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "224",
+    "name": "octillery",
+    "region": "johto",
+    "dark_threshold": 0.377279,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "225",
+    "name": "delibird",
+    "region": "johto",
+    "dark_threshold": 0.417711,
+    "type": {
+      "primary": "ice",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "226",
+    "name": "mantine",
+    "region": "johto",
+    "dark_threshold": 0.697284,
+    "type": {
+      "primary": "water",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "227",
+    "name": "skarmory",
+    "region": "johto",
+    "dark_threshold": 0.80817,
+    "type": {
+      "primary": "steel",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "228",
+    "name": "houndour",
+    "region": "johto",
+    "dark_threshold": 0.321382,
+    "type": {
+      "primary": "dark",
+      "secondary": "fire"
+    }
+  },
+  {
+    "id_num": "229",
+    "name": "houndoom",
+    "region": "johto",
+    "dark_threshold": 0.375787,
+    "type": {
+      "primary": "dark",
+      "secondary": "fire"
+    }
+  },
+  {
+    "id_num": "230",
+    "name": "kingdra",
+    "region": "johto",
+    "dark_threshold": 0.643796,
+    "type": {
+      "primary": "water",
+      "secondary": "dragon"
+    }
+  },
+  {
+    "id_num": "231",
+    "name": "phanpy",
+    "region": "johto",
+    "dark_threshold": 0.719229,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "232",
+    "name": "donphan",
+    "region": "johto",
+    "dark_threshold": 0.755039,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "233",
+    "name": "porygon2",
+    "region": "johto",
+    "dark_threshold": 0.471431,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "234",
+    "name": "stantler",
+    "region": "johto",
+    "dark_threshold": 0.645821,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "235",
+    "name": "smeargle",
+    "region": "johto",
+    "dark_threshold": 0.895412,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "236",
+    "name": "tyrogue",
+    "region": "johto",
+    "dark_threshold": 0.732042,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "237",
+    "name": "hitmontop",
+    "region": "johto",
+    "dark_threshold": 0.657826,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "238",
+    "name": "smoochum",
+    "region": "johto",
+    "dark_threshold": 0.613722,
+    "type": {
+      "primary": "ice",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "239",
+    "name": "elekid",
+    "region": "johto",
+    "dark_threshold": 0.713664,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "240",
+    "name": "magby",
+    "region": "johto",
+    "dark_threshold": 0.56141,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "241",
+    "name": "miltank",
+    "region": "johto",
+    "dark_threshold": 0.676376,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "242",
+    "name": "blissey",
+    "region": "johto",
+    "dark_threshold": 0.716088,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "243",
+    "name": "raikou",
+    "region": "johto",
+    "dark_threshold": 0.792091,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "244",
+    "name": "entei",
+    "region": "johto",
+    "dark_threshold": 0.164723,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "245",
+    "name": "suicune",
+    "region": "johto",
+    "dark_threshold": 0.718651,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "246",
+    "name": "larvitar",
+    "region": "johto",
+    "dark_threshold": 0.655129,
+    "type": {
+      "primary": "rock",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "247",
+    "name": "pupitar",
+    "region": "johto",
+    "dark_threshold": 0.683949,
+    "type": {
+      "primary": "rock",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "248",
+    "name": "tyranitar",
+    "region": "johto",
+    "dark_threshold": 0.740855,
+    "type": {
+      "primary": "rock",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "249",
+    "name": "lugia",
+    "region": "johto",
+    "dark_threshold": 0.854093,
+    "type": {
+      "primary": "psychic",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "250",
+    "name": "ho-oh",
+    "region": "johto",
+    "dark_threshold": 0.456829,
+    "type": {
+      "primary": "fire",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "251",
+    "name": "celebi",
+    "region": "johto",
+    "dark_threshold": 0.914585,
+    "type": {
+      "primary": "psychic",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "252",
+    "name": "treecko",
+    "region": "hoenn",
+    "dark_threshold": 0.789267,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "253",
+    "name": "grovyle",
+    "region": "hoenn",
+    "dark_threshold": 0.710269,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "254",
+    "name": "sceptile",
+    "region": "hoenn",
+    "dark_threshold": 0.7234,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "255",
+    "name": "torchic",
+    "region": "hoenn",
+    "dark_threshold": 0.611063,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "256",
+    "name": "combusken",
+    "region": "hoenn",
+    "dark_threshold": 0.566604,
+    "type": {
+      "primary": "fire",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "257",
+    "name": "blaziken",
+    "region": "hoenn",
+    "dark_threshold": 0.823418,
+    "type": {
+      "primary": "fire",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "258",
+    "name": "mudkip",
+    "region": "hoenn",
+    "dark_threshold": 0.601698,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "259",
+    "name": "marshtomp",
+    "region": "hoenn",
+    "dark_threshold": 0.60155,
+    "type": {
+      "primary": "water",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "260",
+    "name": "swampert",
+    "region": "hoenn",
+    "dark_threshold": 0.582725,
+    "type": {
+      "primary": "water",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "261",
+    "name": "poochyena",
+    "region": "hoenn",
+    "dark_threshold": 0.659817,
+    "type": {
+      "primary": "dark",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "262",
+    "name": "mightyena",
+    "region": "hoenn",
+    "dark_threshold": 0.729255,
+    "type": {
+      "primary": "dark",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "263",
+    "name": "zigzagoon",
+    "region": "hoenn",
+    "dark_threshold": 0.826714,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "264",
+    "name": "linoone",
+    "region": "hoenn",
+    "dark_threshold": 0.763825,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "265",
+    "name": "wurmple",
+    "region": "hoenn",
+    "dark_threshold": 0.888278,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "266",
+    "name": "silcoon",
+    "region": "hoenn",
+    "dark_threshold": 0.86649,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "267",
+    "name": "beautifly",
+    "region": "hoenn",
+    "dark_threshold": 0.411765,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "268",
+    "name": "cascoon",
+    "region": "hoenn",
+    "dark_threshold": 0.825882,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "269",
+    "name": "dustox",
+    "region": "hoenn",
+    "dark_threshold": 0.590593,
+    "type": {
+      "primary": "bug",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "270",
+    "name": "lotad",
+    "region": "hoenn",
+    "dark_threshold": 0.496519,
+    "type": {
+      "primary": "water",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "271",
+    "name": "lombre",
+    "region": "hoenn",
+    "dark_threshold": 0.702942,
+    "type": {
+      "primary": "water",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "272",
+    "name": "ludicolo",
+    "region": "hoenn",
+    "dark_threshold": 0.662457,
+    "type": {
+      "primary": "water",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "273",
+    "name": "seedot",
+    "region": "hoenn",
+    "dark_threshold": 0.527105,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "274",
+    "name": "nuzleaf",
+    "region": "hoenn",
+    "dark_threshold": 0.620504,
+    "type": {
+      "primary": "grass",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "275",
+    "name": "shiftry",
+    "region": "hoenn",
+    "dark_threshold": 0.59948,
+    "type": {
+      "primary": "grass",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "276",
+    "name": "taillow",
+    "region": "hoenn",
+    "dark_threshold": 0.37519,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "277",
+    "name": "swellow",
+    "region": "hoenn",
+    "dark_threshold": 0.287707,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "278",
+    "name": "wingull",
+    "region": "hoenn",
+    "dark_threshold": 0.789535,
+    "type": {
+      "primary": "water",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "279",
+    "name": "pelipper",
+    "region": "hoenn",
+    "dark_threshold": 0.902759,
+    "type": {
+      "primary": "water",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "280",
+    "name": "ralts",
+    "region": "hoenn",
+    "dark_threshold": 0.939809,
+    "type": {
+      "primary": "psychic",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "281",
+    "name": "kirlia",
+    "region": "hoenn",
+    "dark_threshold": 0.959133,
+    "type": {
+      "primary": "psychic",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "282",
+    "name": "gardevoir",
+    "region": "hoenn",
+    "dark_threshold": 0.649517,
+    "type": {
+      "primary": "psychic",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "283",
+    "name": "surskit",
+    "region": "hoenn",
+    "dark_threshold": 0.767106,
+    "type": {
+      "primary": "bug",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "284",
+    "name": "masquerain",
+    "region": "hoenn",
+    "dark_threshold": 0.801517,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "285",
+    "name": "shroomish",
+    "region": "hoenn",
+    "dark_threshold": 0.597057,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "286",
+    "name": "breloom",
+    "region": "hoenn",
+    "dark_threshold": 0.85317,
+    "type": {
+      "primary": "grass",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "287",
+    "name": "slakoth",
+    "region": "hoenn",
+    "dark_threshold": 0.82493,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "288",
+    "name": "vigoroth",
+    "region": "hoenn",
+    "dark_threshold": 0.898085,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "289",
+    "name": "slaking",
+    "region": "hoenn",
+    "dark_threshold": 0.525411,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "290",
+    "name": "nincada",
+    "region": "hoenn",
+    "dark_threshold": 0.960731,
+    "type": {
+      "primary": "bug",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "291",
+    "name": "ninjask",
+    "region": "hoenn",
+    "dark_threshold": 0.208803,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "292",
+    "name": "shedinja",
+    "region": "hoenn",
+    "dark_threshold": 0.715377,
+    "type": {
+      "primary": "bug",
+      "secondary": "ghost"
+    }
+  },
+  {
+    "id_num": "293",
+    "name": "whismur",
+    "region": "hoenn",
+    "dark_threshold": 0.786548,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "294",
+    "name": "loudred",
+    "region": "hoenn",
+    "dark_threshold": 0.522184,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "295",
+    "name": "exploud",
+    "region": "hoenn",
+    "dark_threshold": 0.620426,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "296",
+    "name": "makuhita",
+    "region": "hoenn",
+    "dark_threshold": 0.859654,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "297",
+    "name": "hariyama",
+    "region": "hoenn",
+    "dark_threshold": 0.847462,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "298",
+    "name": "azurill",
+    "region": "hoenn",
+    "dark_threshold": 0.490813,
+    "type": {
+      "primary": "normal",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "299",
+    "name": "nosepass",
+    "region": "hoenn",
+    "dark_threshold": 0.288598,
+    "type": {
+      "primary": "rock",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "300",
+    "name": "skitty",
+    "region": "hoenn",
+    "dark_threshold": 0.705455,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "301",
+    "name": "delcatty",
+    "region": "hoenn",
+    "dark_threshold": 0.867468,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "302",
+    "name": "sableye",
+    "region": "hoenn",
+    "dark_threshold": 0.449862,
+    "type": {
+      "primary": "dark",
+      "secondary": "ghost"
+    }
+  },
+  {
+    "id_num": "303",
+    "name": "mawile",
+    "region": "hoenn",
+    "dark_threshold": 0.780275,
+    "type": {
+      "primary": "steel",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "304",
+    "name": "aron",
+    "region": "hoenn",
+    "dark_threshold": 0.760185,
+    "type": {
+      "primary": "steel",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "305",
+    "name": "lairon",
+    "region": "hoenn",
+    "dark_threshold": 0.426203,
+    "type": {
+      "primary": "steel",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "306",
+    "name": "aggron",
+    "region": "hoenn",
+    "dark_threshold": 0.526279,
+    "type": {
+      "primary": "steel",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "307",
+    "name": "meditite",
+    "region": "hoenn",
+    "dark_threshold": 0.73075,
+    "type": {
+      "primary": "fighting",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "308",
+    "name": "medicham",
+    "region": "hoenn",
+    "dark_threshold": 0.825481,
+    "type": {
+      "primary": "fighting",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "309",
+    "name": "electrike",
+    "region": "hoenn",
+    "dark_threshold": 0.703969,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "310",
+    "name": "manectric",
+    "region": "hoenn",
+    "dark_threshold": 0.660832,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "311",
+    "name": "plusle",
+    "region": "hoenn",
+    "dark_threshold": 0.90071,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "312",
+    "name": "minun",
+    "region": "hoenn",
+    "dark_threshold": 0.911575,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "313",
+    "name": "volbeat",
+    "region": "hoenn",
+    "dark_threshold": 0.619725,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "314",
+    "name": "illumise",
+    "region": "hoenn",
+    "dark_threshold": 0.70883,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "315",
+    "name": "roselia",
+    "region": "hoenn",
+    "dark_threshold": 0.74602,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "316",
+    "name": "gulpin",
+    "region": "hoenn",
+    "dark_threshold": 0.721942,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "317",
+    "name": "swalot",
+    "region": "hoenn",
+    "dark_threshold": 0.579722,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "318",
+    "name": "carvanha",
+    "region": "hoenn",
+    "dark_threshold": 0.32407,
+    "type": {
+      "primary": "water",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "319",
+    "name": "sharpedo",
+    "region": "hoenn",
+    "dark_threshold": 0.807318,
+    "type": {
+      "primary": "water",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "320",
+    "name": "wailmer",
+    "region": "hoenn",
+    "dark_threshold": 0.378056,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "321",
+    "name": "wailord",
+    "region": "hoenn",
+    "dark_threshold": 0.48029,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "322",
+    "name": "numel",
+    "region": "hoenn",
+    "dark_threshold": 0.838816,
+    "type": {
+      "primary": "fire",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "323",
+    "name": "camerupt",
+    "region": "hoenn",
+    "dark_threshold": 0.581801,
+    "type": {
+      "primary": "fire",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "324",
+    "name": "torkoal",
+    "region": "hoenn",
+    "dark_threshold": 0.682765,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "325",
+    "name": "spoink",
+    "region": "hoenn",
+    "dark_threshold": 0.645841,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "326",
+    "name": "grumpig",
+    "region": "hoenn",
+    "dark_threshold": 0.6022,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "327",
+    "name": "spinda",
+    "region": "hoenn",
+    "dark_threshold": 0.810219,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "328",
+    "name": "trapinch",
+    "region": "hoenn",
+    "dark_threshold": 0.602283,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "329",
+    "name": "vibrava",
+    "region": "hoenn",
+    "dark_threshold": 0.827242,
+    "type": {
+      "primary": "ground",
+      "secondary": "dragon"
+    }
+  },
+  {
+    "id_num": "330",
+    "name": "flygon",
+    "region": "hoenn",
+    "dark_threshold": 0.760615,
+    "type": {
+      "primary": "ground",
+      "secondary": "dragon"
+    }
+  },
+  {
+    "id_num": "331",
+    "name": "cacnea",
+    "region": "hoenn",
+    "dark_threshold": 0.643642,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "332",
+    "name": "cacturne",
+    "region": "hoenn",
+    "dark_threshold": 0.673486,
+    "type": {
+      "primary": "grass",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "333",
+    "name": "swablu",
+    "region": "hoenn",
+    "dark_threshold": 0.692523,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "334",
+    "name": "altaria",
+    "region": "hoenn",
+    "dark_threshold": 0.914359,
+    "type": {
+      "primary": "dragon",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "335",
+    "name": "zangoose",
+    "region": "hoenn",
+    "dark_threshold": 0.955059,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "336",
+    "name": "seviper",
+    "region": "hoenn",
+    "dark_threshold": 0.415772,
+    "type": {
+      "primary": "poison",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "337",
+    "name": "lunatone",
+    "region": "hoenn",
+    "dark_threshold": 0.843258,
+    "type": {
+      "primary": "rock",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "338",
+    "name": "solrock",
+    "region": "hoenn",
+    "dark_threshold": 0.503932,
+    "type": {
+      "primary": "rock",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "339",
+    "name": "barboach",
+    "region": "hoenn",
+    "dark_threshold": 0.791458,
+    "type": {
+      "primary": "water",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "340",
+    "name": "whiscash",
+    "region": "hoenn",
+    "dark_threshold": 0.285956,
+    "type": {
+      "primary": "water",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "341",
+    "name": "corphish",
+    "region": "hoenn",
+    "dark_threshold": 0.818555,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "342",
+    "name": "crawdaunt",
+    "region": "hoenn",
+    "dark_threshold": 0.443998,
+    "type": {
+      "primary": "water",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "343",
+    "name": "baltoy",
+    "region": "hoenn",
+    "dark_threshold": 0.758668,
+    "type": {
+      "primary": "ground",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "344",
+    "name": "claydol",
+    "region": "hoenn",
+    "dark_threshold": 0.358909,
+    "type": {
+      "primary": "ground",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "345",
+    "name": "lileep",
+    "region": "hoenn",
+    "dark_threshold": 0.480308,
+    "type": {
+      "primary": "rock",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "346",
+    "name": "cradily",
+    "region": "hoenn",
+    "dark_threshold": 0.675871,
+    "type": {
+      "primary": "rock",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "347",
+    "name": "anorith",
+    "region": "hoenn",
+    "dark_threshold": 0.55059,
+    "type": {
+      "primary": "rock",
+      "secondary": "bug"
+    }
+  },
+  {
+    "id_num": "348",
+    "name": "armaldo",
+    "region": "hoenn",
+    "dark_threshold": 0.510346,
+    "type": {
+      "primary": "rock",
+      "secondary": "bug"
+    }
+  },
+  {
+    "id_num": "349",
+    "name": "feebas",
+    "region": "hoenn",
+    "dark_threshold": 0.753104,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "350",
+    "name": "milotic",
+    "region": "hoenn",
+    "dark_threshold": 0.869479,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "351",
+    "name": "castform",
+    "region": "hoenn",
+    "dark_threshold": 0.824363,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "352",
+    "name": "kecleon",
+    "region": "hoenn",
+    "dark_threshold": 0.712634,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "353",
+    "name": "shuppet",
+    "region": "hoenn",
+    "dark_threshold": 0.523015,
+    "type": {
+      "primary": "ghost",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "354",
+    "name": "banette",
+    "region": "hoenn",
+    "dark_threshold": 0.592839,
+    "type": {
+      "primary": "ghost",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "355",
+    "name": "duskull",
+    "region": "hoenn",
+    "dark_threshold": 0.407622,
+    "type": {
+      "primary": "ghost",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "356",
+    "name": "dusclops",
+    "region": "hoenn",
+    "dark_threshold": 0.73202,
+    "type": {
+      "primary": "ghost",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "357",
+    "name": "tropius",
+    "region": "hoenn",
+    "dark_threshold": 0.572509,
+    "type": {
+      "primary": "grass",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "358",
+    "name": "chimecho",
+    "region": "hoenn",
+    "dark_threshold": 0.833826,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "359",
+    "name": "absol",
+    "region": "hoenn",
+    "dark_threshold": 0.803023,
+    "type": {
+      "primary": "dark",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "360",
+    "name": "wynaut",
+    "region": "hoenn",
+    "dark_threshold": 0.707459,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "361",
+    "name": "snorunt",
+    "region": "hoenn",
+    "dark_threshold": 0.27341,
+    "type": {
+      "primary": "ice",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "362",
+    "name": "glalie",
+    "region": "hoenn",
+    "dark_threshold": 0.355935,
+    "type": {
+      "primary": "ice",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "363",
+    "name": "spheal",
+    "region": "hoenn",
+    "dark_threshold": 0.657501,
+    "type": {
+      "primary": "ice",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "364",
+    "name": "sealeo",
+    "region": "hoenn",
+    "dark_threshold": 0.686642,
+    "type": {
+      "primary": "ice",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "365",
+    "name": "walrein",
+    "region": "hoenn",
+    "dark_threshold": 0.60321,
+    "type": {
+      "primary": "ice",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "366",
+    "name": "clamperl",
+    "region": "hoenn",
+    "dark_threshold": 0.633663,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "367",
+    "name": "huntail",
+    "region": "hoenn",
+    "dark_threshold": 0.593536,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "368",
+    "name": "gorebyss",
+    "region": "hoenn",
+    "dark_threshold": 0.746509,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "369",
+    "name": "relicanth",
+    "region": "hoenn",
+    "dark_threshold": 0.348452,
+    "type": {
+      "primary": "water",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "370",
+    "name": "luvdisc",
+    "region": "hoenn",
+    "dark_threshold": 0.682499,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "371",
+    "name": "bagon",
+    "region": "hoenn",
+    "dark_threshold": 0.677044,
+    "type": {
+      "primary": "dragon",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "372",
+    "name": "shelgon",
+    "region": "hoenn",
+    "dark_threshold": 0.83147,
+    "type": {
+      "primary": "dragon",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "373",
+    "name": "salamence",
+    "region": "hoenn",
+    "dark_threshold": 0.653867,
+    "type": {
+      "primary": "dragon",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "374",
+    "name": "beldum",
+    "region": "hoenn",
+    "dark_threshold": 0.563534,
+    "type": {
+      "primary": "steel",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "375",
+    "name": "metang",
+    "region": "hoenn",
+    "dark_threshold": 0.533696,
+    "type": {
+      "primary": "steel",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "376",
+    "name": "metagross",
+    "region": "hoenn",
+    "dark_threshold": 0.53279,
+    "type": {
+      "primary": "steel",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "377",
+    "name": "regirock",
+    "region": "hoenn",
+    "dark_threshold": 0.741491,
+    "type": {
+      "primary": "rock",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "378",
+    "name": "regice",
+    "region": "hoenn",
+    "dark_threshold": 0.683548,
+    "type": {
+      "primary": "ice",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "379",
+    "name": "registeel",
+    "region": "hoenn",
+    "dark_threshold": 0.623046,
+    "type": {
+      "primary": "steel",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "380",
+    "name": "latias",
+    "region": "hoenn",
+    "dark_threshold": 0.982893,
+    "type": {
+      "primary": "dragon",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "381",
+    "name": "latios",
+    "region": "hoenn",
+    "dark_threshold": 0.876962,
+    "type": {
+      "primary": "dragon",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "382",
+    "name": "kyogre",
+    "region": "hoenn",
+    "dark_threshold": 0.384149,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "383",
+    "name": "groudon",
+    "region": "hoenn",
+    "dark_threshold": 0.0902245,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "384",
+    "name": "rayquaza",
+    "region": "hoenn",
+    "dark_threshold": 0.468595,
+    "type": {
+      "primary": "dragon",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "385",
+    "name": "jirachi",
+    "region": "hoenn",
+    "dark_threshold": 0.978042,
+    "type": {
+      "primary": "steel",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "386",
+    "name": "deoxys",
+    "region": "hoenn",
+    "dark_threshold": 0.618088,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "387",
+    "name": "turtwig",
+    "region": "sinnoh",
+    "dark_threshold": 0.773515,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "388",
+    "name": "grotle",
+    "region": "sinnoh",
+    "dark_threshold": 0.604132,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "389",
+    "name": "torterra",
+    "region": "sinnoh",
+    "dark_threshold": 0.457409,
+    "type": {
+      "primary": "grass",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "390",
+    "name": "chimchar",
+    "region": "sinnoh",
+    "dark_threshold": 0.663174,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "391",
+    "name": "monferno",
+    "region": "sinnoh",
+    "dark_threshold": 0.631232,
+    "type": {
+      "primary": "fire",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "392",
+    "name": "infernape",
+    "region": "sinnoh",
+    "dark_threshold": 0.945496,
+    "type": {
+      "primary": "fire",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "393",
+    "name": "piplup",
+    "region": "sinnoh",
+    "dark_threshold": 0.745585,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "394",
+    "name": "prinplup",
+    "region": "sinnoh",
+    "dark_threshold": 0.405031,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "395",
+    "name": "empoleon",
+    "region": "sinnoh",
+    "dark_threshold": 0.262553,
+    "type": {
+      "primary": "water",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "396",
+    "name": "starly",
+    "region": "sinnoh",
+    "dark_threshold": 0.26931,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "397",
+    "name": "staravia",
+    "region": "sinnoh",
+    "dark_threshold": 0.282412,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "398",
+    "name": "staraptor",
+    "region": "sinnoh",
+    "dark_threshold": 0.481331,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "399",
+    "name": "bidoof",
+    "region": "sinnoh",
+    "dark_threshold": 0.467715,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "400",
+    "name": "bibarel",
+    "region": "sinnoh",
+    "dark_threshold": 0.588023,
+    "type": {
+      "primary": "normal",
+      "secondary": "water"
+    }
+  },
+  {
+    "id_num": "401",
+    "name": "kricketot",
+    "region": "sinnoh",
+    "dark_threshold": 0.430597,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "402",
+    "name": "kricketune",
+    "region": "sinnoh",
+    "dark_threshold": 0.405649,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "403",
+    "name": "shinx",
+    "region": "sinnoh",
+    "dark_threshold": 0.631029,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "404",
+    "name": "luxio",
+    "region": "sinnoh",
+    "dark_threshold": 0.612493,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "405",
+    "name": "luxray",
+    "region": "sinnoh",
+    "dark_threshold": 0.235459,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "406",
+    "name": "budew",
+    "region": "sinnoh",
+    "dark_threshold": 0.703137,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "407",
+    "name": "roserade",
+    "region": "sinnoh",
+    "dark_threshold": 0.813278,
+    "type": {
+      "primary": "grass",
+      "secondary": "poison"
+    }
+  },
+  {
+    "id_num": "408",
+    "name": "cranidos",
+    "region": "sinnoh",
+    "dark_threshold": 0.47046,
+    "type": {
+      "primary": "rock",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "409",
+    "name": "rampardos",
+    "region": "sinnoh",
+    "dark_threshold": 0.310159,
+    "type": {
+      "primary": "rock",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "410",
+    "name": "shieldon",
+    "region": "sinnoh",
+    "dark_threshold": 0.731566,
+    "type": {
+      "primary": "rock",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "411",
+    "name": "bastiodon",
+    "region": "sinnoh",
+    "dark_threshold": 0.774646,
+    "type": {
+      "primary": "rock",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "412",
+    "name": "burmy",
+    "region": "sinnoh",
+    "dark_threshold": 0.547375,
+    "type": {
+      "primary": "bug",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "413",
+    "name": "wormadam",
+    "region": "sinnoh",
+    "dark_threshold": 0.501587,
+    "type": {
+      "primary": "bug",
+      "secondary": "grass"
+    }
+  },
+  {
+    "id_num": "414",
+    "name": "mothim",
+    "region": "sinnoh",
+    "dark_threshold": 0.332024,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "415",
+    "name": "combee",
+    "region": "sinnoh",
+    "dark_threshold": 0.766668,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "416",
+    "name": "vespiquen",
+    "region": "sinnoh",
+    "dark_threshold": 0.71957,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "417",
+    "name": "pachirisu",
+    "region": "sinnoh",
+    "dark_threshold": 0.892119,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "418",
+    "name": "buizel",
+    "region": "sinnoh",
+    "dark_threshold": 0.603754,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "419",
+    "name": "floatzel",
+    "region": "sinnoh",
+    "dark_threshold": 0.545801,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "420",
+    "name": "cherubi",
+    "region": "sinnoh",
+    "dark_threshold": 0.529458,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "421",
+    "name": "cherrim",
+    "region": "sinnoh",
+    "dark_threshold": 0.763485,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "422",
+    "name": "shellos",
+    "region": "sinnoh",
+    "dark_threshold": 0.60342,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "423",
+    "name": "gastrodon",
+    "region": "sinnoh",
+    "dark_threshold": 0.438932,
+    "type": {
+      "primary": "water",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "424",
+    "name": "ambipom",
+    "region": "sinnoh",
+    "dark_threshold": 0.540427,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "425",
+    "name": "drifloon",
+    "region": "sinnoh",
+    "dark_threshold": 0.571655,
+    "type": {
+      "primary": "ghost",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "426",
+    "name": "drifblim",
+    "region": "sinnoh",
+    "dark_threshold": 0.524227,
+    "type": {
+      "primary": "ghost",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "427",
+    "name": "buneary",
+    "region": "sinnoh",
+    "dark_threshold": 0.538228,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "428",
+    "name": "lopunny",
+    "region": "sinnoh",
+    "dark_threshold": 0.53163,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "429",
+    "name": "mismagius",
+    "region": "sinnoh",
+    "dark_threshold": 0.332848,
+    "type": {
+      "primary": "ghost",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "430",
+    "name": "honchkrow",
+    "region": "sinnoh",
+    "dark_threshold": 0.319731,
+    "type": {
+      "primary": "dark",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "431",
+    "name": "glameow",
+    "region": "sinnoh",
+    "dark_threshold": 0.605219,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "432",
+    "name": "purugly",
+    "region": "sinnoh",
+    "dark_threshold": 0.430523,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "433",
+    "name": "chingling",
+    "region": "sinnoh",
+    "dark_threshold": 0.791304,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "434",
+    "name": "stunky",
+    "region": "sinnoh",
+    "dark_threshold": 0.255749,
+    "type": {
+      "primary": "poison",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "435",
+    "name": "skuntank",
+    "region": "sinnoh",
+    "dark_threshold": 0.26677,
+    "type": {
+      "primary": "poison",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "436",
+    "name": "bronzor",
+    "region": "sinnoh",
+    "dark_threshold": 0.55897,
+    "type": {
+      "primary": "steel",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "437",
+    "name": "bronzong",
+    "region": "sinnoh",
+    "dark_threshold": 0.636318,
+    "type": {
+      "primary": "steel",
+      "secondary": "psychic"
+    }
+  },
+  {
+    "id_num": "438",
+    "name": "bonsly",
+    "region": "sinnoh",
+    "dark_threshold": 0.512233,
+    "type": {
+      "primary": "rock",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "439",
+    "name": "mimejr",
+    "region": "sinnoh",
+    "dark_threshold": 0.847604,
+    "type": {
+      "primary": "psychic",
+      "secondary": "fairy"
+    }
+  },
+  {
+    "id_num": "440",
+    "name": "happiny",
+    "region": "sinnoh",
+    "dark_threshold": 0.839292,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "441",
+    "name": "chatot",
+    "region": "sinnoh",
+    "dark_threshold": 0.49433,
+    "type": {
+      "primary": "normal",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "442",
+    "name": "spiritomb",
+    "region": "sinnoh",
+    "dark_threshold": 0.70014,
+    "type": {
+      "primary": "ghost",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "443",
+    "name": "gible",
+    "region": "sinnoh",
+    "dark_threshold": 0.476057,
+    "type": {
+      "primary": "dragon",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "444",
+    "name": "gabite",
+    "region": "sinnoh",
+    "dark_threshold": 0.399648,
+    "type": {
+      "primary": "dragon",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "445",
+    "name": "garchomp",
+    "region": "sinnoh",
+    "dark_threshold": 0.333349,
+    "type": {
+      "primary": "dragon",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "446",
+    "name": "munchlax",
+    "region": "sinnoh",
+    "dark_threshold": 0.422614,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "447",
+    "name": "riolu",
+    "region": "sinnoh",
+    "dark_threshold": 0.624587,
+    "type": {
+      "primary": "fighting",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "448",
+    "name": "lucario",
+    "region": "sinnoh",
+    "dark_threshold": 0.535689,
+    "type": {
+      "primary": "fighting",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "449",
+    "name": "hippopotas",
+    "region": "sinnoh",
+    "dark_threshold": 0.740069,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "450",
+    "name": "hippowdon",
+    "region": "sinnoh",
+    "dark_threshold": 0.608923,
+    "type": {
+      "primary": "ground",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "451",
+    "name": "skorupi",
+    "region": "sinnoh",
+    "dark_threshold": 0.248446,
+    "type": {
+      "primary": "poison",
+      "secondary": "bug"
+    }
+  },
+  {
+    "id_num": "452",
+    "name": "drapion",
+    "region": "sinnoh",
+    "dark_threshold": 0.517049,
+    "type": {
+      "primary": "poison",
+      "secondary": "dark"
+    }
+  },
+  {
+    "id_num": "453",
+    "name": "croagunk",
+    "region": "sinnoh",
+    "dark_threshold": 0.566172,
+    "type": {
+      "primary": "poison",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "454",
+    "name": "toxicroak",
+    "region": "sinnoh",
+    "dark_threshold": 0.53118,
+    "type": {
+      "primary": "poison",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "455",
+    "name": "carnivine",
+    "region": "sinnoh",
+    "dark_threshold": 0.734641,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "456",
+    "name": "finneon",
+    "region": "sinnoh",
+    "dark_threshold": 0.291408,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "457",
+    "name": "lumineon",
+    "region": "sinnoh",
+    "dark_threshold": 0.303825,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "458",
+    "name": "mantyke",
+    "region": "sinnoh",
+    "dark_threshold": 0.763958,
+    "type": {
+      "primary": "water",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "459",
+    "name": "snover",
+    "region": "sinnoh",
+    "dark_threshold": 0.96865,
+    "type": {
+      "primary": "grass",
+      "secondary": "ice"
+    }
+  },
+  {
+    "id_num": "460",
+    "name": "abomasnow",
+    "region": "sinnoh",
+    "dark_threshold": 0.990744,
+    "type": {
+      "primary": "grass",
+      "secondary": "ice"
+    }
+  },
+  {
+    "id_num": "461",
+    "name": "weavile",
+    "region": "sinnoh",
+    "dark_threshold": 0.286989,
+    "type": {
+      "primary": "dark",
+      "secondary": "ice"
+    }
+  },
+  {
+    "id_num": "462",
+    "name": "magnezone",
+    "region": "sinnoh",
+    "dark_threshold": 0.75966,
+    "type": {
+      "primary": "electric",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "463",
+    "name": "lickilicky",
+    "region": "sinnoh",
+    "dark_threshold": 0.614629,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "464",
+    "name": "rhyperior",
+    "region": "sinnoh",
+    "dark_threshold": 0.416519,
+    "type": {
+      "primary": "ground",
+      "secondary": "rock"
+    }
+  },
+  {
+    "id_num": "465",
+    "name": "tangrowth",
+    "region": "sinnoh",
+    "dark_threshold": 0.470169,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "466",
+    "name": "electivire",
+    "region": "sinnoh",
+    "dark_threshold": 0.794939,
+    "type": {
+      "primary": "electric",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "467",
+    "name": "magmortar",
+    "region": "sinnoh",
+    "dark_threshold": 0.372137,
+    "type": {
+      "primary": "fire",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "468",
+    "name": "togekiss",
+    "region": "sinnoh",
+    "dark_threshold": 0.898987,
+    "type": {
+      "primary": "fairy",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "469",
+    "name": "yanmega",
+    "region": "sinnoh",
+    "dark_threshold": 0.32405,
+    "type": {
+      "primary": "bug",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "470",
+    "name": "leafeon",
+    "region": "sinnoh",
+    "dark_threshold": 0.901089,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "471",
+    "name": "glaceon",
+    "region": "sinnoh",
+    "dark_threshold": 0.810771,
+    "type": {
+      "primary": "ice",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "472",
+    "name": "gliscor",
+    "region": "sinnoh",
+    "dark_threshold": 0.649418,
+    "type": {
+      "primary": "ground",
+      "secondary": "flying"
+    }
+  },
+  {
+    "id_num": "473",
+    "name": "mamoswine",
+    "region": "sinnoh",
+    "dark_threshold": 0.548716,
+    "type": {
+      "primary": "ice",
+      "secondary": "ground"
+    }
+  },
+  {
+    "id_num": "474",
+    "name": "porygon-z",
+    "region": "sinnoh",
+    "dark_threshold": 0.367984,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "475",
+    "name": "gallade",
+    "region": "sinnoh",
+    "dark_threshold": 0.382547,
+    "type": {
+      "primary": "psychic",
+      "secondary": "fighting"
+    }
+  },
+  {
+    "id_num": "476",
+    "name": "probopass",
+    "region": "sinnoh",
+    "dark_threshold": 0.488307,
+    "type": {
+      "primary": "rock",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "477",
+    "name": "dusknoir",
+    "region": "sinnoh",
+    "dark_threshold": 0.679651,
+    "type": {
+      "primary": "ghost",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "478",
+    "name": "froslass",
+    "region": "sinnoh",
+    "dark_threshold": 0.936162,
+    "type": {
+      "primary": "ice",
+      "secondary": "ghost"
+    }
+  },
+  {
+    "id_num": "479",
+    "name": "rotom",
+    "region": "sinnoh",
+    "dark_threshold": 0.543941,
+    "type": {
+      "primary": "electric",
+      "secondary": "ghost"
+    }
+  },
+  {
+    "id_num": "480",
+    "name": "uxie",
+    "region": "sinnoh",
+    "dark_threshold": 0.81938,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "481",
+    "name": "mesprit",
+    "region": "sinnoh",
+    "dark_threshold": 0.772561,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "482",
+    "name": "azelf",
+    "region": "sinnoh",
+    "dark_threshold": 0.780311,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "483",
+    "name": "dialga",
+    "region": "sinnoh",
+    "dark_threshold": 0.272122,
+    "type": {
+      "primary": "steel",
+      "secondary": "dragon"
+    }
+  },
+  {
+    "id_num": "484",
+    "name": "palkia",
+    "region": "sinnoh",
+    "dark_threshold": 0.588943,
+    "type": {
+      "primary": "water",
+      "secondary": "dragon"
+    }
+  },
+  {
+    "id_num": "485",
+    "name": "heatran",
+    "region": "sinnoh",
+    "dark_threshold": 0.291081,
+    "type": {
+      "primary": "fire",
+      "secondary": "steel"
+    }
+  },
+  {
+    "id_num": "486",
+    "name": "regigigas",
+    "region": "sinnoh",
+    "dark_threshold": 0.927366,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "487",
+    "name": "giratina",
+    "region": "sinnoh",
+    "dark_threshold": 0.263429,
+    "type": {
+      "primary": "ghost",
+      "secondary": "dragon"
+    }
+  },
+  {
+    "id_num": "488",
+    "name": "cresselia",
+    "region": "sinnoh",
+    "dark_threshold": 0.677861,
+    "type": {
+      "primary": "psychic",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "489",
+    "name": "phione",
+    "region": "sinnoh",
+    "dark_threshold": 0.661622,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "490",
+    "name": "manaphy",
+    "region": "sinnoh",
+    "dark_threshold": 0.709464,
+    "type": {
+      "primary": "water",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "491",
+    "name": "darkrai",
+    "region": "sinnoh",
+    "dark_threshold": 0.364973,
+    "type": {
+      "primary": "dark",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "492",
+    "name": "shaymin",
+    "region": "sinnoh",
+    "dark_threshold": 0.918656,
+    "type": {
+      "primary": "grass",
+      "secondary": null
+    }
+  },
+  {
+    "id_num": "493",
+    "name": "arceus",
+    "region": "sinnoh",
+    "dark_threshold": 0.899249,
+    "type": {
+      "primary": "normal",
+      "secondary": null
+    }
+  }
+]
