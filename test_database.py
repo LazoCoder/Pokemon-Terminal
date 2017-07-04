@@ -133,4 +133,4 @@ def test_ids():
 
 def test_thresholds():
     db = Database()
-    assert all(is_instance(p.get_threashold(), float) for p in db.get_all())
+    assert all(isinstance(p.get_threashold(), float) for p in db.get_all())
