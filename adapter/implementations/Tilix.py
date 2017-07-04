@@ -11,11 +11,11 @@ class Tilix(TerminalAdapterInterface):
     def is_available():
         return "TILIX_ID" in os.environ
 
-    def set_pokemon(self, pokemon):
+    def set_image_file_path(self, image_file_path):
         command = 'gsettings set {} {} "{}"'
         os.system(command.format(self.setting_key,
                                  self.setting_field,
-                                 pokemon.get_path()))
+                                 image_file_path))
 
     def clear(self):
         command = 'gsettings set {} {}'

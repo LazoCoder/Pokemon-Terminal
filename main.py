@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# The main module that brings everything together.
+"""The main module that brings everything together."""
 
 from database import Database
 import random
@@ -10,17 +10,17 @@ import time
 
 
 def print_list(list_of_items):
-    # Print all the items in a list. Used for printing each Pokemon from a particular region.
+    """Print all the items in a list. Used for printing each Pokemon from a particular region."""
     print("\n".join(str(item) for item in list_of_items))
 
 
 def print_columns(items):
-    # Print a list as multiple columns instead of just one.
+    """Print a list as multiple columns instead of just one."""
     rows = []
     items_per_column = int(len(items) / 4) + 1
     for index, pokemon in enumerate(items):
         if not pokemon.is_extra():
-            name = pokemon.get_id() + " " + str(pokemon.get_name()).capitalize()
+            name = pokemon.get_id() + " " + str(pokemon.get_name()).title()
         else:
             name = "--- " + pokemon.get_name()
         name = name.ljust(20)
@@ -37,7 +37,7 @@ def print_types(db):
     print('\b\b\b   ')
 
 def prefix_search(db, arg):
-    # Find all Pokemon in database, db, with the prefix, arg.
+    """Find all Pokemon in database, db, with the prefix, arg."""
     result = db.names_with_prefix(arg)
     if len(result) == 0:
         print("No Pokemon found with prefix '" + arg + "'.")
@@ -46,7 +46,7 @@ def prefix_search(db, arg):
 
 
 def print_extra(db):
-    # Print all the 'Extra' Pokemon from the 'Extra' folder.
+    """Print all the 'Extra' Pokemon from the 'Extra' folder."""
     result = db.get_extra()
     if len(result) == 0:
         print("No Pokemon were found in Images/Extra.")
@@ -55,7 +55,7 @@ def print_extra(db):
 
 
 def print_usage():
-    # Print the instructions of usage.
+    """Print the instructions of usage."""
     print(
         '''
 Usage:
@@ -109,52 +109,47 @@ def slideshow(db, start, end, seconds="0.25", rand=False):
     try:
         for x in r:
             pokemon = db.get_pokemon(x)
-            scripter.change_terminal(pokemon)
+            scripter.change_terminal(pokemon.get_path())
             time.sleep(delay)
     except KeyboardInterrupt:
         print("Program was terminated.")
         sys.exit()
 
 
-def change_terminal_background(db, arg):
-    # Change the terminal background to the specified Pokemon, if it exists.
+def change_terminal_background(db, arg):  # arg is a pokemon_name
+    """Change the terminal background to the specified Pokemon, if it exists."""
     if arg in db:
         pokemon = db.get_pokemon(arg)
-        scripter.change_terminal(pokemon)
+        scripter.change_terminal(pokemon.get_path())
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
             print("No such Pokemon was found and no suggestions are available.")
-        elif len(suggestions) == 1:
-            scripter.change_terminal(suggestions[0])
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            scripter.change_terminal(suggestions[0])
         else:
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            print("Other suggestions:")
-            print_columns(suggestions[1:])
-            scripter.change_terminal(suggestions[0])
+            pokemon = suggestions[0]
+            scripter.change_terminal(pokemon.get_path())
+            print("Did you mean {}?".format(pokemon.get_name().title()))
+            if suggestions[1:]:
+                print("Other suggestions:")
+                print_columns(suggestions[1:])
+            
 
-
-def change_wallpaper(db, arg):
-    # Change the wallpaper to the specified Pokemon, if it exists.
+def change_wallpaper(db, arg):  # arg is a pokemon_name
+    """Change the wallpaper to the specified Pokemon, if it exists."""
     if arg in db:
         pokemon = db.get_pokemon(arg)
-        scripter.change_wallpaper(pokemon)
+        scripter.change_wallpaper(pokemon.get_path())
     else:  # If not found in the database, try to give suggestions.
         suggestions = db.names_with_infix(arg)
         if len(suggestions) == 0:
             print("No such Pokemon was found and no suggestions are available.")
-        elif len(suggestions) == 1:
-            scripter.change_wallpaper(suggestions[0])
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            scripter.change_wallpaper(suggestions[0])
         else:
-            print("Result: " + arg)
-            print("Did you mean " + suggestions[0].get_name().capitalize() + "?")
-            print("Other suggestions:")
-            print_columns(suggestions[1:])
-            scripter.change_wallpaper(suggestions[0])
+            pokemon = suggestions[0]
+            scripter.change_wallpaper(pokemon.get_path())
+            print("Did you mean {}?".format(pokemon.get_name().title()))
+            if suggestions[1:]:  # if there are other suggestions
+                print("Other suggestions:")
+                print_columns(suggestions[1:])
 
 
 def multiple_argument_handler(arg, arg2, escape_code):
@@ -194,7 +189,7 @@ def multiple_argument_handler(arg, arg2, escape_code):
 
 
 def single_argument_handler(arg, escape_code):
-    # Handle the logic for when there is only one command line parameter inputted.
+    """Handle the logic for when there is only one command line parameter inputted."""
     db = Database()
 
     if len(arg) < 3 and arg.isalpha():
@@ -242,9 +237,9 @@ def single_argument_handler(arg, escape_code):
     elif arg == "dark" and escape_code:
         change_wallpaper(db, db.get_dark().get_name())
     elif arg == "light":
-        change_terminal_background(db, db.get_light())
+        change_terminal_background(db, db.get_light().get_name())
     elif arg == "dark":
-        change_terminal_background(db, db.get_dark())
+        change_terminal_background(db, db.get_dark().get_name())
     elif arg in ("type", "types"):
         print_types(db)
     elif arg == "slideshow":
@@ -276,7 +271,7 @@ def single_argument_handler(arg, escape_code):
 
 
 def main(argv):
-    # Entrance to the program.
+    """Entrance to the program."""
     if len(argv) == 1:
         print('No command line arguments specified.'
               '\nTry typing in a Pokemon name or number.'

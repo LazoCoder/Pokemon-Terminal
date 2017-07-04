@@ -8,7 +8,7 @@ class NullAdapter(TerminalAdapterInterface):
     def is_available():
         return True
 
-    def set_pokemon(self, pokemon):
+    def set_image_file_path(self, image_file_path):
         print(self.err)
 
     def clear(self):
