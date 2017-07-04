@@ -81,6 +81,6 @@ def main(argv):
     else:
         print("This module only takes one command line parameter.")
 
-        
+
 if __name__ == "__main__":
     main(sys.argv)
