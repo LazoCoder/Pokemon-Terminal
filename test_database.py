@@ -117,7 +117,7 @@ def _test_region(region_name):
     start = region_record.start
     end = region_record.end
     # extra_count = extra_counts.get(region_name, 0)
-    assert len(pokemon_list) == end - start + 1 # + extra_count
+    assert len(pokemon_list) == end - start + 1  # + extra_count
     # make sure that all pokemon.id == '---' or are in the ID range
     assert all([start <= int(p.get_id()) <= end for p in pokemon_list if p.get_id() != '---'])
 
@@ -135,7 +135,7 @@ def test_ids():
     for id_str in numbered_ids:
         assert len(id_str) == 3
         assert isinstance(id_str, str)
-        assert 1 <= int(id_str) <= MAX_ID    
+        assert 1 <= int(id_str) <= MAX_ID
 
 
 def test_thresholds():
