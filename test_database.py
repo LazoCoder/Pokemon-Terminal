@@ -135,7 +135,7 @@ def test_ids():
         id = pokemon.get_id()
         assert len(id) == 3
         assert isinstance(id, str)
-        assert 1 <= int(int) <= MAX_ID    
+        assert 1 <= int(id) <= MAX_ID    
 
 
 def test_thresholds():
