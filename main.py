@@ -147,7 +147,7 @@ def change_wallpaper(db, arg):  # arg is a pokemon_name
             pokemon = suggestions[0]
             scripter.change_wallpaper(pokemon.get_path())
             print("Did you mean {}?".format(pokemon.get_name().title()))
-            if suggestions[1:]:  # if there are other suggestions
+            if len(suggestions) > 1:  # if there are other suggestions
                 print("Other suggestions:")
                 print_columns(suggestions[1:])
 
