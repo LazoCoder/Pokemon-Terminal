@@ -20,5 +20,12 @@ def test_available_terminals():
             assert terminal in (terminal_names + non_terminals), terminal
 
 
+def test_adapter_methods():
+    for terminal in available_terminals:
+        assert callable(terminal.clear)
+        assert callable(terminal.is_available)
+        assert callable(terminal.set_image_file_path)
+
+
 if __name__ == '__main__':
     test_available_terminals()
