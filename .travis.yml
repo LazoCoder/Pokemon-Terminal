@@ -3,8 +3,8 @@ dist: trusty
 language: python
 python:
     - 3.5        # currently Travis trusty default Python3 is 3.5.2
-    - 3.6.1
-    - "nightly"  # currently points to 3.7-dev (3.7.0a0)
+    #- 3.6.1
+    #- "nightly"  # currently points to 3.7-dev (3.7.0a0)
 install:
     - pip install flake8 pytest
 before_script:
@@ -17,4 +17,4 @@ script:
     # python unittest.py
 notifications:
     on_success: change
-    on_failure: never  # always will be the setting once code changes slow down
+    on_failure: change  # `always` will be the setting once code changes slow down
