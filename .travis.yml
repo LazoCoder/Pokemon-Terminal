@@ -2,14 +2,14 @@ sudo: false
 dist: trusty
 language: python
 python:
-    - 3.5        # currently Travis trusty default Python3 is 3.5.2
-    - 3.6.1
-    - "nightly"  # currently points to 3.7-dev (3.7.0a0)
+    - "3.5.0"
+    - "3.6.1"
+    - "nightly"  # currently points to 3.7-dev
 install:
-    - pip install flake8 pytest
+    - pip install flake8, pytest
 before_script:
-    # stop the build if there are Python syntax errors or undefined names
-    - flake8 . --count --select=E901,E999,F821,F822,F823 --statistics
+    # stop the build if there are Python syntax errors
+    - flake8 . --count --select=E901,E999 --statistics
     # exit-zero treates all errors as warnings.  The GitHub editor is 127 chars wide
     - flake8 . --count --exit-zero --max-line-length=127 --statistics
 script:
@@ -17,4 +17,4 @@ script:
     # python unittest.py
 notifications:
     on_success: change
-# on_failure: always
+on_failure: always
