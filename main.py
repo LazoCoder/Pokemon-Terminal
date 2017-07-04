@@ -132,7 +132,7 @@ def change_terminal_background(db, arg):  # arg is a pokemon_name
             if suggestions[1:]:
                 print("Other suggestions:")
                 print_columns(suggestions[1:])
-            
+
 
 def change_wallpaper(db, arg):  # arg is a pokemon_name
     """Change the wallpaper to the specified Pokemon, if it exists."""
@@ -213,33 +213,33 @@ def single_argument_handler(arg, escape_code):
     elif arg in ("clear", "disable", "off"):
         scripter.clear_terminal()
     elif arg == "random" and escape_code:
-        change_wallpaper(db, db.get_random().get_name())
+        change_wallpaper(db, db.get_random())
     elif arg == "random-kanto" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("kanto").get_name())
+        change_wallpaper(db, db.get_random_from_region("kanto"))
     elif arg == "random-johto" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("johto").get_name())
+        change_wallpaper(db, db.get_random_from_region("johto"))
     elif arg == "random-hoenn" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("hoenn").get_name())
+        change_wallpaper(db, db.get_random_from_region("hoenn"))
     elif arg == "random-sinnoh" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("sinnoh").get_name())
+        change_wallpaper(db, db.get_random_from_region("sinnoh"))
     elif arg == "random":
         change_terminal_background(db, db.get_random().get_name())
     elif arg == "random-kanto":
-        change_terminal_background(db, db.get_random_from_region("kanto").get_name())
+        change_terminal_background(db, db.get_random_from_region("kanto"))
     elif arg == "random-johto":
-        change_terminal_background(db, db.get_random_from_region("johto").get_name())
+        change_terminal_background(db, db.get_random_from_region("johto"))
     elif arg == "random-hoenn":
-        change_terminal_background(db, db.get_random_from_region("hoenn").get_name())
+        change_terminal_background(db, db.get_random_from_region("hoenn"))
     elif arg == "random-sinnoh":
-        change_terminal_background(db, db.get_random_from_region("sinnoh").get_name())
+        change_terminal_background(db, db.get_random_from_region("sinnoh"))
     elif arg == "light" and escape_code:
-        change_wallpaper(db, db.get_light().get_name())
+        change_wallpaper(db, db.get_light())
     elif arg == "dark" and escape_code:
-        change_wallpaper(db, db.get_dark().get_name())
+        change_wallpaper(db, db.get_dark())
     elif arg == "light":
-        change_terminal_background(db, db.get_light().get_name())
+        change_terminal_background(db, db.get_light())
     elif arg == "dark":
-        change_terminal_background(db, db.get_dark().get_name())
+        change_terminal_background(db, db.get_dark())
     elif arg in ("type", "types"):
         print_types(db)
     elif arg == "slideshow":

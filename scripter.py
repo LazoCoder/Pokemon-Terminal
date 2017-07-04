@@ -38,7 +38,9 @@ def clear_terminal():
 
 def change_terminal(image_file_path):
     adapter = identify()
-    adapter.set_pokemon(image_file_path)
+    if adapter is None:
+        print("Terminal not supported")
+    adapter.set_image_file_path(image_file_path)
 
 
 def change_wallpaper(image_file_path):
