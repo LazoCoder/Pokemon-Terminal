@@ -174,9 +174,10 @@ if [[ "$TERMINOLOGY" -eq "1" ]]; then
     pokemon random
 fi
 ```
+
 # FAQ
 - "_Can you please add support to [some] terminal emulator?_" - It depends. First, does it even have support to image backgrounds? So we _can_ implement it in the first place? If it does, feel free to open a new issue. Else switch to a different terminal emulator, or ask the developer of your current one to implement it.
-- "_OMG it doesn't work, help._" - Check if you have python 3.5+ and the latest version of your terminal emulator. Especially terminlogy, it seems to have a bug on image backgrounds on older versions. If it still doesn't work. Search to see if anyone had the same issue as you. If you can't find it, and the bug is reproductible, please create a issue about it.
+- "_OMG it doesn't work, help._" - Check if you have python 3.5+ and the latest version of your terminal emulator. Especially terminlogy, since it seems to have a bug about image backgrounds on older versions. If it still doesn't work. Search to see if anyone had the same issue as you. If you can't find it, and the bug is reproductible, please create a issue about it.
 
 
 # Notes & Credits
