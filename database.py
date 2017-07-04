@@ -82,8 +82,10 @@ class Database:
         # Check for a Pokemon by ID or name.
         if isinstance(pokemon, int) or str(pokemon).isdigit():
             return self.pokemon_id_exists(int(pokemon))
+        elif isinstance(pokemon, str):
+            return self.__pokemon_dictionary.get(pokemon) is not None
         else:
-            return self.pokemon_name_exists(pokemon)
+            return self.pokemon_name_exists(pokemon.get_name())
 
     def __len__(self):
         return len(self.__pokemon_list)
@@ -130,12 +132,12 @@ class Database:
     def get_light(self, threshold=0.4, all_pkmn=False):
         light = [pokemon.get_name() for pokemon in self.__pokemon_list
                  if pokemon.get_dark_threshold() > threshold]
-        return light if all_pkmn else self.get_pokemon(random.choice(light))
+        return light if all_pkmn else random.choice(light)
 
     def get_dark(self, threshold=0.6, all_pkmn=False):
         dark = [pokemon.get_name() for pokemon in self.__pokemon_list
                 if pokemon.get_dark_threshold() < threshold]
-        return dark if all_pkmn else self.get_pokemon(random.choice(dark))
+        return dark if all_pkmn else random.choice(dark)
 
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.
@@ -161,6 +163,8 @@ class Database:
 
     def get_pokemon(self, pokemon):
         # Get a Pokemon by name or ID.
+        if isinstance(pokemon, Pokemon):
+            return pokemon
         if not isinstance(pokemon, (int, str)):
             raise Exception("The parameter Pokemon must be of type integer" +
                             " or string.")

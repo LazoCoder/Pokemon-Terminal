@@ -37,11 +37,19 @@ def clear_terminal():
 
 
 def change_terminal(image_file_path):
+    if not isinstance(image_file_path, str):
+        print("A image path must be passed to the change terminal function.")
+        return
     adapter = identify()
+    if adapter is None:
+        print("Terminal not supported")
     adapter.set_image_file_path(image_file_path)
 
 
 def change_wallpaper(image_file_path):
+    if not isinstance(image_file_path, str):
+        print("A image path must be passed to the change wallpapper function.")
+        return
     if sys.platform == "darwin":
         script = osa_script_fmt.format(image_file_path)
         __run_osascript(str.encode(script))
