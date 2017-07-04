@@ -124,3 +124,13 @@ def _test_region(region_name):
 def test_regions_two():
     for region_name in region_dict:
         _test_region(region_name)
+
+
+def test_ids():
+    db = Database()
+    assert all(1 <= int(pokemon.get_id()) <= MAX_ID for pokemon in db.get_all())
+
+
+def test_thresholds():
+    db = Database()
+    assert all(is_instance(p.get_threashold(), float) for p in db.get_all())
