@@ -132,10 +132,9 @@ def test_ids():
     # test that all that are not --- are unique (no duplicate ids)
     assert len(set(numbered_ids)) == len(numbered_ids) == MAX_ID
     for pokemon in numbered_ids:
-        id = pokemon.get_id()
-        assert len(id) == 3
-        assert isinstance(id, str)
-        assert 1 <= int(id) <= MAX_ID    
+       assert len(id_str) == 3
+        assert isinstance(id_str, str)
+        assert 1 <= int(id_str) <= MAX_ID    
 
 
 def test_thresholds():
