@@ -23,10 +23,7 @@ def print_columns(items):
     rows = []
     items_per_column = int(len(items) / 4) + 1
     for index, pokemon in enumerate(items):
-        if not pokemon.is_extra():
-            name = pokemon.get_id() + " " + str(pokemon.get_name()).title()
-        else:
-            name = "--- " + pokemon.get_name()
+        name = pokemon.get_id() + " " + pokemon.get_name().title()
         name = name.ljust(20)
         if len(rows) < items_per_column:
             rows.append(name)
