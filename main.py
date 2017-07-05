@@ -19,10 +19,7 @@ def print_columns(items):
     rows = []
     items_per_column = int(len(items) / 4) + 1
     for index, pokemon in enumerate(items):
-        if not pokemon.is_extra():
-            name = pokemon.get_id() + " " + str(pokemon.get_name()).title()
-        else:
-            name = "--- " + pokemon.get_name()
+        name = pokemon.get_id() + " " + pokemon.get_name().title()
         name = name.ljust(20)
         if len(rows) < items_per_column:
             rows.append(name)
@@ -30,11 +27,10 @@ def print_columns(items):
             rows[index % items_per_column] += name
     print_list(rows)
 
-def print_types(db):
-    print("All existent pokemon types are: ")
-    for x in db.get_pokemon_types():
-        print(x + " - ", end='')
-    print('\b\b\b   ')
+
+def print_types(items):
+    print("All existent pokemon types are:\n" + ", ".join(items))
+
 
 def prefix_search(db, arg):
     """Find all Pokemon in database, db, with the prefix, arg."""
@@ -129,7 +125,7 @@ def change_terminal_background(db, arg):  # arg is a pokemon_name
             pokemon = suggestions[0]
             scripter.change_terminal(pokemon.get_path())
             print("Did you mean {}?".format(pokemon.get_name().title()))
-            if suggestions[1:]:
+            if len(suggestions) > 1:
                 print("Other suggestions:")
                 print_columns(suggestions[1:])
 
@@ -223,7 +219,7 @@ def single_argument_handler(arg, escape_code):
     elif arg == "random-sinnoh" and escape_code:
         change_wallpaper(db, db.get_random_from_region("sinnoh"))
     elif arg == "random":
-        change_terminal_background(db, db.get_random().get_name())
+        change_terminal_background(db, db.get_random())
     elif arg == "random-kanto":
         change_terminal_background(db, db.get_random_from_region("kanto"))
     elif arg == "random-johto":
@@ -241,7 +237,7 @@ def single_argument_handler(arg, escape_code):
     elif arg == "dark":
         change_terminal_background(db, db.get_dark())
     elif arg in ("type", "types"):
-        print_types(db)
+        print_types(db.get_pokemon_types())
     elif arg == "slideshow":
         slideshow(db, 1, 494)
     elif arg == "slideshow-kanto":
