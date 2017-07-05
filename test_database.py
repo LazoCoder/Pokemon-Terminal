@@ -7,11 +7,11 @@ from test_utils import region_dict, get_region, make_extra_counts, MAX_ID
 
 
 def test_first_database():
-    print('{} items in first database.'.format(Database()))
+    print('{} items in first database.'.format(len(Database())))
 
 
 def test_second_database():
-    print('{} items in second database.'.format(Database()))
+    print('{} items in second database.'.format(len(Database())))
 
 
 def test_len():
