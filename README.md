@@ -139,10 +139,19 @@ Alternatively, you can delete images from this folder and it will not break the 
 
 ![alt-tag](Samples/custom_deoxys.gif)
 
-# Solutions for Issues
+# Solutions for Common Issues
 
-If you experience a line at the top of the terminal after changing the Pokemon, you can remove it by typing in the *clear* command or opening a new terminal.
+* If you experience a line at the top of the terminal after changing the Pokemon, you can remove it by typing in the *clear* command or opening a new terminal.
 ![alt-tag](Samples/line.png)
+
+* If you are using Tilix and the terminal background is not changing, try adjusting the transparency in your profile settings.
+* If you are experiencing issues with Terminology, make sure that you have installed the latest version:
+   ```
+   sudo add-apt-repository ppa:niko2040/e19
+   sudo apt-get update
+   sudo apt install terminology
+   ```
+* If you get the error: ```39:46: syntax error: Expected end of line but found identifier. (-2741)```. Locate the file ITerm.py in adapter/implementations and on line 7, change "iTerm" to "iTerm2". If you still experience the error, try changing it to "iTerm 2".
 
 # Saving
 
