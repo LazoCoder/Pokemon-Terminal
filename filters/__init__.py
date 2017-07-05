@@ -4,6 +4,7 @@ from database import Database, Pokemon
 
 class Filter(Action):
     POKEMON_LIST = Database().get_all()
+    filtered_list = [p for p in POKEMON_LIST]
     FILTERS = []
 
     def matches(self, pokemon, value):
@@ -13,8 +14,8 @@ class Filter(Action):
         Filter.FILTERS.append(cls)
 
     def __call__(self, parser, namespace, value, option_string=None):
-        Filter.POKEMON_LIST = [pkmn for pkmn in Filter.POKEMON_LIST
-                               if self.matches(pkmn, value)]
+        Filter.filtered_list = [pkmn for pkmn in Filter.filtered_list
+                                if self.matches(pkmn, value)]
 
 
 class NameFilter(Filter):

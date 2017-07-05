@@ -105,41 +105,54 @@ def main(argv):
     miscGroup.add_argument(
         '--dry-run',
         help='Implies -v and doesn\'t actually changes the wallpapper '
-             'after the pokemon has been chosen',
+             'or background after the pokemon has been chosen',
         action='store_true'
     )
     either = parser.add_mutually_exclusive_group()
-    either.add_argument_group(filtersGroup)
     either.add_argument(
         '-c', '--clear', help='Clears the current pokemon from terminal '
                               'background and quits.',
         action='store_true'
     )
-
+    either.add_argument(
+        'id', help='Specify the desired pokemon ID', nargs='?',
+        default=0, type=int
+    )
     options = parser.parse_args()
 
     if options.clear:
         scripter.clear_terminal()
         return
 
-    size = len(Filter.POKEMON_LIST)
+    size = len(Filter.filtered_list)
     if size == 0:
         print("No pokemon matches the specified filters")
         return
 
-    target = random.choice(Filter.POKEMON_LIST)
-
+    if options.id <= 0:
+        target = random.choice(Filter.filtered_list)
+    else:
+        options.id -= 1
+        if len(Filter.POKEMON_LIST) > options.id:
+            if len(sys.argv) > 2:
+                print("ID has been specified, ignoring all filters.")
+            size = 1
+            target = Filter.POKEMON_LIST[options.id]
+            Filter.filtered_list = [target]
+        else:
+            print("Invalid id specified")
+            return
     if options.dry_run:
         options.verbose = True
     if options.verbose:
         if size == 1:
-            print('The only one mathing these filters is: ')
+            print('A single pokemon matches the specified criteria: ')
         if size > Database.MAX_ID:
             print('Choosing between all of the pokemons...')
         else:
             # Print the list of filtered pokemon
             [print("#%s - %s" % (pkmn.get_id(), pkmn.get_name().title()))
-                for pkmn in Filter.POKEMON_LIST]
+                for pkmn in Filter.filtered_list]
         print("Total of %d pokemon matched the filters. Chose %s" %
               (size, target.get_name().title()))
 
