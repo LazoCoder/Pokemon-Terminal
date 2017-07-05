@@ -93,7 +93,7 @@ def test_all(capsys):
 def test_question_mark(capsys):
     main([__file__, '?'])
     out, err = capsys.readouterr()
-    assert 'deprecated' in ou
+    assert 'deprecated' in out
 
 
 if __name__ == '__main__':
