@@ -22,7 +22,7 @@ Sample Set #1                    |  Sample Set #2
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, Terminology & Tilix
+- Supports **ONLY** iTerm2, Terminology & Tilix
 
 # How to Install
 
@@ -183,6 +183,11 @@ if [[ "$TERMINOLOGY" -eq "1" ]]; then
     pokemon random
 fi
 ```
+
+# FAQ
+- "_Can you please add support to [some] terminal emulator?_" - It depends. First, does it even have support to image backgrounds? So we _can_ implement it in the first place? If it does, feel free to open a new issue. Else switch to a different terminal emulator, or ask the developer of your current one to implement it.
+- "_OMG it doesn't work, help._" -  In your terminal, type `python3 -V` to make sure that you have 3.5 or later installed, and the latest version of your terminal emulator. Especially terminlogy, since it seems to have a bug about image backgrounds on older versions. If it still doesn't work. Search to see if anyone had the same issue as you. If you can't find it, and the bug is reproductible, please create a issue about it.
+
 
 # Notes & Credits
 
