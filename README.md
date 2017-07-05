@@ -26,6 +26,8 @@ Sample Set #1                    |  Sample Set #2
 
 # How to Install
 
+Type `python3 -V` in your terminal to verify that you have [Python 3.5](https://www.python.org/downloads/) or later installed.
+
 ## npm
 
 You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
