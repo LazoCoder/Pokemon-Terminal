@@ -4,8 +4,8 @@
 
 from database import Database, Pokemon
 from load_all_pokemon import load_all_pokemon
-# from test_utils import region_dict, get_region, make_extra_counts, MAX_ID
-MAX_ID = 493  # FixMe once #82 is accepted
+from test_utils import region_dict, get_region, make_extra_counts, MAX_ID
+# MAX_ID = 493  # FixMe once #82 is accepted
 EXTRA_COUNT = 24  # FixMe once #82 is accepted
 
 
