@@ -2,6 +2,7 @@
 
 import os
 import random
+import json
 
 
 class Pokemon:
@@ -207,28 +208,31 @@ class Database:
                 if infix in str(pokemon.get_name())]
 
     def __load_data(self):
-        # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
-        with open(self.directory + "/./Data/pokemon.txt", 'r') as data_file:
-            # Load everything but the Pokemon from the 'Extra' folder.
-            for i, line in enumerate(data_file):
-                identifier = int(i) + 1
-                pkmn_data = line.strip().split()
-                name = pkmn_data[0]
-                dark_threshold = pkmn_data[1]
-                pkmn_type = pkmn_data[2]
-                pkmn_type_snd = pkmn_data[3] if len(pkmn_data) >= 4 else ""
-                identifier = '{:03}'.format(identifier)
-                region = self.__determine_region(identifier)
-                path = self.__determine_folder(identifier) + "/" + identifier\
-                    + ".jpg"
-                pokemon = Pokemon(identifier, name, region, path, pkmn_type,
-                                  pkmn_type_snd, dark_threshold)
-                self.__pokemon_type_dictionary[pkmn_type].append(pokemon)
-                if pkmn_type_snd != '':
-                    self.__pokemon_type_dictionary[pkmn_type_snd]\
-                            .append(pokemon)
-                self.__pokemon_list.append(pokemon)
-                self.__pokemon_dictionary[pokemon.get_name()] = pokemon
+        """
+        Load all the Pokemon data.
+        This does not include the 'Extra' Pokemon.
+        """
+        db_path = os.path.join(self.directory, "Data", "pokemon.json")
+        with open(db_path) as db_file:
+            db = json.load(db_file)
+
+        for pkmn in db:
+            type_p, type_s = pkmn["type"].values()
+            path = os.path.join(self.__determine_folder(pkmn["id_num"]),
+                                pkmn["id_num"] + ".jpg")
+            pokemon = Pokemon(identifier = pkmn["id_num"],
+                              name = pkmn["name"],
+                              region = pkmn["region"],
+                              pkmn_type = type_p,
+                              pkmn_type_secondary = type_s,
+                              dark_threshold = pkmn["dark_threshold"],
+                              path = path)
+
+            self.__pokemon_type_dictionary[type_p].append(pokemon)
+            if type_s:
+                self.__pokemon_type_dictionary[type_s].append(pokemon)
+            self.__pokemon_list.append(pokemon)
+            self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 
     def __load_extra(self):
         """Load all the file names of the images in the Extra folder."""
