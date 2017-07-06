@@ -10,7 +10,31 @@ from test_utils import region_dict
 import random
 
 db = Database()
-print(len(db))
+
+
+def broken_test_no_args(capsys):
+    """ FIXME: Now the the main file accepts zero arguments """
+    main([__file__])
+    out, err = capsys.readouterr()
+    assert out.startswith("No command line arguments specified.")
+
+
+def broken_test_three_args(capsys):
+    """ FIXME: Now the main file accepts way more then 3 arguments """
+    main([__file__, 1, 2, 3])
+    out, err = capsys.readouterr()
+    assert out.startswith("Invalid number of arguments.")
+
+
+def broken_test_two_letters(capsys):
+    """ FIXME: The search argorhytm is now bultin the name filter """
+    main([__file__, 'bu'])
+    out, err = capsys.readouterr()
+    assert 'Butterfree' in out
+    # prefix search only
+    main([__file__, 'ut'])
+    out, err = capsys.readouterr()
+    assert 'butterfree' not in out.lower()
 
 
 def test_extra(capsys):

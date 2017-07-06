@@ -6,6 +6,7 @@ class Filter(Action):
     POKEMON_LIST = Database().get_all()
     filtered_list = [p for p in POKEMON_LIST]
     FILTERS = []
+    EXAMPLE_VAL = None
 
     def matches(self, pokemon, value):
         raise NotImplementedError
@@ -19,27 +20,38 @@ class Filter(Action):
 
 
 class NameFilter(Filter):
-    def matches(self, pokemon: Pokemon, value):
+    EXAMPLE_VAL = 'bulb'
+
+    def matches(self, pokemon: Pokemon, value: str):
         return value in pokemon.get_name()
 
 
 class RegionFilter(Filter):
-    def matches(self, pokemon: Pokemon, value):
+    EXAMPLE_VAL = 'kanto'
+
+    def matches(self, pokemon: Pokemon, value: str):
         return pokemon.get_region() == value
 
 
 class LightFilter(Filter):
-    def matches(self, pokemon: Pokemon, value):
+    EXAMPLE_VAL = 0.7
+
+    def matches(self, pokemon: Pokemon, value: float):
         return pokemon.get_dark_threshold() > value
 
 
 class DarkFilter(Filter):
-    def matches(self, pokemon: Pokemon, value):
+    EXAMPLE_VAL = 0.4
+
+    def matches(self, pokemon: Pokemon, value: float):
         return pokemon.get_dark_threshold() < value
 
 
 class TypeFilter(Filter):
-    def matches(self, pokemon: Pokemon, value):
+    EXAMPLE_VAL = 'water'
+
+    def matches(self, pokemon: Pokemon, value: str):
+        value = value.lower()
         return value in (pokemon.get_pkmn_type(),
                          pokemon.get_pkmn_type_secondary())
 

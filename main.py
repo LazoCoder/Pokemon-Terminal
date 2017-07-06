@@ -63,11 +63,13 @@ def main(argv):
                    'various conditions'
     )
     filtersGroup.add_argument(
-        '-n', '--name', help='Filter by pokemon which '
-        'name contains NAME', action=filters.NameFilter)
+        '-n', '--name', help='Filter by pokemon which name contains NAME',
+        action=filters.NameFilter, type=str.lower
+    )
     filtersGroup.add_argument(
         '-r', '--region', help='Filter the pokemons by region',
-        action=filters.RegionFilter, choices=Database.REGIONS
+        action=filters.RegionFilter, choices=Database.REGIONS,
+        type=str.lower
     )
     filtersGroup.add_argument(
         '-l', '--light', help='Filter out the pokemons darker then 0.xx',
@@ -81,7 +83,8 @@ def main(argv):
     )
     filtersGroup.add_argument(
         '-t', '--type', help='Filter the pokemons by type.',
-        action=filters.TypeFilter, choices=Database.POKEMON_TYPES
+        action=filters.TypeFilter, choices=Database.POKEMON_TYPES,
+        type=str.lower
     )
     filtersGroup.add_argument(
         '-ne', '--no-extras', help='Excludes extra pokemons',
