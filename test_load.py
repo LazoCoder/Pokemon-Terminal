@@ -4,9 +4,7 @@
 
 from database import Database, Pokemon
 from load_all_pokemon import load_all_pokemon
-from test_utils import region_dict, get_region, make_extra_counts, MAX_ID
-# MAX_ID = 493  # FixMe once #82 is accepted
-EXTRA_COUNT = 24  # FixMe once #82 is accepted
+from test_utils import expected_len, MAX_ID
 
 
 def compare_pokemon(a, b):
@@ -23,7 +21,7 @@ def compare_pokemon(a, b):
 
 
 def test_len():
-    assert len(Database()) == len(load_all_pokemon()) == MAX_ID + EXTRA_COUNT
+    assert len(Database()) == len(load_all_pokemon()) == MAX_ID + expected_len('extra')
 
 
 def test_lists():
