@@ -66,7 +66,7 @@ def main(argv):
         '-n', '--name', help='Filter by pokemon which '
         'name contains NAME', action=filters.NameFilter)
     filtersGroup.add_argument(
-        '-reg', '--region', help='Filter the pokemons by region',
+        '-r', '--region', help='Filter the pokemons by region',
         action=filters.RegionFilter, choices=Database.REGIONS
     )
     filtersGroup.add_argument(
@@ -84,7 +84,11 @@ def main(argv):
         action=filters.TypeFilter, choices=Database.POKEMON_TYPES
     )
     filtersGroup.add_argument(
-        '-e', '--no-extras', help='Excludes extra pokemons',
+        '-ne', '--no-extras', help='Excludes extra pokemons',
+        nargs=0, action=filters.NonExtrasFilter
+    )
+    filtersGroup.add_argument(
+        '-e', '--extras', help='Excludes all non-extra pokemons',
         nargs=0, action=filters.ExtrasFilter
     )
 
@@ -100,7 +104,7 @@ def main(argv):
         action='store_true'
     )
     miscGroup.add_argument(
-        '--dry-run',
+        '-dr', '--dry-run',
         help='Implies -v and doesn\'t actually changes the wallpapper '
              'or background after the pokemon has been chosen',
         action='store_true'
@@ -115,7 +119,7 @@ def main(argv):
         'id', help='Specify the desired pokemon ID', nargs='?',
         default=0, type=int
     )
-    options = parser.parse_args()
+    options = parser.parse_args(argv)
 
     if options.clear:
         scripter.clear_terminal()
@@ -154,6 +158,7 @@ def main(argv):
               (size, target.get_name().title()))
 
     if options.dry_run:
+        print("Dry run, exiting.")
         return
 
     if options.wallpaper:
@@ -164,4 +169,4 @@ def main(argv):
 
 if __name__ == "__main__":
     # Entrance to the program.
-    main(sys.argv)
+    main(sys.argv[1:])

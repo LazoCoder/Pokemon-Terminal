@@ -14,16 +14,13 @@ from collections import Counter, namedtuple
 MAX_ID = 493
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
-region_info = namedtuple('region_info', 'start end first last')
+region_info = namedtuple('region_info', 'start end first last size')
 region_dict = {
-    'kanto': region_info(1, 151, 'Bulbasaur', 'Mew'),
-    'johto': region_info(152, 251, 'Chikorita', 'Celebi'),
-    'hoenn': region_info(252, 386, 'Treecko', 'Deoxys'),
-    'sinnoh': region_info(387, 493, 'Turtwig', 'Arceus'),
+    'kanto': region_info(1, 151, 'Bulbasaur', 'Mew', 151),
+    'johto': region_info(152, 251, 'Chikorita', 'Celebi', 100),
+    'hoenn': region_info(252, 386, 'Treecko', 'Deoxys', 135),
+    'sinnoh': region_info(387, 493, 'Turtwig', 'Arceus', 107),
 }
-
-# From: https://en.wikipedia.org/wiki/Pok%C3%A9mon#Generation_1
-_counts = {'kanto': 151, 'johto': 100, 'hoenn': 135, 'sinnoh': 107, 'all': 493}
 
 
 def expected_len(region_name):
@@ -34,14 +31,6 @@ def expected_len(region_name):
         return sum(make_extra_counts().values())  # 24
     region_info = region_dict[region_name]
     return region_info.end - region_info.start + 1
-
-
-def test_region_dict():
-    """Test if region_dict counts match wikipedia."""
-    assert _counts['all'] == MAX_ID == sum(_counts.values()) // 2
-    for region_name in region_dict:
-        assert _counts[region_name] == expected_len(region_name)
-        # print('{}: {}'.format(region_name, counts[region_name]))
 
 
 def get_region(db, region_name):

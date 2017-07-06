@@ -20,7 +20,7 @@ class Filter(Action):
 
 class NameFilter(Filter):
     def matches(self, pokemon: Pokemon, value):
-        return pokemon.get_name().find(value) > -1
+        return value in pokemon.get_name()
 
 
 class RegionFilter(Filter):
@@ -40,10 +40,15 @@ class DarkFilter(Filter):
 
 class TypeFilter(Filter):
     def matches(self, pokemon: Pokemon, value):
-        return pokemon.get_pkmn_type() == value or\
-               pokemon.get_pkmn_type_secondary() == value
+        return value in (pokemon.get_pkmn_type(),
+                         pokemon.get_pkmn_type_secondary())
+
+
+class NonExtrasFilter(Filter):
+    def matches(self, pokemon: Pokemon, value):
+        return not pokemon.is_extra()
 
 
 class ExtrasFilter(Filter):
     def matches(self, pokemon: Pokemon, value):
-        return not pokemon.is_extra()
+        return pokemon.is_extra()
