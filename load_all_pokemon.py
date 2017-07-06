@@ -67,9 +67,9 @@ def make_an_extra_pokemon(filename, in_ext='.jpg'):
     assert False, 'Bad file extention: {} != {}'.format(ext, in_ext)
 
 
-def load_extra():
+def load_extra(image_dir=None):
     """Load all the file names of the images in the Extra folder."""
-    filenames = os.listdir(EXTRA_DIR)
+    filenames = os.listdir(image_dir or EXTRA_DIR)
     return [make_an_extra_pokemon(filename) for filename in filenames]
 
 
