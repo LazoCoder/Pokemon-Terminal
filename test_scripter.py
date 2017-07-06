@@ -2,7 +2,7 @@
 
 # To run use python3 -m pytest --capture=sys
 
-from adapter import available_terminals
+from adapter import available_terminals, base
 import os
 
 
@@ -21,7 +21,7 @@ def test_available_terminals():
 
 
 def test_adapter_methods():
-    for terminal in available_terminals:
+    for terminal in available_terminals + [base.TerminalAdapterInterface]:
         assert callable(terminal.clear)
         assert callable(terminal.is_available)
         assert callable(terminal.set_image_file_path)
