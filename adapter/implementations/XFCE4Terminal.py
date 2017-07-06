@@ -8,9 +8,9 @@ class XFCE4Terminal(TerminalAdapterInterface):
 
     @staticmethod
     def is_available():
-        return "xfce4-terminal" in os.environ.get('COLORTERM')
-
-    def set_pokemon(self, pokemon):
+        return "xfce4-terminal" in os.environ.get('COLORTERM', "").lower()
+        
+    def set_image_file_path(self, set_image_file_path):
         command = "cat {0} | grep -v {1} > /tmp/term-cfg.temp"
         os.system(command.format(self.filename,
                                  self.setting_field))
@@ -18,7 +18,7 @@ class XFCE4Terminal(TerminalAdapterInterface):
         command = "(echo -n {1}={2}) >> /tmp/term-cfg.temp && cp /tmp/term-cfg.temp {0}"
         os.system(command.format(self.filename,
                                  self.setting_field,
-                                 pokemon.get_path()))
+                                 set_image_file_path))
 
     def clear(self):
         command = "cat {0} | grep -v {1} > /tmp/term-cfg.temp"

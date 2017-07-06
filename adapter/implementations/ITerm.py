@@ -22,8 +22,8 @@ class ITerm(TerminalAdapterInterface):
         p.communicate()
         p.stdin.close()
 
-    def set_pokemon(self, pokemon):
-        stdin = osa_script_fmt.format(pokemon.get_path())
+    def set_image_file_path(self, image_file_path):
+        stdin = osa_script_fmt.format(image_file_path)
         self.__run_osascript(str.encode(stdin))
 
     def clear(self):

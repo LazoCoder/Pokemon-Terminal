@@ -27,7 +27,7 @@ class Pokemon:
 
     def get_id(self):
         # Pokemon from folder 'Extra' have no ID.
-        return "---" if self.is_extra() else self.__id
+        return self.__id or "---"
 
     def get_name(self):
         return self.__name
@@ -51,12 +51,8 @@ class Pokemon:
         return self.__id is None
 
     def __str__(self):
-        if self.is_extra():
-            return "--- " + self.get_name().capitalize() + " at "\
-                    + self.get_path()
-        else:
-            return self.get_id() + " " + self.get_name().capitalize() + " at "\
-                    + self.get_path()
+        name = self.get_name().title()
+        return self.get_id() + " " + name + " at " + self.get_path()
 
 
 class Database:
@@ -86,8 +82,10 @@ class Database:
         # Check for a Pokemon by ID or name.
         if isinstance(pokemon, int) or str(pokemon).isdigit():
             return self.pokemon_id_exists(int(pokemon))
+        elif isinstance(pokemon, str):
+            return self.__pokemon_dictionary.get(pokemon) is not None
         else:
-            return self.pokemon_name_exists(pokemon)
+            return self.pokemon_name_exists(pokemon.get_name())
 
     def __len__(self):
         return len(self.__pokemon_list)
@@ -129,7 +127,7 @@ class Database:
 
     def get_extra(self):
         # Get all the Extra Pokemon images available.
-        return self.__get_region(None)
+        return [p for p in self.__pokemon_list if p.is_extra()]
 
     def get_light(self, threshold=0.4, all_pkmn=False):
         light = [pokemon.get_name() for pokemon in self.__pokemon_list
@@ -144,7 +142,7 @@ class Database:
     def __get_region(self, region):
         # Helper method for getting all the Pokemon of a specified region.
         return [pokemon for pokemon in self.__pokemon_list
-                if pokemon.get_region() == region]
+                if pokemon.get_region() == region and not pokemon.is_extra()]
 
     def get_random(self):
         # Select a random Pokemon from the database.
@@ -165,9 +163,13 @@ class Database:
 
     def get_pokemon(self, pokemon):
         # Get a Pokemon by name or ID.
+        if isinstance(pokemon, Pokemon):
+            return pokemon
         if not isinstance(pokemon, (int, str)):
             raise Exception("The parameter Pokemon must be of type integer" +
                             " or string.")
+        if isinstance(pokemon, str):
+            pokemon = pokemon.lower()
         if pokemon not in self:
             raise Exception("No such Pokemon in the database.")
         if isinstance(pokemon, int) or str(pokemon).isdigit():
@@ -230,11 +232,11 @@ class Database:
 
     def __load_extra(self):
         """Load all the file names of the images in the Extra folder."""
-        for file in os.listdir(self.directory + "/./Images/Extra"):
-            if file.endswith(".jpg"):
-                name = os.path.join("/Images/Extra", file)\
-                        .split('/')[-1][0:-4].lower()
-                path = self.directory + "/Images/Extra/" + name + ".jpg"
+        extra_dir = os.path.join(self.directory, "Images", "Extra")
+        for file in os.listdir(extra_dir):
+            name, ext = os.path.splitext(file.lower())
+            if ext == '.jpg':
+                path = os.path.join(extra_dir, file)
                 father = self.__pokemon_dictionary.get(name.split("-")[0])
                 if father is not None:
                     pokemon = Pokemon(None, name, father.get_region(),
@@ -242,7 +244,7 @@ class Database:
                                       father.get_pkmn_type_secondary(),
                                       father.get_dark_threshold())
                 else:
-                    Pokemon(None, name, None, path, None, None, None)
+                    pokemon = Pokemon(None, name, None, path, None, None, None)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected.\nThe name of "
                                     + "the file " + str(name) + ".jpg in the "

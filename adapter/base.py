@@ -7,11 +7,11 @@ class TerminalAdapterInterface(object):
         """
         raise NotImplementedError()
 
-    def set_pokemon(self, pokemon):
+    def set_image_file_path(self, image_file_path):
         """
         Set the background image of the terminal.
-        :param pokemon: Information about a Pokémon.
-        :type pokemon: dict
+        :param image_file_path: Path to an image file.
+        :rtype str
         """
         raise NotImplementedError()
 
