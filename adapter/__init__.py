@@ -8,8 +8,8 @@ from adapter.implementations.Tilix import Tilix
 available_terminals = [
     Terminology,
     Tilix,
-    Terminator,
-    # ITerm,
+    ITerm,
+    # Terminator,
     # XFCE4Terminal,
 ]
 
