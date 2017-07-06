@@ -30,8 +30,8 @@ def region_name_by_id(id):
     assert False, 'region_name_by_id({})'.format(id)
 
 
-def make_a_pokemon(i, line):
-    id = '{:03}'.format(i + 1)
+def make_a_pokemon(id, line):
+    id = '{:03}'.format(id)
     line = line.strip().split()
     while len(line) < 4:  # add '' as the subtype if it is missing
         line.append('')
@@ -47,7 +47,7 @@ def make_a_pokemon(i, line):
 def load_pokemon(filename='pokemon.txt'):
     """Load everything but the Pokemon from the 'Extra' folder"""
     with open(os.path.join(DATA_DIR, filename)) as in_file:
-        return [make_a_pokemon(i, line) for i, line in enumerate(in_file)]
+        return [make_a_pokemon(i, line) for i, line in enumerate(in_file, 1)]
 
 
 def make_an_extra_pokemon(filename, in_ext='.jpg'):
