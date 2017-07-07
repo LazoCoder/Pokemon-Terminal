@@ -290,7 +290,7 @@ def single_argument_handler(arg, escape_code):
         change_terminal_background(db, arg)
 
 
-def main(argv):
+def main(argv=sys.argv):
     """Entrance to the program."""
     if len(argv) == 1:
         print('No command line arguments specified.'
