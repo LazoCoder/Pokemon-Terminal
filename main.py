@@ -53,11 +53,8 @@ def slideshow(db, start, end, seconds="0.25", rand=False):
 
 def main(argv):
     """Entrance to the program."""
-
     if __name__ != "__main__":
         Filter.filtered_list = [pok for pok in Filter.POKEMON_LIST]
-        print("MAIN CALLED FOR TESTING. THE LENGTH OF THE FILTERED LIST IS",
-              len(Filter.filtered_list))
     parser = argparse.ArgumentParser(
         description='Set a pokemon to the current terminal background or '
                     'wallpaper',
