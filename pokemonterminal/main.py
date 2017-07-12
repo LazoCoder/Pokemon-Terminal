@@ -2,11 +2,12 @@
 
 """The main module that brings everything together."""
 
-from database import Database
 import random
-import scripter
 import sys
 import time
+
+from pokemonterminal import scripter
+from pokemonterminal.database import Database
 
 
 def print_list(list_of_items):

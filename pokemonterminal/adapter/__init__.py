@@ -1,7 +1,8 @@
-from adapter.implementations.ITerm import ITerm
-from adapter.implementations.NullAdapter import NullAdapter
-from adapter.implementations.Terminology import Terminology
-from adapter.implementations.Tilix import Tilix
+from pokemonterminal.adapter.implementations.ITerm import ITerm
+from pokemonterminal.adapter.implementations.NullAdapter import NullAdapter
+from pokemonterminal.adapter.implementations.Terminology import Terminology
+from pokemonterminal.adapter.implementations.Tilix import Tilix
+
 
 available_terminals = [
     Terminology,
