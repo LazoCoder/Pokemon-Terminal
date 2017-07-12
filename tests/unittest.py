@@ -1,7 +1,8 @@
 # This module is for testing the different components of this project.
 
-from database import Database
 import sys
+
+from pokemonterminal.database import Database
 
 
 def print_items(items):

@@ -2,9 +2,9 @@
 
 # To run the tests, use: python3 -m pytest --capture=sys
 
-from database import Database
-from main import main
-from test_utils import region_dict
+from pokemonterminal.database import Database
+from pokemonterminal.main import main
+from tests.test_utils import region_dict
 
 db = Database()
 print(len(db))
