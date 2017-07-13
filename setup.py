@@ -2,61 +2,66 @@
 
 
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
-def find_data(path):
+def find_data(relpath, folder):
     dir_content = []
-    tree = [ (dirname, filenames) for dirname, _, filenames in os.walk(path)
-             if filenames ]
+    path = os.path.join(relpath, folder)
+    tree = [(dirname, filenames) for dirname, _, filenames in os.walk(path)
+            if filenames]
 
     for root, files in tree:
-        dir_content.extend(map(lambda x: os.path.join(root, x), files))
+        path = os.path.relpath(root, relpath)
+        dir_content.extend(map(lambda x: os.path.join(path, x), files))
 
     return dir_content
 
 
-def package_data():
+def package_data(relpath, folders):
     all_files = []
-    for folder in ["Images", "Data"]:
-        all_files.extend(find_data(folder))
+    for folder in folders:
+        all_files.extend(find_data(relpath, folder))
 
     return all_files
 
 
 setup(
-    name = "pokemon-terminal",
-    version = "0.0.1",
+    name="pokemon-terminal",
+    version="0.0.1",
 
-    description = "Pokemon terminal themes.",
-    long_description = "",
-    url = "https://github.com/LazoCoder/Pokemon-Terminal",
+    description="Pokemon terminal themes.",
+    long_description="""
+Pokemon Terminal Themes.
 
-    author = "LazoCoder",
-    author_email = "",
+493 unique Pokemon.
+from Kanto, Johto, Hoenn and Sinnoh.
 
-    license = "GPLv3",
+Change the Terminal Background & Desktop Wallpaper.
+Supports ITerm2, Terminology & Tilix.""",
+    url="https://github.com/LazoCoder/Pokemon-Terminal",
 
-    packages = [
-        ".",
-        "adapter",
-        "adapter.implementations",
-    ],
+    author="LazoCoder",
+    author_email="",
 
-    package_data = {
-        "": package_data(),
+    license="GPLv3",
+
+    packages=find_packages(exclude=['tests']),
+
+    package_data={
+        "pokemonterminal": package_data("pokemonterminal", ["Data", "Images"]),
     },
 
-    entry_points = {
+    entry_points={
         "console_scripts": [
-            "pokemon = main:main",
-            "ichooseyou = main:main",
+            "pokemon=pokemonterminal.main:main",
+            "ichooseyou=pokemonterminal.main:main",
         ],
     },
 
-    keywords = "pokemon terminal theme style pokemon-terminal",
+    keywords="pokemon terminal theme style pokemon-terminal",
 
-    classifiers = [
+    classifiers=[
         "Development Status :: 3 - Alpha",
 
         "Intended Audience :: End Users/Desktop",
@@ -70,5 +75,5 @@ setup(
         "Programming Language :: Python :: 3.6",
     ],
 
-    python_requires = ">=3.5"
+    python_requires=">=3.5"
 )
