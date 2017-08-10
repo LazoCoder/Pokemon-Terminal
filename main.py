@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-
 """The main module that brings everything together."""
 
 from database import Database
 from filters import Filter
+import os
 import filters
 import random
 import scripter
@@ -32,23 +32,25 @@ def print_columns(items):
     print_list(rows)
 
 
-def slideshow(db, start, end, seconds="0.25", rand=False):
-    delay = 0.25
-    if seconds is not None:
-        delay = float(seconds)
-
-    # Show each Pokemon, one by one.
-    r = list(range(start, end))
-    if rand:
-        random.shuffle(r)
-    try:
-        for x in r:
-            pokemon = db.get_pokemon(x)
-            scripter.change_terminal(pokemon.get_path())
-            time.sleep(delay)
-    except KeyboardInterrupt:
-        print("Program was terminated.")
-        sys.exit()
+def slideshow(filtered, delay, changerFunc):
+    pid = os.fork()
+    if pid > 0:
+        print(f"Starting slideshow with {len(filtered)}, pokemon " +
+              f"and a delay of {delay} minutes between pokemon")
+        print("Forked process to background with pid",
+              pid, "(stored in $POKEMON_TERMINAL_PID)")
+        os.environ["POKEMON_TERMINAL_PID"] = str(pid)
+        sys.exit(0)
+    random.shuffle(filtered)
+    queque = iter(filtered)
+    while True:
+        next_pkmn = next(queque, None)
+        if next_pkmn is None:
+            random.shuffle(filtered)
+            queque = iter(filtered)
+            continue
+        changerFunc(next_pkmn.get_path())
+        time.sleep(delay * 60)
 
 
 def main(argv):
@@ -57,73 +59,100 @@ def main(argv):
         Filter.filtered_list = [pok for pok in Filter.POKEMON_LIST]
     parser = argparse.ArgumentParser(
         description='Set a pokemon to the current terminal background or '
-                    'wallpaper',
-        epilog='Not setting any filters will get a completly random pokemon'
-    )
+        'wallpaper',
+        epilog='Not setting any filters will get a completly random pokemon')
     filtersGroup = parser.add_argument_group(
         'Filters', 'Arguments used to filter the list of pokemons with '
-                   'various conditions'
-    )
+        'various conditions')
     filtersGroup.add_argument(
-        '-n', '--name', help='Filter by pokemon which name contains NAME',
-        action=filters.NameFilter, type=str.lower
-    )
+        '-n',
+        '--name',
+        help='Filter by pokemon which name contains NAME',
+        action=filters.NameFilter,
+        type=str.lower)
     filtersGroup.add_argument(
-        '-r', '--region', help='Filter the pokemons by region',
-        action=filters.RegionFilter, choices=Database.REGIONS,
-        type=str.lower
-    )
+        '-r',
+        '--region',
+        help='Filter the pokemons by region',
+        action=filters.RegionFilter,
+        choices=Database.REGIONS,
+        type=str.lower)
     filtersGroup.add_argument(
-        '-l', '--light', help='Filter out the pokemons darker then 0.xx',
-        default=0.7, const=0.7, metavar='0.xx', nargs='?', type=float,
-        action=filters.LightFilter
-    )
+        '-l',
+        '--light',
+        help='Filter out the pokemons darker then 0.xx',
+        default=0.7,
+        const=0.7,
+        metavar='0.xx',
+        nargs='?',
+        type=float,
+        action=filters.LightFilter)
     filtersGroup.add_argument(
-        '-d', '--dark', help='Filter out the pokemons lighter then 0.xx',
-        default=0.42, const=0.42, metavar='0.xx', nargs='?', type=float,
-        action=filters.DarkFilter
-    )
+        '-d',
+        '--dark',
+        help='Filter out the pokemons lighter then 0.xx',
+        default=0.42,
+        const=0.42,
+        metavar='0.xx',
+        nargs='?',
+        type=float,
+        action=filters.DarkFilter)
     filtersGroup.add_argument(
-        '-t', '--type', help='Filter the pokemons by type.',
-        action=filters.TypeFilter, choices=Database.POKEMON_TYPES,
-        type=str.lower
-    )
+        '-t',
+        '--type',
+        help='Filter the pokemons by type.',
+        action=filters.TypeFilter,
+        choices=Database.POKEMON_TYPES,
+        type=str.lower)
     filtersGroup.add_argument(
-        '-ne', '--no-extras', help='Excludes extra pokemons',
-        nargs=0, action=filters.NonExtrasFilter
-    )
+        '-ne',
+        '--no-extras',
+        help='Excludes extra pokemons',
+        nargs=0,
+        action=filters.NonExtrasFilter)
     filtersGroup.add_argument(
-        '-e', '--extras', help='Excludes all non-extra pokemons',
-        nargs=0, action=filters.ExtrasFilter
-    )
+        '-e',
+        '--extras',
+        help='Excludes all non-extra pokemons',
+        nargs=0,
+        action=filters.ExtrasFilter)
 
     miscGroup = parser.add_argument_group("Misc")
     miscGroup.add_argument(
-        '-w', '--wallpaper',
+        '-ss',
+        '--slideshow',
+        help='Instead of simply choosing a random pokemon ' +
+             'from the filtered list, starts a slideshow (with X minutes ' +
+             'of delay between pokemon) in the background with the ' +
+             'pokemon that matched the filters',
+        default=argparse.SUPPRESS, type=float, metavar='X')
+    miscGroup.add_argument(
+        '-w',
+        '--wallpaper',
         help='Changes the desktop wallpapper instead of the terminal '
-             'background',
-        action='store_true'
-    )
+        'background',
+        action='store_true')
     miscGroup.add_argument(
-        '-v', '--verbose', help='Enables verbose output',
-        action='store_true'
-    )
+        '-v', '--verbose', help='Enables verbose output', action='store_true')
     miscGroup.add_argument(
-        '-dr', '--dry-run',
-        help='Implies -v and doesn\'t actually changes the wallpapper '
-             'or background after the pokemon has been chosen',
-        action='store_true'
-    )
+        '-dr',
+        '--dry-run',
+        help='Implies -v and doesn\'t actually changes either wallpapper '
+        'or background after the pokemon has been chosen',
+        action='store_true')
     either = parser.add_mutually_exclusive_group()
     either.add_argument(
-        '-c', '--clear', help='Clears the current pokemon from terminal '
-                              'background and quits.',
-        action='store_true'
-    )
+        '-c',
+        '--clear',
+        help='Clears the current pokemon from terminal '
+        'background and quits.',
+        action='store_true')
     either.add_argument(
-        'id', help='Specify the desired pokemon ID', nargs='?',
-        default=0, type=int
-    )
+        'id',
+        help='Specify the desired pokemon ID',
+        nargs='?',
+        default=0,
+        type=int)
     options = parser.parse_args(argv)
 
     if options.clear:
@@ -148,24 +177,30 @@ def main(argv):
         else:
             print("Invalid id specified")
             return
+    if size == 1:
+        print('A single pokemon matches the specified criteria: ')
 
     if options.dry_run:
         options.verbose = True
     if options.verbose:
-        if size == 1:
-            print('A single pokemon matches the specified criteria: ')
         if size > Database.MAX_ID:
-            print('Choosing between all of the pokemons...')
+            print('No pokemon has been filtered...')
         else:
             # Print the list of filtered pokemon
-            [print("#%s - %s" % (pkmn.get_id(), pkmn.get_name().title()))
-                for pkmn in Filter.filtered_list]
+            [
+                print("#%s - %s" % (pkmn.get_id(), pkmn.get_name().title()))
+                for pkmn in Filter.filtered_list
+            ]
         print("Total of %d pokemon matched the filters. Chose %s" %
               (size, target.get_name().title()))
 
     if options.dry_run:
         print("Dry run, exiting.")
         return
+
+    if options.slideshow is not None and options.id <= 0 and size > 1:
+        targFunc = scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
+        slideshow(Filter.filtered_list, options.slideshow, targFunc)
 
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())
