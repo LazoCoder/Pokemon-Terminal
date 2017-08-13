@@ -1,56 +1,58 @@
 #!/usr/bin/env python3
 """The main module that brings everything together."""
 
-from database import Database
-from filters import Filter
+import argparse
 import os
-import filters
 import random
-import scripter
 import sys
 import time
-import argparse
+from multiprocessing import Process
+
+import filters
+import scripter
+from database import Database
+from filters import Filter
+
+PIPE_PATH = os.environ["HOME"] + "/.pokemon-terminal-pipe"
+if not os.path.exists(PIPE_PATH):
+    os.mkfifo(PIPE_PATH)
 
 
-def print_list(list_of_items):
-    """Print all the items in a list. Used for printing each Pokemon from a
-    particular region."""
-    print("\n".join(str(item) for item in list_of_items))
+# noinspection PyUnusedLocal
+def daemon(time_stamp, pkmn_list):
+    # TODO: Implement messaging, like status and curr pokemon
+    pip = open(PIPE_PATH, 'r')
+    while True:
+        for msg in pip:
+            msg = msg.strip()
+            if msg == 'quit':
+                print("Stopping the slideshow")
+                sys.exit(0)
+        pip = open(PIPE_PATH, 'r')
 
 
-def print_columns(items):
-    """Print a list as multiple columns instead of just one."""
-    rows = []
-    items_per_column = int(len(items) / 4) + 1
-    for index, pokemon in enumerate(items):
-        name = pokemon.get_id() + " " + pokemon.get_name().title()
-        name = name.ljust(20)
-        if len(rows) < items_per_column:
-            rows.append(name)
-        else:
-            rows[index % items_per_column] += name
-    print_list(rows)
-
-
-def slideshow(filtered, delay, changerFunc):
+def slideshow(filtered, delay, changer_func):
     pid = os.fork()
     if pid > 0:
         print(f"Starting slideshow with {len(filtered)}, pokemon " +
               f"and a delay of {delay} minutes between pokemon")
-        print("Forked process to background with pid",
-              pid, "(stored in $POKEMON_TERMINAL_PID)")
+        print("Forked process to background with pid", pid,
+              "(stored in $POKEMON_TERMINAL_PID)")
         os.environ["POKEMON_TERMINAL_PID"] = str(pid)
         sys.exit(0)
+    p = Process(target=daemon, args=(time.time(), filtered,))
+    p.daemon = True
+    p.start()
     random.shuffle(filtered)
     queque = iter(filtered)
-    while True:
+    while p.is_alive():
         next_pkmn = next(queque, None)
         if next_pkmn is None:
             random.shuffle(filtered)
             queque = iter(filtered)
             continue
-        changerFunc(next_pkmn.get_path())
-        time.sleep(delay * 60)
+        changer_func(next_pkmn.get_path())
+        p.join(delay * 60)
 
 
 def main(argv):
@@ -59,25 +61,25 @@ def main(argv):
         Filter.filtered_list = [pok for pok in Filter.POKEMON_LIST]
     parser = argparse.ArgumentParser(
         description='Set a pokemon to the current terminal background or '
-        'wallpaper',
-        epilog='Not setting any filters will get a completly random pokemon')
-    filtersGroup = parser.add_argument_group(
+                    'wallpaper',
+        epilog='Not setting any filters will get a completely random pokemon')
+    filters_group = parser.add_argument_group(
         'Filters', 'Arguments used to filter the list of pokemons with '
-        'various conditions')
-    filtersGroup.add_argument(
+                   'various conditions')
+    filters_group.add_argument(
         '-n',
         '--name',
         help='Filter by pokemon which name contains NAME',
         action=filters.NameFilter,
         type=str.lower)
-    filtersGroup.add_argument(
+    filters_group.add_argument(
         '-r',
         '--region',
         help='Filter the pokemons by region',
         action=filters.RegionFilter,
         choices=Database.REGIONS,
         type=str.lower)
-    filtersGroup.add_argument(
+    filters_group.add_argument(
         '-l',
         '--light',
         help='Filter out the pokemons darker then 0.xx',
@@ -87,7 +89,7 @@ def main(argv):
         nargs='?',
         type=float,
         action=filters.LightFilter)
-    filtersGroup.add_argument(
+    filters_group.add_argument(
         '-d',
         '--dark',
         help='Filter out the pokemons lighter then 0.xx',
@@ -97,55 +99,56 @@ def main(argv):
         nargs='?',
         type=float,
         action=filters.DarkFilter)
-    filtersGroup.add_argument(
+    filters_group.add_argument(
         '-t',
         '--type',
         help='Filter the pokemons by type.',
         action=filters.TypeFilter,
         choices=Database.POKEMON_TYPES,
         type=str.lower)
-    filtersGroup.add_argument(
+    filters_group.add_argument(
         '-ne',
         '--no-extras',
         help='Excludes extra pokemons',
         nargs=0,
         action=filters.NonExtrasFilter)
-    filtersGroup.add_argument(
+    filters_group.add_argument(
         '-e',
         '--extras',
         help='Excludes all non-extra pokemons',
         nargs=0,
         action=filters.ExtrasFilter)
 
-    miscGroup = parser.add_argument_group("Misc")
-    miscGroup.add_argument(
+    misc_group = parser.add_argument_group("Misc")
+    misc_group.add_argument(
         '-ss',
         '--slideshow',
         help='Instead of simply choosing a random pokemon ' +
              'from the filtered list, starts a slideshow (with X minutes ' +
              'of delay between pokemon) in the background with the ' +
              'pokemon that matched the filters',
-        default=argparse.SUPPRESS, type=float, metavar='X')
-    miscGroup.add_argument(
+        const=10.0, nargs='?', type=float, metavar='X')
+    is_slideshow = '-ss' in sys.argv or '--slideshow' in sys.argv
+    misc_group.add_argument(
         '-w',
         '--wallpaper',
-        help='Changes the desktop wallpapper instead of the terminal '
-        'background',
+        help='Changes the desktop wallpaper instead of the terminal '
+             'background',
         action='store_true')
-    miscGroup.add_argument(
+    misc_group.add_argument(
         '-v', '--verbose', help='Enables verbose output', action='store_true')
-    miscGroup.add_argument(
+    misc_group.add_argument(
         '-dr',
         '--dry-run',
-        help='Implies -v and doesn\'t actually changes either wallpapper '
-        'or background after the pokemon has been chosen',
+        help='Implies -v and doesnt actually changes either wallpaper '
+             'or background after the pokemon has been chosen',
         action='store_true')
     either = parser.add_mutually_exclusive_group()
     either.add_argument(
         '-c',
         '--clear',
         help='Clears the current pokemon from terminal '
-        'background and quits.',
+             'background and quits.',
         action='store_true')
     either.add_argument(
         'id',
@@ -154,10 +157,6 @@ def main(argv):
         default=0,
         type=int)
     options = parser.parse_args(argv)
-
-    if options.clear:
-        scripter.clear_terminal()
-        return
 
     size = len(Filter.filtered_list)
     if size == 0:
@@ -198,9 +197,21 @@ def main(argv):
         print("Dry run, exiting.")
         return
 
-    if options.slideshow is not None and options.id <= 0 and size > 1:
-        targFunc = scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
-        slideshow(Filter.filtered_list, options.slideshow, targFunc)
+    if options.clear:
+        pipe_out = os.open(PIPE_PATH, os.O_WRONLY)
+        os.write(pipe_out, b"quit\n")
+        os.close(pipe_out)
+        scripter.clear_terminal()
+        return
+
+    if is_slideshow and options.id <= 0 and size > 1:
+        if options.slideshow <= 0:
+            print("Time has to be greater then 0. (You can use decimals, e.g.: 0.1)")
+            return
+        target_func = scripter.change_wallpaper if options.wallpaper else \
+            scripter.change_terminal
+        slideshow(Filter.filtered_list, options.slideshow, target_func)
+        return
 
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())
