@@ -152,17 +152,17 @@ def main(argv):
         action='store_true')
     either.add_argument(
         'id',
-        help='Specify the desired pokemon ID',
+        help='Specify the desired pokemon ID or the exact (case insensitive) name',
         nargs='?',
         default=0, const=0)
     options = parser.parse_args(argv)
     try:
         options.id = int(options.id)
-    except ValueError as ex:
+    except ValueError as _:
         options.name = options.id.lower()
         options.id = 0
         Filter.filtered_list = [
-            x for x in Filter.filtered_list if options.name in x.get_name()
+            x for x in Filter.filtered_list if options.name == x.get_name()
         ]
 
     size = len(Filter.filtered_list)
