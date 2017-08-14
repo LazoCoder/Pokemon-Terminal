@@ -37,7 +37,7 @@ def slideshow(filtered, delay, changer_func):
         print(f"Starting slideshow with {len(filtered)}, pokemon " +
               f"and a delay of {delay} minutes between pokemon")
         print("Forked process to background with pid", pid,
-              "(stored in $POKEMON_TERMINAL_PID)")
+              "you can stop it with -c")
         os.environ["POKEMON_TERMINAL_PID"] = str(pid)
         sys.exit(0)
     p = Process(target=daemon, args=(time.time(), filtered,))
@@ -154,9 +154,16 @@ def main(argv):
         'id',
         help='Specify the desired pokemon ID',
         nargs='?',
-        default=0,
-        type=int)
+        default=0, const=0)
     options = parser.parse_args(argv)
+    try:
+        options.id = int(options.id)
+    except ValueError as ex:
+        options.name = options.id.lower()
+        options.id = 0
+        Filter.filtered_list = [
+            x for x in Filter.filtered_list if options.name in x.get_name()
+        ]
 
     size = len(Filter.filtered_list)
     if size == 0:
