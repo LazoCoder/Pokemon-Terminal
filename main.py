@@ -163,6 +163,10 @@ def multiple_argument_handler(arg, arg2, escape_code):
                 slideshow(db, 252, 387, arg2, rand)
             elif arg.endswith("slideshow-sinnoh"):
                 slideshow(db, 387, 494, arg2, rand)
+            elif arg.endswith("slideshow-unova"):
+                slideshow(db, 494, 650, arg2, rand)
+            elif arg.endswith("slideshow-kalos"):
+                slideshow(db, 650, 720, arg2, rand)
             else:
                 print('Invalid slideshow command specified.'
                       '\nType "help" to see all the commands.')
@@ -204,6 +208,8 @@ def single_argument_handler(arg, escape_code):
         print_columns(db.get_hoenn())
     elif arg == "sinnoh":
         print_columns(db.get_sinnoh())
+    elif arg == "unova":
+        print_columns(db.get_unova())
     elif arg == "all":
         print_columns(db.get_all())
     elif arg in ("clear", "disable", "off"):
@@ -218,6 +224,10 @@ def single_argument_handler(arg, escape_code):
         change_wallpaper(db, db.get_random_from_region("hoenn"))
     elif arg == "random-sinnoh" and escape_code:
         change_wallpaper(db, db.get_random_from_region("sinnoh"))
+    elif arg == "random-unova" and escape_code:
+        change_wallpaper(db, db.get_random_from_region("unova"))
+    elif arg == "random-kalos" and escape_code:
+        change_wallpaper(db, db.get_random_from_region("kalos"))
     elif arg == "random":
         change_terminal_background(db, db.get_random())
     elif arg == "random-kanto":
@@ -228,6 +238,10 @@ def single_argument_handler(arg, escape_code):
         change_terminal_background(db, db.get_random_from_region("hoenn"))
     elif arg == "random-sinnoh":
         change_terminal_background(db, db.get_random_from_region("sinnoh"))
+    elif arg == "random-unova":
+        change_terminal_background(db, db.get_random_from_region("unova"))
+    elif arg == "random-kalos":
+        change_terminal_background(db, db.get_random_from_region("kalos"))
     elif arg == "light" and escape_code:
         change_wallpaper(db, db.get_light())
     elif arg == "dark" and escape_code:
@@ -248,6 +262,10 @@ def single_argument_handler(arg, escape_code):
         slideshow(db, 252, 387)
     elif arg == "slideshow-sinnoh":
         slideshow(db, 387, 494)
+    elif arg == "slideshow-unova":
+        slideshow(db, 494, 650)
+    elif arg == "slideshow-kalos":
+        slideshow(db, 650, 720)
     elif arg.endswith("slideshow"):
         slideshow(db, 1, 494, rand=arg.startswith("rnd"))
     elif arg.endswith("slideshow-kanto"):
@@ -258,6 +276,10 @@ def single_argument_handler(arg, escape_code):
         slideshow(db, 252, 387, rand=arg.startswith("rnd"))
     elif arg.endswith("slideshow-sinnoh"):
         slideshow(db, 387, 494, rand=arg.startswith("rnd"))
+    elif arg.endswith("slideshow-unova"):
+        slideshow(db, 494, 650, rand=arg.startswith("rnd"))
+    elif arg.endswith("slideshow-kalos"):
+        slideshow(db, 650, 720, rand=arg.startswith("rnd"))
     elif arg == "?":
         print("This function is deprecated.")
     elif escape_code:

@@ -20,10 +20,12 @@ region_dict = {
     'johto': region_info(152, 251, 'Chikorita', 'Celebi'),
     'hoenn': region_info(252, 386, 'Treecko', 'Deoxys'),
     'sinnoh': region_info(387, 493, 'Turtwig', 'Arceus'),
+    'unova': region_info(494, 649, 'Victini', 'Arceus'),
+    'kalos': region_info(494, 649, 'Chespin', 'Diancie'),
 }
 
 # From: https://en.wikipedia.org/wiki/Pok%C3%A9mon#Generation_1
-_counts = {'kanto': 151, 'johto': 100, 'hoenn': 135, 'sinnoh': 107, 'all': 493}
+_counts = {'kanto': 151, 'johto': 100, 'hoenn': 135, 'sinnoh': 107, 'unova': 156, 'kalos': 72, 'all': 719}
 
 
 def expected_len(region_name):
@@ -51,6 +53,8 @@ def get_region(db, region_name):
         'johto': db.get_johto,
         'hoenn': db.get_hoenn,
         'sinnoh': db.get_sinnoh,
+        'unova': db.get_unova,
+        'kalos': db.get_kalos,
         'extra': db.get_extra,
         'all': db.get_all
     }[region_name]

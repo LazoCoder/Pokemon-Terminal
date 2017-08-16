@@ -18,7 +18,7 @@ Sample Set #1                    |  Sample Set #2
 ![alt-tag](Samples/rayquaza.png) |  ![alt-tag](Samples/deoxys.png)
 
 # Features
-- 493 unique Pokemon
+- 719 unique Pokemon
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon

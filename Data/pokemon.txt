@@ -491,3 +491,229 @@ manaphy     0.709464   water
 darkrai     0.364973   dark
 shaymin     0.918656   grass
 arceus      0.899249   normal
+victini     0.5         psychic fire 
+snivy       0.5         grass 
+servine     0.5         grass 
+serperior   0.5         grass 
+tepig       0.5         fire 
+pignite     0.5         fire fighting 
+emboar      0.5         fire fighting 
+oshawott    0.5         water 
+dewott      0.5         water 
+samurott    0.5         water 
+patrat      0.5         normal 
+watchog     0.5         normal 
+lillipup    0.5         normal 
+herdier     0.5         normal 
+stoutland   0.5         normal 
+purrloin    0.5         dark 
+liepard     0.5         dark 
+pansage     0.5         grass 
+simisage    0.5         grass 
+pansear     0.5         fire 
+simisear    0.5         fire 
+panpour     0.5         water 
+simipour    0.5         water 
+munna       0.5         psychic 
+musharna    0.5         psychic 
+pidove      0.5         normal flying 
+tranquill   0.5         normal flying 
+unfezant    0.5         normal flying 
+blitzle     0.5         electric 
+zebstrika   0.5         electric 
+roggenrola  0.5         rock 
+boldore     0.5         rock 
+gigalith    0.5         rock 
+woobat      0.5         psychic flying 
+swoobat     0.5         psychic flying 
+drilbur     0.5         ground 
+excadrill   0.5         ground steel 
+audino      0.5         normal 
+timburr     0.5         fighting 
+gurdurr     0.5         fighting 
+conkeldurr  0.5         fighting 
+tympole     0.5         water 
+palpitoad   0.5         water ground 
+seismitoad  0.5         water ground 
+throh       0.5         fighting 
+sawk        0.5         fighting 
+sewaddle    0.5         bug grass 
+swadloon    0.5         bug grass 
+leavanny    0.5         bug grass 
+venipede    0.5         bug poison 
+whirlipede  0.5         bug poison 
+scolipede   0.5         bug poison 
+cottonee    0.5         grass fairy 
+whimsicott  0.5         grass fairy 
+petilil     0.5         grass 
+lilligant   0.5         grass 
+basculin    0.5         water 
+sandile     0.5         ground dark 
+krokorok    0.5         ground dark 
+krookodile  0.5         ground dark 
+darumaka    0.5         fire 
+darmanitan  0.5         fire 
+maractus    0.5         grass 
+dwebble     0.5         bug rock 
+crustle     0.5         bug rock 
+scraggy     0.5         dark fighting 
+scrafty     0.5         dark fighting 
+sigilyph    0.5         psychic flying 
+yamask      0.5         ghost 
+cofagrigus  0.5         ghost 
+tirtouga    0.5         water rock 
+carracosta  0.5         water rock 
+archen      0.5         rock flying 
+archeops    0.5         rock flying 
+trubbish    0.5         poison 
+garbodor    0.5         poison 
+zorua       0.5         dark 
+zoroark     0.5         dark 
+minccino    0.5         normal 
+cinccino    0.5         normal 
+gothita     0.5         psychic 
+gothorita   0.5         psychic 
+gothitelle  0.5         psychic 
+solosis     0.5         psychic 
+duosion     0.5         psychic 
+reuniclus   0.5         psychic 
+ducklett    0.5         water flying 
+swanna      0.5         water flying 
+vanillite   0.5         ice 
+vanillish   0.5         ice 
+vanilluxe   0.5         ice 
+deerling    0.5         normal grass 
+sawsbuck    0.5         normal grass 
+emolga      0.5         electric flying 
+karrablast  0.5         bug 
+escavalier  0.5         bug steel 
+foongus     0.5         grass poison 
+amoonguss   0.5         grass poison 
+frillish    0.5         water ghost 
+jellicent   0.5         water ghost 
+alomomola   0.5         water 
+joltik      0.5         bug electric 
+galvantula  0.5         bug electric 
+ferroseed   0.5         grass steel 
+ferrothorn  0.5         grass steel 
+klink       0.5         steel 
+klang       0.5         steel 
+klinklang   0.5         steel 
+tynamo      0.5         electric 
+eelektrik   0.5         electric 
+eelektross  0.5         electric 
+elgyem      0.5         psychic 
+beheeyem    0.5         psychic 
+litwick     0.5         ghost fire 
+lampent     0.5         ghost fire 
+chandelure  0.5         ghost fire 
+axew        0.5         dragon 
+fraxure     0.5         dragon 
+haxorus     0.5         dragon 
+cubchoo     0.5         ice 
+beartic     0.5         ice 
+cryogonal   0.5         ice 
+shelmet     0.5         bug 
+accelgor    0.5         bug 
+stunfisk    0.5         ground electric 
+mienfoo     0.5         fighting 
+mienshao    0.5         fighting 
+druddigon   0.5         dragon 
+golett      0.5         ground ghost 
+golurk      0.5         ground ghost 
+pawniard    0.5         dark steel 
+bisharp     0.5         dark steel 
+bouffalant  0.5         normal 
+rufflet     0.5         normal flying 
+braviary    0.5         normal flying 
+vullaby     0.5         dark flying 
+mandibuzz   0.5         dark flying 
+heatmor     0.5         fire 
+durant      0.5         bug steel 
+deino       0.5         dark dragon 
+zweilous    0.5         dark dragon 
+hydreigon   0.5         dark dragon 
+larvesta    0.5         bug fire 
+volcarona   0.5         bug fire 
+cobalion    0.5         steel fighting 
+terrakion   0.5         rock fighting 
+virizion    0.5         grass fighting 
+tornadus    0.5         flying 
+thundurus   0.5         electric flying 
+reshiram    0.5         dragon fire 
+zekrom      0.5         dragon electric 
+landorus    0.5         ground flying 
+kyurem      0.5         dragon ice 
+keldeo      0.5         water fighting 
+meloetta    0.5         normal psychic 
+genesect    0.5         bug steel 
+chespin     0.5         grass 
+quilladin   0.5         grass 
+chesnaught  0.5         grass fighting 
+fennekin    0.5         fire 
+braixen     0.5         fire 
+delphox     0.5         fire psychic 
+froakie     0.5         water 
+frogadier   0.5         water 
+greninja    0.5         water dark 
+bunnelby    0.5         normal 
+diggersby   0.5         normal ground 
+fletchling  0.5         normal flying 
+fletchinder 0.5         fire flying 
+talonflame  0.5         fire flying 
+scatterbug  0.5         bug 
+spewpa      0.5         bug 
+vivillon    0.5         bug flying 
+litleo      0.5         fire normal 
+pyroar      0.5         fire normal 
+flabebe     0.5         fairy 
+floette     0.5         fairy 
+florges     0.5         fairy 
+skiddo      0.5         grass 
+gogoat      0.5         grass 
+pancham     0.5         fighting 
+pangoro     0.5         fighting dark 
+furfrou     0.5         normal 
+espurr      0.5         psychic 
+meowstic    0.5         psychic 
+honedge     0.5         steel ghost 
+doublade    0.5         steel ghost 
+aegislash   0.5         steel ghost 
+spritzee    0.5         fairy 
+aromatisse  0.5         fairy 
+swirlix     0.5         fairy 
+slurpuff    0.5         fairy 
+inkay       0.5         dark psychic 
+malamar     0.5         dark psychic 
+binacle     0.5         rock water 
+barbaracle  0.5         rock water 
+skrelp      0.5         poison water 
+dragalge    0.5         poison dragon 
+clauncher   0.5         water 
+clawitzer   0.5         water 
+helioptile  0.5         electric normal 
+heliolisk   0.5         electric normal 
+tyrunt      0.5         rock dragon 
+tyrantrum   0.5         rock dragon 
+amaura      0.5         rock ice 
+aurorus     0.5         rock ice 
+sylveon     0.5         fairy 
+hawlucha    0.5         fighting flying 
+dedenne     0.5         electric fairy 
+carbink     0.5         rock fairy 
+goomy       0.5         dragon 
+sliggoo     0.5         dragon 
+goodra      0.5         dragon 
+klefki      0.5         steel fairy 
+phantump    0.5         ghost grass 
+trevenant   0.5         ghost grass 
+pumpkaboo   0.5         ghost grass 
+gourgeist   0.5         ghost grass 
+bergmite    0.5         ice 
+avalugg     0.5         ice 
+noibat      0.5         flying dragon 
+noivern     0.5         flying dragon 
+xerneas     0.5         fairy 
+yveltal     0.5         dark flying 
+zygarde     0.5         dragon ground 
+diancie     0.5         rock fairy 

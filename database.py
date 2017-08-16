@@ -62,8 +62,8 @@ class Database:
                        'rock', 'ice', 'bug', 'dragon', 'ghost', 'dark',
                        'steel', 'fairy')
     __directory = ""  # The global location of the code.
-    __MAX_ID = 493  # Highest possible Pokemon ID.
-    __regions = ('kanto', 'johto', 'hoenn', 'sinnoh')
+    __MAX_ID = 719  # Highest possible Pokemon ID.
+    __regions = ('kanto', 'johto', 'hoenn', 'sinnoh', 'unova', 'kalos')
 
     def __init__(self):
         self.__pokemon_list = []
@@ -124,6 +124,14 @@ class Database:
     def get_sinnoh(self):
         # Get all the Pokemon from the Sinnoh region.
         return self.__get_region("sinnoh")
+
+    def get_unova(self):
+        # Get all the Pokemon from the Unova region.
+        return self.__get_region("unova")
+
+    def get_kalos(self):
+        # Get all the Pokemon from the Kalos region.
+        return self.__get_region("kalos")
 
     def get_extra(self):
         # Get all the Extra Pokemon images available.
@@ -244,7 +252,7 @@ class Database:
                                       father.get_pkmn_type_secondary(),
                                       father.get_dark_threshold())
                 else:
-                    pokemon = Pokemon(None, name, None, path, None, None, None)
+                    pokemon = Pokemon(None, name, None, path, None, None, 0.5)
                 if name in self.__pokemon_dictionary:
                     raise Exception("Duplicate names detected.\nThe name of "
                                     + "the file " + str(name) + ".jpg in the "
@@ -265,14 +273,20 @@ class Database:
             return "hoenn"
         elif identifier < 494:
             return "sinnoh"
+        elif identifier < 650:
+            return "unova"
+        elif identifier < 720:
+            return "kalos"
         else:
-            raise Exception("Pokemon ID cannot be greater than 493.")
+            raise Exception("Pokemon ID cannot be greater than 719.")
 
     def __determine_folder(self, identifier):
         # Determine which folder a Pokemon is from.
         suffix_dict = {"kanto": "I - Kanto",
                        "johto": "II - Johto",
                        "hoenn": "III - Hoenn",
-                       "sinnoh": "IV - Sinnoh"}
+                       "sinnoh": "IV - Sinnoh",
+                       "unova": "V - Unova",
+                       "kalos": "VI - Kalos"}
         suffix = suffix_dict.get(self.__determine_region(identifier))
         return "{}/Images/Generation {}".format(self.directory, suffix)

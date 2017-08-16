@@ -31,6 +31,10 @@ def test_database_single_arg(arg):
         print_items(db.get_hoenn())
     elif arg == "get_sinnoh":
         print_items(db.get_sinnoh())
+    elif arg == "get_unova":
+        print_items(db.get_unova())
+    elif arg == "get_kalos":
+        print_items(db.get_kalos())
     elif arg == "get_extra":
         print_items(db.get_extra())
     elif arg == "get_random":

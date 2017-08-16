@@ -25,6 +25,11 @@ def test_hoenn_length(region_name='hoenn'):
 def test_sinnoh_length(region_name='sinnoh'):
     assert len(Database().get_sinnoh()) == expected_len(region_name)
 
+def test_unova_length(region_name='unova'):
+    assert len(Database().get_unova()) == expected_len(region_name)
+
+def test_kalos_length(region_name='kalos'):
+    assert len(Database().get_unova()) == expected_len(region_name)
 
 def test_all_length(region_name='all'):
     expected = expected_len(region_name) + expected_len('extra')
