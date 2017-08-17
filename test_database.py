@@ -60,11 +60,14 @@ def test_hoenn_length():
 def test_sinnoh_length():
     region_length_test('sinnoh')
 
+
 def test_unova_length():
     region_length_test('unova')
 
+
 def test_kalos_length():
     region_length_test('kalos')
+
 
 def region_test(region_name):
     db = Database()
@@ -101,11 +104,14 @@ def test_hoenn():
 def test_sinnoh():
     region_test('sinnoh')
 
-def test_sinnoh():
+
+def test_unova():
     region_test('unova')
+
 
 def test_kalos():
     region_test('kalos')
+
 
 def test_regions():
     for region_name in region_dict:

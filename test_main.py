@@ -69,20 +69,26 @@ def region_test(capsys, region_name):
 def test_kanto(capsys):
     region_test(capsys, 'kanto')
 
+
 def test_johto(capsys):
     region_test(capsys, 'johto')
+
 
 def test_hoenn(capsys):
     region_test(capsys, 'hoenn')
 
+
 def test_sinnoh(capsys):
     region_test(capsys, 'sinnoh')
+
 
 def test_unova(capsys):
     region_test(capsys, 'unova')
 
+
 def test_kalos(capsys):
     region_test(capsys, 'kalos')
+
 
 def test_all(capsys):
     main([__file__, 'all'])
