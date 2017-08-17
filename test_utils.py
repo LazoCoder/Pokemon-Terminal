@@ -11,7 +11,7 @@
 import os
 from collections import Counter, namedtuple
 
-MAX_ID = 493
+MAX_ID = 719
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 region_info = namedtuple('region_info', 'start end first last')
@@ -20,12 +20,12 @@ region_dict = {
     'johto': region_info(152, 251, 'Chikorita', 'Celebi'),
     'hoenn': region_info(252, 386, 'Treecko', 'Deoxys'),
     'sinnoh': region_info(387, 493, 'Turtwig', 'Arceus'),
-    'unova': region_info(494, 649, 'Victini', 'Arceus'),
-    'kalos': region_info(494, 649, 'Chespin', 'Diancie'),
+    'unova': region_info(494, 649, 'Victini', 'Genesect'),
+    'kalos': region_info(650, 719, 'Chespin', 'Diancie')
 }
 
 # From: https://en.wikipedia.org/wiki/Pok%C3%A9mon#Generation_1
-_counts = {'kanto': 151, 'johto': 100, 'hoenn': 135, 'sinnoh': 107, 'unova': 156, 'kalos': 72, 'all': 719}
+_counts = {'kanto': 151, 'johto': 100, 'hoenn': 135, 'sinnoh': 107, 'unova': 156, 'kalos': 70, 'all': 719}
 
 
 def expected_len(region_name):

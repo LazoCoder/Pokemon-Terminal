@@ -210,6 +210,8 @@ def single_argument_handler(arg, escape_code):
         print_columns(db.get_sinnoh())
     elif arg == "unova":
         print_columns(db.get_unova())
+    elif arg == "kalos":
+        print_columns(db.get_kalos())
     elif arg == "all":
         print_columns(db.get_all())
     elif arg in ("clear", "disable", "off"):

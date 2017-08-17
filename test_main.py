@@ -69,14 +69,11 @@ def region_test(capsys, region_name):
 def test_kanto(capsys):
     region_test(capsys, 'kanto')
 
-
 def test_johto(capsys):
     region_test(capsys, 'johto')
 
-
 def test_hoenn(capsys):
     region_test(capsys, 'hoenn')
-
 
 def test_sinnoh(capsys):
     region_test(capsys, 'sinnoh')
