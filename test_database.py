@@ -61,6 +61,14 @@ def test_sinnoh_length():
     region_length_test('sinnoh')
 
 
+def test_unova_length():
+    region_length_test('unova')
+
+
+def test_kalos_length():
+    region_length_test('kalos')
+
+
 def region_test(region_name):
     db = Database()
     # test db.get_region()
@@ -97,6 +105,14 @@ def test_sinnoh():
     region_test('sinnoh')
 
 
+def test_unova():
+    region_test('unova')
+
+
+def test_kalos():
+    region_test('kalos')
+
+
 def test_regions():
     for region_name in region_dict:
         region_test(region_name)
@@ -110,6 +126,8 @@ def _test_region(region_name):
         "johto": db.get_johto,
         "hoenn": db.get_hoenn,
         "sinnoh": db.get_sinnoh,
+        "unova": db.get_unova,
+        "kalos": db.get_kalos
     }[region_name]
     pokemon_list = func()
     region_record = region_dict[region_name]

@@ -15,6 +15,8 @@ region_dict = {
     'johto': region_info(152, 251, 'Generation II - Johto'),
     'hoenn': region_info(252, 386, 'Generation III - Hoenn'),
     'sinnoh': region_info(387, 493, 'Generation IV - Sinnoh'),
+    'unova': region_info(494, 649, 'Generation V - Unova'),
+    'kalos': region_info(650, 719, 'Generation VI - Kalos'),
     'extra': region_info(0, 0, 'Extra')
 }
 

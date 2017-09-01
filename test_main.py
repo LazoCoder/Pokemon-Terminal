@@ -82,6 +82,14 @@ def test_sinnoh(capsys):
     region_test(capsys, 'sinnoh')
 
 
+def test_unova(capsys):
+    region_test(capsys, 'unova')
+
+
+def test_kalos(capsys):
+    region_test(capsys, 'kalos')
+
+
 def test_all(capsys):
     main([__file__, 'all'])
     out, err = capsys.readouterr()
