@@ -1,7 +1,8 @@
 import os
 import subprocess
 
-from adapter.base import TerminalAdapterInterface
+from pokemonterminal.adapter.base import TerminalAdapterInterface
+
 
 # OSA script that will change the terminal background image
 osa_script_fmt = """tell application "iTerm"
