@@ -204,3 +204,4 @@ fi
 - Thanks to [@marcobiedermann](https://github.com/marcobiedermann) for better image compression.
 - Thanks to [@kamil157](https://github.com/kamil157) and [@dosman711](https://github.com/dosman711) for the randomized slideshow function.
 - Thanks to [@Squirrels](https://github.com/Squirrels) for adding Pokemon from the Unova and Kalos regions.
+- Thanks to [@caedus75](https://github.com/caedus75) for pip and reorganizing the files & folders
