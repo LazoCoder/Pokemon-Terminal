@@ -15,6 +15,13 @@ class TerminalAdapterInterface(object):
         """
         raise NotImplementedError()
 
+    def get_image_file_number(self):
+        """
+        Get the number of the background image of the terminal.
+        :rtype str
+        """
+        raise NotImplementedError()
+
     def clear(self):
         """
         Clear the terminal's background image.

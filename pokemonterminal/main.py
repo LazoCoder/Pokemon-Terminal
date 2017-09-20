@@ -131,6 +131,23 @@ def change_terminal_background(db, arg):  # arg is a pokemon_name
                 print_columns(suggestions[1:])
 
 
+def get_terminal_background_name(db):
+    """Gets the number of the Pokemon currently set as the terminal background"""
+    pokemon_number = scripter.get_terminal_background_number()
+    if isinstance(pokemon_number, (int, str)):
+        if isinstance(pokemon_number, int) or pokemon_number.isdigit():
+            if pokemon_number != 0:
+                print(db.get_pokemon(pokemon_number).get_name().capitalize())
+            else:
+                print("None")
+        elif isinstance(pokemon_number, str):
+            print(pokemon_number.replace('-', ' ').capitalize())
+        else:
+            print("None")
+    else:
+        print("Not yet implemented")
+
+
 def change_wallpaper(db, arg):  # arg is a pokemon_name
     """Change the wallpaper to the specified Pokemon, if it exists."""
     if arg in db:
@@ -283,8 +300,10 @@ def single_argument_handler(arg, escape_code):
         slideshow(db, 494, 650, rand=arg.startswith("rnd"))
     elif arg.endswith("slideshow-kalos"):
         slideshow(db, 650, 720, rand=arg.startswith("rnd"))
+    elif arg == "current":
+        get_terminal_background_name(db)
     elif arg == "?":
-        print("This function is deprecated.")
+        get_terminal_background_name(db)
     elif escape_code:
         change_wallpaper(db, arg)
     else:

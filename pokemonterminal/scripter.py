@@ -47,6 +47,13 @@ def change_terminal(image_file_path):
     adapter.set_image_file_path(image_file_path)
 
 
+def get_terminal_background_number():
+    adapter = identify()
+    if adapter is None:
+        print("Terminal not supported")
+    return adapter.get_image_file_number()
+
+
 def change_wallpaper(image_file_path):
     if not isinstance(image_file_path, str):
         print("A image path must be passed to the change wallpapper function.")

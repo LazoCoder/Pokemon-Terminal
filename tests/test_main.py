@@ -101,7 +101,13 @@ def test_all(capsys):
 def test_question_mark(capsys):
     main([__file__, '?'])
     out, err = capsys.readouterr()
-    assert 'deprecated' in out
+    assert isinstance(out, str)
+
+
+def test_current(capsys):
+    main([__file__, 'current'])
+    out, err = capsys.readouterr()
+    assert isinstance(out, str)
 
 
 if __name__ == '__main__':
