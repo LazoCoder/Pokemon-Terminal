@@ -1,6 +1,6 @@
 import os
 
-from adapter.base import TerminalAdapterInterface
+from pokemonterminal.adapter.base import TerminalAdapterInterface
 
 
 class Tilix(TerminalAdapterInterface):

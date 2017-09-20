@@ -2,11 +2,12 @@
 
 """The main module that brings everything together."""
 
-from database import Database
 import random
-import scripter
 import sys
 import time
+
+from pokemonterminal import scripter
+from pokemonterminal.database import Database
 
 
 def print_list(list_of_items):
@@ -290,7 +291,7 @@ def single_argument_handler(arg, escape_code):
         change_terminal_background(db, arg)
 
 
-def main(argv):
+def main(argv=sys.argv):
     """Entrance to the program."""
     if len(argv) == 1:
         print('No command line arguments specified.'

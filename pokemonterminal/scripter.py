@@ -4,7 +4,8 @@ import os
 import sys
 import subprocess
 
-from adapter import identify
+from pokemonterminal.adapter import identify
+
 
 osa_script_fmt = """tell application "System Events"
 \ttell current desktop

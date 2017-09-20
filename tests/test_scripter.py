@@ -2,8 +2,10 @@
 
 # To run use python3 -m pytest --capture=sys
 
-from adapter import available_terminals, base
 import os
+
+from pokemonterminal.adapter import available_terminals, base
+from tests.test_utils import SCRIPT_DIR
 
 
 def test_available_terminals():
@@ -11,8 +13,7 @@ def test_available_terminals():
     terminal_names = [terminal.__name__ for terminal in available_terminals]
     non_terminals = ['NullAdapter', '__init__']
     assert all(terminal not in terminal_names for terminal in non_terminals)
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    terminals_dir = os.path.join(script_dir, 'adapter', 'implementations')
+    terminals_dir = os.path.join(SCRIPT_DIR, 'adapter', 'implementations')
     assert os.path.isdir(terminals_dir), 'Not found: ' + terminals_dir
     for filename in os.listdir(terminals_dir):
         terminal, ext = os.path.splitext(filename)

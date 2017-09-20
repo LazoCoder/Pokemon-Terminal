@@ -2,7 +2,9 @@
 
 import collections
 import os
-from database import Pokemon
+
+from pokemonterminal.database import Pokemon
+
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 DATA_DIR = os.path.join(SCRIPT_DIR, 'Data')

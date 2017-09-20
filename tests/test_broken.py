@@ -2,8 +2,8 @@
 
 # To run the tests, use: python3 -m pytest --capture=sys
 
-from database import Database
-from test_utils import expected_len
+from pokemonterminal.database import Database
+from tests.test_utils import expected_len
 
 
 def test_extra_length(region_name='extra'):

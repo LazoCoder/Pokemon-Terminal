@@ -2,9 +2,9 @@
 
 # To run the tests, use: python3 -m pytest --capture=sys
 
-from database import Database, Pokemon
-from load_all_pokemon import load_all_pokemon
-from test_utils import expected_len, MAX_ID
+from pokemonterminal.database import Database, Pokemon
+from pokemonterminal.load_all_pokemon import load_all_pokemon
+from tests.test_utils import expected_len, MAX_ID
 
 
 def compare_pokemon(a, b):
