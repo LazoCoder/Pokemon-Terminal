@@ -13,7 +13,7 @@ class Terminology(TerminalAdapterInterface):
 
     def get_image_file_number(self):
         # TODO: Check the way to get the background image path in Terminology
-        return 0
+        print(self.err)
 
     def clear(self):
         os.system("tybg")
