@@ -26,6 +26,7 @@ def test_adapter_methods():
         assert callable(terminal.clear)
         assert callable(terminal.is_available)
         assert callable(terminal.set_image_file_path)
+        assert callable(terminal.get_image_file_number)
 
 
 if __name__ == '__main__':

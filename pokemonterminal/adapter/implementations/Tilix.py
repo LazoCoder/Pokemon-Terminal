@@ -17,6 +17,10 @@ class Tilix(TerminalAdapterInterface):
                                  self.setting_field,
                                  image_file_path))
 
+    def get_image_file_number(self):
+        # TODO: Check the way to get the background image path in Tilinx
+        return 0
+
     def clear(self):
         command = 'gsettings set {} {}'
         os.system(command.format(self.setting_key,

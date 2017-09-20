@@ -11,5 +11,8 @@ class NullAdapter(TerminalAdapterInterface):
     def set_image_file_path(self, image_file_path):
         print(self.err)
 
+    def get_image_file_number(self):
+        print(self.err)
+
     def clear(self):
         print(self.err)
