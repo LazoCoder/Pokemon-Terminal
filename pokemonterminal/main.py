@@ -33,6 +33,10 @@ def print_types(items):
     print("All existent pokemon types are:\n" + ", ".join(items))
 
 
+def print_pokemon(pokemon):
+    print(pokemon.get_name().title(), ', I Choose You!', sep="")
+
+
 def prefix_search(db, arg):
     """Find all Pokemon in database, db, with the prefix, arg."""
     result = db.names_with_prefix(arg)
@@ -218,41 +222,77 @@ def single_argument_handler(arg, escape_code):
     elif arg in ("clear", "disable", "off"):
         scripter.clear_terminal()
     elif arg == "random" and escape_code:
-        change_wallpaper(db, db.get_random())
+        random_pokemon = db.get_random()
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-kanto" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("kanto"))
+        random_pokemon = db.get_random_from_region("kanto")
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-johto" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("johto"))
+        random_pokemon = db.get_random_from_region("johto")
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-hoenn" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("hoenn"))
+        random_pokemon = db.get_random_from_region("hoenn")
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-sinnoh" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("sinnoh"))
+        random_pokemon = db.get_random_from_region("sinnoh")
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-unova" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("unova"))
+        random_pokemon = db.get_random_from_region("unova")
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-kalos" and escape_code:
-        change_wallpaper(db, db.get_random_from_region("kalos"))
+        random_pokemon = db.get_random_from_region("kalos")
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random":
-        change_terminal_background(db, db.get_random())
+        random_pokemon = db.get_random()
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-kanto":
-        change_terminal_background(db, db.get_random_from_region("kanto"))
+        random_pokemon = db.get_random_from_region("kanto")
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-johto":
-        change_terminal_background(db, db.get_random_from_region("johto"))
+        random_pokemon = db.get_random_from_region("johto")
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-hoenn":
-        change_terminal_background(db, db.get_random_from_region("hoenn"))
+        random_pokemon = db.get_random_from_region("hoenn")
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-sinnoh":
-        change_terminal_background(db, db.get_random_from_region("sinnoh"))
+        random_pokemon = db.get_random_from_region("sinnoh")
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-unova":
-        change_terminal_background(db, db.get_random_from_region("unova"))
+        random_pokemon = db.get_random_from_region("unova")
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "random-kalos":
-        change_terminal_background(db, db.get_random_from_region("kalos"))
+        random_pokemon = db.get_random_from_region("kalos")
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "light" and escape_code:
-        change_wallpaper(db, db.get_light())
+        random_pokemon = db.get_light()
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "dark" and escape_code:
-        change_wallpaper(db, db.get_dark())
+        random_pokemon = db.get_dark()
+        change_wallpaper(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "light":
-        change_terminal_background(db, db.get_light())
+        random_pokemon = db.get_light()
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg == "dark":
-        change_terminal_background(db, db.get_dark())
+        random_pokemon = db.get_dark()
+        change_terminal_background(db, random_pokemon)
+        print_pokemon(random_pokemon)
     elif arg in ("type", "types"):
         print_types(db.get_pokemon_types())
     elif arg == "slideshow":
