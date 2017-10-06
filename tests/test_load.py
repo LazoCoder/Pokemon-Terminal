@@ -3,7 +3,7 @@
 # To run the tests, use: python3 -m pytest --capture=sys
 
 from pokemonterminal.database import Database, Pokemon
-from pokemonterminal.load_all_pokemon import load_all_pokemon
+from tests.load_all_pokemon import load_all_pokemon
 from tests.test_utils import expected_len, MAX_ID
 
 
