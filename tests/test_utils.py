@@ -14,22 +14,18 @@ from collections import Counter, namedtuple
 import pokemonterminal
 
 
-MAX_ID = 719
+MAX_ID = 719  # Also total pokemon
 SCRIPT_DIR = os.path.dirname(os.path.realpath(pokemonterminal.__file__))
 
 region_info = namedtuple('region_info', 'start end first last size')
 region_dict = {
-    'kanto': region_info(1, 151, 'Bulbasaur', 'Mew'),
-    'johto': region_info(152, 251, 'Chikorita', 'Celebi'),
-    'hoenn': region_info(252, 386, 'Treecko', 'Deoxys'),
-    'sinnoh': region_info(387, 493, 'Turtwig', 'Arceus'),
-    'unova': region_info(494, 649, 'Victini', 'Genesect'),
-    'kalos': region_info(650, 719, 'Chespin', 'Diancie')
+    'kanto': region_info(1, 151, 'Bulbasaur', 'Mew', 151),
+    'johto': region_info(152, 251, 'Chikorita', 'Celebi', 100),
+    'hoenn': region_info(252, 386, 'Treecko', 'Deoxys', 135),
+    'sinnoh': region_info(387, 493, 'Turtwig', 'Arceus', 107),
+    'unova': region_info(494, 649, 'Victini', 'Genesect', 156),
+    'kalos': region_info(650, 719, 'Chespin', 'Diancie', 70)
 }
-
-# From: https://en.wikipedia.org/wiki/Pok%C3%A9mon#Generation_1
-_counts = {'kanto': 151, 'johto': 100, 'hoenn': 135,
-           'sinnoh': 107, 'unova': 156, 'kalos': 70, 'all': 719}
 
 
 def expected_len(region_name):

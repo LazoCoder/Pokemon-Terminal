@@ -2,11 +2,10 @@
 
 # To run the tests, use: python3 -m pytest --capture=sys
 
-from database import Database
-from filters import Filter
-import filters
-from main import main
-from test_utils import region_dict
+from pokemonterminal.database import Database
+from pokemonterminal.filters import Filter, RegionFilter, NonExtrasFilter
+from pokemonterminal.main import main
+from tests.test_utils import region_dict
 import random
 
 db = Database()
@@ -49,15 +48,8 @@ def test_region_names(capsys):
     except SystemExit:
         pass  # It's supposed to crash.
     err: str = capsys.readouterr()[1].strip()
-    assert err.endswith("(choose from 'kanto', 'johto', 'hoenn', 'sinnoh')")
-
-
-def test_unova(capsys):
-    region_test(capsys, 'unova')
-
-
-def test_kalos(capsys):
-    region_test(capsys, 'kalos')
+    assert err.endswith(
+        "(choose from 'kanto', 'johto', 'hoenn', 'sinnoh', 'unova', 'kalos')")
 
 
 def test_all(capsys):
@@ -69,8 +61,8 @@ def test_all(capsys):
 
 
 def test_region(capsys):
-    regFilter = filters.RegionFilter(None, None)
-    noExtras = filters.NonExtrasFilter(None, None)
+    regFilter = RegionFilter(None, None)
+    noExtras = NonExtrasFilter(None, None)
     # matrix test of first pokemon name and last pokemon name from all regions
     for name, region_info in region_dict.items():
         filtered = [p for p in Filter.POKEMON_LIST

@@ -1,4 +1,4 @@
-from filters import Filter
+from pokemonterminal.filters import Filter
 import pytest
 
 
