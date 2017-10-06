@@ -1,1 +1,8 @@
-main.py
+#!/usr/bin/env python3
+
+import sys
+
+from pokemonterminal.main import main
+
+
+main(sys.argv)

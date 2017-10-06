@@ -18,7 +18,7 @@ Sample Set #1                    |  Sample Set #2
 ![alt-tag](Samples/rayquaza.png) |  ![alt-tag](Samples/deoxys.png)
 
 # Features
-- 493 unique Pokemon
+- 719 unique Pokemon
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
@@ -204,3 +204,5 @@ fi
 - Thanks to [@Fiskie](https://github.com/Fiskie) for implementing the adapter design pattern, piping commands and more.
 - Thanks to [@marcobiedermann](https://github.com/marcobiedermann) for better image compression.
 - Thanks to [@kamil157](https://github.com/kamil157) and [@dosman711](https://github.com/dosman711) for the randomized slideshow function.
+- Thanks to [@Squirrels](https://github.com/Squirrels) for adding Pokemon from the Unova and Kalos regions.
+- Thanks to [@caedus75](https://github.com/caedus75) for pip and reorganizing the files & folders.
