@@ -1,5 +1,5 @@
 from argparse import Action
-from database import Database, Pokemon
+from pokemonterminal.database import Database, Pokemon
 
 
 class Filter(Action):

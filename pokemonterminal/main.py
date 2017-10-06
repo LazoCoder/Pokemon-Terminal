@@ -8,10 +8,9 @@ import sys
 import time
 from multiprocessing import Process
 
-import filters
-import scripter
-from database import Database
-from filters import Filter
+from . import filters, scripter
+from pokemonterminal.database import Database
+from pokemonterminal.filters import Filter
 
 PIPE_PATH = os.environ["HOME"] + "/.pokemon-terminal-pipe"
 if not os.path.exists(PIPE_PATH):

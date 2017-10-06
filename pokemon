@@ -5,4 +5,4 @@ import sys
 from pokemonterminal.main import main
 
 
-main(sys.argv)
+main(sys.argv[1:])

@@ -62,8 +62,8 @@ class Database:
                      'rock', 'ice', 'bug', 'dragon', 'ghost', 'dark',
                      'steel', 'fairy')
     __directory = ""  # The global location of the code.
-    __MAX_ID = 719  # Highest possible Pokemon ID.
-    __regions = ('kanto', 'johto', 'hoenn', 'sinnoh', 'unova', 'kalos')
+    MAX_ID = 719  # Highest possible Pokemon ID.
+    REGIONS = ('kanto', 'johto', 'hoenn', 'sinnoh', 'unova', 'kalos')
 
     def __init__(self):
         self.__pokemon_list = []
