@@ -15,7 +15,8 @@ end tell"""
 
 
 def __run_osascript(stream):
-    p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE,
+                         stdin=subprocess.PIPE)
     p.stdin.write(stream)
     p.communicate()
     p.stdin.close()
@@ -24,7 +25,8 @@ def __run_osascript(stream):
 def __linux_create_wallpaper_script(image_file_path):
     # If its gnome... aka GDMSESSION=gnome-xorg, etc.
     if "gnome" in os.environ.get("GDMSESSION"):
-        fmt = 'gsettings set org.gnome.desktop.background picture-uri "file://{}"'
+        fmt = 'gsettings set org.gnome.desktop.background ' +\
+            'picture-uri "file://{}"'
         return fmt.format(image_file_path)
     # elif condition of KDE...
     else:

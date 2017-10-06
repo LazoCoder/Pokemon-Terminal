@@ -21,7 +21,8 @@ def compare_pokemon(a, b):
 
 
 def test_len():
-    assert len(Database()) == len(load_all_pokemon()) == MAX_ID + expected_len('extra')
+    assert len(Database()) == len(load_all_pokemon()) \
+        == MAX_ID + expected_len('extra')
 
 
 def test_lists():

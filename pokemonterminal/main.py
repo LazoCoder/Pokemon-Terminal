@@ -151,7 +151,8 @@ def main(argv):
         action='store_true')
     either.add_argument(
         'id',
-        help='Specify the desired pokemon ID or the exact (case insensitive) name',
+        help='Specify the wanted pokemon ID or the exact (case insensitive)' +
+        ' name',
         nargs='?',
         default=0, const=0)
     options = parser.parse_args(argv)
@@ -212,7 +213,7 @@ def main(argv):
 
     if is_slideshow and options.id <= 0 and size > 1:
         if options.slideshow <= 0:
-            print("Time has to be greater then 0. (You can use decimals, e.g.: 0.1)")
+            print("Time has to be greater then 0. You can use decimal values.")
             return
         target_func = scripter.change_wallpaper if options.wallpaper else \
             scripter.change_terminal

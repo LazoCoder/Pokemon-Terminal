@@ -66,7 +66,8 @@ def test_region(capsys):
     # matrix test of first pokemon name and last pokemon name from all regions
     for name, region_info in region_dict.items():
         filtered = [p for p in Filter.POKEMON_LIST
-                    if regFilter.matches(p, name) and noExtras.matches(p, None)]
+                    if regFilter.matches(p, name)
+                    and noExtras.matches(p, None)]
         assert len(filtered) == region_info.size
         assert random.choice(filtered).get_region() == name
         assert filtered[0].get_id() == ('%03d' % (region_info.start))

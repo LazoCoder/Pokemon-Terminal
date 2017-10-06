@@ -41,13 +41,15 @@ def test_database_single_arg(arg):
     elif arg == "get_random":
         print(db.get_random())
     else:
-        print("No such public method '" + arg + "' with zero parameters exists in the Database class.")
+        print("No such public method '" + arg + "' with zero parameters " +
+              "exists in the Database class.")
 
 
 def test_database_double_arg(arg):
     # Test the database where there are two command line parameters.
     # The first parameter is the name of the method to test.
-    # The second parameter is the input parameter for the method that is being test.
+    # The second parameter is the input parameter for the method
+    # that is being tested.
     arg1 = arg[1].lower()
     arg2 = arg[2].lower()
     db = Database()
@@ -68,9 +70,9 @@ def test_database_double_arg(arg):
     elif arg1 == "names_with_infix":
         print_items(db.names_with_infix(arg2))
     elif arg1 == "get_light":
-        print_items(db.get_light(threshold=int(arg2)/10, all_pkmn=True))
+        print_items(db.get_light(threshold=int(arg2) / 10, all_pkmn=True))
     elif arg1 == "get_dark":
-        print_items(db.get_dark(threshold=int(arg2)/10, all_pkmn=True))
+        print_items(db.get_dark(threshold=int(arg2) / 10, all_pkmn=True))
     else:
         print("No such public method '" + arg + "' with two parameters"
               " exists in the Database class.")
