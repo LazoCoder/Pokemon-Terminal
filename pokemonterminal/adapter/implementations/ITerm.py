@@ -18,7 +18,8 @@ class ITerm(TerminalAdapterInterface):
         return os.environ.get("ITERM_PROFILE")
 
     def __run_osascript(self, stream):
-        p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+        p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE,
+                             stdin=subprocess.PIPE)
         p.stdin.write(stream)
         p.communicate()
         p.stdin.close()

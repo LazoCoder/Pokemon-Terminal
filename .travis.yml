@@ -2,7 +2,7 @@ sudo: false
 dist: trusty
 language: python
 python:
-    - 3.5        # currently Travis trusty default Python3 is 3.5.2
+    - 3.6        # currently Travis trusty default Python3 is 3.5.2
     #- 3.6.1
     #- "nightly"  # currently points to 3.7-dev (3.7.0a0)
 install:

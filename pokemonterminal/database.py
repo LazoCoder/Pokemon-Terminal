@@ -57,20 +57,20 @@ class Pokemon:
 
 class Database:
     """The Database object is a container for all the supported Pokemon."""
-    __POKEMON_TYPES = ('normal', 'fire', 'fighting', 'water', 'flying',
-                       'grass', 'poison', 'electric', 'ground', 'psychic',
-                       'rock', 'ice', 'bug', 'dragon', 'ghost', 'dark',
-                       'steel', 'fairy')
+    POKEMON_TYPES = ('normal', 'fire', 'fighting', 'water', 'flying',
+                     'grass', 'poison', 'electric', 'ground', 'psychic',
+                     'rock', 'ice', 'bug', 'dragon', 'ghost', 'dark',
+                     'steel', 'fairy')
     __directory = ""  # The global location of the code.
-    __MAX_ID = 719  # Highest possible Pokemon ID.
-    __regions = ('kanto', 'johto', 'hoenn', 'sinnoh', 'unova', 'kalos')
+    MAX_ID = 719  # Highest possible Pokemon ID.
+    REGIONS = ('kanto', 'johto', 'hoenn', 'sinnoh', 'unova', 'kalos')
 
     def __init__(self):
         self.__pokemon_list = []
         self.__pokemon_dictionary = {}
         self.__pokemon_type_dictionary = {}
         self.directory = os.path.dirname(os.path.realpath(__file__))
-        for pkmn_t in self.__POKEMON_TYPES:
+        for pkmn_t in self.POKEMON_TYPES:
             self.__pokemon_type_dictionary[pkmn_t] = []
         self.__load_data()
         self.__load_extra()
@@ -90,9 +90,6 @@ class Database:
     def __len__(self):
         return len(self.__pokemon_list)
 
-    def get_pokemon_types(self):
-        return [t for t in self.__POKEMON_TYPES]
-
     def get_pokemon_of_type(self, pkmn_type: str, single: bool = True):
         pkmns = self.__pokemon_type_dictionary.get(pkmn_type)
         if pkmns is None:
@@ -104,10 +101,6 @@ class Database:
         return [pokemon for pokemon in self.__pokemon_list]
         # or... return self.__pokemon_list[:]
         # return a copy of self.__pokemon_list
-
-    def get_regions(self):
-        # Get all the supported regions.
-        return self.__regions
 
     def get_kanto(self):
         # Get all the Pokemon from the Kanto region.
@@ -163,7 +156,7 @@ class Database:
     def pokemon_id_exists(self, identifier):
         # Check for Pokemon by ID.
         identifier = int(identifier)
-        return 0 < identifier <= self.__MAX_ID
+        return 0 < identifier <= self.MAX_ID
 
     def pokemon_name_exists(self, name):
         # Check for Pokemon by Name.
@@ -200,7 +193,7 @@ class Database:
         identifier = int(identifier)
         if not self.pokemon_id_exists(identifier):
             raise Exception("The Pokemon ID must be between 1 and " +
-                            str(self.__MAX_ID) + " inclusive.")
+                            str(self.MAX_ID) + " inclusive.")
         # Subtract 1 to convert to 0 base indexing.
         return self.__pokemon_list[identifier - 1]
 
@@ -234,7 +227,7 @@ class Database:
                 self.__pokemon_type_dictionary[pkmn_type].append(pokemon)
                 if pkmn_type_snd != '':
                     self.__pokemon_type_dictionary[pkmn_type_snd]\
-                            .append(pokemon)
+                        .append(pokemon)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon
 

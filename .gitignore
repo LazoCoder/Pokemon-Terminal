@@ -150,4 +150,7 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
+# VSCode
+.vscode/
+
 # End of https://www.gitignore.io/api/osx,python,pycharm

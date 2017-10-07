@@ -1,6 +1,4 @@
-#/usr/bin/env python3
-
-
+#!/usr/bin/env python3
 import os
 from setuptools import setup, find_packages
 
@@ -28,7 +26,7 @@ def package_data(relpath, folders):
 
 setup(
     name="pokemon-terminal",
-    version="0.0.1",
+    version="1.1.0",  # Copied from package.json
 
     description="Pokemon terminal themes.",
     long_description="""
@@ -75,5 +73,5 @@ Supports ITerm2, Terminology & Tilix.""",
         "Programming Language :: Python :: 3.6",
     ],
 
-    python_requires=">=3.5"
+    python_requires=">=3.6"
 )
