@@ -55,7 +55,7 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 
 ## Linux
 
-1. Make sure you have Python 3.5+ installed, check the instructions of your distribution.
+1. Make sure you have Python 3.6+ installed, check the instructions of your distribution.
 2. Make sure you have Terminology or Tilix, again check the package manager of your distribution.
 3. Install
     - If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
@@ -186,6 +186,7 @@ if [[ "$TERMINOLOGY" -eq "1" ]]; then
     pokemon
 fi
 ```
+That will simply pick a completly random pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset pokemon everytime you start.
 
 # Notes & Credits
 

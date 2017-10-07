@@ -58,13 +58,14 @@ def main(argv):
     """Entrance to the program."""
     if __name__ != "__main__":
         Filter.filtered_list = [pok for pok in Filter.POKEMON_LIST]
+    # TODO Lower main() complexity with factory functions or something
     parser = argparse.ArgumentParser(
         description='Set a pokemon to the current terminal background or '
                     'wallpaper',
         epilog='Not setting any filters will get a completely random pokemon')
     filters_group = parser.add_argument_group(
         'Filters', 'Arguments used to filter the list of pokemons with '
-                   'various conditions')
+                   'various conditions that then will be picked')
     filters_group.add_argument(
         '-n',
         '--name',
@@ -81,7 +82,8 @@ def main(argv):
     filters_group.add_argument(
         '-l',
         '--light',
-        help='Filter out the pokemons darker then 0.xx',
+        help='Filter out the pokemons darker (ligthness treshold lower) ' +
+        'then 0.xx (default is 0.7)',
         default=0.7,
         const=0.7,
         metavar='0.xx',
@@ -91,7 +93,8 @@ def main(argv):
     filters_group.add_argument(
         '-d',
         '--dark',
-        help='Filter out the pokemons lighter then 0.xx',
+        help='Filter out the pokemons lighter (ligthness treshold higher) ' +
+        'then 0.xx (defualt is 0.42)',
         default=0.42,
         const=0.42,
         metavar='0.xx',
@@ -108,7 +111,7 @@ def main(argv):
     filters_group.add_argument(
         '-ne',
         '--no-extras',
-        help='Excludes extra pokemons',
+        help='Excludes extra pokemons (from the extras folder)',
         nargs=0,
         action=filters.NonExtrasFilter)
     filters_group.add_argument(
@@ -158,7 +161,7 @@ def main(argv):
     options = parser.parse_args(argv)
     try:
         options.id = int(options.id)
-    except ValueError as _:
+    except ValueError:
         options.name = options.id.lower()
         options.id = 0
         Filter.filtered_list = [
@@ -171,6 +174,8 @@ def main(argv):
         return
 
     if options.id <= 0:
+        # TODO this doesn't account for the current set pokemon and might try
+        # TODO to set the same pokemon again (essentially not doing anything)
         target = random.choice(Filter.filtered_list)
     else:
         options.id -= 1
