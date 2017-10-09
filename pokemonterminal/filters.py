@@ -27,10 +27,10 @@ class NameFilter(Filter):
 
 
 class RegionFilter(Filter):
-    EXAMPLE_VAL = 'kanto'
+    EXAMPLE_VAL = ['kanto']
 
-    def matches(self, pokemon: Pokemon, value: str):
-        return pokemon.get_region() == value
+    def matches(self, pokemon: Pokemon, value: list):
+        return pokemon.get_region() in value
 
 
 class LightFilter(Filter):
@@ -48,12 +48,11 @@ class DarkFilter(Filter):
 
 
 class TypeFilter(Filter):
-    EXAMPLE_VAL = 'water'
+    EXAMPLE_VAL = ['water']
 
-    def matches(self, pokemon: Pokemon, value: str):
-        value = value.lower()
-        return value in (pokemon.get_pkmn_type(),
-                         pokemon.get_pkmn_type_secondary())
+    def matches(self, pokemon: Pokemon, value: list):
+        return pokemon.get_pkmn_type() in value or \
+            pokemon.get_pkmn_type_secondary() in value
 
 
 class NonExtrasFilter(Filter):

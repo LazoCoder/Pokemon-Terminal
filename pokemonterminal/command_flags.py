@@ -24,6 +24,7 @@ _filters_group.add_argument(
     help='Filter the pokemons by region',
     action=filters.RegionFilter,
     choices=Database.REGIONS,
+    nargs='*',
     type=str.lower)
 _filters_group.add_argument(
     '-l',
@@ -53,6 +54,7 @@ _filters_group.add_argument(
     help='Filter the pokemons by type.',
     action=filters.TypeFilter,
     choices=Database.POKEMON_TYPES,
+    nargs='*',
     type=str.lower)
 _filters_group.add_argument(
     '-ne',
