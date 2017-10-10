@@ -18,7 +18,7 @@ Sample Set #1                    |  Sample Set #2
 ![alt-tag](Samples/rayquaza.png) |  ![alt-tag](Samples/deoxys.png)
 
 # Features
-- 493 unique Pokemon
+- 719 unique Pokemon
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
@@ -26,7 +26,7 @@ Sample Set #1                    |  Sample Set #2
 
 # How to Install
 
-Type `python3 -V` in your terminal to verify that you have [Python 3.5](https://www.python.org/downloads/) or later installed.
+Type `python3 -V` in your terminal to verify that you have [Python 3.6](https://www.python.org/downloads/) or later installed.
 
 ## npm
 
@@ -36,7 +36,7 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 
 ## Mac OS
 
-1. Make sure you have [Python 3.5](https://www.python.org/downloads/mac-osx/) or higher.
+1. Make sure you have [Python 3.6](https://www.python.org/downloads/mac-osx/) or higher.
 2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html).
 3. Copy and paste the following for the installation:
     ```
@@ -55,7 +55,7 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 
 ## Linux
 
-1. Make sure you have Python 3.5+ installed, check the instructions of your distribution.
+1. Make sure you have Python 3.6+ installed, check the instructions of your distribution.
 2. Make sure you have Terminology or Tilix, again check the package manager of your distribution.
 3. Install
     - If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
@@ -71,44 +71,45 @@ You can install in any (npm-supported) OS using `npm install --global pokemon-te
 ## Usage
 
 ```
+usage: pokemon [-h] [-n NAME] [-r {kanto,johto,hoenn,sinnoh}] [-l [0.xx]]
+               [-d [0.xx]]
+               [-t {normal,fire,fighting,water,flying,grass,poison,electric,
+                    ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy}]
+               [-ne] [-e] [-w] [-v] [-dr] [-c] [id]
 
-Usage:
-    pokemon [parameter]
-    ichooseyou [parameter]
+Set a pokemon to the current terminal background or wallpaper
 
-Parameters:
-    [name]        -   Change the terminal background to the specified Pokemon.
-    [index]       -   Change the terminal background to a Pokemon by its index.
-    [region]      -   List all the Pokemon of the specified region.
-    [one letter]  -   List all Pokemon who's names begin with a particular letter.
-    [two letters] -   List all Pokemon who's names begin with those two letters.
+positional arguments:
+  id                    Specify the desired pokemon ID
 
-Other Parameters:
-    all                           -   List all the Pokemon supported.
-    regions                       -   List all the available regions.
-    extra                         -   List all the Pokemon from the 'Extra' folder.
-    random                        -   Change the terminal background to a random Pokemon.
-    random-<region>               -   Change the terminal background to a random Pokemon from the specified region.
-    slideshow [time]              -   Iterate through each Pokemon. Optional time (in seconds) between Pokemon.
-    slideshow-<region> [time]     -   Iterate through each Pokemon in the specified region. Optional time (in seconds) between Pokemon.
-    rnd-slideshow [time]          -   Iterate through each Pokemon in a random order. Optional time (in seconds) between Pokemon.
-    rnd-slideshow-<region> [time] -   Iterate through each Pokemon in the specified region in a random order. Optional time (in seconds) between Pokemon.
-    light                         -   Change the terminal background to a random light-colored Pokemon.
-    dark                          -   Change the terminal background to a random dark-colored Pokemon.
-    type [type]                   -   Change to a random pokemon of said type.
-    clear | disable | off         -   Clear the Pokemon in the terminal.
-    help                          -   Display this menu.
+optional arguments:
+  -h, --help            show this help message and exit
+  -c, --clear           Clears the current pokemon from terminal background
+                        and quits.
 
-Wallpaper Parameters:
-    pokemon _pikachu              -   Change the wallpaper to the specified Pokemon.
-    pokemon _random               -   Change the wallpaper to a random Pokemon.
-    pokemon _random-kanto         -   Change the wallpaper to a random Pokemon from the specified region.
+Filters:
+  Arguments used to filter the list of pokemons with various conditions
 
-Search System Information:
-    Any input containing 3 or more characters triggers the internal search system. Examples:
-    "pokemon pika" changes the terminal background to Pikachu.
-    "pokemon dos"  changes the terminal background to Gyarados.
+  -n/--name NAME        Filter by pokemon which name contains NAME
+  -r/--region {kanto,johto,hoenn,sinnoh}
+                        Filter the pokemons by region
+  -l/--light [0.xx]     Filter out the pokemons darker then 0.xx
+  -d/--dark [0.xx]
+                        Filter out the pokemons lighter then 0.xx
+  -t/--type {normal,fire,fighting,water,flying,grass,poison,electric,ground,
+             psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy}
+                        Filter the pokemons by type.
+  -ne/--no-extras       Excludes extra pokemons
+  -e/--extras           Excludes all non-extra pokemons
 
+Misc:
+  -w, --wallpaper       Changes the desktop wallpapper instead of the terminal
+                        background
+  -v, --verbose         Enables verbose output
+  -dr, --dry-run        Implies -v and doesn't actually changes the wallpapper
+                        or background after the pokemon has been chosen
+
+Not setting any filters will get a completly random pokemon
 ```
 
 Example:
@@ -135,7 +136,7 @@ The result should look like this:
 
 The folder *Images/Extra* is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only JPG format is supported. To see a list of all the custom backgrounds type:
 ```
-$ pokemon extra
+$ pokemon -e -dr
 ```
 Alternatively, you can delete images from this folder and it will not break the program. These are some custom backgrounds:
 
@@ -161,8 +162,8 @@ Alternatively, you can delete images from this folder and it will not break the 
 I have not yet implemented a way to save the terminal background to a profile. To save a background you will need to setup a startup command in the profile.
 1. Navigate to iTerm2 > Preferences > General
 2. Locate the field where it says *Send text at start* under *Command*.
-3. In that field type "pokemon [pokemon name]". You can see an example in the image down below.
-   - Alternatively you can also type "pokemon random" for a random theme each time you open up a new terminal.
+3. In that field type "pokemon -n [pokemon name]". You can see an example in the image down below.
+   - Alternatively you can also type "pokemon" for a random theme each time you open up a new terminal.
 4. You can leave out "; clear" if you don't care about the line showing up at the top of the terminal.
 
 ![alt-tag](Samples/saving.png)
@@ -182,9 +183,10 @@ fi
 3. You may also want to check if terminology is actually running before trying to set the background, so that leads us to
 ```bash
 if [[ "$TERMINOLOGY" -eq "1" ]]; then
-    pokemon random
+    pokemon
 fi
 ```
+That will simply pick a completly random pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset pokemon everytime you start.
 
 # Notes & Credits
 
@@ -203,3 +205,5 @@ fi
 - Thanks to [@Fiskie](https://github.com/Fiskie) for implementing the adapter design pattern, piping commands and more.
 - Thanks to [@marcobiedermann](https://github.com/marcobiedermann) for better image compression.
 - Thanks to [@kamil157](https://github.com/kamil157) and [@dosman711](https://github.com/dosman711) for the randomized slideshow function.
+- Thanks to [@Squirrels](https://github.com/Squirrels) for adding Pokemon from the Unova and Kalos regions.
+- Thanks to [@caedus75](https://github.com/caedus75) for pip and reorganizing the files & folders.
