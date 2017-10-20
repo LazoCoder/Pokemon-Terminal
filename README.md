@@ -101,10 +101,13 @@ Filters:
                         Filter the pokemons by type.
   -ne/--no-extras       Excludes extra pokemons
   -e/--extras           Excludes all non-extra pokemons
+  
+Wallpaper arguments:
+  _pikachu              Changes your wallpaper to the specified Pokemon
+  _random               Changes the wallpaper to a random Pokemon
+  _random-kanto         Change the wallpaper to a random Pokemon from the specified region
 
 Misc:
-  -w, --wallpaper       Changes the desktop wallpapper instead of the terminal
-                        background
   -v, --verbose         Enables verbose output
   -dr, --dry-run        Implies -v and doesn't actually changes the wallpapper
                         or background after the pokemon has been chosen
