@@ -33,8 +33,8 @@ def daemon(time_stamp, pkmn_list):
 def slideshow(filtered, delay, changer_func):
     pid = os.fork()
     if pid > 0:
-        print(f"Starting slideshow with {len(filtered)}, pokemon " +
-              f"and a delay of {delay} minutes between pokemon")
+        print("Starting slideshow with {len(filtered)}, pokemon " +
+              "and a delay of {delay} minutes between pokemon")
         print("Forked process to background with pid", pid,
               "you can stop it with -c")
         os.environ["POKEMON_TERMINAL_PID"] = str(pid)
