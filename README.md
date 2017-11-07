@@ -28,6 +28,8 @@ Sample Set #1                    |  Sample Set #2
 
 Type `python3 -V` in your terminal to verify that you have [Python 3.6](https://www.python.org/downloads/) or later installed.
 
+[Users of Ubuntu 16.04 and before can get Python 3.6 from a PPA.](https://askubuntu.com/a/865569) On more recent versions, you can install it with just `sudo apt install python3.6`. It is also preinstalled in 17.10 and upwards.
+
 ## npm
 
 You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
