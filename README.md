@@ -1,10 +1,13 @@
-# Pokemon-Terminal
+﻿# Pokemon-Terminal
 
 [![Build Status](https://travis-ci.org/LazoCoder/Pokemon-Terminal.svg?branch=master)](https://travis-ci.org/LazoCoder/Pokemon-Terminal)
 
 <p align="center">
     <img src="https://i.imgur.com/n34fXyp.png" width="300"/>
     <img src="https://i.imgur.com/xaHPMUd.png" width="300"/>
+    <img src="https://i.imgur.com/5vllDok.png" width="300"/>
+    <img src="https://i.imgur.com/3YSj8MB.png" width="300"/>
+    <img src="https://i.imgur.com/H0AhgW5.png" width="300"/>
     <br><a href="https://imgur.com/a/0wfFm" target="_blank">More previews</a>
 </p>
 
