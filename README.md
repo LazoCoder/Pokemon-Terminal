@@ -173,7 +173,7 @@ I have not yet implemented a way to save the terminal background to a profile. T
 Terminology already saves it automatically, just untick "temporary" in the settings after setting your desired pokemon:
 ![](http://i.imgur.com/BTqYXKa.png)
 
-However to setup a random pokemon each session do:
+To setup a random pokemon each session:
 1. Open `~/.bashrc` in your favorite text editor.
 2. Add the following lines to it:
    ```bash
