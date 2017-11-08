@@ -162,17 +162,17 @@ Alternatively, you can delete images from this folder and it will not break the 
 I have not yet implemented a way to save the terminal background to a profile. To save a background you will need to setup a startup command in the profile.
 1. Navigate to iTerm2 > Preferences > General
 2. Locate the field where it says *Send text at start* under *Command*.
-3. In that field type "pokemon -n [pokemon name]". You can see an example in the image down below.
-   - Alternatively you can also type "pokemon" for a random theme each time you open up a new terminal.
-4. You can leave out "; clear" if you don't care about the line showing up at the top of the terminal.
+3. In that field type `pokemon -n [pokemon name]`. You can see an example in the image down below.
+   - Alternatively you can also type `pokemon` for a random theme each time you open up a new terminal.
+4. You can leave out `; clear` if you don't care about the line showing up at the top of the terminal.
 
 ![](https://i.imgur.com/2d4qa9j.png)
 
 ### Linux
-Terminology already saves it automatically, just untick "temporary" in the settings after setting your desired pokemon:
+Terminology already saves it automatically, just untick "temporary" in the settings after setting your desired Pokemon:
 ![](http://i.imgur.com/BTqYXKa.png)
 
-To setup a random pokemon each session:
+To show a random Pokemon each session:
 1. Open `~/.bashrc` in your favorite text editor.
 2. Add the following lines to it:
    ```bash
@@ -180,7 +180,7 @@ To setup a random pokemon each session:
        pokemon
    fi
    ```
-That will simply pick a completely random pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset pokemon everytime you start.
+That will simply pick a completely random Pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset Pokemon everytime you start.
 
 # Notes & Credits
 
