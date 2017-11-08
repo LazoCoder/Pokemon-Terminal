@@ -1,21 +1,13 @@
 # Pokemon-Terminal
 
-![alt-tag](Samples/pikachu.png)
+[![Build Status](https://travis-ci.org/LazoCoder/Pokemon-Terminal.svg?branch=master)](https://travis-ci.org/LazoCoder/Pokemon-Terminal)
 
-Sample Set #1                    |  Sample Set #2
-:-------------------------------:|:-------------------------------:
-![alt-tag](Samples/bulbasaur.png)|  ![alt-tag](Samples/squirtle.png)
-![alt-tag](Samples/charizard.png)|  ![alt-tag](Samples/eevee.png)
-![alt-tag](Samples/clefairy.png) |  ![alt-tag](Samples/magikarp.png)
-![alt-tag](Samples/machop.png)   |  ![alt-tag](Samples/slowpoke.png)
-![alt-tag](Samples/muk.png)      |  ![alt-tag](Samples/porygon.png)
-![alt-tag](Samples/chansey.png)  |  ![alt-tag](Samples/growlithe.png)
-![alt-tag](Samples/scyther.png)  |  ![alt-tag](Samples/omanyte.png)
-![alt-tag](Samples/corsola.png)  |  ![alt-tag](Samples/mewtwo.png)
-![alt-tag](Samples/azumarill.png)|  ![alt-tag](Samples/snubbull.png)
-![alt-tag](Samples/wobbuffet.png)|  ![alt-tag](Samples/tyranitar.png)
-![alt-tag](Samples/lugia.png)    |  ![alt-tag](Samples/kyogre.png)
-![alt-tag](Samples/rayquaza.png) |  ![alt-tag](Samples/deoxys.png)
+<p align="center">
+    <img src="https://i.imgur.com/n34fXyp.png" width="300"/>
+    <img src="https://i.imgur.com/xaHPMUd.png" width="300"/>
+</p>
+
+[More previews](https://imgur.com/a/0wfFm)
 
 # Features
 - 719 unique Pokemon
@@ -24,65 +16,61 @@ Sample Set #1                    |  Sample Set #2
 - Internal search system for finding Pokemon
 - Supports iTerm2, Terminology & Tilix
 
-# How to Install
+# Installation
 
-Type `python3 -V` in your terminal to verify that you have [Python 3.6](https://www.python.org/downloads/) or later installed.
+Install Python 3.6 or higher:
+- [For Mac](https://www.python.org/downloads/mac-osx/)
+- [For Ubuntu](https://askubuntu.com/a/865569)
+- [For Arch Linux](https://www.archlinux.org/packages/extra/x86_64/python/)
+- Not all compatible distros are named here, but a quick Google search should give you instructions for your distribution of choice.
 
-[Users of Ubuntu 16.04 and before can get Python 3.6 from a PPA.](https://askubuntu.com/a/865569) On more recent versions, you can install it with just `sudo apt install python3.6`. It is also preinstalled in 17.10 and upwards.
+Get a compatible terminal emulator:
+- [iTerm2](https://iterm2.com/)
+- [Terminology](https://www.enlightenment.org/about-terminology)
+- [Tilix](https://gnunn1.github.io/tilix-web/)
 
-## npm
+You can then proceed with one of the following methods for installation:
+- [Arch Linux User Repository package (System-wide)](https://aur.archlinux.org/packages/pokemon-terminal-git/) (maintained by [@sylveon](https://github.com/sylveon))
+- [pip (System-wide)](#pip-system-wide)
+- [pip (Per-User)](#pip-per-user)
+- [npm (Per-User)](#npm-per-user)
+- [Distutils (System-wide)](#distutils-system-wide)
+
+Notes:
+- Your distro might include pip in a different package then Python, make sure to have that installed and running when calling `pip3.6` if you want to install using it.
+- npm installation obviously requires to have [Node.js](https://nodejs.org/) installed.
+
+## pip (System-wide)
+
+Run `sudo pip3.6 install git+https://github.com/LazoCoder/Pokemon-Terminal.git`. When the command completes, it's installed and ready to go!
+
+## pip (Per-User)
+
+You can install it with pip for a single user with `pip3.6 install --user git+https://github.com/LazoCoder/Pokemon-Terminal.git`. You might want to add `~/.local/bin` to your PATH to be able to call `pokemon` and `ichooseyou` everywhere.
+
+## npm (Per-User)
 
 You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
 
-> If you do not use npm, or prefer a manual install, continue reading.
+## Distutils (System-wide)
 
-## Mac OS
+You can clone or [download](https://github.com/LazoCoder/Pokemon-Terminal/archive/master.zip) this repo, and run `sudo python3.6 setup.py install` at the root of the repo.
 
-1. Make sure you have [Python 3.6](https://www.python.org/downloads/mac-osx/) or higher.
-2. Make sure you have [iTerm2](http://www.iterm2.com/downloads.html).
-3. Copy and paste the following for the installation:
-    ```
-    # Pokemon Installation
-    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
-    echo PATH="$HOME/.Pokemon-Terminal:${PATH}" >> ~/.bash_profile
-    source ~/.bash_profile
-    ```
-4. If you are using zsh, do the following instead:
-    ```
-    # Pokemon Installation
-    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
-    echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.zshrc
-    source ~/.zshrc
-    ```
-
-## Linux
-
-1. Make sure you have Python 3.6+ installed, check the instructions of your distribution.
-2. Make sure you have Terminology or Tilix, again check the package manager of your distribution.
-3. Install
-    - If you are a Arch Linux User, you can install it from the AUR package [pokemon-terminal-git](https://aur.archlinux.org/packages/pokemon-terminal-git/).
-    - Otherwise, copy and paste the following bash script into a terminal for the installation:
-    ```bash
-    # Pokemon Installation
-    git clone https://github.com/LazoCoder/Pokemon-Terminal $HOME/.Pokemon-Terminal
-    echo PATH="$HOME/.Pokemon-Terminal:$"PATH"" >> ~/.bash_profile
-    source ~/.bash_profile
-    ```
-
-# Instructions
-## Usage
+# Usage
 
 ```
-usage: pokemon [-h] [-n NAME] [-r {kanto,johto,hoenn,sinnoh}] [-l [0.xx]]
-               [-d [0.xx]]
-               [-t {normal,fire,fighting,water,flying,grass,poison,electric,
-                    ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy}]
-               [-ne] [-e] [-w] [-v] [-dr] [-c] [id]
+usage: pokemon [-h] [-n NAME]
+               [-r [{kanto,johto,hoenn,sinnoh,unova,kalos} [{kanto,johto,hoenn,sinnoh,unova,kalos} ...]]]
+               [-l [0.xx]] [-d [0.xx]]
+               [-t [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} ...]]]
+               [-ne] [-e] [-ss [X]] [-w] [-v] [-dr] [-c]
+               [id]
 
 Set a pokemon to the current terminal background or wallpaper
 
 positional arguments:
-  id                    Specify the desired pokemon ID
+  id                    Specify the wanted pokemon ID or the exact (case
+                        insensitive) name
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -90,37 +78,48 @@ optional arguments:
                         and quits.
 
 Filters:
-  Arguments used to filter the list of pokemons with various conditions
+  Arguments used to filter the list of pokemons with various conditions that
+  then will be picked
 
-  -n/--name NAME        Filter by pokemon which name contains NAME
-  -r/--region {kanto,johto,hoenn,sinnoh}
+  -n NAME, --name NAME  Filter by pokemon which name contains NAME
+  -r [{kanto,johto,hoenn,sinnoh,unova,kalos} [{kanto,johto,hoenn,sinnoh,unova,kalos} ...]], --region [{kanto,johto,hoenn,sinnoh,unova,kalos} [{kanto,johto,hoenn,sinnoh,unova,kalos} ...]]
                         Filter the pokemons by region
-  -l/--light [0.xx]     Filter out the pokemons darker then 0.xx
-  -d/--dark [0.xx]
-                        Filter out the pokemons lighter then 0.xx
-  -t/--type {normal,fire,fighting,water,flying,grass,poison,electric,ground,
-             psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy}
+  -l [0.xx], --light [0.xx]
+                        Filter out the pokemons darker (ligthness treshold
+                        lower) then 0.xx (default is 0.7)
+  -d [0.xx], --dark [0.xx]
+                        Filter out the pokemons lighter (ligthness treshold
+                        higher) then 0.xx (defualt is 0.42)
+  -t [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} ...]], --type [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} ...]]
                         Filter the pokemons by type.
-  -ne/--no-extras       Excludes extra pokemons
-  -e/--extras           Excludes all non-extra pokemons
+  -ne, --no-extras      Excludes extra pokemons (from the extras folder)
+  -e, --extras          Excludes all non-extra pokemons
 
 Misc:
-  -w, --wallpaper       Changes the desktop wallpapper instead of the terminal
+  -ss [X], --slideshow [X]
+                        Instead of simply choosing a random pokemon from the
+                        filtered list, starts a slideshow (with X minutes of
+                        delay between pokemon) in the background with the
+                        pokemon that matched the filters
+  -w, --wallpaper       Changes the desktop wallpaper instead of the terminal
                         background
   -v, --verbose         Enables verbose output
-  -dr, --dry-run        Implies -v and doesn't actually changes the wallpapper
-                        or background after the pokemon has been chosen
+  -dr, --dry-run        Implies -v and doesnt actually changes either
+                        wallpaper or background after the pokemon has been
+                        chosen
 
-Not setting any filters will get a completly random pokemon
+Not setting any filters will get a completely random pokemon
 ```
 
 Example:
 
-![alt-tag](Samples/usage.gif)
+![](https://i.imgur.com/DfA2lcd.gif)
 
-# Suggestions
+# Tips, tricks and common issues
 
-I highly suggest making the font colors black and the terminal window transparent. Some of the images have both light and dark colours and so it can be difficult to see the text sometimes. Transparency resolves this issue. Since *Pokemon Terminal* only changes the background, the transparency must be done manually:
+## iTerm2 settings
+
+I highly suggest making the font colors black and the terminal window transparent. Some of the images have both light and dark colours and so it can be difficult to see the text sometimes. Transparency resolves this issue. Since *Pokemon-Terminal* only changes the background, the transparency must be done manually:
 
 1. Navigate to iTerm2 > Preferences > Profiles > Window
 2. Set the transparency to about half way.
@@ -128,39 +127,39 @@ I highly suggest making the font colors black and the terminal window transparen
 4. Set the blur to maximum.
 5. Optionally you can set the blending to maximum to adjust the colors to look like the samples provided.
 
-![alt-tag](Samples/transparency_setting.png)
+![](https://i.imgur.com/xSZAGhL.png)
 
 The result should look like this:
 
-![alt-tag](Samples/transparency_tauros.png)
+![](https://i.imgur.com/82DAT97.jpg)
 
-# Adding Custom Images
+## Adding Custom Images
 
-The folder *Images/Extra* is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only JPG format is supported. To see a list of all the custom backgrounds type:
-```
+The folder `pokemonterminal/Images/Extra` is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only JPG format is supported. To see a list of all the custom backgrounds type:
+```bash
 $ pokemon -e -dr
 ```
 Alternatively, you can delete images from this folder and it will not break the program. These are some custom backgrounds:
 
-![alt-tag](Samples/custom_deoxys.gif)
+![](https://i.imgur.com/gdGUucu.gif)
 
-# Solutions for Common Issues
+## Solutions for Common Issues
 
-* If you experience a line at the top of the terminal after changing the Pokemon, you can remove it by typing in the *clear* command or opening a new terminal.
-![alt-tag](Samples/line.png)
+* If you experience a line at the top of the terminal after changing the Pokemon, you can remove it by typing in the `clear` command or opening a new terminal.
+![](https://i.imgur.com/5HMu1jD.png)
 
 * If you are using Tilix and the terminal background is not changing, try adjusting the transparency in your profile settings.
-* If you are experiencing issues with Terminology, make sure that you have installed the latest version:
+* If you are experiencing issues with Terminology and are running on Ubuntu, make sure that you have installed the latest version:
+   ```bash
+   $ sudo add-apt-repository ppa:niko2040/e19
+   $ sudo apt-get update
+   $ sudo apt install terminology
    ```
-   sudo add-apt-repository ppa:niko2040/e19
-   sudo apt-get update
-   sudo apt install terminology
-   ```
-* If you get the error: ```39:46: syntax error: Expected end of line but found identifier. (-2741)```. Locate the file ITerm.py in adapter/implementations and on line 7, change "iTerm" to "iTerm2". If you still experience the error, try changing it to "iTerm 2".
+* If you get the error `39:46: syntax error: Expected end of line but found identifier. (-2741)`: Locate the file `ITerm.py` in `pokemonterminal/adapter/implementations` and on line 7, change `iTerm` to `iTerm2`. If you still experience the error, try changing it to `iTerm 2`.
 
-# Saving
+## Saving
 
-## Mac OS
+### macOS
 I have not yet implemented a way to save the terminal background to a profile. To save a background you will need to setup a startup command in the profile.
 1. Navigate to iTerm2 > Preferences > General
 2. Locate the field where it says *Send text at start* under *Command*.
@@ -168,27 +167,21 @@ I have not yet implemented a way to save the terminal background to a profile. T
    - Alternatively you can also type "pokemon" for a random theme each time you open up a new terminal.
 4. You can leave out "; clear" if you don't care about the line showing up at the top of the terminal.
 
-![alt-tag](Samples/saving.png)
+![](https://i.imgur.com/2d4qa9j.png)
 
-## Linux
-Terminology already saves it automatically, just tick and remove the "temporary" tick in the settings just in case, after setting your desired pokemon (see image below).
-![Terminlogy temporary](http://i.imgur.com/BTqYXKa.png)
+### Linux
+Terminology already saves it automatically, just untick "temporary" in the settings after setting your desired pokemon:
+![](http://i.imgur.com/BTqYXKa.png)
 
 However to setup a random pokemon each session do:
 1. Open `~/.bashrc` in your favorite text editor.
-2. Make sure your `~/.bashrc` file has a guard check for interactive terminals, so you don't try to set the background every possible time bash runs. Place this before any command that may produce any output (again, if you don't have it already, and variable setting, e.g `exports` don't produce output):
-``` bash
-if [[ $- != *i* ]]; then #You might have this already
-    return
-fi
-```
-3. You may also want to check if terminology is actually running before trying to set the background, so that leads us to
-```bash
-if [[ "$TERMINOLOGY" -eq "1" ]]; then
-    pokemon
-fi
-```
-That will simply pick a completly random pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset pokemon everytime you start.
+2. Add the following lines to it:
+   ```bash
+   if [[ "$TERMINOLOGY" -eq "1" ]]; then
+       pokemon
+   fi
+   ```
+That will simply pick a completely random pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset pokemon everytime you start.
 
 # Notes & Credits
 
@@ -199,7 +192,7 @@ That will simply pick a completly random pokemon each session, but the `pokemon`
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
 - Thanks to [@samosaara](https://github.com/samosaara) for the Linux (GNOME and Terminology) port.
-- Thanks to [@charlesmilette](https://github.com/charlesmilette) for maintaining the AUR package.
+- Thanks to [@sylveon](https://github.com/sylveon) for maintaining the AUR package.
 - Thanks to [@therealklanni](https://github.com/therealklanni) for adding the project to npm.
 - Thanks to [@MattMattV](https://github.com/MattMattV) for adding Tilix support.
 - Thanks to [@connordinho](https://github.com/connordinho) for enhancing the slideshow functionality.
