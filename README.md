@@ -5,9 +5,8 @@
 <p align="center">
     <img src="https://i.imgur.com/n34fXyp.png" width="300"/>
     <img src="https://i.imgur.com/xaHPMUd.png" width="300"/>
+    <br><a href="https://imgur.com/a/0wfFm" target="_blank">More previews</a>
 </p>
-
-[More previews](https://imgur.com/a/0wfFm)
 
 # Features
 - 719 unique Pokemon
