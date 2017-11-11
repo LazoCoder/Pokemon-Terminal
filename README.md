@@ -3,12 +3,32 @@
 [![Build Status](https://travis-ci.org/LazoCoder/Pokemon-Terminal.svg?branch=master)](https://travis-ci.org/LazoCoder/Pokemon-Terminal)
 
 <p align="center">
-    <img src="https://i.imgur.com/n34fXyp.png" width="300"/>
-    <img src="https://i.imgur.com/xaHPMUd.png" width="300"/>
-    <img src="https://i.imgur.com/5vllDok.png" width="300"/>
-    <img src="https://i.imgur.com/3YSj8MB.png" width="300"/>
-    <img src="https://i.imgur.com/H0AhgW5.png" width="300"/>
-    <br><a href="https://imgur.com/a/0wfFm" target="_blank">More previews</a>
+    <img src="https://i.imgur.com/n34fXyp.png" width="700"/> <!--Pikachu-->
+    <img src="https://i.imgur.com/bLajJfw.png" width="430"/> <!--Bulbasaur-->
+    <img src="https://i.imgur.com/ZzQhJuE.png" width="430"/> <!--Squirtle-->
+    <img src="https://i.imgur.com/54fvKOQ.png" width="430"/> <!--Charizard-->
+    <img src="https://i.imgur.com/xaHPMUd.png" width="430"/> <!--Eevee-->
+    <img src="https://i.imgur.com/W41EHr2.png" width="430"/> <!--Clefairy-->
+    <img src="https://i.imgur.com/QjqQ6QQ.png" width="430"/> <!--Magikarp-->
+    <img src="https://i.imgur.com/K7G2VW4.png" width="430"/> <!--Machop-->
+    <img src="https://i.imgur.com/3z1WtCu.png" width="430"/> <!--Slowpoke-->
+    <img src="https://i.imgur.com/u8cYbFp.png" width="430"/> <!--Muk-->
+    <img src="https://i.imgur.com/54Ehhnk.png" width="430"/> <!--Porygon-->
+    <img src="https://i.imgur.com/XEOwCXr.png" width="430"/> <!--Chansey-->
+    <img src="https://i.imgur.com/smvCxHG.png" width="430"/> <!--Growlithe-->
+    <img src="https://i.imgur.com/ZR5h5dZ.png" width="430"/> <!--Scyther-->
+    <img src="https://i.imgur.com/I4TakUm.png" width="430"/> <!--Omanyte-->
+    <img src="https://i.imgur.com/165hq6O.png" width="430"/> <!--Corsola-->
+    <img src="https://i.imgur.com/H0AhgW5.png" width="430"/> <!--Mewtew-->
+    <img src="https://i.imgur.com/jF2DMqO.png" width="430"/> <!--Azumarill-->
+    <img src="https://i.imgur.com/G0LpD66.png" width="430"/> <!--Snubbull-->
+    <img src="https://i.imgur.com/zirtgZq.png" width="430"/> <!--Wobbuffet-->
+    <img src="https://i.imgur.com/O49I1gE.png" width="430"/> <!--Tyranitar-->
+    <img src="https://i.imgur.com/SCe91Uv.png" width="430"/> <!--Lugia-->
+    <img src="https://i.imgur.com/5vllDok.png" width="430"/> <!--Kyogre-->
+    <img src="https://i.imgur.com/3YSj8MB.png" width="430"/> <!--Rayquaza-->
+    <img src="https://i.imgur.com/YW5pSkZ.png" width="430"/> <!--Deoxys-->
+    <!--<br><a href="https://imgur.com/a/0wfFm" target="_blank">More previews</a>-->
 </p>
 
 # Features
