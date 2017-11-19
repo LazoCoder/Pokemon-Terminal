@@ -12,20 +12,21 @@ from pokemonterminal.command_flags import parser, is_slideshow
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
 
-PIPE_PATH = os.environ["HOME"] + "/.pokemon-terminal-pipe"
-if not os.path.exists(PIPE_PATH):
-    os.mkfifo(PIPE_PATH)
+PIPE_PATH = os.environ["HOME"] + "/.pokemon-terminal-pipe" + str(os.getppid())
+PIPE_EXISTS = os.path.exists(PIPE_PATH)
 
 
-# noinspection PyUnusedLocal
 def daemon(time_stamp, pkmn_list):
-    # TODO: Implement messaging, like status and curr pokemon
+    # TODO: Implement messaging, like status and current pokemon
+    if not PIPE_EXISTS:
+        os.mkfifo(PIPE_PATH)
     pip = open(PIPE_PATH, 'r')
     while True:
         for msg in pip:
             msg = msg.strip()
             if msg == 'quit':
                 print("Stopping the slideshow")
+                os.remove(PIPE_PATH)
                 sys.exit(0)
         pip = open(PIPE_PATH, 'r')
 
@@ -111,6 +112,9 @@ def main(argv):
         return
 
     if options.clear:
+        if not PIPE_EXISTS:
+            print("Slideshow not running")
+            sys.exit(0)
         pipe_out = os.open(PIPE_PATH, os.O_WRONLY)
         os.write(pipe_out, b"quit\n")
         os.close(pipe_out)
@@ -118,6 +122,9 @@ def main(argv):
         return
 
     if is_slideshow and options.id <= 0 and size > 1:
+        if PIPE_EXISTS:
+            print("Slideshow already running in this instance!")
+            sys.exit(0)
         if options.slideshow <= 0:
             print("Time has to be greater then 0. You can use decimal values.")
             return
