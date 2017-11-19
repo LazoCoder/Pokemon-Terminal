@@ -112,12 +112,10 @@ def main(argv):
         return
 
     if options.clear:
-        if not PIPE_EXISTS:
-            print("Slideshow not running")
-            sys.exit(0)
-        pipe_out = os.open(PIPE_PATH, os.O_WRONLY)
-        os.write(pipe_out, b"quit\n")
-        os.close(pipe_out)
+        if PIPE_EXISTS:
+            pipe_out = os.open(PIPE_PATH, os.O_WRONLY)
+            os.write(pipe_out, b"quit\n")
+            os.close(pipe_out)
         scripter.clear_terminal()
         return
 
