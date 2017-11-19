@@ -1,14 +1,14 @@
-from . import WallpaperProvider as __WProv
-import os as __os
+from . import WallpaperProvider as _WProv
+import os as _os
 
 
-class GnomeProvider(__WProv):
+class GnomeProvider(_WProv):
     def change_wallpaper(path: str) -> None:
-        __os.system('gsettings set org.gnome.desktop.background ' +
-                    f'picture-uri "file://{path}"')
+        _os.system('gsettings set org.gnome.desktop.background ' +
+                   f'picture-uri "file://{path}"')
 
     def is_compatible() -> bool:
-        return "gnome" in __os.environ.get("GDMSESSION")
+        return "gnome" in _os.environ.get("GDMSESSION")
 
     def __str__():
         return "GNOME Shell Desktop"

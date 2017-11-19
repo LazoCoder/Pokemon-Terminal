@@ -1,9 +1,9 @@
-from . import WallpaperProvider as __WProv
-import subprocess as __sp
-import sys as __sys
+from . import WallpaperProvider as _WProv
+import subprocess as _sp
+import sys as _sys
 
 
-class DarwinProvider(__WProv):
+class DarwinProvider(_WProv):
     __osa_script_fmt = """tell application "System Events"
     \ttell current desktop
     \t\tset picture to "{}"
@@ -11,8 +11,8 @@ class DarwinProvider(__WProv):
     end tell"""
 
     def __run_osascript(stream):
-        p = __sp.Popen(['osascript'], stdout=__sp.PIPE,
-                       stdin=__sp.PIPE)
+        p = _sp.Popen(['osascript'], stdout=__sp.PIPE,
+                      stdin=__sp.PIPE)
         p.stdin.write(stream)
         p.communicate()
         p.stdin.close()
@@ -22,7 +22,7 @@ class DarwinProvider(__WProv):
         DarwinProvider.__run_osascript(str.encode(script))
 
     def is_compatible() -> bool:
-        return __sys.platform == "darwin"
+        return _sys.platform == "darwin"
 
     def __str__():
         return "MacOS Desktop Environment"
