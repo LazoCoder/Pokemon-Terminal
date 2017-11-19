@@ -43,7 +43,7 @@ def change_wallpaper(image_file_path):
                 print("Invalid number, try again!")
         target = providers[inp]
     elif len(providers) <= 0:
-        print("Your desktop environment isn't supported by this time.")
+        print("Your desktop environment isn't supported at this time.")
         sys.exit()
     else:
         target = providers[0]

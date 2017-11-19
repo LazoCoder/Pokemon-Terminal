@@ -11,6 +11,11 @@ def _is_adapter(member) -> bool:
 
 
 def _get_adapter_classes() -> [WallpaperProvider]:
+    """
+    This methods reads all the modules in the adapters folder searching for
+    all the implementing wallpaper adapter classes
+    thanks for/adapted from https://github.com/cclauss/adapter_pattern/
+    """
     dirname = os.path.join(os.path.dirname(
         os.path.abspath(__file__)), 'adapters')
     adapter_classes = []

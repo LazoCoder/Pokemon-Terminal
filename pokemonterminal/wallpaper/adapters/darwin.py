@@ -1,9 +1,9 @@
-from . import WallpaperProvider as _WProv
+from . import WallpaperProvider as __WProv
 import subprocess as __sp
 import sys as __sys
 
 
-class DarwinProvider(_WProv):
+class DarwinProvider(__WProv):
     __osa_script_fmt = """tell application "System Events"
     \ttell current desktop
     \t\tset picture to "{}"
