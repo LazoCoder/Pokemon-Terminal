@@ -8,7 +8,8 @@ class GnomeProvider(_WProv):
                    f'picture-uri "file://{path}"')
 
     def is_compatible() -> bool:
-        return "gnome" in _os.environ.get("GDMSESSION")
+        return (_os.environ.get("GDMSESSION") is not None and
+                "gnome" in _os.environ.get("GDMSESSION").lower())
 
     def __str__():
         return "GNOME Shell Desktop"
