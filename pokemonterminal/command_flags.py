@@ -29,7 +29,7 @@ _filters_group.add_argument(
 _filters_group.add_argument(
     '-l',
     '--light',
-    help='Filter out the pokemons darker (ligthness treshold lower) ' +
+    help='Filter out the pokemons darker (lightness threshold lower) ' +
     'then 0.xx (default is 0.7)',
     default=0.7,
     const=0.7,
@@ -40,8 +40,8 @@ _filters_group.add_argument(
 _filters_group.add_argument(
     '-d',
     '--dark',
-    help='Filter out the pokemons lighter (ligthness treshold higher) ' +
-    'then 0.xx (defualt is 0.42)',
+    help='Filter out the pokemons lighter (lightness threshold higher) ' +
+    'then 0.xx (default is 0.42)',
     default=0.42,
     const=0.42,
     metavar='0.xx',
@@ -92,7 +92,7 @@ _misc_group.add_argument(
 _misc_group.add_argument(
     '-dr',
     '--dry-run',
-    help='Implies -v and doesnt actually changes either wallpaper '
+    help='Implies -v and doesn\'t actually changes either wallpaper '
     'or background after the pokemon has been chosen',
     action='store_true')
 either = parser.add_mutually_exclusive_group()

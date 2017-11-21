@@ -36,7 +36,8 @@
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, Terminology & Tilix
+- Supports iTerm2, Terminology & Tilix terminal emulators
+- Supports MacOS, GNOME, and i3wm (with feh) for desktops
 
 # Installation
 
@@ -107,11 +108,11 @@ Filters:
   -r [{kanto,johto,hoenn,sinnoh,unova,kalos} [{kanto,johto,hoenn,sinnoh,unova,kalos} ...]], --region [{kanto,johto,hoenn,sinnoh,unova,kalos} [{kanto,johto,hoenn,sinnoh,unova,kalos} ...]]
                         Filter the pokemons by region
   -l [0.xx], --light [0.xx]
-                        Filter out the pokemons darker (ligthness treshold
+                        Filter out the pokemons darker (lightness threshold
                         lower) then 0.xx (default is 0.7)
   -d [0.xx], --dark [0.xx]
-                        Filter out the pokemons lighter (ligthness treshold
-                        higher) then 0.xx (defualt is 0.42)
+                        Filter out the pokemons lighter (lightness threshold
+                        higher) then 0.xx (default is 0.42)
   -t [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} ...]], --type [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} [{normal,fire,fighting,water,flying,grass,poison,electric,ground,psychic,rock,ice,bug,dragon,ghost,dark,steel,fairy} ...]]
                         Filter the pokemons by type.
   -ne, --no-extras      Excludes extra pokemons (from the extras folder)
@@ -126,7 +127,7 @@ Misc:
   -w, --wallpaper       Changes the desktop wallpaper instead of the terminal
                         background
   -v, --verbose         Enables verbose output
-  -dr, --dry-run        Implies -v and doesnt actually changes either
+  -dr, --dry-run        Implies -v and doesn't actually changes either
                         wallpaper or background after the pokemon has been
                         chosen
 
@@ -203,7 +204,7 @@ To show a random Pokemon each session:
        pokemon
    fi
    ```
-That will simply pick a completely random Pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset Pokemon everytime you start.
+That will simply pick a completely random Pokemon each session, but the `pokemon` line is simply calling the app, so you can still filter with regions, darkness, and etc. like you normally would, or you can also reset to a preset Pokemon every time you start.
 
 # Notes & Credits
 
