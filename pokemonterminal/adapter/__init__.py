@@ -2,12 +2,15 @@ from pokemonterminal.adapter.implementations.ITerm import ITerm
 from pokemonterminal.adapter.implementations.NullAdapter import NullAdapter
 from pokemonterminal.adapter.implementations.Terminology import Terminology
 from pokemonterminal.adapter.implementations.Tilix import Tilix
+from pokemonterminal.adapter.implementations.Xfce4Terminal import Xfce4Terminal
+
 
 
 available_terminals = [
     Terminology,
     Tilix,
-    ITerm
+    ITerm,
+    Xfce4Terminal
 ]
 
 
