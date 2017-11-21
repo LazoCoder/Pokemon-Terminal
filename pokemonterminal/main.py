@@ -90,18 +90,16 @@ def main(argv):
         else:
             print("Invalid id specified")
             return
-    if size == 1:
-        print('A single pokemon matches the specified criteria: ')
 
-    if options.dry_run:
-        options.verbose = True
-    if options.verbose:
+    if options.verbose or options.dry_run:
+        if size == 1:
+            print('A single pokemon matches the specified criteria: ')
         if size > Database.MAX_ID:
             print('No pokemon has been filtered...')
         else:
             # Print the list of filtered pokemon
             [
-                print("#%s - %s" % (pkmn.get_id(), pkmn.get_name().title()))
+                print(f"#{pkmn.get_id()} - {pkmn.get_name().title()}")
                 for pkmn in Filter.filtered_list
             ]
         print("Total of %d pokemon matched the filters. Chose %s" %
