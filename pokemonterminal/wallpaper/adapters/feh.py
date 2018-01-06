@@ -2,15 +2,18 @@ from . import WallpaperProvider as _WProv
 from os import system
 from pathlib import Path
 from shutil import which
+import subprocess
 
-# If someone uses feh for wallpapers, there is a high probability ~/.fehbg exists, so let's base us on it.
 
-class FehAdapter(_WProv):
+class FehProvider(_WProv):
     def change_wallpaper(path: str):
         system(f'feh --no-fehbg --bg-fill "{path}"')
 
     def is_compatible() -> bool:
-        return which("feh") is not None and (Path.home() / '.fehbg').is_file()
+        root_window_prop = str(subprocess.check_output('xprop -root -notype', shell=True))
+        return which("feh") is not None and \
+            (Path.home() / '.fehbg').is_file() and \
+            any(wm_signature in root_window_prop for wm_signature in ('I3_PID', '_OPENBOX_PID'))
 
     def __str__():
         return "feh wallpaper tool"
