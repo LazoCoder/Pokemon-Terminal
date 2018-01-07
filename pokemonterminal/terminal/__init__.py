@@ -1,16 +1,16 @@
 import os
 import importlib
 import inspect
-from .adapters import WallpaperProvider
+from .adapters import TerminalProvider
 
 
 def _is_adapter(member) -> bool:
     return (inspect.isclass(member)
-            and issubclass(member, WallpaperProvider)
-            and member != WallpaperProvider)
+            and issubclass(member, TerminalProvider)
+            and member != TerminalProvider)
 
 
-def _get_adapter_classes() -> [WallpaperProvider]:
+def _get_adapter_classes() -> [TerminalProvider]:
     """
     This methods reads all the modules in the adapters folder searching for
     all the implementing wallpaper adapter classes
@@ -23,12 +23,12 @@ def _get_adapter_classes() -> [WallpaperProvider]:
         root, ext = os.path.splitext(file_name)
         if ext.lower() == '.py' and not root.startswith('__'):
             module = importlib.import_module(
-                '.' + root, 'pokemonterminal.wallpaper.adapters')
+                '.' + root, 'pokemonterminal.terminal.adapters')
             for _, c in inspect.getmembers(module, _is_adapter):
                 adapter_classes.append(c)
     return adapter_classes
 
 
-def get_current_wallpaper_adapters() -> [WallpaperProvider]:
+def get_current_terminal_adapters() -> [TerminalProvider]:
     arr = _get_adapter_classes()
     return [x for x in arr if x.is_compatible()]
