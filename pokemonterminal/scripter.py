@@ -18,7 +18,7 @@ def __init_terminal_provider():
         # really what kind of person has 2 simultaneous D.E???
         print("Multiple providers found select the appropriate one:")
         [print(str(x)) for x in providers]
-        print("If some of these make no sense or are irrelevant please file" +
+        print("If some of these make no sense or are irrelevant please file " +
               "an issue in https://github.com/LazoCoder/Pokemon-Terminal")
         print("=> ", end='')
         inp = None
@@ -47,7 +47,7 @@ def __init_wallpaper_provider():
         # really what kind of person has 2 simultaneous D.E???
         print("Multiple providers found select the appropriate one:")
         [print(str(x)) for x in providers]
-        print("If some of these make no sense or are irrelevant please file" +
+        print("If some of these make no sense or are irrelevant please file " +
               "an issue in https://github.com/LazoCoder/Pokemon-Terminal")
         print("=> ", end='')
         inp = None

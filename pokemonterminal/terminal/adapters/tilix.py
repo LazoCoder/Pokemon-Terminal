@@ -3,7 +3,7 @@ import os
 from . import TerminalProvider as _TProv
 
 
-class Tilix(_TProv):
+class TilixProvider(_TProv):
     setting_key = "com.gexperts.Tilix.Settings"
     setting_field = "background-image"
 
@@ -20,3 +20,6 @@ class Tilix(_TProv):
         command = 'gsettings set {} {}'
         os.system(command.format(self.setting_key,
                                  self.setting_field))
+
+    def __str__():
+        return "Tilix"

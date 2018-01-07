@@ -4,7 +4,7 @@ import subprocess
 from . import TerminalProvider as _TProv
 
 
-class ITerm(_TProv):
+class ItermProvider(_TProv):
     # OSA script that will change the terminal background image
     osa_script_fmt = """tell application "iTerm"
     \ttell current session of current window
@@ -29,3 +29,6 @@ class ITerm(_TProv):
     def clear(self):
         stdin = self.osa_script_fmt.format("")
         self.__run_osascript(str.encode(stdin))
+
+    def __str__():
+        return "iTerm 2"

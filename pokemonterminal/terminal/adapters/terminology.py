@@ -3,7 +3,7 @@ import os
 from . import TerminalProvider as _TProv
 
 
-class Terminology(_TProv):
+class TerminologyProvider(_TProv):
     def is_compatible() -> bool:
         return os.environ.get("TERMINOLOGY") == '1'
 
@@ -12,3 +12,6 @@ class Terminology(_TProv):
 
     def clear():
         os.system("tybg")
+
+    def __str__():
+        return "Terminology"
