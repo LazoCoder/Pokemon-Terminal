@@ -1,23 +1,25 @@
 import os
 
-from pokemonterminal.adapter.base import TerminalAdapterInterface
+from . import TerminalProvider as _TProv
 
 
-class Tilix(TerminalAdapterInterface):
+class TilixProvider(_TProv):
     setting_key = "com.gexperts.Tilix.Settings"
     setting_field = "background-image"
 
-    @staticmethod
-    def is_available():
+    def is_compatible() -> bool:
         return "TILIX_ID" in os.environ
 
-    def set_image_file_path(self, image_file_path):
+    def change_terminal(self, path: str):
         command = 'gsettings set {} {} "{}"'
         os.system(command.format(self.setting_key,
                                  self.setting_field,
-                                 image_file_path))
+                                 path))
 
     def clear(self):
         command = 'gsettings set {} {}'
         os.system(command.format(self.setting_key,
                                  self.setting_field))
+
+    def __str__():
+        return "Tilix"
