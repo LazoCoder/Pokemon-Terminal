@@ -15,7 +15,7 @@ def __init_terminal_provider():
     providers = get_current_terminal_adapters()
     if len(providers) > 1:
         # All this if is really not supposed to happen at all whatsoever
-        # really what kind of person has 2 simultaneous D.E???
+        # really what kind of person has 2 simultaneous T.E???
         print("Multiple providers found select the appropriate one:")
         for i, x in enumerate(providers):
             print(f'{i}. {x.__str__()}')
