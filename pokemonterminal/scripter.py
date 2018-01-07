@@ -17,7 +17,8 @@ def __init_terminal_provider():
         # All this if is really not supposed to happen at all whatsoever
         # really what kind of person has 2 simultaneous D.E???
         print("Multiple providers found select the appropriate one:")
-        [print(str(x)) for x in providers]
+        for i, x in enumerate(providers):
+            print(f'{i}. {x.__str__()}')
         print("If some of these make no sense or are irrelevant please file " +
               "an issue in https://github.com/LazoCoder/Pokemon-Terminal")
         print("=> ", end='')
@@ -46,7 +47,8 @@ def __init_wallpaper_provider():
         # All this if is really not supposed to happen at all whatsoever
         # really what kind of person has 2 simultaneous D.E???
         print("Multiple providers found select the appropriate one:")
-        [print(str(x)) for x in providers]
+        for i, x in enumerate(providers):
+            print(f'{i}. {x.__str__()}')
         print("If some of these make no sense or are irrelevant please file " +
               "an issue in https://github.com/LazoCoder/Pokemon-Terminal")
         print("=> ", end='')
