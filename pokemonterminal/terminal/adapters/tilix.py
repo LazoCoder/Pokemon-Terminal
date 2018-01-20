@@ -10,16 +10,16 @@ class TilixProvider(_TProv):
     def is_compatible() -> bool:
         return "TILIX_ID" in os.environ
 
-    def change_terminal(self, path: str):
+    def change_terminal(path: str):
         command = 'gsettings set {} {} "{}"'
-        os.system(command.format(self.setting_key,
-                                 self.setting_field,
+        os.system(command.format(TilixProvider.setting_key,
+                                 TilixProvider.setting_field,
                                  path))
 
-    def clear(self):
+    def clear():
         command = 'gsettings set {} {}'
-        os.system(command.format(self.setting_key,
-                                 self.setting_field))
+        os.system(command.format(TilixProvider.setting_key,
+                                 TilixProvider.setting_field))
 
     def __str__():
         return "Tilix"

@@ -20,7 +20,7 @@ class TerminalProvider:
         """
         raise NotImplementedError()
 
-    def clear(self):
+    def clear():
         """
         Clear the terminal's background image.
         """
