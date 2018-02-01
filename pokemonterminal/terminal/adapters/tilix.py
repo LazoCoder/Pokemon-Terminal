@@ -17,7 +17,7 @@ class TilixProvider(_TProv):
                                  path))
 
     def clear():
-        command = 'gsettings set {} {}'
+        command = 'gsettings reset {} {}'
         os.system(command.format(TilixProvider.setting_key,
                                  TilixProvider.setting_field))
 
