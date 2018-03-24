@@ -1,4 +1,5 @@
 # Used for creating, running and analyzing applescript and bash scripts.
+import subprocess
 import sys
 
 from .terminal import get_current_terminal_adapters
@@ -69,19 +70,28 @@ def __init_wallpaper_provider():
 
 
 def clear_terminal():
+    # clear any updates to the terminal window's title bar
+    sys.stdout.write("\x1b]2;\x07")
     __init_terminal_provider()
     TERMINAL_PROVIDER.clear()
 
 
-def change_terminal(image_file_path):
+def change_terminal(image_file_path, title, background_process):
     if not isinstance(image_file_path, str):
         print("A image path must be passed to the change terminal function.")
         return
+    # Update the terminal window's title
+    # Shelling out is required when running the slideshow due to it being a detached process without access
+    # to the terminal title bar via sys.stdout until after the join
+    if background_process:
+        subprocess.run(['echo','-n', '\033]2;{}\007'.format(title)])
+    else:
+        sys.stdout.write("\x1b]2;{}\x07".format(title))
     __init_terminal_provider()
     TERMINAL_PROVIDER.change_terminal(image_file_path)
 
 
-def change_wallpaper(image_file_path):
+def change_wallpaper(image_file_path, title=None, background_process=False):
     if not isinstance(image_file_path, str):
         print("A image path must be passed to the change wallpapper function.")
         return
