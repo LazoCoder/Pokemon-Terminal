@@ -3,6 +3,7 @@
 
 import os
 import random
+import subprocess
 import sys
 import time
 from multiprocessing import Process
@@ -51,6 +52,11 @@ def slideshow(filtered, delay, changer_func):
             random.shuffle(filtered)
             queque = iter(filtered)
             continue
+        if changer_func == scripter.change_terminal:
+            # Update the terminal window's title
+            # Shelling out is required when running the slideshow due to it being a detached process without access
+            # to the terminal title bar via sys.stdout until after the join
+            subprocess.run(['echo','-n', '\033]2;{}\007'.format(next_pkmn.get_name().title())])
         changer_func(next_pkmn.get_path())
         p.join(delay * 60)
 
@@ -114,6 +120,8 @@ def main(argv):
             pipe_out = os.open(PIPE_PATH, os.O_WRONLY)
             os.write(pipe_out, b"quit\n")
             os.close(pipe_out)
+        # clear any updates to the terminal window's title bar
+        sys.stdout.write("\x1b]2;\x07")
         scripter.clear_terminal()
         return
 
@@ -132,6 +140,8 @@ def main(argv):
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())
     else:
+        # Update the terminal window's title
+        sys.stdout.write("\x1b]2;{}\x07".format(target.get_name().title()))
         scripter.change_terminal(target.get_path())
 
 
