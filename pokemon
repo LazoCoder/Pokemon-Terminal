@@ -1,8 +1,0 @@
-#!/usr/bin/env python3.6
-
-import sys
-
-from pokemonterminal.main import main
-
-
-main(sys.argv[1:])

@@ -50,7 +50,12 @@ Supports ITerm2, Terminology & Tilix.""",
         "pokemonterminal": package_data("pokemonterminal", ["Data", "Images"]),
     },
 
-    scripts=['pokemon', 'ichooseyou'],
+    entry_points = {
+        'console_scripts': [
+            'pokemon = pokemonterminal.main:main',
+            'ichooseyou = pokemonterminal.main:main',
+        ],
+    },
 
     keywords="pokemon terminal theme style pokemon-terminal",
 
