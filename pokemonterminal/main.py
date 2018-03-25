@@ -55,7 +55,7 @@ def slideshow(filtered, delay, changer_func):
         p.join(delay * 60)
 
 
-def main(argv):
+def main(argv=None):
     """Entrance to the program."""
     if __name__ != "__main__":
         Filter.filtered_list = [pok for pok in Filter.POKEMON_LIST]
