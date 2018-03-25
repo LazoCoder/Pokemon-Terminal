@@ -36,7 +36,7 @@ Pokemon Terminal Themes.
 from Kanto, Johto, Hoenn, Sinnoh, Unova, and Kalos.
 
 Change the Terminal Background & Desktop Wallpaper.
-Supports ITerm2, Terminology & Tilix.""",
+Supports ITerm2, Terminology, Tilix, & ConEmu.""",
     url="https://github.com/LazoCoder/Pokemon-Terminal",
 
     author="LazoCoder",
