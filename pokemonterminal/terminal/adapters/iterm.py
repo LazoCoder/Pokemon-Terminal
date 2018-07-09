@@ -6,7 +6,7 @@ from . import TerminalProvider as _TProv
 
 class ItermProvider(_TProv):
     # OSA script that will change the terminal background image
-    osa_script_fmt = """tell application "iTerm"
+    osa_script_fmt = """tell application "iTerm2"
     \ttell current session of current window
     \t\tset background image to "{}"
     \tend tell
