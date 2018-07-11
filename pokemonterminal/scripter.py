@@ -71,7 +71,7 @@ def __init_wallpaper_provider():
 
 def clear_terminal():
     # clear any updates to the terminal window's title bar
-    sys.stdout.write("\x1b]2;\x07")
+    sys.stdout.write("\033]2;\007")
     __init_terminal_provider()
     TERMINAL_PROVIDER.clear()
 
@@ -86,7 +86,7 @@ def change_terminal(image_file_path, title, background_process):
     if background_process:
         subprocess.run(['echo','-n', '\033]2;{}\007'.format(title)])
     else:
-        sys.stdout.write("\x1b]2;{}\x07".format(title))
+        sys.stdout.write("\033]2;{}\007".format(title))
     __init_terminal_provider()
     TERMINAL_PROVIDER.change_terminal(image_file_path)
 
