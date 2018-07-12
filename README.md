@@ -51,7 +51,7 @@ Install Python 3.6 or higher:
 
 Get a compatible terminal emulator:
 - [iTerm2](https://iterm2.com/)
-- [ConEmu](https://conemu.github.io/) and derivates such as [Cmder](http://cmder.net/)
+- [ConEmu](https://conemu.github.io/) and derivatives such as [Cmder](http://cmder.net/)
 - [Terminology](https://www.enlightenment.org/about-terminology)
 - [Tilix](https://gnunn1.github.io/tilix-web/)
 
