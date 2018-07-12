@@ -36,19 +36,22 @@
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, Terminology & Tilix terminal emulators
+- Supports iTerm2, ConEmu, Terminology & Tilix terminal emulators
 - Supports MacOS, GNOME, and i3wm (with feh) for desktops
+- Windows support for Terminal background setting (without slideshow)  
 
 # Installation
 
 Install Python 3.6 or higher:
 - [For Mac](https://www.python.org/downloads/mac-osx/)
+- [For Windows](https://www.python.org/downloads/windows/)
 - [For Ubuntu](https://askubuntu.com/a/865569)
 - [For Arch Linux](https://www.archlinux.org/packages/extra/x86_64/python/)
 - Not all compatible distros are named here, but a quick Google search should give you instructions for your distribution of choice.
 
 Get a compatible terminal emulator:
 - [iTerm2](https://iterm2.com/)
+- [ConEmu](https://conemu.github.io/) and derivates such as [Cmder](http://cmder.net/)
 - [Terminology](https://www.enlightenment.org/about-terminology)
 - [Tilix](https://gnunn1.github.io/tilix-web/)
 
@@ -156,6 +159,14 @@ The result should look like this:
 
 ![](https://i.imgur.com/82DAT97.jpg)
 
+## ConEmu settings
+
+1. From the menu under the symbol at left of title bar, navigate to Settings > Main > Background
+2. Set Darkening to maximum (255).
+3. Set Placement to Stretch.
+4. Click Save Settings.
+5. Optionally you apply transparency under Features > Transparency.
+
 ## Adding Custom Images
 
 The folder `pokemonterminal/Images/Extra` is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only JPG format is supported. To see a list of all the custom backgrounds type:
@@ -191,6 +202,9 @@ I have not yet implemented a way to save the terminal background to a profile. T
 4. You can leave out `; clear` if you don't care about the line showing up at the top of the terminal.
 
 ![](https://i.imgur.com/2d4qa9j.png)
+
+### Windows
+After setting your desired pokemon, from the menu under the symbol at left of title bar, navigate to Settings > Main > Background and click Save Settings.
 
 ### Linux
 Terminology already saves it automatically, just untick "temporary" in the settings after setting your desired Pokemon:
