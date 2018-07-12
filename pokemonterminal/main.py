@@ -118,6 +118,9 @@ def main(argv=None):
         return
 
     if is_slideshow and options.id <= 0 and size > 1:
+        if os.name == 'nt':
+            print("Slideshow not supported on Windows yet.")
+            sys.exit(0)
         if PIPE_EXISTS:
             print("Slideshow already running in this instance!")
             sys.exit(0)
@@ -130,6 +133,9 @@ def main(argv=None):
         return
 
     if options.wallpaper:
+        if os.name == 'nt':
+            print("Setting wallpaper not supported on Windows yet.")
+            sys.exit(0)
         scripter.change_wallpaper(target.get_path())
     else:
         scripter.change_terminal(target.get_path())
