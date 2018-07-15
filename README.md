@@ -36,7 +36,7 @@
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, ConEmu, Terminology & Tilix terminal emulators
+- Supports iTerm2, ConEmu, Terminology and Tilix terminal emulators
 - Supports MacOS, GNOME, and i3wm (with feh) for desktops
 - Windows support for Terminal background setting (without slideshow)  
 
