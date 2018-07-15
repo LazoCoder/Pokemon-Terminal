@@ -6,13 +6,14 @@ import random
 import sys
 import time
 from multiprocessing import Process
+from pathlib import Path
 
 from . import scripter
 from pokemonterminal.command_flags import parser, is_slideshow
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
 
-PIPE_PATH = os.path.join(os.path.expanduser('~'), ".pokemon-terminal-pipe" + str(os.getppid()))
+PIPE_PATH = Path.home() / (".pokemon-terminal-pipe" + str(os.getppid()))
 PIPE_EXISTS = os.path.exists(PIPE_PATH)
 
 
