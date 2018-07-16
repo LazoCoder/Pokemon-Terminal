@@ -134,9 +134,6 @@ def main(argv=None):
         return
 
     if options.wallpaper:
-        if os.name == 'nt':
-            print("Setting wallpaper not supported on Windows yet.")
-            sys.exit(0)
         scripter.change_wallpaper(target.get_path())
     else:
         scripter.change_terminal(target.get_path())

@@ -1,8 +1,10 @@
-from . import WallpaperProvider as _WProv
+import subprocess
+import sys
 from os import system
 from pathlib import Path
 from shutil import which
-import subprocess
+
+from . import WallpaperProvider as _WProv
 
 
 class FehProvider(_WProv):
@@ -10,6 +12,8 @@ class FehProvider(_WProv):
         system(f'feh --no-fehbg --bg-fill "{path}"')
 
     def is_compatible() -> bool:
+        if not sys.platform.startswith('linux'):
+            return False
         root_window_prop = str(subprocess.check_output('xprop -root -notype', shell=True))
         return which("feh") is not None and \
             (Path.home() / '.fehbg').is_file() and \
