@@ -1,6 +1,7 @@
-from . import WallpaperProvider as _WProv
 import subprocess as _sp
 import sys as _sys
+
+from . import WallpaperProvider as _WProv
 
 
 class DarwinProvider(_WProv):
