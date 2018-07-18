@@ -1,17 +1,18 @@
-import os
+from os import environ
+from subprocess import run
 
 from . import TerminalProvider as _TProv
 
 
 class TerminologyProvider(_TProv):
     def is_compatible() -> bool:
-        return os.environ.get("TERMINOLOGY") == '1'
+        return environ.get("TERMINOLOGY") == '1'
 
     def change_terminal(path: str):
-        os.system('tybg "{}"'.format(path))
+        run(f'tybg "{path}"', shell=True, check=True)
 
     def clear():
-        os.system("tybg")
+        run("tybg", shell=True, check=True)
 
     def __str__():
         return "Terminology"
