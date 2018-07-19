@@ -13,11 +13,11 @@ class TilixProvider(_TProv):
 
     def change_terminal(path: str):
         command = f'gsettings set {TilixProvider.setting_key} {TilixProvider.setting_field} "{path}"'
-        run(command, shell=True, check=True)
+        run(command, check=True)
 
     def clear():
         command = f'gsettings reset {TilixProvider.setting_key} {TilixProvider.setting_field}'
-        run(command, shell=True, check=True)
+        run(command, check=True)
 
     def __str__():
         return "Tilix"

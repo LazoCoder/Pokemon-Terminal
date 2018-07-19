@@ -9,10 +9,10 @@ class TerminologyProvider(_TProv):
         return environ.get("TERMINOLOGY") == '1'
 
     def change_terminal(path: str):
-        run(f'tybg "{path}"', shell=True, check=True)
+        run(f'tybg "{path}"', check=True)
 
     def clear():
-        run("tybg", shell=True, check=True)
+        run("tybg", check=True)
 
     def __str__():
         return "Terminology"

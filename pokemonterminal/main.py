@@ -4,56 +4,14 @@
 import os
 import random
 import sys
-import time
 from multiprocessing import Process
 from pathlib import Path
 
-from . import scripter
+from . import scripter, slideshow
 from pokemonterminal.command_flags import parser, is_slideshow
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
 
-PIPE_PATH = Path.home() / (".pokemon-terminal-pipe" + str(os.getppid()))
-PIPE_EXISTS = os.path.exists(PIPE_PATH)
-
-
-def daemon(time_stamp, pkmn_list):
-    # TODO: Implement messaging, like status and current pokemon
-    if not PIPE_EXISTS:
-        os.mkfifo(PIPE_PATH)
-    pip = open(PIPE_PATH, 'r')
-    while True:
-        for msg in pip:
-            msg = msg.strip()
-            if msg == 'quit':
-                print("Stopping the slideshow")
-                os.remove(PIPE_PATH)
-                sys.exit(0)
-        pip = open(PIPE_PATH, 'r')
-
-
-def slideshow(filtered, delay, changer_func):
-    pid = os.fork()
-    if pid > 0:
-        print(f"Starting slideshow with {len(filtered)}, pokemon " +
-              f"and a delay of {delay} minutes between pokemon")
-        print("Forked process to background with pid", pid,
-              "you can stop it with -c")
-        os.environ["POKEMON_TERMINAL_PID"] = str(pid)
-        sys.exit(0)
-    p = Process(target=daemon, args=(time.time(), filtered,))
-    p.daemon = True
-    p.start()
-    random.shuffle(filtered)
-    queque = iter(filtered)
-    while p.is_alive():
-        next_pkmn = next(queque, None)
-        if next_pkmn is None:
-            random.shuffle(filtered)
-            queque = iter(filtered)
-            continue
-        changer_func(next_pkmn.get_path())
-        p.join(delay * 60)
 
 
 def main(argv=None):
@@ -111,26 +69,16 @@ def main(argv=None):
         return
 
     if options.clear:
-        if PIPE_EXISTS:
-            pipe_out = os.open(PIPE_PATH, os.O_WRONLY)
-            os.write(pipe_out, b"quit\n")
-            os.close(pipe_out)
         scripter.clear_terminal()
         return
 
     if is_slideshow and options.id <= 0 and size > 1:
-        if os.name == 'nt':
-            print("Slideshow not supported on Windows yet.")
-            sys.exit(0)
-        if PIPE_EXISTS:
-            print("Slideshow already running in this instance!")
-            sys.exit(0)
         if options.slideshow <= 0:
             print("Time has to be greater then 0. You can use decimal values.")
             return
         target_func = scripter.change_wallpaper if options.wallpaper else \
             scripter.change_terminal
-        slideshow(Filter.filtered_list, options.slideshow, target_func)
+        slideshow.start(Filter.filtered_list, options.slideshow, target_func)
         return
 
     if options.wallpaper:
