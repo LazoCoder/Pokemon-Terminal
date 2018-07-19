@@ -69,10 +69,12 @@ def main(argv=None):
         return
 
     if options.clear:
+        raise Exception('TODO: past instance detection')
         scripter.clear_terminal()
         return
 
     if is_slideshow and options.id <= 0 and size > 1:
+        raise Exception('TODO: past instance detection')
         if options.slideshow <= 0:
             print("Time has to be greater then 0. You can use decimal values.")
             return

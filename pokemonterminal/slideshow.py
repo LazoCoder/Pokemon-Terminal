@@ -10,7 +10,7 @@ def __print_fork(pid, length, delay):
     print(f"Forked process to background with PID {pid}. You can stop it with 'pokemon -c'.")
 
 def __exit_listener():
-    raise Exception('TODO')
+    raise Exception('TODO: listen for exit')
 
 def __slideshow_worker(filtered, delay, changer_func):
     t = Thread(target=__exit_listener)
