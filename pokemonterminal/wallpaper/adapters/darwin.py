@@ -1,5 +1,5 @@
 import subprocess as _sp
-import sys as _sys
+import sys
 
 from . import WallpaperProvider as _WProv
 
@@ -23,7 +23,7 @@ class DarwinProvider(_WProv):
         DarwinProvider.__run_osascript(str.encode(script))
 
     def is_compatible() -> bool:
-        return _sys.platform == "darwin"
+        return sys.platform == "darwin"
 
     def __str__():
         return "MacOS Desktop Environment"
