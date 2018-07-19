@@ -16,7 +16,8 @@ class ConEmuProvider(_TProv):
             print(output)
 
     def change_terminal(path: str):
-        ConEmuProvider.__run_command(f'SetOption("Background Image", "{path}")')
+        # Replace single slashes by properly escaped double backslashes (for whatever escape this scripting thing does)
+        ConEmuProvider.__run_command('SetOption("Background Image", "{}")'.format(path.replace("\\", "\\\\")))
 
     def clear():
         ConEmuProvider.__run_command('SetOption("Background Image", "")')
