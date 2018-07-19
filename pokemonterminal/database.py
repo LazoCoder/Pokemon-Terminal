@@ -209,7 +209,7 @@ class Database:
 
     def __load_data(self):
         # Load all the Pokemon data. This does not include the 'Extra' Pokemon.
-        with open(self.directory + "/./Data/pokemon.txt", 'r') as data_file:
+        with open(os.path.join(self.directory, "Data", "pokemon.txt"), 'r') as data_file:
             # Load everything but the Pokemon from the 'Extra' folder.
             for i, line in enumerate(data_file):
                 identifier = int(i) + 1
@@ -220,8 +220,7 @@ class Database:
                 pkmn_type_snd = pkmn_data[3] if len(pkmn_data) >= 4 else ""
                 identifier = '{:03}'.format(identifier)
                 region = self.__determine_region(identifier)
-                path = self.__determine_folder(identifier) + "/" + identifier\
-                    + ".jpg"
+                path = os.path.join(self.__determine_folder(identifier), f"{identifier}.jpg")
                 pokemon = Pokemon(identifier, name, region, path, pkmn_type,
                                   pkmn_type_snd, dark_threshold)
                 self.__pokemon_type_dictionary[pkmn_type].append(pokemon)
@@ -282,4 +281,4 @@ class Database:
                        "unova": "V - Unova",
                        "kalos": "VI - Kalos"}
         suffix = suffix_dict.get(self.__determine_region(identifier))
-        return "{}/Images/Generation {}".format(self.directory, suffix)
+        return os.path.join(self.directory, "Images", f"Generation {suffix}")

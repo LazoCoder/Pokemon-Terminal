@@ -3,7 +3,7 @@ import sys
 from . import WallpaperProvider as _WProv
 from ctypes import *
 
-class WindowsProvider(_WProv):
+class Win32Provider(_WProv):
     __SPI_SETDESKWALLPAPER = 20
 
     def change_wallpaper(path: str):
