@@ -6,10 +6,10 @@ from . import WallpaperProvider as _WProv
 
 class GnomeProvider(_WProv):
     def change_wallpaper(path: str) -> None:
-        run(f'gsettings set org.gnome.desktop.background picture-uri "file://{path}"', shell=True, check=True)
+        run(f'gsettings set org.gnome.desktop.background picture-uri "file://{path}"', check=True)
 
     def is_compatible() -> bool:
-        return "gnome" in environ.get("GDMSESSION").lower()
+        return "gnome" in environ.get("DESKTOP_SESSION", default='').lower()
 
     def __str__():
         return "GNOME Shell Desktop"

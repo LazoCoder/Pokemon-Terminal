@@ -18,7 +18,7 @@ class DarwinProvider(_WProv):
         p.communicate()
         p.stdin.close()
 
-    def change_wallpaper(path: str) -> None:
+    def change_wallpaper(path: str):
         script = DarwinProvider.__osa_script_fmt.format(path)
         DarwinProvider.__run_osascript(str.encode(script))
 
