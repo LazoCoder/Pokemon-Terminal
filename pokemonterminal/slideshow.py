@@ -38,7 +38,7 @@ def start(filtered, delay, changer_func):
     else:
         import os
         pid = os.fork()
-    if pid > 0:
-        __print_fork(pid, len(filtered), delay)
-        sys.exit(0)
-    __slideshow_worker(filtered, delay, changer_func)
+        if pid > 0:
+            __print_fork(pid, len(filtered), delay)
+            sys.exit(0)
+        __slideshow_worker(filtered, delay, changer_func)
