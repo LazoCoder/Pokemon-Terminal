@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys
 import os
 from setuptools import setup, find_packages
 
@@ -73,5 +74,7 @@ Supports iTerm2, Terminology, Tilix and ConEmu.""",
         "Programming Language :: Python :: 3.6",
     ],
 
-    python_requires=">=3.6"
+    python_requires=">=3.6",
+
+    install_requires=(['posix_ipc'] if sys.platform != 'win32' else None)
 )
