@@ -26,7 +26,7 @@ class PosixNamedEvent(NamedEvent):
     def clear(self):
         try:
             # Decrement until we reach 0 (in which case BusyError will be thrown)
-            for _ in range(posix_ipc.SEMAPHORE_VALUE_MAX):
+            for _ in range(posix_ipc.SEMAPHORE_VALUE_MAX if posix_ipc.SEMAPHORE_VALUE_SUPPORTED else self.__semaphore.value):
                 self.__semaphore.acquire(0)
         except posix_ipc.BusyError:
             return
