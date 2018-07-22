@@ -37,8 +37,7 @@
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
 - Supports iTerm2, ConEmu, Terminology and Tilix terminal emulators
-- Supports MacOS, GNOME, Openbox (with feh), and i3wm (with feh) for desktops
-- Windows support for Terminal background setting (without slideshow)  
+- Supports Windows, MacOS, GNOME, Openbox (with feh), and i3wm (with feh) for desktops
 
 # Installation
 
@@ -51,7 +50,7 @@ Install Python 3.6 or higher:
 
 Get a compatible terminal emulator:
 - [iTerm2](https://iterm2.com/)
-- [ConEmu](https://conemu.github.io/) and derivatives such as [Cmder](http://cmder.net/)
+- [ConEmu](https://conemu.github.io/) or derivative (such as [Cmder](http://cmder.net/))
 - [Terminology](https://www.enlightenment.org/about-terminology)
 - [Tilix](https://gnunn1.github.io/tilix-web/)
 
@@ -63,24 +62,26 @@ You can then proceed with one of the following methods for installation:
 - [Distutils (System-wide)](#distutils-system-wide)
 
 Notes:
-- Your distro might include pip in a different package then Python, make sure to have that installed and running when calling `pip3.6` if you want to install using it.
+- Linux users: Your distro might include pip in a different package than Python, make sure to have that installed and running when calling `pip3` if you want to install using it.
 - npm installation obviously requires to have [Node.js](https://nodejs.org/) installed.
 
 ## pip (System-wide)
 
-Run `sudo pip3.6 install git+https://github.com/LazoCoder/Pokemon-Terminal.git`. When the command completes, it's installed and ready to go!
+Run `sudo pip3 install git+https://github.com/LazoCoder/Pokemon-Terminal.git` on Linux and macOS or `pip3 install git+https://github.com/LazoCoder/Pokemon-Terminal.git` with administrator permissions on Windows. When the command completes, it's installed and ready to go!
 
 ## pip (Per-User)
 
-You can install it with pip for a single user with `pip3.6 install --user git+https://github.com/LazoCoder/Pokemon-Terminal.git`. You might want to add `~/.local/bin` to your PATH to be able to call `pokemon` and `ichooseyou` everywhere.
+You can install it with pip for a single user with `pip3 install --user git+https://github.com/LazoCoder/Pokemon-Terminal.git`. You might want to add `~/.local/bin` on Linux and macOS or `%AppData%\Python\Python3X\Scripts` (replace X by the minor Python version you are running. For example, Python 3.7 users will want `Python37`) on Windows to your PATH to be able to call `pokemon` and `ichooseyou` everywhere.
 
 ## npm (Per-User)
 
 You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
 
+Make sure you also have Python installed, `npm` won't automagically do that for you.
+
 ## Distutils (System-wide)
 
-You can clone or [download](https://github.com/LazoCoder/Pokemon-Terminal/archive/master.zip) this repo, and run `sudo python3.6 setup.py install` at the root of the repo.
+You can clone or [download](https://github.com/LazoCoder/Pokemon-Terminal/archive/master.zip) this repo, and run `sudo python3 setup.py install` on Linux and macOS or `py -3 setup.py install` with administrator permissions on Windows at the root of the repo.
 
 # Usage
 
@@ -193,7 +194,7 @@ Alternatively, you can delete images from this folder and it will not break the 
 
 ## Saving
 
-### macOS
+### iTerm2
 I have not yet implemented a way to save the terminal background to a profile. To save a background you will need to setup a startup command in the profile.
 1. Navigate to iTerm2 > Preferences > General
 2. Locate the field where it says *Send text at start* under *Command*.
@@ -203,10 +204,10 @@ I have not yet implemented a way to save the terminal background to a profile. T
 
 ![](https://i.imgur.com/2d4qa9j.png)
 
-### Windows
+### ConEmu
 After setting your desired pokemon, from the menu under the symbol at left of title bar, navigate to Settings > Main > Background and click Save Settings.
 
-### Linux
+### Terminology
 Terminology already saves it automatically, just untick "temporary" in the settings after setting your desired Pokemon:
 ![](http://i.imgur.com/BTqYXKa.png)
 
