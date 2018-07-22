@@ -8,3 +8,4 @@ def create_named_event(name: str) -> NamedEvent:
         return WindowsNamedEvent(name)
     else:
         from .adapters.posix import PosixNamedEvent
+        return PosixNamedEvent(name)
