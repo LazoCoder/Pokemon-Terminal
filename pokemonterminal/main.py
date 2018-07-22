@@ -85,7 +85,7 @@ def main(argv=None):
                     if not options.wallpaper:
                         print("[I]gnore and continue / ", end='')
                     print("[A]bort")
-                    inp = input("Pick one: ").lower() # FIXME weird bug: s doesn not actually closes the older process but -c does
+                    inp = input("Pick one: ").lower() # FIXME weird bug: inputting s here doesn't actually close the older process but "pokemon -c" does
                     if inp == 's':
                         e.set()
                         break
@@ -95,7 +95,6 @@ def main(argv=None):
                         return
                     else:
                         print("Not a valid option!\n")
-                        continue
             if options.slideshow <= 0:
                 print("Time has to be greater then 0. You can use decimal values.")
                 return

@@ -16,7 +16,7 @@ class PosixNamedEvent(NamedEvent):
             self.__semaphore = posix_ipc.Semaphore(semaphore_name)
             self.__duplicate = False
 
-    # NOTE this doesn't works on macOS
+    # NOTE this doesn't works on macOS, see http://semanchuk.com/philip/posix_ipc/#platforms
     def is_set(self) -> bool:
         return self.__semaphore.value > 0
 
@@ -26,7 +26,7 @@ class PosixNamedEvent(NamedEvent):
     def clear(self):
         try:
             # Decrement until we reach 0 (in which case BusyError will be thrown)
-            for _ in range(posix_ipc.SEMAPHORE_VALUE_MAX if posix_ipc.SEMAPHORE_VALUE_SUPPORTED else self.__semaphore.value):
+            for _ in range(self.__semaphore.value if posix_ipc.SEMAPHORE_VALUE_SUPPORTED else posix_ipc.SEMAPHORE_VALUE_MAX):
                 self.__semaphore.acquire(0)
         except posix_ipc.BusyError:
             return

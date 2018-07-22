@@ -1,10 +1,13 @@
-class WallpaperProvider:
+from abc import ABC, abstractmethod
+
+class WallpaperProvider(ABC):
     """
     Interface representing all the different desktop environments supported
     by pokemon-terminal if you want to implement a DE, create a module in this
     folder that implements this interface, reflection will do the rest.
     """
 
+    @abstractmethod
     def change_wallpaper(path: str):
         """
         This sets the wallpaper of the corresponding D.E of this adapter.
@@ -12,6 +15,7 @@ class WallpaperProvider:
         """
         raise NotImplementedError()
 
+    @abstractmethod
     def is_compatible() -> bool:
         """
         checks for compatibility
