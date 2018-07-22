@@ -6,7 +6,7 @@ from . import TerminalProvider as _TProv
 
 class ItermProvider(_TProv):
     # OSA script that will change the terminal background image
-    osa_script_fmt = """tell application "iTerm"
+    __osa_script_fmt = """tell application "iTerm"
     \ttell current session of current window
     \t\tset background image to "{}"
     \tend tell
@@ -23,11 +23,11 @@ class ItermProvider(_TProv):
         p.stdin.close()
 
     def change_terminal(path: str):
-        stdin = ItermProvider.osa_script_fmt.format(path)
+        stdin = ItermProvider.__osa_script_fmt.format(path)
         ItermProvider.__run_osascript(str.encode(stdin))
 
     def clear():
-        stdin = ItermProvider.osa_script_fmt.format("")
+        stdin = ItermProvider.__osa_script_fmt.format("")
         ItermProvider.__run_osascript(str.encode(stdin))
 
     def __str__():
