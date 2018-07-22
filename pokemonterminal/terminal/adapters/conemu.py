@@ -11,12 +11,12 @@ class ConEmuProvider(_TProv):
         return "CONEMUPID" in os.environ
 
     def __run_command(command: str):
-        output = subprocess.check_output(f'ConEmuC -GuiMacro {command}', shell=True).decode(sys.stdout.encoding)
+        output = subprocess.check_output(f'ConEmuC -GuiMacro {command}').decode(sys.stdout.encoding)
         if output != 'OK':
             print(output)
 
     def change_terminal(path: str):
-        # Replace single slashes by properly escaped double backslashes (for whatever escape this scripting thing does)
+        # ConEmuC supports its own character escaping, so escape the backslashes just to be sure
         ConEmuProvider.__run_command('SetOption("Background Image", "{}")'.format(path.replace("\\", "\\\\")))
 
     def clear():
