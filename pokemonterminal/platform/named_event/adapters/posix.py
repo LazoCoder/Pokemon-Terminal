@@ -11,10 +11,10 @@ class PosixNamedEvent(NamedEvent):
         semaphore_name = '/' + name
         try:
             self.__semaphore = posix_ipc.Semaphore(semaphore_name, flags=posix_ipc.O_CREX)
-            self.__duplicate = True
+            self.__duplicate = False
         except posix_ipc.ExistentialError: # Semaphores are reconsidering their life choices
             self.__semaphore = posix_ipc.Semaphore(semaphore_name)
-            self.__duplicate = False
+            self.__duplicate = True
 
     # NOTE this doesn't works on macOS, see http://semanchuk.com/philip/posix_ipc/#platforms
     def is_set(self) -> bool:
