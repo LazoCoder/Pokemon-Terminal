@@ -13,10 +13,10 @@ class ItermProvider(_TProv):
     end tell"""
 
     def is_compatible() -> bool:
-        return os.environ.get("ITERM_PROFILE")
+        return "ITERM_PROFILE" in os.environ
 
     def __run_osascript(stream):
-        p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE,
+        p = subprocess.Popen(["osascript"], stdout=subprocess.PIPE,
                              stdin=subprocess.PIPE)
         p.stdin.write(stream)
         p.communicate()
