@@ -32,7 +32,10 @@ class PosixNamedEvent(NamedEvent):
             return
 
     def wait(self, timeout=None):
-        self.__semaphore.acquire(timeout)
+        try:
+            self.__semaphore.acquire(timeout)
+        except posix_ipc.BusyError:
+            return
 
     def is_duplicate(self) -> bool:
         return self.__duplicate

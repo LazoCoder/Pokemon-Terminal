@@ -12,7 +12,7 @@ class DarwinProvider(_WProv):
     end tell"""
 
     def __run_osascript(stream):
-        p = _sp.Popen(['osascript'], stdout=_sp.PIPE,
+        p = _sp.Popen(["osascript"], stdout=_sp.PIPE,
                       stdin=_sp.PIPE)
         p.stdin.write(stream)
         p.communicate()

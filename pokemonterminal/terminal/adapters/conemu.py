@@ -11,7 +11,7 @@ class ConEmuProvider(_TProv):
         return "CONEMUPID" in os.environ
 
     def __run_command(command: str):
-        output = subprocess.check_output(f'ConEmuC -GuiMacro {command}').decode(sys.stdout.encoding)
+        output = subprocess.check_output(["ConEmuC", "-GuiMacro", command]).decode(sys.stdout.encoding)
         if output != 'OK':
             print(output)
 

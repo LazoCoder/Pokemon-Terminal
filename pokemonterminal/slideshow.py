@@ -58,4 +58,4 @@ def start(filtered, delay, changer_func, event_name):
         if pid > 0:
             __print_fork(pid, len(filtered), delay)
             sys.exit(0)
-        __slideshow_worker(filtered, delay, changer_func)
+        __slideshow_worker(filtered, delay, changer_func, event_name)

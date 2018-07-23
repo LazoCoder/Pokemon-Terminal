@@ -10,7 +10,7 @@ class Win32Provider(_WProv):
         windll.user32.SystemParametersInfoW(WindowsProvider.__SPI_SETDESKWALLPAPER, 0, path, 0)
 
     def is_compatible() -> bool:
-        return sys.platform == 'win32'
+        return sys.platform == "win32"
 
     def __str__():
         return "Windows Desktop"

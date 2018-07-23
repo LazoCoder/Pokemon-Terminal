@@ -8,18 +8,20 @@ class WallpaperProvider(ABC):
     """
 
     @abstractmethod
+    @staticmethod
     def change_wallpaper(path: str):
         """
         This sets the wallpaper of the corresponding D.E of this adapter.
         :param path The full path of the required pokemon image
         """
-        raise NotImplementedError()
+        pass
 
     @abstractmethod
+    @staticmethod
     def is_compatible() -> bool:
         """
         checks for compatibility
         :return a boolean saying whether or not the current adaptor is
         compatible with the running D.E
         """
-        raise NotImplementedError()
+        pass

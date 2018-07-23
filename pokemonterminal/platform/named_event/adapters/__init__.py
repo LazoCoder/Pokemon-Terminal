@@ -6,14 +6,6 @@ class NamedEvent(ABC):
     """
 
     @abstractmethod
-    def __init__(self, name: str):
-        """
-        create NamedEvent object
-        :param name Name of the event
-        """
-        pass
-
-    @abstractmethod
     def is_set(self) -> bool:
         """
         check if event set

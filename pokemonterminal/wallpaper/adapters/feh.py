@@ -7,17 +7,16 @@ from . import WallpaperProvider as _WProv
 
 
 class FehProvider(_WProv):
-    __compatible_wm = ['I3_PID', '_OPENBOX_PID']
+    __compatible_wm = ["I3_PID", "_OPENBOX_PID"]
 
     def change_wallpaper(path: str):
-        if (Path.home() / '.fehbg').is_file():
-            command = f'feh --bg-fill "{path}"'
-        else:
-            command = f'feh --no-fehbg --bg-fill "{path}"'
+        command = ["feh", "--bg-fill", path]
+        if not (Path.home() / ".fehbg").is_file():
+            command.insert(1, "--no-fehbg")
         subprocess.run(command, check=True)
 
     def __get_root_props() -> str:
-        return subprocess.check_output('xprop -root -notype').decode(sys.stdout.encoding)
+        return subprocess.check_output("xprop -root -notype").decode(sys.stdout.encoding)
 
     def is_compatible() -> bool:
         return (which("feh") is not None
