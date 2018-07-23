@@ -7,8 +7,8 @@ class WallpaperProvider(ABC):
     folder that implements this interface, reflection will do the rest.
     """
 
-    @abstractmethod
     @staticmethod
+    @abstractmethod
     def change_wallpaper(path: str):
         """
         This sets the wallpaper of the corresponding D.E of this adapter.
@@ -16,8 +16,8 @@ class WallpaperProvider(ABC):
         """
         pass
 
-    @abstractmethod
     @staticmethod
+    @abstractmethod
     def is_compatible() -> bool:
         """
         checks for compatibility

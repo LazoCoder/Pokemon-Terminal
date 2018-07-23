@@ -7,8 +7,8 @@ class TerminalProvider(ABC):
     folder that implements this interface, reflection will do the rest.
     """
 
-    @abstractmethod
     @staticmethod
+    @abstractmethod
     def change_terminal(path: str):
         """
         This sets the wallpaper of the corresponding TE of this adapter.
@@ -16,8 +16,8 @@ class TerminalProvider(ABC):
         """
         pass
 
-    @abstractmethod
     @staticmethod
+    @abstractmethod
     def is_compatible() -> bool:
         """
         checks for compatibility
@@ -26,8 +26,8 @@ class TerminalProvider(ABC):
         """
         pass
 
-    @abstractmethod
     @staticmethod
+    @abstractmethod
     def clear():
         """
         Clear the terminal's background image.
