@@ -3,6 +3,7 @@ python:
     - 3.6
 cache: pip
 install:
+    - pip install --editable .
     - pip install flake8 pytest
 before_script:
     # stop the build if there are Python syntax errors or undefined names
