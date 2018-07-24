@@ -2,7 +2,7 @@ import atexit
 import random
 import sys
 
-from .platform.named_event import create_named_event
+from .platform import PlatformNamedEvent
 
 def __print_fork(pid, length, delay):
     print(f"Starting slideshow with {length} Pokemons and a delay of {delay} minutes.")
@@ -27,8 +27,7 @@ def __get_sleeper_and_listener(event):
     return sleeper, listener
 
 def __slideshow_worker(filtered, delay, changer_func, event_name):
-    e = create_named_event(event_name)
-    try:
+    with PlatformNamedEvent(event_name) as e:
         sleeper, listener = __get_sleeper_and_listener(e)
         random.shuffle(filtered)
         queque = iter(filtered)
@@ -40,8 +39,6 @@ def __slideshow_worker(filtered, delay, changer_func, event_name):
                 continue
             changer_func(next_pkmn.get_path())
             sleeper(delay * 60)
-    finally:
-        e.close()
 
 def start(filtered, delay, changer_func, event_name):
     if sys.platform == 'win32':
@@ -59,3 +56,7 @@ def start(filtered, delay, changer_func, event_name):
             __print_fork(pid, len(filtered), delay)
             sys.exit(0)
         __slideshow_worker(filtered, delay, changer_func, event_name)
+
+def stop(event_name):
+    with PlatformNamedEvent(event_name) as e:
+        e.set()
