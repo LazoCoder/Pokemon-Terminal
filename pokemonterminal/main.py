@@ -11,7 +11,7 @@ from . import scripter, slideshow
 from pokemonterminal.command_flags import parser, is_slideshow
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
-from pokemonterminal.platform.named_event import create_named_event
+from pokemonterminal.platform import PlatformNamedEvent
 
 
 
@@ -69,40 +69,39 @@ def main(argv=None):
         print("Dry run, exiting.")
         return
 
-    e = create_named_event("Pokemon-Terminal_Wallpaper" if options.wallpaper else "Pokemon-Terminal_Terminal")
-    try:
-        if options.clear:
-            if e.is_duplicate():
-                e.set()
-            scripter.clear_terminal()
-            return
+    event_name = "Pokemon-Terminal_Wallpaper" if options.wallpaper else "Pokemon-Terminal_Terminal"
+    event_exists = PlatformNamedEvent.exists(event_name)
 
-        if is_slideshow and options.id <= 0 and size > 1:
-            if e.is_duplicate():
-                print("One or more slideshows is already running.\n")
-                while True:
-                    print("[S]top the previous slideshow(s) / ", end='')
-                    if not options.wallpaper:
-                        print("[I]gnore and continue / ", end='')
-                    print("[A]bort")
-                    inp = input("Pick one: ").lower() # FIXME weird bug: inputting s here doesn't actually close the older process but "pokemon -c" does
-                    if inp == 's':
-                        e.set()
-                        break
-                    elif inp == 'i' and not options.wallpaper:
-                        break
-                    elif inp == 'a':
-                        return
-                    else:
-                        print("Not a valid option!\n")
-            if options.slideshow <= 0:
-                print("Time has to be greater then 0. You can use decimal values.")
-                return
-            e.clear()
-            target_func = scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
-            slideshow.start(Filter.filtered_list, options.slideshow, target_func, e.name())
-    finally:
-        e.close()
+    if options.clear:
+        if event_exists:
+            slideshow.stop(event_name)
+        if not options.wallpaper:
+            scripter.clear_terminal()
+        return
+
+    if is_slideshow and options.id <= 0 and size > 1:
+        if event_exists:
+            print("One or more slideshows is already running.\n")
+            while True:
+                print("[S]top the previous slideshow(s) / ", end='')
+                if not options.wallpaper:
+                    print("[I]gnore and continue / ", end='')
+                print("[A]bort")
+                inp = input("Pick one: ").lower()
+                if inp == 's':
+                    slideshow.stop(event_name)
+                    break
+                elif inp == 'i' and not options.wallpaper:
+                    break
+                elif inp == 'a':
+                    return
+                else:
+                    print("Not a valid option!\n")
+        if options.slideshow <= 0:
+            print("Time has to be greater then 0. You can use decimal values.")
+            return
+        target_func = scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
+        slideshow.start(Filter.filtered_list, options.slideshow, target_func, event_name)
 
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())

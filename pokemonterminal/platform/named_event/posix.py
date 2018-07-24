@@ -7,14 +7,19 @@ class PosixNamedEvent(NamedEvent):
     A wrapper for named events using a named semaphore
     """
 
-    def __init__(self, name: str):
+    def exists(name: str) -> bool:
         semaphore_name = '/' + name
         try:
-            self.__semaphore = posix_ipc.Semaphore(semaphore_name, flags=posix_ipc.O_CREX)
-            self.__duplicate = False
+            semaphore = posix_ipc.Semaphore(semaphore_name)
+            semaphore.close()
+            return True
         except posix_ipc.ExistentialError: # Semaphores are reconsidering their life choices
-            self.__semaphore = posix_ipc.Semaphore(semaphore_name)
-            self.__duplicate = True
+            return False
+
+
+    def __init__(self, name: str):
+        semaphore_name = '/' + name
+        self.__semaphore = posix_ipc.Semaphore(semaphore_name, flags=posix_ipc.O_CREAT)
 
     # NOTE this doesn't works on macOS, see http://semanchuk.com/philip/posix_ipc/#platforms
     def is_set(self) -> bool:
@@ -37,11 +42,9 @@ class PosixNamedEvent(NamedEvent):
         except posix_ipc.BusyError:
             return
 
-    def is_duplicate(self) -> bool:
-        return self.__duplicate
-
     def name(self) -> str:
         return self.__semaphore.name
 
     def close(self):
-        self.__semaphore.close()
+        # FIXME do we also need to close it here?
+        self.__semaphore.unlink()
