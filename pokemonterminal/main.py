@@ -52,7 +52,7 @@ def slideshow(filtered, delay, changer_func):
             random.shuffle(filtered)
             queque = iter(filtered)
             continue
-        changer_func(next_pkmn.get_path())
+        changer_func(next_pkmn.get_path(), title=next_pkmn.get_name().title(), background_process=True)
         p.join(delay * 60)
 
 
@@ -136,7 +136,7 @@ def main(argv=None):
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())
     else:
-        scripter.change_terminal(target.get_path())
+        scripter.change_terminal(target.get_path(), title=target.get_name().title(), background_process=False)
 
 
 if __name__ == "__main__":
