@@ -26,7 +26,6 @@ class NamedEvent(ABC):
     def wait(self):
         """
         block until event occurs
-        :param timeout Optional timeout for wait in seconds.
         """
         pass
 
