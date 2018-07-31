@@ -16,35 +16,21 @@ class NamedEvent(ABC):
         pass
 
     @abstractmethod
-    def is_set(self) -> bool:
+    def signal(self):
         """
-        check if event set
-        :return a boolean indicating wether the event has been set.
-        """
-        pass
-
-    @abstractmethod
-    def set(self):
-        """
-        sets the event
+        signals all waiters that the event occured
         """
         pass
 
     @abstractmethod
-    def clear(self):
+    def wait(self):
         """
-        resets the event
-        """
-        pass
-
-    @abstractmethod
-    def wait(self, timeout=None):
-        """
-        block until event is set
+        block until event occurs
         :param timeout Optional timeout for wait in seconds.
         """
         pass
 
+    @property
     @abstractmethod
     def name(self) -> str:
         """

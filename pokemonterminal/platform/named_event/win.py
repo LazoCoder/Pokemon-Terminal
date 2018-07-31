@@ -10,11 +10,13 @@ class WindowsNamedEvent(NamedEvent):
     __SYNCHRONIZE = 0x00100000
     __EVENT_MODIFY_STATE = 2
 
-    __WAIT_OBJECT_0 = 0
     __WAIT_FAILED = 0xFFFFFFFF
 
     __ERROR_FILE_NOT_FOUND = 2
 
+    __INFINITE = 0xffffffff
+
+    @staticmethod
     def __raise_last_error():
         err_no = ctypes.GetLastError()
         raise WindowsError(err_no, ctypes.FormatError(err_no))
@@ -40,25 +42,16 @@ class WindowsNamedEvent(NamedEvent):
         self.__event = event
         self.__name = name
 
-    def is_set(self) -> bool:
-        result = ctypes.windll.kernel32.WaitForSingleObject(self.__event, 0)
-        if result == WindowsNamedEvent.__WAIT_FAILED:
-            WindowsNamedEvent.__raise_last_error()
-        else:
-            return result == WindowsNamedEvent.__WAIT_OBJECT_0
-
-    def set(self):
+    def signal(self):
         result = ctypes.windll.kernel32.SetEvent(self.__event)
         if result == 0:
             WindowsNamedEvent.__raise_last_error()
-
-    def clear(self):
         result = ctypes.windll.kernel32.ResetEvent(self.__event)
         if result == 0:
             WindowsNamedEvent.__raise_last_error()
 
-    def wait(self, timeout=None):
-        result = ctypes.windll.kernel32.WaitForSingleObject(self.__event, 0xffffffff if timeout is None else int(timeout * 1000))
+    def wait(self):
+        result = ctypes.windll.kernel32.WaitForSingleObject(self.__event, WindowsNamedEvent.__INFINITE)
         if result == WindowsNamedEvent.__WAIT_FAILED:
             WindowsNamedEvent.__raise_last_error()
 
