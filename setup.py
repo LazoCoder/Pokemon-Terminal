@@ -27,7 +27,7 @@ def package_data(relpath, folders):
 
 setup(
     name="pokemon-terminal",
-    version="1.1.0",  # Copied from package.json
+    version="1.2.0",  # Copied from package.json
 
     description="Pokemon terminal themes.",
     long_description="""
