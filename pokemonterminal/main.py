@@ -101,7 +101,10 @@ def main(argv=None):
             print("Time has to be greater then 0. You can use decimal values.")
             return
         target_func = scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
-        slideshow.start(Filter.filtered_list, options.slideshow, target_func, event_name)
+        pid = slideshow.start(Filter.filtered_list, options.slideshow, target_func, event_name)
+        print(f"Starting slideshow with {len(Filter.filtered_list)} Pokemons and a delay of {options.slideshow} minutes.")
+        print(f"Forked process to background with PID {pid}.")
+        print("You can stop it with 'pokemon {}'.".format('-c -w' if options.wallpaper else '-c'))
 
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())
