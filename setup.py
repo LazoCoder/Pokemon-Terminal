@@ -73,5 +73,6 @@ Supports iTerm2, Terminology, Tilix and ConEmu.""",
         "Programming Language :: Python :: 3.6"
     ],
 
-    python_requires=">=3.6"
+    python_requires=">=3.6",
+    install_requires=(["psutil"] if sys.platform != "win32" else None)
 )
