@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class NamedEvent(ABC):
     """
     Interface representing an operating system event object with a name.

@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class TerminalProvider(ABC):
     """
     Interface representing all the different terminal emulators supported

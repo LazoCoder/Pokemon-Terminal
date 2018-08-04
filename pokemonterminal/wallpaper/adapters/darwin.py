@@ -11,6 +11,7 @@ class DarwinProvider(_WProv):
     \tend tell
     end tell"""
 
+    @staticmethod
     def __run_osascript(stream):
         p = _sp.Popen(["osascript"], stdout=_sp.PIPE,
                       stdin=_sp.PIPE)
@@ -18,12 +19,14 @@ class DarwinProvider(_WProv):
         p.communicate()
         p.stdin.close()
 
+    @staticmethod
     def change_wallpaper(path: str):
         script = DarwinProvider.__osa_script_fmt.format(path)
         DarwinProvider.__run_osascript(str.encode(script))
 
+    @staticmethod
     def is_compatible() -> bool:
         return sys.platform == "darwin"
 
-    def __str__():
+    def __repr__(self):
         return "MacOS Desktop Environment"

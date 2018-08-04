@@ -1,18 +1,14 @@
 #!/usr/bin/env python3.6
 """The main module that brings everything together."""
 
-import os
 import random
 import sys
-from multiprocessing import Process
-from pathlib import Path
 
-from . import scripter, slideshow
-from pokemonterminal.command_flags import parser, is_slideshow
+from pokemonterminal.command_flags import is_slideshow, parser
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
 from pokemonterminal.platform import PlatformNamedEvent
-
+from . import scripter, slideshow
 
 
 def main(argv=None):

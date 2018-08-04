@@ -2,6 +2,7 @@ import ctypes
 
 from . import NamedEvent
 
+
 class WindowsNamedEvent(NamedEvent):
     """
     Named events using the native Windows APIs
@@ -21,8 +22,10 @@ class WindowsNamedEvent(NamedEvent):
         err_no = ctypes.GetLastError()
         raise WindowsError(err_no, ctypes.FormatError(err_no))
 
+    @staticmethod
     def exists(name: str) -> bool:
-        event = ctypes.windll.kernel32.OpenEventW(WindowsNamedEvent.__SYNCHRONIZE | WindowsNamedEvent.__EVENT_MODIFY_STATE, False, name)
+        event = ctypes.windll.kernel32.OpenEventW(
+            WindowsNamedEvent.__SYNCHRONIZE | WindowsNamedEvent.__EVENT_MODIFY_STATE, False, name)
         if event == 0:
             if ctypes.GetLastError() == WindowsNamedEvent.__ERROR_FILE_NOT_FOUND:
                 return False
