@@ -1,17 +1,17 @@
-import sys as sys
 import argparse
-import pokemonterminal.filters as filters
-from pokemonterminal.database import Database
+import sys
 
+from pokemonterminal import filters
+from pokemonterminal.database import Database
 
 parser = argparse.ArgumentParser(
     description='Set a pokemon to the current terminal background or '
-    'wallpaper',
+                'wallpaper',
     epilog='Not setting any filters will get a completely random pokemon')
 
 _filters_group = parser.add_argument_group(
     'Filters', 'Arguments used to filter the list of pokemons with '
-    'various conditions that then will be picked')
+               'various conditions that then will be picked')
 _filters_group.add_argument(
     '-n',
     '--name',
@@ -30,7 +30,7 @@ _filters_group.add_argument(
     '-l',
     '--light',
     help='Filter out the pokemons darker (lightness threshold lower) ' +
-    'then 0.xx (default is 0.7)',
+         'then 0.xx (default is 0.7)',
     default=0.7,
     const=0.7,
     metavar='0.xx',
@@ -41,7 +41,7 @@ _filters_group.add_argument(
     '-d',
     '--dark',
     help='Filter out the pokemons lighter (lightness threshold higher) ' +
-    'then 0.xx (default is 0.42)',
+         'then 0.xx (default is 0.42)',
     default=0.42,
     const=0.42,
     metavar='0.xx',
@@ -74,18 +74,17 @@ _misc_group.add_argument(
     '-ss',
     '--slideshow',
     help='Instead of simply choosing a random pokemon ' +
-    'from the filtered list, starts a slideshow (with X minutes ' +
-    'of delay between pokemon) in the background with the ' +
-    'pokemon that matched the filters',
+         'from the filtered list, starts a slideshow (with X minutes ' +
+         'of delay between pokemon) in the background with the ' +
+         'pokemon that matched the filters',
     const=10.0, nargs='?', type=float, metavar='X')
-
 
 is_slideshow = '-ss' in sys.argv or '--slideshow' in sys.argv
 _misc_group.add_argument(
     '-w',
     '--wallpaper',
     help='Changes the desktop wallpaper instead of the terminal '
-    'background',
+         'background',
     action='store_true')
 _misc_group.add_argument(
     '-v', '--verbose', help='Enables verbose output', action='store_true')
@@ -93,18 +92,18 @@ _misc_group.add_argument(
     '-dr',
     '--dry-run',
     help='Implies -v and doesn\'t actually changes either wallpaper '
-    'or background after the pokemon has been chosen',
+         'or background after the pokemon has been chosen',
     action='store_true')
 either = parser.add_mutually_exclusive_group()
 either.add_argument(
     '-c',
     '--clear',
     help='Clears the current pokemon from terminal '
-    'background and quits.',
+         'background and quits.',
     action='store_true')
 either.add_argument(
     'id',
     help='Specify the wanted pokemon ID or the exact (case insensitive)' +
-    ' name',
+         ' name',
     nargs='?',
     default=0, const=0)

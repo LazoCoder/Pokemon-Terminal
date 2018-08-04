@@ -8,6 +8,5 @@ Change the Terminal Background & Desktop Wallpaper.
 Supports iTerm2, Terminology, Tilix and ConEmu.
 """
 
-
 __version__ = "1.1.0"
 __author__ = "LazoCoder"

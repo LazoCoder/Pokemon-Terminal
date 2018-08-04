@@ -1,6 +1,7 @@
-import os
 import importlib
 import inspect
+import os
+
 from .adapters import TerminalProvider
 
 

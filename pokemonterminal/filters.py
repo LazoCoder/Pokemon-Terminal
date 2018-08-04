@@ -1,4 +1,5 @@
 from argparse import Action
+
 from pokemonterminal.database import Database, Pokemon
 
 
@@ -52,7 +53,7 @@ class TypeFilter(Filter):
 
     def matches(self, pokemon: Pokemon, value: list):
         return pokemon.get_pkmn_type() in value or \
-            pokemon.get_pkmn_type_secondary() in value
+               pokemon.get_pkmn_type_secondary() in value
 
 
 class NonExtrasFilter(Filter):

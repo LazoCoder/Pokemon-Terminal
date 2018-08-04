@@ -225,7 +225,7 @@ class Database:
                                   pkmn_type_snd, dark_threshold)
                 self.__pokemon_type_dictionary[pkmn_type].append(pokemon)
                 if pkmn_type_snd != '':
-                    self.__pokemon_type_dictionary[pkmn_type_snd]\
+                    self.__pokemon_type_dictionary[pkmn_type_snd] \
                         .append(pokemon)
                 self.__pokemon_list.append(pokemon)
                 self.__pokemon_dictionary[pokemon.get_name()] = pokemon

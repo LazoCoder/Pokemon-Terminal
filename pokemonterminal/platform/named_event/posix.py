@@ -1,9 +1,9 @@
 import os
 import sys
-import time
+from pathlib import PosixPath
 
 from . import NamedEvent
-from pathlib import PosixPath
+
 
 class PosixNamedEvent(NamedEvent):
     """
@@ -31,6 +31,7 @@ class PosixNamedEvent(NamedEvent):
             # TODO
             raise NotImplementedError("macOS doesn't have /proc")
 
+    @staticmethod
     def exists(name: str) -> bool:
         p = PosixNamedEvent.__build_fifo_path(name)
         if not p.is_fifo():
@@ -45,7 +46,7 @@ class PosixNamedEvent(NamedEvent):
             os.mkfifo(p)
 
         self.__path = p
-        self.__fifo = os.open(p, os.O_NONBLOCK) # Keep a handle to the FIFO for exists() to detect us
+        self.__fifo = os.open(p, os.O_NONBLOCK)  # Keep a handle to the FIFO for exists() to detect us
         self.__fifo_in = None
         self.__fifo_out = None
         self.__name = name
