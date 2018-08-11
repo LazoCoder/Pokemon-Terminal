@@ -13,21 +13,21 @@ class ItermProvider(_TProv):
     end tell"""
 
     def is_compatible() -> bool:
-        return os.environ.get("ITERM_PROFILE")
+        return "ITERM_PROFILE" in os.environ
 
     def __run_osascript(stream):
-        p = subprocess.Popen(['osascript'], stdout=subprocess.PIPE,
+        p = subprocess.Popen(["osascript"], stdout=subprocess.PIPE,
                              stdin=subprocess.PIPE)
         p.stdin.write(stream)
         p.communicate()
         p.stdin.close()
 
     def change_terminal(path: str):
-        stdin = ItermProvider.osa_script_fmt.format(path)
+        stdin = ItermProvider.__osa_script_fmt.format(path)
         ItermProvider.__run_osascript(str.encode(stdin))
 
     def clear():
-        stdin = ItermProvider.osa_script_fmt.format("")
+        stdin = ItermProvider.__osa_script_fmt.format("")
         ItermProvider.__run_osascript(str.encode(stdin))
 
     def __str__():

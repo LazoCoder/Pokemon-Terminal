@@ -1,14 +1,15 @@
+from os import environ
+from subprocess import run
+
 from . import WallpaperProvider as _WProv
-import os as _os
 
 
 class GnomeProvider(_WProv):
-    def change_wallpaper(path: str) -> None:
-        _os.system('gsettings set org.gnome.desktop.background ' +
-                   f'picture-uri "file://{path}"')
+    def change_wallpaper(path: str):
+        run(["gsettings", "set", "org.gnome.desktop.background", "picture-uri", f"file://{path}"], check=True)
 
     def is_compatible() -> bool:
-        return "gnome" in _os.environ.get("GDMSESSION", default='').lower()
+        return "gnome" in environ.get("DESKTOP_SESSION", default='').lower()
 
     def __str__():
         return "GNOME Shell Desktop"

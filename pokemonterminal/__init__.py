@@ -1,13 +1,13 @@
 """
 Pokemon Terminal Themes.
 
-493 unique Pokemon,
-from Kanto, Johto, Hoenn and Sinnoh.
+719 unique Pokemon.
+from Kanto, Johto, Hoenn, Sinnoh, Unova, and Kalos.
 
-Change the Terminal Backgroun & Desktop Wallpaper.
-Supports ITerm2, Terminology  & Tilix.
+Change the Terminal Background & Desktop Wallpaper.
+Supports iTerm2, Terminology, Tilix and ConEmu.
 """
 
 
-__version__ = "0.0.1"
+__version__ = "1.1.0"
 __author__ = "LazoCoder"

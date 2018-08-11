@@ -4,58 +4,18 @@
 import os
 import random
 import sys
-import time
 from multiprocessing import Process
+from pathlib import Path
 
-from . import scripter
+from . import scripter, slideshow
 from pokemonterminal.command_flags import parser, is_slideshow
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
-
-PIPE_PATH = os.environ["HOME"] + "/.pokemon-terminal-pipe" + str(os.getppid())
-PIPE_EXISTS = os.path.exists(PIPE_PATH)
+from pokemonterminal.platform import PlatformNamedEvent
 
 
-def daemon(time_stamp, pkmn_list):
-    # TODO: Implement messaging, like status and current pokemon
-    if not PIPE_EXISTS:
-        os.mkfifo(PIPE_PATH)
-    pip = open(PIPE_PATH, 'r')
-    while True:
-        for msg in pip:
-            msg = msg.strip()
-            if msg == 'quit':
-                print("Stopping the slideshow")
-                os.remove(PIPE_PATH)
-                sys.exit(0)
-        pip = open(PIPE_PATH, 'r')
 
-
-def slideshow(filtered, delay, changer_func):
-    pid = os.fork()
-    if pid > 0:
-        print(f"Starting slideshow with {len(filtered)}, pokemon " +
-              f"and a delay of {delay} minutes between pokemon")
-        print("Forked process to background with pid", pid,
-              "you can stop it with -c")
-        os.environ["POKEMON_TERMINAL_PID"] = str(pid)
-        sys.exit(0)
-    p = Process(target=daemon, args=(time.time(), filtered,))
-    p.daemon = True
-    p.start()
-    random.shuffle(filtered)
-    queque = iter(filtered)
-    while p.is_alive():
-        next_pkmn = next(queque, None)
-        if next_pkmn is None:
-            random.shuffle(filtered)
-            queque = iter(filtered)
-            continue
-        changer_func(next_pkmn.get_path())
-        p.join(delay * 60)
-
-
-def main(argv):
+def main(argv=None):
     """Entrance to the program."""
     if __name__ != "__main__":
         Filter.filtered_list = [pok for pok in Filter.POKEMON_LIST]
@@ -109,25 +69,39 @@ def main(argv):
         print("Dry run, exiting.")
         return
 
+    event_name = "Pokemon-Terminal_Wallpaper" if options.wallpaper else "Pokemon-Terminal_Terminal"
+    event_exists = PlatformNamedEvent.exists(event_name)
+
     if options.clear:
-        if PIPE_EXISTS:
-            pipe_out = os.open(PIPE_PATH, os.O_WRONLY)
-            os.write(pipe_out, b"quit\n")
-            os.close(pipe_out)
-        scripter.clear_terminal()
+        if event_exists:
+            slideshow.stop(event_name)
+        if not options.wallpaper:
+            scripter.clear_terminal()
         return
 
     if is_slideshow and options.id <= 0 and size > 1:
-        if PIPE_EXISTS:
-            print("Slideshow already running in this instance!")
-            sys.exit(0)
+        if event_exists:
+            print("One or more slideshows is already running.\n")
+            while True:
+                print("[S]top the previous slideshow(s) / ", end='')
+                if not options.wallpaper:
+                    print("[I]gnore and continue / ", end='')
+                print("[A]bort")
+                inp = input("Pick one: ").lower()
+                if inp == 's':
+                    slideshow.stop(event_name)
+                    break
+                elif inp == 'i' and not options.wallpaper:
+                    break
+                elif inp == 'a':
+                    return
+                else:
+                    print("Not a valid option!\n")
         if options.slideshow <= 0:
             print("Time has to be greater then 0. You can use decimal values.")
             return
-        target_func = scripter.change_wallpaper if options.wallpaper else \
-            scripter.change_terminal
-        slideshow(Filter.filtered_list, options.slideshow, target_func)
-        return
+        target_func = scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
+        slideshow.start(Filter.filtered_list, options.slideshow, target_func, event_name)
 
     if options.wallpaper:
         scripter.change_wallpaper(target.get_path())
