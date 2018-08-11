@@ -31,12 +31,11 @@ class PosixNamedEvent(NamedEvent):
 
     @staticmethod
     def __has_open_file_handles_real(path: PosixPath) -> bool:
-        realpath = path.resolve()
         for proc in psutil.process_iter():
             try:
                 if proc.pid != os.getpid():
                     for file in proc.open_files():
-                        if PosixPath(file.path).resolve() == realpath:
+                        if PosixPath(file.path).samefile(path):
                             return True
             except psutil.Error:
                 continue
@@ -44,12 +43,14 @@ class PosixNamedEvent(NamedEvent):
 
     @staticmethod
     def __has_open_file_handles(path: PosixPath) -> bool:
-        # HACK have psutil output only FIFOs in open_files instead of ignoring them
+        # HACK psutil explicitely filters out FIFOs from open_files()
+        # HACK patch the function responsible of it so it does the reverse instead
+        # HACK (only enumerate FIFOs in open_files)
         try:
             with patch("psutil._psplatform.isfile_strict", _isfifo_strict):
                 return PosixNamedEvent.__has_open_file_handles_real(path)
         except:
-            # Something happened, or the platform doesn't uses isfile_strict.
+            # Something happened(tm), or the platform doesn't uses isfile_strict (ex: BSD).
             # Do a best effort.
             return PosixNamedEvent.__has_open_file_handles_real(path)
 

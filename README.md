@@ -190,7 +190,6 @@ Alternatively, you can delete images from this folder and it will not break the 
    $ sudo apt-get update
    $ sudo apt install terminology
    ```
-* If you get the error `39:46: syntax error: Expected end of line but found identifier. (-2741)`: Locate the file `ITerm.py` in `pokemonterminal/terminal/adapters` and on line 9, change `iTerm` to `iTerm2`. If you still experience the error, try changing it to `iTerm 2`.
 
 ## Saving
 
