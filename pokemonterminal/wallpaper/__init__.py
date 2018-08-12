@@ -1,6 +1,7 @@
-import os
 import importlib
 import inspect
+import pathlib
+
 from .adapters import WallpaperProvider
 
 
@@ -16,17 +17,12 @@ def _get_adapter_classes() -> [WallpaperProvider]:
     all the implementing wallpaper adapter classes
     thanks for/adapted from https://github.com/cclauss/adapter_pattern/
     """
-    dirname = os.path.join(os.path.dirname(
-        os.path.abspath(__file__)), 'adapters')
-    adapter_classes = []
-    for file_name in sorted(os.listdir(dirname)):
-        root, ext = os.path.splitext(file_name)
-        if ext.lower() == '.py' and not root.startswith('__'):
-            module = importlib.import_module(
-                '.' + root, 'pokemonterminal.wallpaper.adapters')
+    adapter_dir = pathlib.Path(__file__).resolve().parent / 'adapters'
+    for file in adapter_dir.iterdir():
+        if file.suffix.lower() == '.py' and not file.name.startswith('__'):
+            module = importlib.import_module('.' + file.name.split('.')[0], 'pokemonterminal.wallpaper.adapters')
             for _, c in inspect.getmembers(module, _is_adapter):
-                adapter_classes.append(c)
-    return adapter_classes
+                yield c
 
 
 def get_current_wallpaper_adapters() -> [WallpaperProvider]:

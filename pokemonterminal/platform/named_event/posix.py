@@ -1,35 +1,58 @@
+import errno
 import os
+import psutil
+import stat
 import sys
 import time
 
 from . import NamedEvent
+from unittest.mock import patch
 from pathlib import PosixPath
+
+def _isfifo_strict(path):
+    # https://github.com/giampaolo/psutil/blob/release-5.4.6/psutil/_common.py#L362
+    try:
+        st = os.stat(path)
+    except OSError as err:
+        if err.errno in (errno.EPERM, errno.EACCES):
+            raise
+        return False
+    else:
+        return stat.S_ISFIFO(st.st_mode)
 
 class PosixNamedEvent(NamedEvent):
     """
     A wrapper for named events using a FIFO (named pipe)
     """
 
-    __self_references = ['self', str(os.getpid()), 'thread-self']
-
     @staticmethod
     def __build_fifo_path(name: str) -> PosixPath:
-        return PosixPath('/') / 'run' / 'user' / str(os.getuid()) / 'pokemon-terminal' / name
+        return PosixPath(f'/tmp/{name}/{os.getuid()}')
 
     @staticmethod
-    def __generate_handle_list() -> [PosixPath]:
-        for p in PosixPath('/proc').glob('*/fd/*'):
-            if not any(p.parts[2] == s for s in PosixNamedEvent.__self_references):
-                yield p.resolve()
+    def __has_open_file_handles_real(path: PosixPath) -> bool:
+        for proc in psutil.process_iter():
+            try:
+                if proc.pid != os.getpid():
+                    for file in proc.open_files():
+                        if PosixPath(file.path).samefile(path):
+                            return True
+            except psutil.Error:
+                continue
+        return False
 
     @staticmethod
     def __has_open_file_handles(path: PosixPath) -> bool:
-        if sys.platform != 'darwin':
-            realpath = path.resolve()
-            return any(realpath == p for p in PosixNamedEvent.__generate_handle_list())
-        else:
-            # TODO
-            raise NotImplementedError("macOS doesn't have /proc")
+        # HACK psutil explicitely filters out FIFOs from open_files()
+        # HACK patch the function responsible of it so it does the reverse instead
+        # HACK (only enumerate FIFOs in open_files)
+        try:
+            with patch("psutil._psplatform.isfile_strict", _isfifo_strict):
+                return PosixNamedEvent.__has_open_file_handles_real(path)
+        except:
+            # Something happened(tm), or the platform doesn't uses isfile_strict (ex: BSD).
+            # Do a best effort.
+            return PosixNamedEvent.__has_open_file_handles_real(path)
 
     def exists(name: str) -> bool:
         p = PosixNamedEvent.__build_fifo_path(name)
