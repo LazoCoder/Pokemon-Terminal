@@ -34,5 +34,5 @@ class ItermProvider(_TProv):
         stdin = ItermProvider.__osa_script_fmt.format("")
         ItermProvider.__run_osascript(str.encode(stdin))
 
-    def __repr__(self):
+    def __str__(self):
         return "iTerm 2"

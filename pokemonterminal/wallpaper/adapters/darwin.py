@@ -28,5 +28,5 @@ class DarwinProvider(_WProv):
     def is_compatible() -> bool:
         return sys.platform == "darwin"
 
-    def __repr__(self):
+    def __str__(self):
         return "MacOS Desktop Environment"

@@ -13,5 +13,5 @@ class GnomeProvider(_WProv):
     def is_compatible() -> bool:
         return "gnome" in environ.get("DESKTOP_SESSION", default='').lower()
 
-    def __repr__(self):
+    def __str__(self):
         return "GNOME Shell Desktop"

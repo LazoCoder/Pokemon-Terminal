@@ -20,5 +20,5 @@ class TilixProvider(_TProv):
     def clear():
         run(["gsettings", "reset", TilixProvider.__setting_key, TilixProvider.__setting_field], check=True)
 
-    def __repr__(self):
+    def __str__(self):
         return "Tilix"

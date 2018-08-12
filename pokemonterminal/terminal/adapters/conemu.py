@@ -26,5 +26,5 @@ class ConEmuProvider(_TProv):
     def clear():
         ConEmuProvider.__run_command('SetOption("Background Image", "")')
 
-    def __repr__(self):
+    def __str__(self):
         return "ConEmu"

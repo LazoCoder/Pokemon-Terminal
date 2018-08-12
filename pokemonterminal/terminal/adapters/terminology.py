@@ -17,5 +17,5 @@ class TerminologyProvider(_TProv):
     def clear():
         run("tybg", check=True)
 
-    def __repr__(self):
+    def __str__(self):
         return "Terminology"

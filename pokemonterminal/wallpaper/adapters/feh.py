@@ -26,5 +26,5 @@ class FehProvider(_WProv):
                 and which("xprop") is not None
                 and any(wm_signature in FehProvider.__get_root_props() for wm_signature in FehProvider.__compatible_wm))
 
-    def __repr__(self):
+    def __str__(self):
         return "feh wallpaper tool"
