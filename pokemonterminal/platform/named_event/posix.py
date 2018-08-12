@@ -27,7 +27,7 @@ class PosixNamedEvent(NamedEvent):
 
     @staticmethod
     def __build_fifo_path(name: str) -> PosixPath:
-        return PosixPath(f'/var/run/user/{os.getuid()}/pokemon-terminal/{name}')
+        return PosixPath(f'/tmp/{name}/{os.getuid()}')
 
     @staticmethod
     def __has_open_file_handles_real(path: PosixPath) -> bool:
