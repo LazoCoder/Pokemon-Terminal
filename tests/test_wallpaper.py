@@ -4,7 +4,7 @@ import inspect as __inspct
 
 
 def test_wallpaper_adapter_classes():
-    all_adapter = _get_adapter_classes()
+    all_adapter = list(_get_adapter_classes())
     files = {__inspct.getfile(x) for x in all_adapter}
     print('all adapter classes:\n', files)
     assert len(all_adapter) >= len(files), \
