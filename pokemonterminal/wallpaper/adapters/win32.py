@@ -1,6 +1,6 @@
 import sys
 
-from ctypes
+import ctypes
 from . import WallpaperProvider as _WProv
 
 
