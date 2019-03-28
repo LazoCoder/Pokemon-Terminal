@@ -1,7 +1,7 @@
 import sys
 
 from . import WallpaperProvider as _WProv
-from ctypes import *
+from ctypes import windll
 
 class Win32Provider(_WProv):
     __SPI_SETDESKWALLPAPER = 20
