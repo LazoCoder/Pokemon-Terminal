@@ -165,8 +165,9 @@ The result should look like this:
 1. From the menu under the symbol at left of title bar, navigate to Settings > Main > Background
 2. Set Darkening to maximum (255).
 3. Set Placement to Stretch.
-4. Click Save Settings.
-5. Optionally you apply transparency under Features > Transparency.
+4. Mark Background image (bmp, jpg, png, tif)
+5. Click Save Settings.
+6. Optionally you apply transparency under Features > Transparency.
 
 ## Adding Custom Images
 
