@@ -16,7 +16,7 @@ class FehProvider(_WProv):
         subprocess.run(command, check=True)
 
     def __get_root_props() -> str:
-        return subprocess.check_output(["xprop", "root", "-notype"]).decode(sys.stdout.encoding)
+        return subprocess.check_output(["xprop", "-root", "-notype"]).decode(sys.stdout.encoding)
 
     def is_compatible() -> bool:
         return (which("feh") is not None
