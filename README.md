@@ -37,7 +37,7 @@
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
 - Supports iTerm2, ConEmu, Terminology and Tilix terminal emulators
-- Supports Windows, MacOS, GNOME, Openbox (with feh), and i3wm (with feh) for desktops
+- Supports Windows, MacOS, GNOME, Openbox (with feh), i3wm (with feh) and sway for desktops
 
 # Installation
 
