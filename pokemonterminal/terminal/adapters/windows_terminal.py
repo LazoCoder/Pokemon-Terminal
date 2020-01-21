@@ -15,7 +15,7 @@ class WindowsTerminalProvider(_TProv):
 
             # update default profile
             # TODO: update current profile
-            default_profile = data['defaultProfile']
+            default_profile = data['globals']['defaultProfile'] if 'globals' in data else data['defaultProfile']
             profiles = data['profiles']
             for profile in profiles:
                 if (profile['guid'] == default_profile):
