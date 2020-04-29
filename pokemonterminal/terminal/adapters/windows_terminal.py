@@ -7,18 +7,17 @@ from . import TerminalProvider as _TProv
 class WindowsTerminalProvider(_TProv):
 
     def set_background_image(path: str):
-        profiles_path = os.environ['LOCALAPPDATA'] + '\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\profiles.json'
+        profiles_path = os.environ['LOCALAPPDATA'] + '\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json'
         with open(profiles_path, 'r+') as json_file:
             # read profiles.json
             # remove comments from json to load
             data = json.loads(WindowsTerminalProvider.comment_remover(json_file.read()))
 
-            # update default profile
-            # TODO: update current profile
-            default_profile = data['globals']['defaultProfile'] if 'globals' in data else data['defaultProfile']
+            # update current profile
+            current_profile = os.environ['WT_PROFILE_ID']
             profiles = data['profiles']
             for profile in profiles:
-                if (profile['guid'] == default_profile):
+                if (profile['guid'] == current_profile):
                     if (path is None):
                         del profile['backgroundImage']
                     else:
