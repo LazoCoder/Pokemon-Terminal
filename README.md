@@ -36,14 +36,14 @@
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, ConEmu, Terminology and Tilix terminal emulators
+- Supports iTerm2, ConEmu, Terminology, Windows Terminal and Tilix terminal emulators
 - Supports Windows, MacOS, GNOME, Openbox (with feh), i3wm (with feh) and sway for desktops
 
 # Installation
 
 Install Python 3.6 or higher:
 - [For Mac](https://www.python.org/downloads/mac-osx/)
-- [For Windows](https://www.python.org/downloads/windows/)
+- For Windows: [desktop](https://www.python.org/downloads/windows/) or [Microsoft Store](https://www.microsoft.com/p/python-38/9mssztt1n39l)
 - [For Ubuntu](https://askubuntu.com/a/865569)
 - [For Arch Linux](https://www.archlinux.org/packages/extra/x86_64/python/)
 - Not all compatible distros are named here, but a quick Google search should give you instructions for your distribution of choice.
@@ -53,35 +53,47 @@ Get a compatible terminal emulator:
 - [ConEmu](https://conemu.github.io/) or derivative (such as [Cmder](http://cmder.net/))
 - [Terminology](https://www.enlightenment.org/about-terminology)
 - [Tilix](https://gnunn1.github.io/tilix-web/)
+- [Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701)
 
 You can then proceed with one of the following methods for installation:
 - [Arch Linux User Repository package (System-wide)](https://aur.archlinux.org/packages/pokemon-terminal-git/) (maintained by [@sylveon](https://github.com/sylveon))
-- [pip (System-wide)](#pip-system-wide)
-- [pip (Per-User)](#pip-per-user)
-- [npm (Per-User)](#npm-per-user)
-- [Distutils (System-wide)](#distutils-system-wide)
+- [pip (System-wide or Per-User)](#pip)
+- [npm (Per-User only)](#npm)
+- [Distutils (System-wide or Per-User)](#distutils)
 
 Notes:
 - Linux users: Your distro might include pip in a different package than Python, make sure to have that installed and running when calling `pip3` if you want to install using it.
 - npm installation obviously requires to have [Node.js](https://nodejs.org/) installed.
 
-## pip (System-wide)
+## pip
 
-Run `sudo pip3 install git+https://github.com/LazoCoder/Pokemon-Terminal.git` on Linux and macOS or `pip3 install git+https://github.com/LazoCoder/Pokemon-Terminal.git` with administrator permissions on Windows. When the command completes, it's installed and ready to go!
+Run `pip3 install git+https://github.com/LazoCoder/Pokemon-Terminal.git`.
 
-## pip (Per-User)
+If you want a system-wide install, run the command as superuser or administrator.
 
-You can install it with pip for a single user with `pip3 install --user git+https://github.com/LazoCoder/Pokemon-Terminal.git`. You might want to add `~/.local/bin` on Linux and macOS or `%AppData%\Python\Python3X\Scripts` (replace X by the minor Python version you are running. For example, Python 3.7 users will want `Python37`) on Windows to your PATH to be able to call `pokemon` and `ichooseyou` everywhere.
+If you want a per-user install, append the `--user` flag.
 
-## npm (Per-User)
+You might want to add the following directories to your PATH on a per-user install, to be able to call `pokemon` and `ichooseyou` everywhere:
+ - Linux and macOS: `~/.local/bin`
+ - Windows: (replace `X` by your Python minor version, for example, 8 for Python 3.8)
+   - `%AppData%\Python\Python3X\Scripts` for a desktop installation of Python;
+   - `%LocalAppData%\Packages\PythonSoftwareFoundation.Python.3.X_qbz5n2kfra8p0\LocalCache\local-packages\Python3X\Scripts` for a Microsoft Store installation of Python (note that there's two `X` here).
+
+When the command completes, it's installed and ready to go!
+
+## npm
 
 You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
 
 Make sure you also have Python installed, `npm` won't automagically do that for you.
 
-## Distutils (System-wide)
+## Distutils
 
-You can clone or [download](https://github.com/LazoCoder/Pokemon-Terminal/archive/master.zip) this repo, and run `sudo python3 setup.py install` on Linux and macOS or `py -3 setup.py install` with administrator permissions on Windows at the root of the repo.
+You can clone or [download](https://github.com/LazoCoder/Pokemon-Terminal/archive/master.zip) this repo, and run `python3 setup.py install` at the root of the repo.
+
+If you want a system-wide install, run the command as superuser or administrator.
+
+If you want a per-user install, append the `--user` flag.
 
 # Usage
 
@@ -168,6 +180,20 @@ The result should look like this:
 4. Click Save Settings.
 5. Optionally you apply transparency under Features > Transparency.
 
+## Windows Terminal settings
+
+You can, like in iTerm2, enable transparency. Simply press the down arrow in the tab bar and click settings. Once the JSON file opens, add the following settings under the `defaults` section:
+
+```json
+"backgroundImageOpacity": 0.5,
+"useAcrylic": true,
+"acrylicOpacity": 0.0
+```
+
+The result should look like this:
+
+![](https://i.imgur.com/DZbiQHf.png)
+
 ## Adding Custom Images
 
 The folder `pokemonterminal/Images/Extra` is for adding custom images. You can manually add backgrounds to this folder and they will be visible to the program. Only JPG format is supported. To see a list of all the custom backgrounds type:
@@ -194,7 +220,7 @@ Alternatively, you can delete images from this folder and it will not break the 
 ## Saving
 
 ### iTerm2
-I have not yet implemented a way to save the terminal background to a profile. To save a background you will need to setup a startup command in the profile.
+To save a background you will need to setup a startup command in the profile:
 1. Navigate to iTerm2 > Preferences > General
 2. Locate the field where it says *Send text at start* under *Command*.
 3. In that field type `pokemon -n [pokemon name]`. You can see an example in the image down below.
@@ -225,15 +251,20 @@ That will simply pick a completely random Pokemon each session, but the `pokemon
 - Nearly all of the Pokemon backgrounds were created by [Teej](https://pldh.net/gallery/the493).
 - Originally the images were about 100mb in total but [ImageOptim](https://imageoptim.com/) was used to compress them down to about 17mb.
 - Since the images are compressed, some of them may have some mild (but negligible) compression artifacts.
+- Platforms:
+  - Thanks to [@samosaara](https://github.com/samosaara) for the Linux (GNOME and Terminology) port.
+  - Thanks to [@jimmyorourke](https://github.com/jimmyorourke) for the Windows (ConEMU and wallpaper) port.
+  - Thanks to [@sylveon](https://github.com/sylveon) for the Windows slideshow functionality and maintaining the AUR package.
+- Terminal & wallpaper support:
+  - Thanks to [@MattMattV](https://github.com/MattMattV) for adding Tilix support.
+  - Thanks to [@regenbogencode](https://github.com/regenbogencode) for sway support.
+  - Thanks to [@kyle-seongwoo-jun](https://github.com/kyle-seongwoo-jun) for Windows Terminal support.
 - Thanks to [@DrMartinLutherXing](https://github.com/DrMartinLutherXing) for some bug fixes.
 - Thanks to [@joanbono](https://github.com/joanbono) for the easy installation script in the readme.
 - Thanks to [@BnMcG](https://github.com/BnMcG) for the region specific randomize function.
-- Thanks to [@samosaara](https://github.com/samosaara) for the Linux (GNOME and Terminology) port.
-- Thanks to [@sylveon](https://github.com/sylveon) for maintaining the AUR package.
 - Thanks to [@therealklanni](https://github.com/therealklanni) for adding the project to npm.
-- Thanks to [@MattMattV](https://github.com/MattMattV) for adding Tilix support.
 - Thanks to [@connordinho](https://github.com/connordinho) for enhancing the slideshow functionality.
-- Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class and the main class.
+- Thanks to [@cclauss](https://github.com/cclauss) for simplifying the code in the database class and the main class, as well as general code quality fixes.
 - Thanks to [@Fiskie](https://github.com/Fiskie) for implementing the adapter design pattern, piping commands and more.
 - Thanks to [@marcobiedermann](https://github.com/marcobiedermann) for better image compression.
 - Thanks to [@kamil157](https://github.com/kamil157) and [@dosman711](https://github.com/dosman711) for the randomized slideshow function.
