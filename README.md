@@ -61,11 +61,9 @@ You can then proceed with one of the following methods for installation:
 - [npm (Per-User only)](#npm)
 - [Distutils (System-wide or Per-User)](#distutils)
 
-Notes:
-- Linux users: Your distro might include pip in a different package than Python, make sure to have that installed and running when calling `pip3` if you want to install using it.
-- npm installation obviously requires to have [Node.js](https://nodejs.org/) installed.
-
 ## pip
+
+Linux users: Your distro might include `pip` in a different package than Python, make sure to have that installed.
 
 Run `pip3 install git+https://github.com/LazoCoder/Pokemon-Terminal.git`.
 
@@ -73,7 +71,7 @@ If you want a system-wide install, run the command as superuser or administrator
 
 If you want a per-user install, append the `--user` flag.
 
-You might want to add the following directories to your PATH on a per-user install, to be able to call `pokemon` and `ichooseyou` everywhere:
+You might want to add the following directories to your `PATH` on a per-user install, to be able to call `pokemon` and `ichooseyou` everywhere:
  - Linux and macOS: `~/.local/bin`
  - Windows: (replace `X` by your Python minor version, for example, 8 for Python 3.8)
    - `%AppData%\Python\Python3X\Scripts` for a desktop installation of Python;
@@ -83,17 +81,21 @@ When the command completes, it's installed and ready to go!
 
 ## npm
 
+Obviously requires to have [Node.js](https://nodejs.org/) installed.
+
 You can install in any (npm-supported) OS using `npm install --global pokemon-terminal`. That's it, you're done!
 
 Make sure you also have Python installed, `npm` won't automagically do that for you.
 
 ## Distutils
 
+This doesn't works on Microsoft Store installations of Python.
+
 You can clone or [download](https://github.com/LazoCoder/Pokemon-Terminal/archive/master.zip) this repo, and run `python3 setup.py install` at the root of the repo.
 
 If you want a system-wide install, run the command as superuser or administrator.
 
-If you want a per-user install, append the `--user` flag.
+If you want a per-user install, append the `--user` flag. Look at the pip directives to add a per-user install to your `PATH`.
 
 # Usage
 
