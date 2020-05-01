@@ -13,16 +13,20 @@ class WindowsTerminalProvider(_TProv):
             # remove comments from json to load
             data = json.loads(WindowsTerminalProvider.comment_remover(json_file.read()))
 
-            # update current profile
-            current_profile = os.environ['WT_PROFILE_ID']
+            # migrate to defaults profile settings
             profiles = data['profiles']
-            for profile in profiles:
-                if (profile['guid'] == current_profile):
-                    if (path is None):
-                        del profile['backgroundImage']
-                    else:
-                        profile['backgroundImage'] = path
-                    break
+            if (isinstance(profiles, list)):
+                data['profiles'] = profiles = {
+                    'defaults': {},
+                    'list': profiles 
+                }
+            
+            # update defaults profile
+            profile = profiles['defaults']
+            if (path is None):
+                del profile['backgroundImage']
+            else:
+                profile['backgroundImage'] = path
 
             # write to file
             # it lost orignal indent, comment, ...
