@@ -2,12 +2,11 @@ import errno
 import os
 import psutil
 import stat
-import sys
-import time
 
 from . import NamedEvent
 from unittest.mock import patch
 from pathlib import PosixPath
+
 
 def _isfifo_strict(path):
     # https://github.com/giampaolo/psutil/blob/release-5.4.6/psutil/_common.py#L362
@@ -19,6 +18,7 @@ def _isfifo_strict(path):
         return False
     else:
         return stat.S_ISFIFO(st.st_mode)
+
 
 class PosixNamedEvent(NamedEvent):
     """
@@ -49,7 +49,7 @@ class PosixNamedEvent(NamedEvent):
         try:
             with patch("psutil._psplatform.isfile_strict", _isfifo_strict):
                 return PosixNamedEvent.__has_open_file_handles_real(path)
-        except:
+        except Exception:
             # Something happened(tm), or the platform doesn't uses isfile_strict (ex: BSD).
             # Do a best effort.
             return PosixNamedEvent.__has_open_file_handles_real(path)
@@ -68,7 +68,7 @@ class PosixNamedEvent(NamedEvent):
             os.mkfifo(p)
 
         self.__path = p
-        self.__fifo = os.open(p, os.O_NONBLOCK) # Keep a handle to the FIFO for exists() to detect us
+        self.__fifo = os.open(p, os.O_NONBLOCK)  # Keep a handle to the FIFO so exists() detects us
         self.__fifo_in = None
         self.__fifo_out = None
         self.__name = name
