@@ -19,9 +19,12 @@ class FehProvider(_WProv):
         return subprocess.check_output(["xprop", "-root", "-notype"]).decode(sys.stdout.encoding)
 
     def is_compatible() -> bool:
-        return (which("feh") is not None
-                and which("xprop") is not None
-                and any(wm_signature in FehProvider.__get_root_props() for wm_signature in FehProvider.__compatible_wm))
+        tools_are_available = which("feh") is not None and which("xprop") is not None
+        if tools_are_available:
+            root_props = FehProvider.__get_root_props()
+            return any(wm_signature in root_props for wm_signature in FehProvider.__compatible_wm))
+        else:
+            return False
 
     def __str__():
         return "feh wallpaper tool"
