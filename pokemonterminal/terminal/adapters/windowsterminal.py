@@ -8,7 +8,7 @@ class WindowsTerminalProvider(_TProv):
 
     def set_background_image(path: str):
         profiles_path = os.environ['LOCALAPPDATA'] + '\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json'
-        with open(profiles_path, 'r+') as json_file:
+        with open(profiles_path, 'r+', encoding='utf8') as json_file:
             # read profiles.json
             # remove comments from json to load
             data = json.loads(WindowsTerminalProvider.comment_remover(json_file.read()))
