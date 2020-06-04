@@ -31,7 +31,7 @@ class WindowsTerminalProvider(_TProv):
             # write to file
             # it lost orignal indent, comment, ...
             json_file.seek(0)
-            json.dump(data, json_file, indent=4)
+            json.dump(data, json_file, indent=4, ensure_ascii=False)
             json_file.truncate()
 
     def comment_remover(text: str) -> str:
