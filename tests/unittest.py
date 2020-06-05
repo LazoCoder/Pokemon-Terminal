@@ -41,8 +41,12 @@ def test_database_single_arg(arg):
     elif arg == "get_random":
         print(db.get_random())
     else:
-        print("No such public method '" + arg + "' with zero parameters " +
-              "exists in the Database class.")
+        print(
+            "No such public method '"
+            + arg
+            + "' with zero parameters "
+            + "exists in the Database class."
+        )
 
 
 def test_database_double_arg(arg):
@@ -74,8 +78,10 @@ def test_database_double_arg(arg):
     elif arg1 == "get_dark":
         print_items(db.get_dark(threshold=int(arg2) / 10, all_pkmn=True))
     else:
-        print("No such public method '" + arg + "' with two parameters"
-              " exists in the Database class.")
+        print(
+            "No such public method '" + arg + "' with two parameters"
+            " exists in the Database class."
+        )
 
 
 def main(argv):

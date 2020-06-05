@@ -16,8 +16,9 @@ class ItermProvider(_TProv):
         return "ITERM_PROFILE" in os.environ
 
     def __run_osascript(stream):
-        p = subprocess.Popen(["osascript"], stdout=subprocess.PIPE,
-                             stdin=subprocess.PIPE)
+        p = subprocess.Popen(
+            ["osascript"], stdout=subprocess.PIPE, stdin=subprocess.PIPE
+        )
         p.stdin.write(stream)
         p.communicate()
         p.stdin.close()

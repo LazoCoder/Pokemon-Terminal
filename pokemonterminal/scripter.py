@@ -18,10 +18,12 @@ def __init_terminal_provider():
         # really what kind of person has 2 simultaneous T.E???
         print("Multiple providers found, please select the appropriate one.")
         for i, x in enumerate(providers):
-            print(f'{i}. {x.__str__()}')
-        print("If some of these make no sense or are irrelevant please file " +
-              "an issue in https://github.com/LazoCoder/Pokemon-Terminal")
-        print("=> ", end='')
+            print(f"{i}. {x.__str__()}")
+        print(
+            "If some of these make no sense or are irrelevant please file "
+            + "an issue in https://github.com/LazoCoder/Pokemon-Terminal"
+        )
+        print("=> ", end="")
         inp = None
         while inp is None:
             try:
@@ -48,10 +50,12 @@ def __init_wallpaper_provider():
         # really what kind of person has 2 simultaneous D.E???
         print("Multiple providers found, please select the appropriate one.")
         for i, x in enumerate(providers):
-            print(f'{i}. {x.__str__()}')
-        print("If some of these make no sense or are irrelevant please file " +
-              "an issue in https://github.com/LazoCoder/Pokemon-Terminal")
-        print("=> ", end='')
+            print(f"{i}. {x.__str__()}")
+        print(
+            "If some of these make no sense or are irrelevant please file "
+            + "an issue in https://github.com/LazoCoder/Pokemon-Terminal"
+        )
+        print("=> ", end="")
         inp = None
         while inp is None:
             try:

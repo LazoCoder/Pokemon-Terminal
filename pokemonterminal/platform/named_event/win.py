@@ -2,6 +2,7 @@ import ctypes
 
 from . import NamedEvent
 
+
 class WindowsNamedEvent(NamedEvent):
     """
     Named events using the native Windows APIs
@@ -14,7 +15,7 @@ class WindowsNamedEvent(NamedEvent):
 
     __ERROR_FILE_NOT_FOUND = 2
 
-    __INFINITE = 0xffffffff
+    __INFINITE = 0xFFFFFFFF
 
     @staticmethod
     def __raise_last_error():
@@ -22,7 +23,11 @@ class WindowsNamedEvent(NamedEvent):
         raise WindowsError(err_no, ctypes.FormatError(err_no))
 
     def exists(name: str) -> bool:
-        event = ctypes.windll.kernel32.OpenEventW(WindowsNamedEvent.__SYNCHRONIZE | WindowsNamedEvent.__EVENT_MODIFY_STATE, False, name)
+        event = ctypes.windll.kernel32.OpenEventW(
+            WindowsNamedEvent.__SYNCHRONIZE | WindowsNamedEvent.__EVENT_MODIFY_STATE,
+            False,
+            name,
+        )
         if event == 0:
             if ctypes.GetLastError() == WindowsNamedEvent.__ERROR_FILE_NOT_FOUND:
                 return False
@@ -35,7 +40,9 @@ class WindowsNamedEvent(NamedEvent):
             return True
 
     def __init__(self, name: str):
-        event = ctypes.windll.kernel32.CreateEventW(ctypes.c_void_p(), True, False, name)
+        event = ctypes.windll.kernel32.CreateEventW(
+            ctypes.c_void_p(), True, False, name
+        )
         if event == 0:
             WindowsNamedEvent.__raise_last_error()
 
@@ -51,7 +58,9 @@ class WindowsNamedEvent(NamedEvent):
             WindowsNamedEvent.__raise_last_error()
 
     def wait(self):
-        result = ctypes.windll.kernel32.WaitForSingleObject(self.__event, WindowsNamedEvent.__INFINITE)
+        result = ctypes.windll.kernel32.WaitForSingleObject(
+            self.__event, WindowsNamedEvent.__INFINITE
+        )
         if result == WindowsNamedEvent.__WAIT_FAILED:
             WindowsNamedEvent.__raise_last_error()
 

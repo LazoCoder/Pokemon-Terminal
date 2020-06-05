@@ -6,13 +6,14 @@ from . import TerminalProvider as _TProv
 
 
 class ConEmuProvider(_TProv):
-
     def is_compatible() -> bool:
         return "CONEMUPID" in os.environ
 
     def __run_command(command: str):
-        output = subprocess.check_output(f"ConEmuC -GuiMacro {command}", shell=True).decode(sys.stdout.encoding)
-        if output != 'OK':
+        output = subprocess.check_output(
+            f"ConEmuC -GuiMacro {command}", shell=True
+        ).decode(sys.stdout.encoding)
+        if output != "OK":
             print(output)
 
     def __enable_background(state: bool):
@@ -21,7 +22,9 @@ class ConEmuProvider(_TProv):
 
     def change_terminal(path: str):
         # ConEmuC supports its own character escaping, so escape the backslashes just to be sure
-        ConEmuProvider.__run_command('SetOption("Background Image", "{}")'.format(path.replace("\\", "\\\\")))
+        ConEmuProvider.__run_command(
+            'SetOption("Background Image", "{}")'.format(path.replace("\\", "\\\\"))
+        )
 
         # Done after setting background image to avoid the old background flashing if it was disabled.
         ConEmuProvider.__enable_background(True)

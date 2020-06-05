@@ -4,29 +4,29 @@ import re
 
 from . import TerminalProvider as _TProv
 
-class WindowsTerminalProvider(_TProv):
 
+class WindowsTerminalProvider(_TProv):
     def set_background_image(path: str):
-        profiles_path = os.environ['LOCALAPPDATA'] + '\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json'
-        with open(profiles_path, 'r+', encoding='utf8') as json_file:
+        profiles_path = (
+            os.environ["LOCALAPPDATA"]
+            + "\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+        )
+        with open(profiles_path, "r+", encoding="utf8") as json_file:
             # read profiles.json
             # remove comments from json to load
             data = json.loads(WindowsTerminalProvider.comment_remover(json_file.read()))
 
             # migrate to defaults profile settings
-            profiles = data['profiles']
-            if (isinstance(profiles, list)):
-                data['profiles'] = profiles = {
-                    'defaults': {},
-                    'list': profiles 
-                }
-            
+            profiles = data["profiles"]
+            if isinstance(profiles, list):
+                data["profiles"] = profiles = {"defaults": {}, "list": profiles}
+
             # update defaults profile
-            profile = profiles['defaults']
-            if (path is None):
-                del profile['backgroundImage']
+            profile = profiles["defaults"]
+            if path is None:
+                del profile["backgroundImage"]
             else:
-                profile['backgroundImage'] = path
+                profile["backgroundImage"] = path
 
             # write to file
             # it lost orignal indent, comment, ...
@@ -37,13 +37,14 @@ class WindowsTerminalProvider(_TProv):
     def comment_remover(text: str) -> str:
         def replacer(match: re.Match):
             s = match.group(0)
-            if s.startswith('/'):
-                return " " # note: a space and not an empty string
+            if s.startswith("/"):
+                return " "  # note: a space and not an empty string
             else:
                 return s
+
         pattern = re.compile(
             r'//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"',
-            re.DOTALL | re.MULTILINE
+            re.DOTALL | re.MULTILINE,
         )
         return re.sub(pattern, replacer, text)
 

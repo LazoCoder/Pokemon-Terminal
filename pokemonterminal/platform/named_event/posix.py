@@ -27,7 +27,7 @@ class PosixNamedEvent(NamedEvent):
 
     @staticmethod
     def __build_fifo_path(name: str) -> PosixPath:
-        return PosixPath(f'/tmp/{name}/{os.getuid()}')
+        return PosixPath(f"/tmp/{name}/{os.getuid()}")
 
     @staticmethod
     def __has_open_file_handles_real(path: PosixPath) -> bool:
@@ -68,7 +68,9 @@ class PosixNamedEvent(NamedEvent):
             os.mkfifo(p)
 
         self.__path = p
-        self.__fifo = os.open(p, os.O_NONBLOCK)  # Keep a handle to the FIFO so exists() detects us
+        self.__fifo = os.open(
+            p, os.O_NONBLOCK
+        )  # Keep a handle to the FIFO so exists() detects us
         self.__fifo_in = None
         self.__fifo_out = None
         self.__name = name
