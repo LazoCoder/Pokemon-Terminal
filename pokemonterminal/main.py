@@ -14,7 +14,6 @@ from pokemonterminal.filters import Filter
 from pokemonterminal.platform import PlatformNamedEvent
 
 
-
 def main(argv=None):
     """Entrance to the program."""
     if __name__ != "__main__":
@@ -53,23 +52,29 @@ def main(argv=None):
 
     if options.verbose or options.dry_run:
         if size == 1:
-            print('A single pokemon matches the specified criteria: ')
+            print("A single pokemon matches the specified criteria: ")
         if size > Database.MAX_ID:
-            print('No pokemon has been filtered...')
+            print("No pokemon has been filtered...")
         else:
             # Print the list of filtered pokemon
             [
                 print(f"#{pkmn.get_id()} - {pkmn.get_name().title()}")
                 for pkmn in Filter.filtered_list
             ]
-        print("Total of %d pokemon matched the filters. Chose %s" %
-              (size, target.get_name().title()))
+        print(
+            "Total of %d pokemon matched the filters. Chose %s"
+            % (size, target.get_name().title())
+        )
 
     if options.dry_run:
         print("Dry run, exiting.")
         return
 
-    event_name = "Pokemon-Terminal_Wallpaper" if options.wallpaper else "Pokemon-Terminal_Terminal"
+    event_name = (
+        "Pokemon-Terminal_Wallpaper"
+        if options.wallpaper
+        else "Pokemon-Terminal_Terminal"
+    )
     event_exists = PlatformNamedEvent.exists(event_name)
 
     if options.clear:
@@ -86,25 +91,35 @@ def main(argv=None):
         if event_exists:
             print("One or more slideshows is already running.\n")
             while True:
-                print("[S]top the previous slideshow(s) / ", end='')
+                print("[S]top the previous slideshow(s) / ", end="")
                 if not options.wallpaper:
-                    print("[I]gnore and continue / ", end='')
+                    print("[I]gnore and continue / ", end="")
                 print("[A]bort")
                 inp = input("Pick one: ").lower()
-                if inp == 's':
+                if inp == "s":
                     slideshow.stop(event_name)
                     break
-                elif inp == 'i' and not options.wallpaper:
+                elif inp == "i" and not options.wallpaper:
                     break
-                elif inp == 'a':
+                elif inp == "a":
                     return
                 else:
                     print("Not a valid option!\n")
-        target_func = scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
-        print(f"Starting slideshow with {len(Filter.filtered_list)} Pokemons and a delay of {options.slideshow} minutes.")
-        pid = slideshow.start(Filter.filtered_list, options.slideshow, target_func, event_name)
+        target_func = (
+            scripter.change_wallpaper if options.wallpaper else scripter.change_terminal
+        )
+        print(
+            f"Starting slideshow with {len(Filter.filtered_list)} Pokemons and a delay of {options.slideshow} minutes."
+        )
+        pid = slideshow.start(
+            Filter.filtered_list, options.slideshow, target_func, event_name
+        )
         print(f"Forked process to background with PID {pid}.")
-        print("You can stop it with 'pokemon {}'.".format('-c -w' if options.wallpaper else '-c'))
+        print(
+            "You can stop it with 'pokemon {}'.".format(
+                "-c -w" if options.wallpaper else "-c"
+            )
+        )
         return
 
     if options.wallpaper:

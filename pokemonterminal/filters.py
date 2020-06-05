@@ -15,19 +15,20 @@ class Filter(Action):
         Filter.FILTERS.append(cls)
 
     def __call__(self, parser, namespace, value, option_string=None):
-        Filter.filtered_list = [pkmn for pkmn in Filter.filtered_list
-                                if self.matches(pkmn, value)]
+        Filter.filtered_list = [
+            pkmn for pkmn in Filter.filtered_list if self.matches(pkmn, value)
+        ]
 
 
 class NameFilter(Filter):
-    EXAMPLE_VAL = 'bulb'
+    EXAMPLE_VAL = "bulb"
 
     def matches(self, pokemon: Pokemon, value: str):
         return value in pokemon.get_name()
 
 
 class RegionFilter(Filter):
-    EXAMPLE_VAL = ['kanto']
+    EXAMPLE_VAL = ["kanto"]
 
     def matches(self, pokemon: Pokemon, value: list):
         return pokemon.get_region() in value
@@ -48,11 +49,13 @@ class DarkFilter(Filter):
 
 
 class TypeFilter(Filter):
-    EXAMPLE_VAL = ['water']
+    EXAMPLE_VAL = ["water"]
 
     def matches(self, pokemon: Pokemon, value: list):
-        return pokemon.get_pkmn_type() in value or \
-            pokemon.get_pkmn_type_secondary() in value
+        return (
+            pokemon.get_pkmn_type() in value
+            or pokemon.get_pkmn_type_secondary() in value
+        )
 
 
 class NonExtrasFilter(Filter):

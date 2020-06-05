@@ -21,8 +21,7 @@ def compare_pokemon(a, b):
 
 
 def test_len():
-    assert len(Database()) == len(load_all_pokemon()) \
-        == MAX_ID + expected_len('extra')
+    assert len(Database()) == len(load_all_pokemon()) == MAX_ID + expected_len("extra")
 
 
 def test_lists():
@@ -37,12 +36,12 @@ def test_lists():
     # assert db.get_all() == load_list
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Test runner: Runs all functions whose name begins with `test_`
     # locals() changes when trying to do this without the list comprehension!!!
-    name_funcs = [(n, f) for n, f in locals().items() if n.startswith('test_')]
+    name_funcs = [(n, f) for n, f in locals().items() if n.startswith("test_")]
     for name, func in name_funcs:
         if callable(func):
             func()
         else:
-            print(name + ' is not callable()!')
+            print(name + " is not callable()!")

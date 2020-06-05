@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class WallpaperProvider(ABC):
     """
     Interface representing all the different desktop environments supported

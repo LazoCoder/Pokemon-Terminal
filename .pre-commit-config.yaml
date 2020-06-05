@@ -1,0 +1,15 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: ebc15addedad713c86ef18ae9632c88e187dd0af  # frozen: v3.1.0
+    hooks:
+    -   id: check-case-conflict
+    -   id: check-executables-have-shebangs
+    -   id: check-json
+    -   id: check-merge-conflict
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 6bedb5c58a7d8c25aa9509f8217bc24e9797e90d  # frozen: 19.10b0
+    hooks:
+    -   id: black

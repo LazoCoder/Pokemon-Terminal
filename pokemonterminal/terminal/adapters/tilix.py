@@ -12,10 +12,27 @@ class TilixProvider(_TProv):
         return "TILIX_ID" in environ
 
     def change_terminal(path: str):
-        run(["gsettings", "set", TilixProvider.__setting_key, TilixProvider.__setting_field, path], check=True)
+        run(
+            [
+                "gsettings",
+                "set",
+                TilixProvider.__setting_key,
+                TilixProvider.__setting_field,
+                path,
+            ],
+            check=True,
+        )
 
     def clear():
-        run(["gsettings", "reset", TilixProvider.__setting_key, TilixProvider.__setting_field], check=True)
+        run(
+            [
+                "gsettings",
+                "reset",
+                TilixProvider.__setting_key,
+                TilixProvider.__setting_field,
+            ],
+            check=True,
+        )
 
     def __str__():
         return "Tilix"
