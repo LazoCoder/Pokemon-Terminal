@@ -41,7 +41,7 @@
 
 # Installation
 
-Install Python 3.6 or higher:
+Install Python 3.7 or higher:
 - [For Mac](https://www.python.org/downloads/mac-osx/)
 - For Windows: [desktop](https://www.python.org/downloads/windows/) or [Microsoft Store](https://www.microsoft.com/p/python-38/9mssztt1n39l)
 - [For Ubuntu](https://askubuntu.com/a/865569)

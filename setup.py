@@ -70,9 +70,9 @@ Supports iTerm2, Terminology, Tilix and ConEmu.""",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
 
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6"
+        "Programming Language :: Python :: 3.7"
     ],
 
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     install_requires=(["psutil"] if sys.platform != "win32" else None)
 )
