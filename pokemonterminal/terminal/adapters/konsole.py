@@ -16,36 +16,40 @@ class KonsoleProvider(_TProv):
         # Make it easy to rm
         prefix = "p--"
 
+        base_colorscheme_path = (
+            KonsoleProvider.__colorscheme_path__
+            + KonsoleProvider.__base_colorscheme__
+            + ".colorscheme"
+        )
         pokemon = prefix + path.split("/")[-1].split(".")[0]
         new_scheme_path = (
             KonsoleProvider.__colorscheme_path__ + pokemon + ".colorscheme"
         )
 
-        # The file doesn't need to be read or written if the colorscheme is cached. It saves some disk writes.
-        if (
-            not os.path.isfile(new_scheme_path)
-            or os.stat(
+        # Caching the colorschemes saves some disk reads and writes.
+        try:
+            colorscheme_needs_update = (
+                not os.path.isfile(new_scheme_path)
+                or os.stat(base_colorscheme_path, follow_symlinks=True).st_mtime
+                > os.stat(new_scheme_path).st_mtime
+            )
+        except IOError:
+            print(
                 KonsoleProvider.__colorscheme_path__
                 + KonsoleProvider.__base_colorscheme__
-                + ".colorscheme",
-                follow_symlinks=True,
-            ).st_mtime
-            > os.stat(new_scheme_path).st_mtime
-        ):
+                + ".colorscheme not found"
+            )
+            exit(1)
+
+        if colorscheme_needs_update:
             new_scheme = ""
-            with open(
-                KonsoleProvider.__colorscheme_path__
-                + KonsoleProvider.__base_colorscheme__
-                + ".colorscheme",
-                "r",
-            ) as f:
+            with open(base_colorscheme_path, "r") as f:
                 for line in f:
                     if line.startswith("Wallpaper"):
                         line = "Wallpaper=" + path + "\n"
                     elif line.startswith("Description"):
                         line = "Description=" + pokemon + "\n"
-
-                    new_scheme += line
+                        new_scheme += line
 
             with open(new_scheme_path, "w") as f:
                 f.write(new_scheme)
