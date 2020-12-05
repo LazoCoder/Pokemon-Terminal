@@ -15,7 +15,6 @@ class KonsoleProvider(_TProv):
     def change_terminal(path: str):
         # Make it easy to rm
         prefix = "p--"
-
         base_colorscheme_path = (
             KonsoleProvider.__colorscheme_path__
             + KonsoleProvider.__base_colorscheme__
@@ -34,11 +33,7 @@ class KonsoleProvider(_TProv):
                 > os.stat(new_scheme_path).st_mtime
             )
         except IOError:
-            print(
-                KonsoleProvider.__colorscheme_path__
-                + KonsoleProvider.__base_colorscheme__
-                + ".colorscheme not found"
-            )
+            print(base_colorscheme_path + "not found")
             exit(1)
 
         if colorscheme_needs_update:
@@ -49,7 +44,7 @@ class KonsoleProvider(_TProv):
                         line = "Wallpaper=" + path + "\n"
                     elif line.startswith("Description"):
                         line = "Description=" + pokemon + "\n"
-                        new_scheme += line
+                    new_scheme += line
 
             with open(new_scheme_path, "w") as f:
                 f.write(new_scheme)
