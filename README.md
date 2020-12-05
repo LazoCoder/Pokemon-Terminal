@@ -36,7 +36,7 @@
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, ConEmu, Terminology, Windows Terminal and Tilix terminal emulators
+- Supports iTerm2, ConEmu, Terminology, Windows Terminal, Tilix and Konsole terminal emulators
 - Supports Windows, MacOS, GNOME, Openbox (with feh), i3wm (with feh) and sway for desktops
 
 # Installation
@@ -54,6 +54,7 @@ Get a compatible terminal emulator:
 - [Terminology](https://www.enlightenment.org/about-terminology)
 - [Tilix](https://gnunn1.github.io/tilix-web/)
 - [Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701)
+- [Konsole](https://konsole.kde.org/) (minor setup required; instructions [here](#konsole))
 
 You can then proceed with one of the following methods for installation:
 - [Arch Linux User Repository package (System-wide)](https://aur.archlinux.org/packages/pokemon-terminal-git/) (maintained by [@sylveon](https://github.com/sylveon))
@@ -96,6 +97,12 @@ You can clone or [download](https://github.com/LazoCoder/Pokemon-Terminal/archiv
 If you want a system-wide install, run the command as superuser or administrator.
 
 If you want a per-user install, append the `--user` flag. Look at the pip directives to add a per-user install to your `PATH`.
+
+## Konsole
+
+The appearance of Konsole is controlled by text files called colorschemes. These files cannot be edited on-the-fly, thus a reference colorscheme must be created. Copy or symlink the desired file to `~/.local/share/konsole/Pokemon.colorscheme`. Local colorschemes are found in the same folder while system colorschemes are found in `/usr/share/konsole`.
+
+Since Konsole doesn't support on-the-fly editing of colorschemes, a colorscheme file is created on-demand for each Pokemon. The created files can be removed with ```rm ~/.local/share/konsole/p--*```.
 
 # Usage
 
