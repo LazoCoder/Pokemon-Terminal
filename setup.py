@@ -74,5 +74,5 @@ Supports iTerm2, Terminology, Tilix and ConEmu.""",
     ],
 
     python_requires=">=3.7",
-    install_requires=(["psutil"] if sys.platform != "win32" else None)
+    install_requires=["Pillow", "colorthief", "psutil" if sys.platform != "win32" else None]
 )
