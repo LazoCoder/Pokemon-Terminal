@@ -76,10 +76,7 @@ def main(argv=None):
         if event_exists:
             slideshow.stop(event_name)
         if not options.wallpaper:
-            try:
-                scripter.clear_terminal()
-            except KeyError:
-                print("There's no background to clear.")
+            scripter.clear_terminal()
         return
 
     if is_slideshow and options.id <= 0 and size > 1:
