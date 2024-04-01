@@ -7,7 +7,7 @@ import sys
 from multiprocessing import Process
 from pathlib import Path
 
-from pokemonterminal import scripter, slideshow
+from . import scripter, slideshow
 from pokemonterminal.command_flags import parser, is_slideshow
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
