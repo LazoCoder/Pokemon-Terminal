@@ -7,7 +7,7 @@ import sys
 from multiprocessing import Process
 from pathlib import Path
 
-from . import scripter, slideshow
+from pokemonterminal import scripter, slideshow
 from pokemonterminal.command_flags import parser, is_slideshow
 from pokemonterminal.database import Database
 from pokemonterminal.filters import Filter
@@ -76,7 +76,10 @@ def main(argv=None):
         if event_exists:
             slideshow.stop(event_name)
         if not options.wallpaper:
-            scripter.clear_terminal()
+            try:
+                scripter.clear_terminal()
+            except KeyError:
+                print("There's no background to clear.")
         return
 
     if is_slideshow and options.id <= 0 and size > 1:
