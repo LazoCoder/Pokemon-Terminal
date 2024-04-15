@@ -23,11 +23,8 @@ class WindowsTerminalProvider(_TProv):
             
             # update defaults profile
             profile = profiles['defaults']
-            if (path is None):
-                if 'backgroundImage' in profile:
-                    del profile['backgroundImage']
-                else:
-                    print("There is no background to clear.")
+            if path is None and 'backgroundImage' in profile:
+                del profile['backgroundImage']
             else:
                 profile['backgroundImage'] = path
 
