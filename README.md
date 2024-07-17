@@ -36,7 +36,7 @@
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, ConEmu, Terminology, Windows Terminal and Tilix terminal emulators
+- Supports iTerm2, ConEmu, Terminology, Windows Terminal, Tilix and Kitty terminal emulators
 - Supports Windows, MacOS, GNOME, Openbox (with feh), i3wm (with feh) and sway for desktops
 
 # Installation
@@ -54,7 +54,7 @@ Get a compatible terminal emulator:
 - [Terminology](https://www.enlightenment.org/about-terminology)
 - [Tilix](https://gnunn1.github.io/tilix-web/)
 - [Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701)
-- [Kitty](https://sw.kovidgoyal.net/kitty/)
+- [Kitty](https://sw.kovidgoyal.net/kitty/) from version `0.27.0` onwards
 
 You can then proceed with one of the following methods for installation:
 - [Arch Linux User Repository package (System-wide)](https://aur.archlinux.org/packages/pokemon-terminal-git/) (maintained by [@sylveon](https://github.com/sylveon))
