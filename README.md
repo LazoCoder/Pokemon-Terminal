@@ -36,7 +36,7 @@
 - Select Pokemon by name or by index number
 - Ability to change the Desktop Wallpaper & the Terminal background
 - Internal search system for finding Pokemon
-- Supports iTerm2, ConEmu, Terminology, Windows Terminal and Tilix terminal emulators
+- Supports iTerm2, ConEmu, Terminology, Windows Terminal, Tilix and Kitty terminal emulators
 - Supports Windows, MacOS, GNOME, Openbox (with feh), i3wm (with feh) and sway for desktops
 
 # Installation
@@ -54,6 +54,7 @@ Get a compatible terminal emulator:
 - [Terminology](https://www.enlightenment.org/about-terminology)
 - [Tilix](https://gnunn1.github.io/tilix-web/)
 - [Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701)
+- [Kitty](https://sw.kovidgoyal.net/kitty/) from version `0.27.0` onwards
 
 You can then proceed with one of the following methods for installation:
 - [Arch Linux User Repository package (System-wide)](https://aur.archlinux.org/packages/pokemon-terminal-git/) (maintained by [@sylveon](https://github.com/sylveon))
@@ -195,6 +196,28 @@ You can, like in iTerm2, enable transparency. Simply press the down arrow in the
 The result should look like this:
 
 ![](https://i.imgur.com/DZbiQHf.png)
+
+## Kitty settings
+
+To dynamically set background images in kitty, we use its [remote control feature](https://sw.kovidgoyal.net/kitty/overview/#remote-control). It is not enabled by default, and can be configured to be password protected.
+
+The way passwords work for kitty remote control is that you set one or more passwords, each granting some amount of permissions (see [the docs](https://sw.kovidgoyal.net/kitty/conf/#opt-kitty.remote_control_password) for details).
+
+Here's an example of how to set it up in `./config/kitty/kitty.conf`:
+
+```
+# Enable remote control (password protected)
+allow_remote_control password
+
+# Option 1: Allow setting the background image with a password
+remote_control_password "missingno" set-background-image
+
+# Option 2: Allow setting the background image without a password
+# (slightly less secure, a malicious actor could mess up your backgrounds)
+remote_control_password "" set-background-image
+```
+
+If you choose option 1 (recommended), you still need to pass your chosen password when running `pokemon`, this works using the environment variable `KITTY_RC_PASSWORD` - i.e. you can run `KITTY_RC_PASSWORD=missingno pokemon`, or set the variable in any other way using your method of choice.
 
 ## Adding Custom Images
 
