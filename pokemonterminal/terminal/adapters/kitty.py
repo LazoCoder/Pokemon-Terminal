@@ -20,14 +20,12 @@ class KittyProvider(_TProv):
             run(["kitty", "@", "set-background-image", path], check=True, capture_output=True)
         except CalledProcessError as err:
             print_kitty_error(err)
-            sys.exit(-1)
 
     def clear():
         try:
             run(["kitty", "@", "set-background-image", "none"], check=True, capture_output=True)
         except CalledProcessError as err:
             print_kitty_error(err)
-            sys.exit(-1)
 
     def __str__():
         return "Kitty"
