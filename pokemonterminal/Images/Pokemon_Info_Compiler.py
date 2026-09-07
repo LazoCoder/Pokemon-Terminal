@@ -20,11 +20,11 @@ pkmnNameLog = open('/home/mark/Adams_Dev_Test/Pokemon_Compiled_Info_Log.txt').re
 
 testCount = 0
 
-for fileName in list:    
+for fileName in list:
     pokemonDexNo = fileName[:4]
     pokemonDexNo = int(pokemonDexNo)
     pokemonDexNoFixed = ("{:04d}".format(pokemonDexNo))
-    pokemonName = "Burmy-Plant"
+    pokemonName = "Giratina"
     # pokemonName = fileName[5:-4]
     pokemonNameFixed = pokemonName.replace('_', '-').replace("'", "").replace('.', '-')
 
@@ -59,42 +59,29 @@ for fileName in list:
 
     except:
         pkmnSearchVariableBackup = requests.get("https://pokeapi.co/api/v2/pokemon-form/" + pokemonNameFixed)
-        pkmnURLVariable = pkmnSearchVariableBackup.json()['pokemon']
-        pkmnURL = (pkmnAbilitiesVariable['url'])
-
-        print(pkmnURL)
+        pkmnURLVariable = pkmnSearchVariableBackup.json()['pokemon']['url']
+        pkmnSearchVariable = requests.get(pkmnURLVariable)
 
         pkmnNameVariable = pkmnSearchVariable.json()['name'].title()
-
-        pkmnAbilitiesVariable = pkmnURL(item['abilities'])
-
-        print(pkmnAbilitiesVariable)
-
+        pkmnTypesVariable = pkmnSearchVariable.json()['types']
+        pkmnAbilitiesVariable = pkmnSearchVariable.json()['abilities']
 
         for item in pkmnTypesVariable:
             pkmnTypeList = pkmnTypeList + '\t' + (item['type']['name']).title()
             print(pkmnTypeList)
-
-
-        pkmnAbilitiesVariable = pkmnSearchVariable.json()['pokemon']
-
-        pkmnAbilityList = (pkmnAbilitiesVariable['url']).title()
-
-        print(pkmnAbilityList)
-
-        for item in pkmnTypesVariableBackup:
-            pkmnTypeList = pkmnTypeList + '\t' + (item['type']['name']).title()
-            print(pkmnTypeList)
-
+        
+                
         for item in pkmnAbilitiesVariable:
             if not item['is_hidden']:
                 pkmnAbilityList = pkmnAbilityList + '\t' + (item['ability']['name']).title()
                 print(pkmnAbilityList)
-
+        
         for item in pkmnAbilitiesVariable:
             if item['is_hidden']:
                 pkmnHiddenAbilityList = (item['ability']['name']).title()
                 print(pkmnHiddenAbilityList)
+
+        print("Failsafe Used")
 
 
     with open('/home/mark/Adams_Dev_Test/Pokemon_Compiled_Info.txt', 'a') as compiledCsv:
