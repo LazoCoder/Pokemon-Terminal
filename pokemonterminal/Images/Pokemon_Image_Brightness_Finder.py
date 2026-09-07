@@ -2,8 +2,9 @@ import os
 import numpy as np
 from PIL import Image
 
+folderPath = '/Pokemon_Python/HQ_Images/'
 # folderPath = '/home/mark/Adams_Dev_Test/Pokemon-Terminal/pokemonterminal/Images/HQ_Images/'
-folderPath = '/home/adam/Pokemon_Images/Pokemon/assets/HQ_Images/'
+# folderPath = '/home/adam/Pokemon_Images/Pokemon/assets/HQ_Images/'
 
 def pokemonImageBrightnessFinder(imageInput, fileName):
     fileInput = (imageInput + fileName)
@@ -39,7 +40,7 @@ def pokemonImageBrightnessFinder(imageInput, fileName):
 
 # for pkmnID in os.listdir(folderPath):
 #     if pkmnID.endswith('.png'):
-#         pokemonImageBrightnessFinder(folderPath, grayFolderPath, '0014_Kakuna.png')
+#         pokemonImageBrightnessFinder(folderPath, '0413_Wormadam-Sandy.png')
 
-pokemonImageBrightnessFinder(folderPath, '1032_Gecqua.png')
+# pokemonImageBrightnessFinder(folderPath, '1032_Gecqua.png')
 
