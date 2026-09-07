@@ -2,24 +2,24 @@ import os
 import Pokemon_Image_Brightness_Finder as imageBrightness
 import requests
 
+folderPath = '/Pokemon_Python/HQ_Images/'
 # folderPath = '/home/mark/Adams_Dev_Test/Pokemon-Terminal/pokemonterminal/Images/HQ_Images/'
 # folderPath = '/home/adam/Pokemon_Images/Adams_Tests/HQ_Images/'
-folderPath = '/Pokemon_Python/HQ_Images/'
 
 list = os.listdir(folderPath)
 list.sort()
 
+open('/Pokemon_Python/Pokemon_Compiled_Info.txt', 'w').close()
+open('/Pokemon_Python/Pokemon_Compiled_Info_Log.txt', 'w').close()
 # open('/home/mark/Adams_Dev_Test/Pokemon_Compiled_Info.txt', 'w').close()
 # open('/home/mark/Adams_Dev_Test/Pokemon_Compiled_Info_Log.txt', 'w').close()
 # open('/home/adam/Pokemon_Images/Adams_Tests/Pokemon_Compiled_Info.txt', 'w').close()
 # open('/home/adam/Pokemon_Images/Adams_Tests/Pokemon_Compiled_Info_Log.txt', 'w').close()
-open('/Pokemon_Python/Pokemon_Compiled_Info.txt', 'w').close()
-open('/Pokemon_Python/Pokemon_Compiled_Info_Log.txt', 'w').close()
 
 
+pkmnNameLog = open('/Pokemon_Python/Pokemon_Compiled_Info_Log.txt').read().split()
 # pkmnNameLog = open('/home/mark/Adams_Dev_Test/Pokemon_Compiled_Info_Log.txt').read().split()
 # pkmnNameLog = open('/home/adam/Pokemon_Images/Pokemon_Compiled_Info_Log.txt').read().split()
-pkmnNameLog = open('/Pokemon_Python/Pokemon_Compiled_Info_Log.txt').read().split()
 
 testCount = 0
 
@@ -89,11 +89,12 @@ for fileName in list:
             print(pokemonName)
 
 
+    with open('/Pokemon_Python/Pokemon_Compiled_Info.txt', 'a') as compiledCsv:
     # with open('/home/mark/Adams_Dev_Test/Pokemon_Compiled_Info.txt', 'a') as compiledCsv:
     # with open('/home/adam/Pokemon_Images/Adams_Tests/Pokemon_Compiled_Info.txt', 'a') as compiledCsv:
-    with open('/Pokemon_Python/Pokemon_Compiled_Info.txt', 'a') as compiledCsv:
         compiledCsv.write(str(pokemonDexNoFixed) + '\t' + pokemonName.title() + '\t' + str(imageBrightness.pokemonImageBrightnessFinder(folderPath, fileName)) + '\t' + pkmnTypeList + '\t' + pkmnAbilityList + '\t' + pkmnHiddenAbilityList + '\n')
+    with open('/Pokemon_Python/Pokemon_Compiled_Info_Log.txt', 'a') as infoLog:
     # with open('/home/mark/Adams_Dev_Test/Pokemon_Compiled_Info_Log.txt', 'a') as infoLog:
     # with open('/home/adam/Pokemon_Images/Adams_Tests/Pokemon_Compiled_Info_Log.txt', 'a') as infoLog:
-    with open('/Pokemon_Python/Pokemon_Compiled_Info_Log.txt', 'a') as infoLog:
         infoLog.write(fileName + '\n')
+    
