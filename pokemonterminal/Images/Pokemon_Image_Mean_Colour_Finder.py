@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # folderPath = '/home/mark/Adams_Dev_Test/Pokemon-Terminal/pokemonterminal/Images/HQ_Images/'
-folderPath = '/home/adam/Pokemon_Images/Pokemon/assets/HQ_Images/'
+folderPath = '/home/adam/Pokemon_Images/Adams_Tests/HQ_Images/'
 
 def pokemonImageBackgroundRemover(imgID):
     pkmnImg = Image.open(imgID)
@@ -33,13 +33,13 @@ def pokemonImageBackgroundRemover(imgID):
 
     alphaValueListMean = int(sum(alphaValueList)) / int(len(alphaValueList))
 
-    print(int(redValueListMean))
-    print(int(greenValueListMean))
-    print(int(blueValueListMean))
-    print(int(alphaValueListMean))
+    print(hex(int(redValueListMean)))
+    print(hex(int(greenValueListMean)))
+    print(hex(int(blueValueListMean)))
+    print(hex(int(alphaValueListMean)))
 
-# pokemonImageBackgroundRemover(folderPath + '0655_Delphox.png')
+pokemonImageBackgroundRemover(folderPath + '0655_Delphox.png')
 
-for pkmnID in os.listdir(folderPath):
-    if pkmnID.endswith('.png'):
-        pokemonImageBackgroundRemover(pkmnID)
+# for pkmnID in os.listdir(folderPath):
+#     if pkmnID.endswith('.png'):
+#         pokemonImageBackgroundRemover(pkmnID)
