@@ -1,4 +1,66 @@
 normal =    ['a3', 'a3', 'a1']
+grass =     ['55', 'a5', '00']
+fire =      ['d5', '1d', '00']
+water =     ['4b', '82', 'f9']
+electric =  ['f0', 'c4', '00']
+ice =       ['6d', 'd0', 'f9']
+fighting =  ['ee', '82', '00']
+poison =    ['8d', '3a', 'd5']
+ground =    ['8b', '4f', '00']
+flying =    ['92', 'bb', 'f5']
+psychic =   ['de', '3b', '7a']
+bug =       ['95', 'a5', '00']
+rock =      ['b0', 'ad', '7d']
+ghost =     ['6c', '3c', '74']
+dragon =    ['5a', '5e', 'eb']
+dark =      ['5e', '4b', '4c']
+steel =     ['71', 'a3', 'be']
+fairy =     ['e3', '70', 'f7']
+
+
+typeOneColourOne
+typeOneColourTwo
+typeOneColourThree
+typeTwoColourOne
+typeTwoColourTwo
+typeTwoColourThree = 
+
+print ((int(var1, 16)), (int(var2, 16)), (int(var3, 16)))
+
+
+# list1 = []
+# list2 = []
+# list3 = []
+
+# r1 = red[0]
+# r2 = red[1]
+# r3 = red[2]
+# g1 = green[0]
+# g2 = green[1]
+# g3 = green[2]
+# b1 = blue[0]
+# b2 = blue[1]
+# b3 = blue[2]
+# p1 = purple[0]
+# p2 = purple[1]
+# p3 = purple[2]
+
+# list1 = ((int(g1, 16)) + (int(b1, 16)))
+# list2 = ((int(g2, 16)) + (int(b2, 16)))
+# list3 = ((int(g3, 16)) + (int(b3, 16)))
+
+# list1 = list1 / 2
+# print(list1)
+# list2 = list2 / 2
+# print(list2)
+# list3 = list3 / 2
+# print(list3)
+
+# print (hex(int(list1)))
+# print (hex(int(list2)))
+# print (hex(int(list3)))
+
+normal =    ['a3', 'a3', 'a1']
 fire =      ['d5', '1d', '00']
 water =     ['4b', '82', 'f9']
 electric =  ['f0', 'c4', '00']
