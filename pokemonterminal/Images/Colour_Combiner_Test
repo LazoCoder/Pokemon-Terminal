@@ -1,28 +1,48 @@
-normal =    ['a3', 'a3', 'a1']
-grass =     ['55', 'a5', '00']
-fire =      ['d5', '1d', '00']
-water =     ['4b', '82', 'f9']
-electric =  ['f0', 'c4', '00']
-ice =       ['6d', 'd0', 'f9']
-fighting =  ['ee', '82', '00']
-poison =    ['8d', '3a', 'd5']
-ground =    ['8b', '4f', '00']
-flying =    ['92', 'bb', 'f5']
-psychic =   ['de', '3b', '7a']
-bug =       ['95', 'a5', '00']
-rock =      ['b0', 'ad', '7d']
-ghost =     ['6c', '3c', '74']
-dragon =    ['5a', '5e', 'eb']
-dark =      ['5e', '4b', '4c']
-steel =     ['71', 'a3', 'be']
-fairy =     ['e3', '70', 'f7']
+class pokemonTypeColours:
+    def __init__(self, red, green, blue, alpha):
+        self.red = red
+        self.green = green
+        self.blue= blue
+        self.alpha = alpha
 
+# def typeList(input)
+normal = pokemonTypeColours('a3', 'a3', 'a1', 'ff')
+grass = pokemonTypeColours('55', 'a5', '00', 'ff')
+fire = pokemonTypeColours('d5', '1d', '00', 'ff')
+water = pokemonTypeColours('4b', '82', 'f9', 'ff')
+electric = pokemonTypeColours('f0', 'c4', '00', 'ff')
+ice = pokemonTypeColours('6d', 'd0', 'f9', 'ff')
+fighting = pokemonTypeColours('ee', '82', '00', 'ff')
+poison = pokemonTypeColours('8d', '3a', 'd5', 'ff')
+ground = pokemonTypeColours('8b', '4f', '00', 'ff')
+flying = pokemonTypeColours('92', 'bb', 'f5', 'ff')
+psychic = pokemonTypeColours('de', '3b', '7a', 'ff')
+bug = pokemonTypeColours('95', 'a5', '00', 'ff')
+rock = pokemonTypeColours('b0', 'ad', '7d', 'ff')
+ghost = pokemonTypeColours('6c', '3c', '74', 'ff')
+dragon = pokemonTypeColours('5a', '5e', 'eb', 'ff')
+dark = pokemonTypeColours('5e', '4b', '4c', 'ff')
+steel = pokemonTypeColours('71', 'a3', 'be', 'ff')
+fairy = pokemonTypeColours('e3', '70', 'f7', 'ff')
 
-typeOneColourOne
-typeOneColourTwo
-typeOneColourThree
-typeTwoColourOne
-typeTwoColourTwo
-typeTwoColourThree = 
+test = input("test")
 
-print ((int(var1, 16)), (int(var2, 16)), (int(var3, 16)))
+# print(test.red)
+# print(test.green)
+# print(test.blue)
+# print(test.alpha)
+
+for pokemonType in typeList(test):
+    if test == pokemonType:
+        print (pokemonType)
+    else:
+        continue
+
+# typeOneColourOne
+# typeOneColourTwo
+# typeOneColourThree
+# typeTwoColourOne
+# typeTwoColourTwo
+# typeTwoColourThree = 
+
+# print ((int(var1, 16)), (int(var2, 16)), (int(var3, 16)))
